@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-05-17T11:58:43.797-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n\nplease delete... sorry my issue, and cant delete this post..",
+    "LastUpdatedDate": "2013-05-17T11:58:43.797-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-05-17T06:18:20.993-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Cannot open .xls files",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11788
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

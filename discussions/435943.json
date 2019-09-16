@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1012530",
+    "ThreadId": "435943",
+    "Html": "Hello,<br />\n<br />\nI am having an issue when opening up the solution from source.<br />\n<br />\nOriginally I was having an issue where the CreateBinaryReader was crashing with .xls files with the &quot;parameter: offset&quot; error.<br />\n<br />\nI was looking through the issue tracker and had found that the Ian had possibly fixed this issue with changeset 82754. So I downloaded that changeset.<br />\n<br />\nWhen attempting to open the solution, the Excel.4.0 project fails to load for me. I looked at the project file and found two project types and looked them up. One looks like C#, the other however, I've only found on the internet as possibly &quot;Windows Store Apps (Metro Apps)&quot;. This leads me to believe that I need to open this in VS2012?<br />\n<br />\nThe computer I'm on only has 2005 and 2010, however the Test project opened up fine.<br />\n<br />\nSo, do I need to use 2012 or is there some other project type that I need to install for this?<br />\n<br />\nEDIT: Also, I was in need of using this in a 2.0 project, will the new releases still allow for this? I just ask I see the &quot;4.0&quot; part in the project name.<br />\n<br />\nEDIT2: I just opened up the solution file and saw these few lines. I heard this sometimes happens when the app was originally a different version. I guess I'll wait until I get home to open it with my 2012.<br />\n<br />\nMicrosoft Visual Studio Solution File, Format Version 11.00<br />\n'# Visual Studio 2010'<br />\n<br />\nThanks in advance.<br />\n",
+    "PostedDate": "2013-03-08T12:21:00.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012566",
+    "ThreadId": "435943",
+    "Html": "The 2.0 version is still supported and maintained. I noticed myself the 4.0 issue you describe. I think someone must have converted it a metro format and checked it in by mistake as I can't open it myself now either.<br />\n",
+    "PostedDate": "2013-03-08T13:43:25.25-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

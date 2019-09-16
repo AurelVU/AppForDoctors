@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1497620",
+    "ThreadId": "663547",
+    "Html": "I'm using ExcelDataReader to read my excel file. But when I usu IsFirstRowAsColumnNames and AsDataSet() does not work.<br />\n\r<br />\nerro message: IExcelDataReader does note contain a definition for 'IsFirstRowAsColumnNames' and no extension method 'IsFirstRowAsColumnNames' accepting a first argument of type 'IExcelDataReader ' could be found.\r<br />\n<br />\nerro message: IExcelDataReader does note contain a definition for 'AsDataSet' and no extension method 'AsDataSet' accepting a first argument of type 'IExcelDataReader ' could be found.<br />\n<pre><code> FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);\n            IExcelDataReader excelReader;\n            if (filePath.Contains(&quot;.xlsx&quot;))\n            {\n                excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n            } \n            else\n            {\n                excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n            } \n\n            excelReader.IsFirstRowAsColumnNames = true;\n            DataSet result = excelReader.AsDataSet();\n\n            foreach (DataRow item in result.Tables[0].Rows)\n            {\n                item[1].ToString();\n            }</code></pre>\n\n",
+    "PostedDate": "2017-08-03T08:13:51.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

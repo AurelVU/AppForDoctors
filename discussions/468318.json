@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1122583",
+    "ThreadId": "468318",
+    "Html": "The date that is parsed by excel data reader is a few years off. \r<br />\n<br />\nWhen parsing '9/8/2013' exceldatareader is giving me 40056\r<br />\nWhen it should actually be 41525\r<br />\n<br />\n<br />\nvoid Main()\r<br />\n{<br />\n<pre><code>var dt = DateTime.Parse(&quot;9/8/2013&quot;);\nDouble d = dt.ToOADate();\nConsole.WriteLine(d);   \nConsole.WriteLine(DateTime.FromOADate(d));\n\n// output from exceldata reader\nConsole.WriteLine(DateTime.FromOADate(40056));</code></pre>\n\n}\r<br />\n<br />\n<br />\nOutput\r<br />\n<br />\n41525\r<br />\n9/8/2013 12:00:00 AM\r<br />\n8/31/2009 12:00:00 AM<br />\n",
+    "PostedDate": "2013-11-12T16:05:14.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

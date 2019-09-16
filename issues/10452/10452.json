@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When i try this \"Dim result As DataTable = excelReader.AsDataSet(True).Tables(0)\"\n i get error  for a number column please find the attached file & try importing it",
+    "LastUpdatedDate": "2013-02-21T17:47:35.453-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-02-29T07:32:20.43-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Not a legal OleAut date. for number column",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10452
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3908,
+      "FileName": "STOCK 29.xls",
+      "DownloadUrl": ".\\3908"
+    }
+  ],
+  "Comments": []
+}

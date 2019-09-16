@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1310293",
+    "ThreadId": "568973",
+    "Html": "Hi there,\r<br />\n<br />\nI have an Excel file that contains several tab sheets, named like this: HUN-CZE, HUN-FRA, FRA-ENG and so on. I load the file using this code:\r<br />\n<br />\nIExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\r<br />\nDataSet result = excelReader.AsDataSet();\r<br />\n<br />\nBut the resulting dataset contains only one tab sheet, named &quot;Sheet 1&quot;.\r<br />\n<br />\nWhat am I doing wrong?\r<br />\n<br />\nRegards,\r<br />\n<br />\n-Eduardo<br />\n",
+    "PostedDate": "2014-10-03T10:00:55.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1315954",
+    "ThreadId": "568973",
+    "Html": "Please let me know if you get any answer this is some thing what i am looking for also.<br />\n",
+    "PostedDate": "2014-10-23T03:16:55.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1315961",
+    "ThreadId": "568973",
+    "Html": "There is a discussion related to this on the github site\r<br />\n<a href=\"https://github.com/ExcelDataReader/ExcelDataReader/issues/27\" rel=\"nofollow\">https://github.com/ExcelDataReader/ExcelDataReader/issues/27</a>\r<br />\n<br />\nPlease feel free to add to that discussion<br />\n",
+    "PostedDate": "2014-10-23T04:23:25.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

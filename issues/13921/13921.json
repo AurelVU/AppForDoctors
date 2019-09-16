@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The spreadsheet has a TEXT value of \"11:54:00\" in a cell.\n\nWhen populating a DataSet and reading the value from the Datatable it is returned as \"31/12/1899 11:54:00\"",
+    "LastUpdatedDate": "2017-08-03T22:46:54.85-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2016-06-14T06:00:19.37-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Converting a text field to datetime incorrectly",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 13921
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

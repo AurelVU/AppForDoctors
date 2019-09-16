@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1202415",
+    "ThreadId": "528859",
+    "Html": "Hi,\r<br />\n<br />\nis it possible to read not the cell value but the actual cell formatted string as seen by the user when he saved the file?\r<br />\n<br />\nI'm dealing with a file where a column must be a datetime in ISO8601 format. Some users use it as a string, but others use it as a Excel datetime (double) but the use a custom formatting to display it with the correct timezone.\r<br />\n<br />\nIf I parse it from the double I lose the timezone information that the user actually &quot;inserted&quot; using the custom formatting...\r<br />\n<br />\nHow can I handle this?<br />\n",
+    "PostedDate": "2014-02-04T03:42:59.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1202877",
+    "ThreadId": "528859",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div>\r\n<div>So your problem really is that you no longer know what timezone the user entered because the date ends up as UTC?</div>\r\n</div>\r\n</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-02-05T03:12:25.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1202904",
+    "ThreadId": "528859",
+    "Html": "Hi Ian,\r<br />\n<br />\nI found out that in Excel you can format a datetime cell (double) in ISO8601 but you can't add  the timezone value (es. +02:00) to the format string. So magically my problem is solved.\r<br />\n<br />\nThanks anyway.<br />\n",
+    "PostedDate": "2014-02-05T04:34:19.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1202912",
+    "ThreadId": "528859",
+    "Html": "\r\n<div dir=\"ltr\">Ok. good</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-02-05T04:49:57.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When I tried to read this dll in my hosting throw the error: That assembly does not allow partially trusted callers, so I have to download source file and change in assembly file in the next line: [assembly: AllowPartiallyTrustedCallers]",
+    "LastUpdatedDate": "2013-02-21T17:47:37.903-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-09-08T09:47:16.39-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "That assembly does not allow partially trusted callers",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 9496
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,85 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-11-06T07:32:21.493-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "There seems to be an issue in Excel/Log/LogManager.cs if you concurrently read from multiple different xlsx files.\n\nI fixed the issue by moving the sync-lock to cover up ContainsKey-Check too\n\nFrom \n\n```\n\t\tpublic static ILog Log(string objectName)\n\t\t{\n\t\t\tILog result = null;\n\n\t\t\tif (_dictionary.ContainsKey(objectName))\n\t\t\t\tresult = _dictionary[objectName];\n\n\t\t\tif (result == null)\n\t\t\t{\n\t\t\t\tlock (_sync)\n\t\t\t\t{\n\t\t\t\t\tresult = Excel.Log.Log.GetLoggerFor(objectName);\n\t\t\t\t\t_dictionary.Add(objectName, result);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\treturn result;\n\t\t}\n```\n\nto\n\n```\n\t\tpublic static ILog Log(string objectName)\n\t\t{\n\t\t\tILog result = null;\n\n\t\t\tlock (_sync)\n\t\t\t{\n\t\t\t\tif (_dictionary.ContainsKey(objectName))\n\t\t\t\t\tresult = _dictionary[objectName];\n\n\t\t\t\tif (result == null)\n\t\t\t\t{\n\t\t\t\t\t\tresult = Excel.Log.Log.GetLoggerFor(objectName);\n\t\t\t\t\t\t_dictionary.Add(objectName, result);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\treturn result;\n\t\t}\n```",
+    "LastUpdatedDate": "2014-11-06T07:32:27.153-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-04-16T04:45:08.89-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Multithreaded Read",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12936
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Nice one",
+      "PostedDate": "2014-04-23T03:38:26.843-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-04-23T03:38:37.68-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "For some reason I can not create pull request for this project.\r\n\r\nPlease introduce double-check logic like this:\r\n\r\nhttps://gist.github.com/tripolitov/99ea3431437080cf8c63\r\n\r\n```\npublic static ILog Log(string objectName)\n\t\t{\n\t\t\tILog result = null;\n \n\t\t\tif (_dictionary.ContainsKey(objectName))\n\t\t\t\tresult = _dictionary[objectName];\n \n\t\t\tif (result == null)\n\t\t\t{\n\t\t\t\tlock (_sync)\n\t\t\t\t{\n\t\t\t\t  if (_dictionary.ContainsKey(objectName))\n\t\t\t\t  {\n\t\t\t\t    result = _dictionary[objectName];\n\t\t\t\t  }\n\t\t\t\t  else\n\t\t\t\t  {\n\t\t\t\t\t  result = Excel.Log.Log.GetLoggerFor(objectName);\n\t\t\t\t\t  _dictionary.Add(objectName, result);\n\t\t\t\t  }\n\t\t\t\t  \n\t\t\t\t  result = _dictionary[objectName];\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\treturn result;\n\t\t}\n```",
+      "PostedDate": "2014-04-28T02:10:16.95-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-04-28T02:10:52.17-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks. I really need to move this project to github so this stuff is easier.",
+      "PostedDate": "2014-05-07T02:10:00.003-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi. Do you have any progress on this issue, how can I help you to promote it to the code?",
+      "PostedDate": "2014-06-02T00:23:08.813-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I am too busy with project work to spend any time on this at the moment.\nWhat I really need to do is move the whole thing to github, then you could submit a pull request.\nThe only other way you could help is to get access to modify the code. To do that you'd have to email https://www.codeplex.com/site/users/view/ExcelDataReader . Unfortunately, although I am pretty much the only developer active on this project I do not have permissions to add users, and I have no idea who \"ExcelDataReader\" actually is...Another reason I want to move this to github.",
+      "PostedDate": "2014-06-02T03:45:47.977-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-11-06T07:32:21.493-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've fixed this issue in the latest code on github\nhttps://github.com/ExcelDataReader/ExcelDataReader/issues/32\r\n\r\nNot packaged yet",
+      "PostedDate": "2014-11-06T07:32:27.153-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

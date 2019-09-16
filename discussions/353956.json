@@ -1,0 +1,202 @@
+[
+  {
+    "Id": "829933",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>I notice that patches are being submitted but that they are not being accepted since a few years ago.</p>\r\n<p>I hereby volunteer myself as a dev (I've submitted a patch already), I just need someone on the team to OK it.</p>\r\n<p>If you chaps are too busy, all you need to do is add me as a dev and I'll see what I can do.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards</p>\r\n<p>&nbsp;</p>\r\n<p>Ryan</p>\r\n",
+    "PostedDate": "2012-04-29T10:10:21.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "919287",
+    "ThreadId": "353956",
+    "Html": "<p>Since you're not getting a reply, and as this project is licensed under a MIT license, it should be kosher to create a spin-off project. I'd be willing to contribute, although the BIFF part of this library seems a little over my technical level...</p>",
+    "PostedDate": "2012-09-28T20:22:49.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "919324",
+    "ThreadId": "353956",
+    "Html": "<p>I'm up for that, I have not got the time right now to set up a new project but if you can manage that bit, I'll submit my patch and can jump in then?</p>\r\n<p>I don't mind which open source web site is used (as long as I don't have to touch Team System) so GitHub or CodePlex is good.</p>\r\n<p>You willing? If you want to co-ordinate via email I'm at r at ryanoneill dot com</p>",
+    "PostedDate": "2012-09-29T01:27:29.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "920150",
+    "ThreadId": "353956",
+    "Html": "<p>I'm willing to run with it if required.. it's a core component.</p>",
+    "PostedDate": "2012-10-01T11:38:02.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "920153",
+    "ThreadId": "353956",
+    "Html": "<p>Excellent, I'll put a reminder in my diary to take a look at setting this up in two weeks from now, unless either of you get there first. I'm just working flat out at the moment.</p>",
+    "PostedDate": "2012-10-01T11:42:16.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928125",
+    "ThreadId": "353956",
+    "Html": "<p>Hi all,</p>\r\n<p>I just submitted a patch for the BOOLERR issue, but hen I found that iansansom has already written code for this.&nbsp;</p>\r\n<p>I have contacted \"ExcelDataReader\" and asked if he can set one of us as the project coordinator.</p>",
+    "PostedDate": "2012-10-17T09:16:42.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928127",
+    "ThreadId": "353956",
+    "Html": "<p>That's good, I've got a note to start on this but still busy. It would be good to keep it here rather than fork.</p>",
+    "PostedDate": "2012-10-17T09:18:28.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928293",
+    "ThreadId": "353956",
+    "Html": "<p>Yes i would definitively want to be a coordinator..</p>\r\n<p>&nbsp;</p>\r\n<p>Otherwise i will proceed with the Fork.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-10-17T12:42:19.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928297",
+    "ThreadId": "353956",
+    "Html": "<p>Ah, sorry, I didn't mean to imply I'm actually coordinating anything yet. Was hoping you would get control and let us all in or we'd all &nbsp;take the source and go elsewhere. I don't have access either, no responses.</p>\r\n<p>There must be a way for CodePlex to let us in on this. I'll email them, otherwise the project will have to go elsewhere.</p>",
+    "PostedDate": "2012-10-17T12:52:54.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928303",
+    "ThreadId": "353956",
+    "Html": "<p>Agreed, we should set a hard date of friday for a response and make the call at point.</p>",
+    "PostedDate": "2012-10-17T12:55:26.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928662",
+    "ThreadId": "353956",
+    "Html": "<p>Hi All,</p>\r\n<p>I have raised the issue of this project not being updated for three years and counting despite its bugs in the \"Give Feedback\" section:</p>\r\n<p><a href=\"http://codeplex.codeplex.com/workitem/26488\">http://codeplex.codeplex.com/workitem/26488</a></p>\r\n<p>please comment to show your support!</p>",
+    "PostedDate": "2012-10-18T03:41:06.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "932027",
+    "ThreadId": "353956",
+    "Html": "<p>both me and the OP have been added as developers to this project. &nbsp;I don't know what rights we have, but I will look into checking in a bug fix for the boolerr issue. &nbsp;This could be the first release in over 3 years!</p>",
+    "PostedDate": "2012-10-24T14:54:32.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936643",
+    "ThreadId": "353956",
+    "Html": "<p>any news on a release ?</p>\r\n<p>&nbsp;</p>\r\n<p>Seems that most of the bugs discovered has something to do with the fact that the project has been built toward .NET 2.0, and most people today is using 4.0</p>",
+    "PostedDate": "2012-11-05T03:58:23.617-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "951693",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>Gentle nudge.</p>\r\n",
+    "PostedDate": "2012-12-05T06:40:42.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952176",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>Is anything going on with this project? I know devs were recently added, but it's gone quiet. Are patches being tested/applied, or is this project effectively&nbsp;dead?</p>\r\n",
+    "PostedDate": "2012-12-06T03:22:23.887-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952178",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>Stuff is not going on with me, I was added and have just been swamped with work. I'll set aside some time if someone can help me identify small fixes that need to go in / get tested. I really need someone else to hassle / work with me.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Update: </strong>I've set aside a couple of hours Sunday evening to get started. 5pm-7pm GMT. If anyone wants a chat about their particular bug, catch me on twitter or Skype at the same handle as my username here.</p>\r\n",
+    "PostedDate": "2012-12-06T03:25:19.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952230",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>There are quite a few patches submitted I think, might be worth going through those and the issue list. Personally I applied changes in 8536 to my copy, plus a few of my own fixes (one detailed in&nbsp;11397) and a fix for the reader close issue (10665 and several\r\n duplicates - detailed here http://exceldatareader.codeplex.com/discussions/403488).</p>\r\n<p>Also, another one not listed, possibly more controversial, I trap and eat errors attempting to delete the temp file in the exception handler in ZipWorker.Extract(Stream). Probably it should trap and log the delete failure, in fact log4net might be worth\r\n adding to the project in general for debugging aid.</p>\r\n<p>Are you able to add me as a dev? I am happy to add in the above changes (though I do wish it was a git repo as I more familiar with that for fork/pull requests).</p>\r\n",
+    "PostedDate": "2012-12-06T04:43:35.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952234",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>Can't add you as I'm not a coordinator but if you contact the people here&nbsp;http://www.codeplex.com/site/users/view/ExcelDataReader (I think CodePlex have taken it on now) and ask, they'll let you in. They let me in. I'll copy your notes to my diary for Sunday.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-12-06T04:48:27.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952241",
+    "ThreadId": "353956",
+    "Html": "I promise I will go thru it before the end of the week. <br>\r\n<br>\r\n<div>Ian1971 &lt;notifications@codeplex.com&gt; wrote:\r\n<blockquote style=\"margin:0pt 0pt 0pt 0.8ex; border-left:1px solid rgb(204,204,204); padding-left:1ex\">\r\n<p>From: Ian1971</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>There are quite a few patches submitted I think, might be worth going through those and the issue list. Personally I applied changes in 8536 to my copy, plus a few of my own fixes (one detailed in 11397) and a fix for the reader close issue (10665 and several\r\n duplicates - detailed here http://exceldatareader.codeplex.com/discussions/403488).</p>\r\n<p>Also, another one not listed, possibly more controversial, I trap and eat errors attempting to delete the temp file in the exception handler in ZipWorker.Extract(Stream). Probably it should trap and log the delete failure, in fact log4net might be worth\r\n adding to the project in general for debugging aid.</p>\r\n<p>Are you able to add me as a dev? I am happy to add in the above changes (though I do wish it was a git repo as I more familiar with that for fork/pull requests).</p>\r\n</div>\r\n</blockquote>\r\n</div>\r\n",
+    "PostedDate": "2012-12-06T05:18:34.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952994",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>I've been added as a dev and assigned a couple of issues I found and fixed before to myself.</p>\r\n",
+    "PostedDate": "2012-12-07T08:08:33.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "954453",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>I uploaded a couple of fixes. Did you get anywhere Ryan?</p>\r\n",
+    "PostedDate": "2012-12-11T03:13:41.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "954764",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>I've wrestled with TFS (I use Subversion) and got nunit installed (I use MSTest normally) so that I don't impact the project setup. Now found a failing test which is a good candidate for starters. I think it is probably due to localisation issues as it is\r\n date parsing. I'll spend another hour and see where I get.</p>\r\n<p>So not got anywhere significant, but moving in the right direction.</p>\r\n",
+    "PostedDate": "2012-12-11T12:29:28.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955017",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>Good stuff. Is that&nbsp;Test_num_double_date_bool_string you are looking at?</p>\r\n",
+    "PostedDate": "2012-12-12T02:29:39.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955022",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>It is, well figured.</p>\r\n<p>It seems that the first four cells are encoded as a multi value range of integers (MulRk) but when opened in Excel, it presents the 3rd value as a date. I'm not sure if Excel is doing some magic and guessing that it should be a date based on the values in\r\n the same column but I don't think the raw data is there to reconstruct a date. That's what the date parsing test is looking for. The value stored seems to be a date serial.</p>\r\n<p>So I can either look at how everyone else manages this value or change the test, but the test must have worked sometime?</p>\r\n<p>MulRk:</p>\r\n<p>http://msdn.microsoft.com/en-us/library/dd952688(v=office.12).aspx</p>\r\n<p>Any insights? I'll create work item from this.</p>\r\n",
+    "PostedDate": "2012-12-12T02:38:02.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955151",
+    "ThreadId": "353956",
+    "Html": "\r\n<p>Binary excel format is new to me, so I can't offer much advise.</p>\r\n<p>I've just pushed a few fixes (issue 8536) btw.</p>\r\n",
+    "PostedDate": "2012-12-12T08:10:28.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

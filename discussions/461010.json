@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1103035",
+    "ThreadId": "461010",
+    "Html": "i read excel file but there is a problam in date time columns its displaying like int\r<br />\n<br />\nhow to get it right form help me \r<br />\n<br />\nthank you <br />\n",
+    "PostedDate": "2013-10-02T22:51:20.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114965",
+    "ThreadId": "461010",
+    "Html": "Is it formatted as a date in the excel sheet?<br />\n",
+    "PostedDate": "2013-10-31T03:20:34.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1210913",
+    "ThreadId": "461010",
+    "Html": "I am having the same problem. I have a column of only dates (formatted as Date) and once converted to a csv it shows an integer. It's the latest code. Is there any solution?\r<br />\n<br />\nThank You<br />\n",
+    "PostedDate": "2014-02-19T20:55:53.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293920",
+    "ThreadId": "461010",
+    "Html": "You can convert your Int to DateTime with :  DateTime.FromOADate(45854)<br />\nSteven<br />\n",
+    "PostedDate": "2014-08-27T06:29:06.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1043294",
+    "ThreadId": "443577",
+    "Html": "hi,\r<br />\ni'm getting an index out of range exception when trying to import an xls file, the exception happens here:<br />\n<pre><code>case BIFFRECORDTYPE.MULRK:\n\n                    XlsBiffMulRKCell _rkCell = (XlsBiffMulRKCell)cell;\n                    for (ushort j = cell.ColumnIndex; j &lt;= _rkCell.LastColumnIndex; j++)\n                    {\n                        _dValue = _rkCell.GetValue(j);\n                        LogManager.Log(this).Debug(&quot;VALUE[{1}]: {0}&quot;, _dValue, j);\n                        m_cellsValues[j] = !ConvertOaDate ? _dValue : tryConvertOADateTime(_dValue, _rkCell.GetXF(j));\n                    }\n\n                    break;</code></pre>\n\nmy file has 46 columns, but when max columns is set, it sets it to 45, and my last 2 columns are done in this loop, the only difference i have found from this file to the others ive tested is that the dims.isv8 is false, where as all others seem to be true, i'm not sure what this flag is set by (is it an excel version?), anyone have any ideas?<br />\n",
+    "PostedDate": "2013-05-14T03:35:23.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044344",
+    "ThreadId": "443577",
+    "Html": "Sounds like a bug but I'd have to look into it.\r<br />\n<br />\nWe'd need the Excel document and the code you are running to look into it but I'm way too busy too investigate this and I think the other devs are too. It'll be some time before I can look at a sample.<br />\n",
+    "PostedDate": "2013-05-16T01:54:13.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

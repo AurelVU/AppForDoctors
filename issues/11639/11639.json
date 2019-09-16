@@ -1,0 +1,115 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I run one xls file with one sheet just fine. I run one with multiple sheets, and I get this error:\n\n__Specified argument was out of the range of valid values.\nParameter name: offset__ \n\nIt's failing on my using line. Here's a snippet fo my code:\n\n_DataSet mDataSet = new DataSet();\n                using ( IExcelDataReader mExcelReader = ExcelReaderFactory.CreateBinaryReader( upxls.FileContent ) )\n                {\n                    mDataSet = mExcelReader.AsDataSet();\n                }_\n\nupxls is a Fileupload class.",
+    "LastUpdatedDate": "2017-11-27T20:47:31.487-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-03-13T13:36:06.043-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Specified argument was out of the range of valid values.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 5,
+    "Id": 11639
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "In order to solve this error,I  haved to downdload the old version (ExcelDataReader v.2.0.1.0 ).good luck!",
+      "PostedDate": "2013-03-14T00:13:11.707-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Are you able to attach an example sheet that has this issue?",
+      "PostedDate": "2013-03-15T06:51:16.083-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks, issue was resolved by reverting to v.2.0.1.0.",
+      "PostedDate": "2013-03-15T12:49:13.66-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-18T03:32:01.27-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Are you able to paste the stack trace so I can try to debug 2.1?",
+      "PostedDate": "2013-03-18T04:12:42.763-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "The problem is related to SSRS.  Trying to use an SSRS .xls file and failed.  Works once I open the file in Excel and save it.",
+      "PostedDate": "2013-04-04T13:04:03.827-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "more info:\r\n\r\nSpecified argument was out of the range of valid values.\nParameter name: offset \nDescription: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code. \r\n\r\nException Details: System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.\nParameter name: offset\r\n\r\nSource Error: \r\n\r\n\nLine 50: \t\t\t\t\t\tsector = sectors[i];\nLine 51: \t\t\t\t\t\tif (prevSector == 0 || (sector - prevSector) != 1)\nLine 52: \t\t\t\t\t\t\tfile.Seek((sector + 1) * sizeOfSector, SeekOrigin.Begin);\nLine 53: \t\t\t\t\t\tprevSector = sector;\nLine 54: \t\t\t\t\t\tfile.Read(buff, 0, sizeOfSector);\n \r\n\r\nSource File: C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\excel\\core\\BinaryFormat\\XlsFat.cs    Line: 52 \r\n\r\nStack Trace: \r\n\r\n\n[ArgumentOutOfRangeException: Specified argument was out of the range of valid values.\nParameter name: offset]\n   System.Web.HttpInputStream.Seek(Int64 offset, SeekOrigin origin) +3108407\n   Excel.Core.BinaryFormat.XlsFat..ctor(XlsHeader hdr, List`1 sectors, Int32 sizeOfSector, Boolean isMini, XlsRootDirectory rootDir) in C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\excel\\core\\BinaryFormat\\XlsFat.cs:52\n   Excel.Core.BinaryFormat.XlsHeader.GetMiniFAT(XlsRootDirectory rootDir) in C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\excel\\core\\BinaryFormat\\XlsHeader.cs:195\n   Excel.Core.BinaryFormat.XlsStream.CalculateMiniFat(XlsRootDirectory rootDir) in C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\excel\\core\\BinaryFormat\\XlsStream.cs:32\n   Excel.Core.BinaryFormat.XlsStream..ctor(XlsHeader hdr, UInt32 startSector, Boolean isMini, XlsRootDirectory rootDir) in C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\excel\\core\\BinaryFormat\\XlsStream.cs:26\n   Excel.Core.BinaryFormat.XlsRootDirectory..ctor(XlsHeader hdr) in C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\excel\\core\\BinaryFormat\\XlsRootDirectory.cs:21\n   Excel.ExcelBinaryReader.readWorkBookGlobals() in C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\excel\\ExcelBinaryReader.cs:154\n   Excel.ExcelBinaryReader.Initialize(Stream fileStream) in C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\excel\\ExcelBinaryReader.cs:872\n   Excel.ExcelReaderFactory.CreateBinaryReader(Stream fileStream) in C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\excel\\ExcelReaderFactory.cs:22\n   da.da.ProcessExcel(Stream s, String file_name) in C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\da\\da_func_import.cs:100\n   da.da.ImportFile(FileUpload fu, String destTable_name) in C:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\Scripts\\da\\da_func_import.cs:53\n   ASP.testupload_aspx.UploadGLButton_Click(Object sender, EventArgs e) in c:\\CMAR\\CMRecon\\CMRecon\\CMRecon\\TestUpload.aspx:50\n   System.Web.UI.WebControls.Button.OnClick(EventArgs e) +118\n   System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument) +112\n   System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument) +10\n   System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument) +13\n   System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData) +36\n   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +5563\r\n\r\n \r\n\r\n",
+      "PostedDate": "2013-04-04T13:15:54.917-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Have you tried the latest source from the repo? Changeset 82970 has a SSRS related fix in it.",
+      "PostedDate": "2013-04-05T01:42:57.68-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-04-17T01:06:20.297-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Here is a link to a file that fails in the same matter for me.  It's a simple file created directly inside Excel 2003.\r\n\r\nhttps://dl.dropboxusercontent.com/u/10537957/eitoimi.xls\r\n\r\nThe error for me comes when calling. The file was uploaded with a standard form. InputStream length looks fine. file.InputStream is {System.Web.HttpInputStream}.\r\n\r\n        // Error thrown when CreateBinaryReader is called\n        @using (IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(file.InputStream))\n        {\n             // anything\n        }",
+      "PostedDate": "2013-04-17T01:15:17.903-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-06-04T06:17:02.353-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "i succeeded to fix this issue by changing the code in the XlsFat class in the core,\nin the CTOR there is this code(lines 51...):\r\n\r\nif (prevSector == 0 || (sector - prevSector) != 1)\n       file.Seek((sector + 1) * sizeOfSector, SeekOrigin.Begin);\r\n\r\nwe can easily understand that (sector + 1) * sizeOfSector is bigger than  the file size, i will be honest, i don't really understand what those row does but after i changed it like that:\r\n\r\nvar sectorSizeToSeek = (sector + 1) * sizeOfSector;\r\n\r\nif ((prevSector == 0 || (sector - prevSector) != 1) && sectorSizeToSeek < file.Length - file.Position)\n\tfile.Seek(sectorSizeToSeek, SeekOrigin.Begin);\r\n\r\nAfter doing that my problem was fixed, i run all the UniTest and they all passed....\nIan can you please enlighten us what this code is in charge to do?\nthanks,\nJeremy souffir",
+      "PostedDate": "2013-07-04T08:48:07.24-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-08-18T16:12:00.327-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved by 11818",
+      "PostedDate": "2014-01-29T08:17:15.333-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:31.487-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

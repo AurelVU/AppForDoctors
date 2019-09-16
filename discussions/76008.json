@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "259964",
+    "ThreadId": "76008",
+    "Html": "<p>Hello,</p>\r\n<p>I tried to compile the sourcecode, but it failed. Initial the Excel project compiles, but the Excel.Tests didn't (missing Factory and ExcelFileType).&nbsp; Then I saw that the project file was missing some files (they were in the folder but not in the .csproj files). This counts for the Excel and also the Excel.Tests project. So then I included all the other files in the project, but now I get the errors:</p>\r\n<p style=\"padding-left:30px\"><span style=\"color:#ff00ff\">Error&nbsp;&nbsp; &nbsp;1&nbsp;&nbsp; &nbsp;'Excel.Core.BinaryFormat.XlsWorksheet' does not contain a definition for 'Data' and no extension method 'Data' accepting a first argument of type 'Excel.Core.BinaryFormat.XlsWorksheet' could be found (are you missing a using directive or an assembly reference?)&nbsp;&nbsp;&nbsp; ...\\exceldatareader-27264\\Excel\\ExcelDataReader.cs&nbsp;&nbsp; &nbsp;152&nbsp;&nbsp; &nbsp;45&nbsp;&nbsp; &nbsp;Excel</span></p>\r\n<p style=\"padding-left:30px\"><span style=\"color:#ff00ff\">Error&nbsp;&nbsp; &nbsp;2&nbsp;&nbsp; &nbsp;'Excel.Core.BinaryFormat.XlsWorksheet' does not contain a definition for 'Data' and no extension method 'Data' accepting a first argument of type 'Excel.Core.BinaryFormat.XlsWorksheet' could be found (are you missing a using directive or an assembly reference?)&nbsp;&nbsp;&nbsp; ...\\exceldatareader-27264\\Excel\\ExcelDataReader.cs&nbsp;&nbsp; &nbsp;306&nbsp;&nbsp; &nbsp;10&nbsp;&nbsp; &nbsp;Excel</span></p>\r\n<p>So more in detail: error 2</p>\r\n<p>It calls in ExcelDataReader.cs:</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>private bool ReadWorksheet(XlsWorksheet sheet) { <br>...<br>sheet.Data = dt; <br>...<br>}<br></pre>\r\n</div>\r\n<p>But XlsWorksheet has no Data property. So do I compile some old codefiles? Are the csproj files out-to-date? Are the code-files out-of-sync?</p>",
+    "PostedDate": "2009-11-23T13:18:44.107-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425376",
+    "ThreadId": "76008",
+    "Html": "Not sure what the sync status of the source download is. \r\nHowever, removing the ExcelDataReaderTest and ExcelDataReader from the projects makes everything build. \r\nIt looks like ExcelDataReader has been replaced by IExcelDataReader and its implementors.",
+    "PostedDate": "2010-03-30T03:25:57.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "445592",
+    "ThreadId": "76008",
+    "Html": "Hi, I just updated to v48578 and all tests seem broken, not just those in ExcelDataReaderTest. All 3 ...Test.cs files have references to the old 'Factory' class, which seems to have been replaced by ExcelReaderFactory. \r\n\r\nCan you confirm this? Is there going to be an update to the tests to address this issue?\r\n\r\nThanks!",
+    "PostedDate": "2010-05-20T14:55:34.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

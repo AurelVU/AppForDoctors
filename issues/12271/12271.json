@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-01-02T06:02:33.793-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "This is because an internal value is not cleared on on NextResultSet.",
+    "LastUpdatedDate": "2017-11-27T20:47:32.573-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-10-02T08:23:48.35-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Xlsx with multiple sheets has no first row on last sheet",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12271
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have the same issue, but it is not the last sheet in the workbook.  Any Ideas please?",
+      "PostedDate": "2013-10-02T18:31:38.19-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-10-03T15:44:07.047-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 86976.",
+      "PostedDate": "2014-01-02T06:02:33.793-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:32.573-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

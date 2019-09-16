@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "To use this class with very old (V5) xls files change the method \"LastColumn\" in the class \"XlsBiffDimensions\" to:\n```\nget { return (isV8) ? (ushort)((base.ReadUInt16(0x9) >> 8) + 1) : (ushort)(base.ReadUInt16(0x6) + 1); }\n```\n\nnot fully tested, but works with simple (string, integer, date) xls files.",
+    "LastUpdatedDate": "2013-07-02T07:28:28.52-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-07-02T07:28:28.52-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Excel Data Reader - handle version 5 xls files",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11907
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

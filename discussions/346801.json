@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "803515",
+    "ThreadId": "346801",
+    "Html": "\r\n<p>When I am opening xlsx file it is throwing exception &quot;Index was out of range. Must be non-negative and less than the size of the collection.&quot;</p>\r\n<p>Help is appreciated.</p>\r\n",
+    "PostedDate": "2012-02-29T18:47:17.023-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810575",
+    "ThreadId": "346801",
+    "Html": "<p>Hi Sunil. I'm running into the same error with xls files created in Excel 2007 (xls files created in older versions of Excel or using third party tools like Crystal Reports work just fine).</p>\r\n<p>This error happens when the IsFirstRowAsColumnNames attribute is set to true, so i know that isn't the problem. So it looks like the column name collection isn't being populated correctly when the file is generated in newer versions of Excel. Possibly it's failing to read the file stream entirely, so the reader object collection is entirely empty. Hopefully this information helps you in some way.</p>\r\n<p>Have you found a fix for your issue? Or any additional information?</p>\r\n<p>Cheers.</p>",
+    "PostedDate": "2012-03-14T17:26:03.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816144",
+    "ThreadId": "346801",
+    "Html": "<p>I found a possible&nbsp;issue in ExcelOpenXmlReader.cs.</p>\r\n<p>After the initial call CreateOpenXmlreader in my C# code--&gt;</p>\r\n<p>Trying to call \"while (excelReader.Read()\"...&nbsp;calls the Read() method in ExcelOpenXmlReader.cs.</p>\r\n<p>This immediately does a boolean check and calls InitializeSheetRead().</p>\r\n<p>This procedure makes use of the _resultIndex variable, which has been left at 1 by the CreateOpenXmlreader process. If I'm seeing things right, it should begin at zero for the Read() procedure.</p>\r\n<p>I created a module-level variable called \"private int firstRead = 0;\"</p>\r\n<p>I then changed the Read() procedure as follows:</p>\r\n<p>public bool Read()<br />{<br />&nbsp;if (!_isValid) return false;<br /><strong><span style=\"color: #ff0000;\">&nbsp;if (firstRead == 0) { _resultIndex = 0; firstRead = 1; }</span></strong><br />&nbsp;if (_isFirstRead &amp;&amp; !InitializeSheetRead())<br />&nbsp;{<br />&nbsp;&nbsp;return false;<br />&nbsp;}</p>\r\n<p>&nbsp;return ReadSheetRow(_workbook.Sheets[_resultIndex]);<br />}</p>\r\n<p>This resets the _resultIndex variable and all went fine.</p>\r\n<p>This is NOT thoroughly tested, but in my usage it all worked fine after this.</p>\r\n<p>If your error is not happening in the InitializeSheetRead() procedure then you probably are seeing a different problem.</p>\r\n<p>Bob Graham</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-03-27T08:48:20.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "901525",
+    "ThreadId": "346801",
+    "Html": "<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>getting the same error: Index was out of range. Must be non-negative and less than the size of the collection.</pre>\r\n<pre>here is the code i'm using... I'm using 2010 excel</pre>\r\n<pre><br /></pre>\r\n<pre>            FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);\r\n\r\n            <span style=\"color: green;\">//1. Reading from a binary Excel file ('97-2003 format; *.xls)</span>\r\n            <span style=\"color: green;\">//IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);</span>\r\n            <span style=\"color: green;\">//...</span>\r\n            <span style=\"color: green;\">//2. Reading from a OpenXml Excel file (2007 format; *.xlsx)</span>\r\n            IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\r\n            <span style=\"color: green;\">//...</span>\r\n            <span style=\"color: green;\">//3. DataSet - The result of each spreadsheet will be created in the result.Tables</span>\r\n            DataSet result1 = excelReader.AsDataSet();\r\n            <span style=\"color: green;\">//...</span>\r\n            <span style=\"color: green;\">//4. DataSet - Create column names from first row</span>\r\n\r\n            <span style=\"color: green;\">//excelReader.IsFirstRowAsColumnNames = true;</span>\r\n            DataSet result = excelReader.AsDataSet();\r\n\r\n           \r\n            <span style=\"color: green;\">//5. Data Reader methods</span>\r\n            <span style=\"color: blue;\">while</span> (excelReader.Read())\r\n            {\r\n                <span style=\"color: green;\">//excelReader.GetInt32(0);</span>\r\n            }\r\n\r\n            <span style=\"color: green;\">//6. Free resources (IExcelDataReader is IDisposable)</span>\r\n            excelReader.Close();\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-08-20T06:33:17.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

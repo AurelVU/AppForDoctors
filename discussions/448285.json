@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1061429",
+    "ThreadId": "448285",
+    "Html": "Here in Croatia, we have it all backwards and the decimal separator is a point (.), not a comma (,)\r<br />\nIs it possible to correct this? Since when i import data from excel, numbers like 500,50 are imported as 5005.00<br />\n",
+    "PostedDate": "2013-06-26T06:51:48.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1061440",
+    "ThreadId": "448285",
+    "Html": "I'm slightly confused. What are you expecting 500,50 to come out as? If Croatia uses point (.) as decimal separator (same as here in UK) then this doesn't look like a  number at all, what is the comma (,) signifying?<br />\n",
+    "PostedDate": "2013-06-26T06:58:52.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1061485",
+    "ThreadId": "448285",
+    "Html": "Sorry for my mistake. The rest of the world uses a point and here in Croatia, we use a comma.\r<br />\nif cell contains a numeric value 500,50 (regardless of its formatting - text or numeric), on import, i get 5005\r<br />\nwhen i replace the value with 500.50, on import i get the correct value.\r<br />\n<br />\nIt would be super if an option to select decimal separator existed.<br />\n",
+    "PostedDate": "2013-06-26T08:21:59.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062172",
+    "ThreadId": "448285",
+    "Html": "It should determine it from the format of the cell in excel. So this sounds like a bug. You can raise an issue. I am very busy at the moment though and will be for a few weeks at least so I won't be able to take a look at it. If you are brave you can grab the source, add a unit test for your sheet and see if you can figure it out!<br />\n",
+    "PostedDate": "2013-06-27T13:59:29.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1079578",
+    "ThreadId": "448285",
+    "Html": "Hi,\r<br />\n<br />\nI am not from Croatia, but in my country decimal separator is comma too. :) Cell format in my Excel is general. I added this line to my code: System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;<br />\n",
+    "PostedDate": "2013-08-12T06:59:52.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

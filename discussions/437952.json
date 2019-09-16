@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1020918",
+    "ThreadId": "437952",
+    "Html": "Dear Team,\r<br />\n<br />\nMay I have a quick question, what is the relationship between this project and the VSTO (especially those DLLs in the library)?\r<br />\n<br />\nI noticed this project does not reference to any VSTO dlls and the code was very down to metal, (which is great), is there any design purpose of not using VSTO dlls?\r<br />\n<br />\nBest regards,\r<br />\n<br />\nDong<br />\n",
+    "PostedDate": "2013-03-25T15:41:48.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1021081",
+    "ThreadId": "437952",
+    "Html": "To keep compatibility with cross platform, I think that is the major design decision.<br />\n",
+    "PostedDate": "2013-03-26T00:51:19.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1021132",
+    "ThreadId": "437952",
+    "Html": "Thanks for reply so quick. By Cross Platform, you mean Mono, is there any reason one can not run VSTO dlls on Mono (coding issues or legal issues)?\r<br />\n<br />\nBest regards,\r<br />\n<br />\nDong<br />\n",
+    "PostedDate": "2013-03-26T03:01:16.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1021145",
+    "ThreadId": "437952",
+    "Html": "I do mean Mono as well as Phone and even Micro Framework. However, I don't have any knowledge of VSTO dependencies, legal or otherwise.<br />\n",
+    "PostedDate": "2013-03-26T03:28:16.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1021166",
+    "ThreadId": "437952",
+    "Html": "The major reason I think is that VSTO requires you to install office, and has a much more complicated deployment scenario. Also, I believe this library may be quicker (though I haven't tested it).<br />\n",
+    "PostedDate": "2013-03-26T04:24:19.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027892",
+    "ThreadId": "437952",
+    "Html": "In comparison, VSTO is much slower.  This is by far the fastest reader i've seen, the OpenXml method is good for latest excel 2007+ but the BinaryReader is smokin fast but it only works on 97-2003 excel files.  VSTO is really good for direct integration with Excel itself as an application not the right choice for simply reading an excel file etc...<br />\n",
+    "PostedDate": "2013-04-09T07:53:55.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1028035",
+    "ThreadId": "437952",
+    "Html": "..<br />\n",
+    "PostedDate": "2013-04-09T12:18:00.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

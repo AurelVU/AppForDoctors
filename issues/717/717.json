@@ -1,0 +1,106 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "This appears to work great for the 2003 & previous versions of Excel but doesn't work with the 2007 file format (as per the docuementation listed on the PDF you supplied as the spec).  I can't guarantee which file format I will have sent to me in my application.  Are there any plans to support the 2007 format also?",
+    "LastUpdatedDate": "2017-11-27T20:47:36.853-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2008-10-17T08:38:13.077-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "2007 File Format Support",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 717
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1738,
+      "FileName": "Open_XLSX_Err.png",
+      "DownloadUrl": ".\\1738"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "The issue with Excel 2007 file data reader is in my schedule for the next release version.",
+      "PostedDate": "2008-10-20T00:04:55.91-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Sounds good.  Thanks for the response and again, good work and thanks for sharing.",
+      "PostedDate": "2008-10-20T10:28:33.7-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-04-08T17:37:57.717-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "When will you release version with Excel 2007 support?",
+      "PostedDate": "2009-05-22T00:32:27.377-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Sanjivani, The current release support Excel 2007 Office OpenXML format(xlsx extension files). We are working now to integrate the 2007 binary format (xlsb extension files).\r\n\r\nThe release is planned to be until June 15.",
+      "PostedDate": "2009-05-24T12:42:00.887-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "iciobanu, thanks for the reply. but i m getting an error when i try to access excel 2007 file.\r\nMy code goes like\r\n\r\n Dim stream As FileStream = File.Open(filePath, FileMode.Open, FileAccess.Read)\r\n        Dim excelReader As IExcelDataReader\r\n\r\n        If filePath.EndsWith(\".xlsx\") Then\r\n            ' Reading from a OpenXml Excel file (2007 format; *.xlsx)\r\n             excelReader = Factory.CreateReader(stream, ExcelFileType.OpenXml)\r\n        Else\r\n            ' Reading from a binary Excel file ('97-2003 format; *.xls)\r\n            excelReader = Factory.CreateReader(stream, ExcelFileType.Binary)\r\n        End If\r\n\r\n        ' The result of each spreadsheet will be created in the result.Tables\r\n        Dim result As DataSet = excelReader.AsDataSet()\r\n\r\n        Return result\r\n        excelReader.Close()\r\n**************************************************************************************************\r\non 32-bit m/c i get error \"Input string was not in a correct format.\"\r\nand on 64-bit m/c i get error \"The process cannot access the file 'test.xlsx' because it is being used by another process.\" I checked it is not used by another process and it is not open also.\r\n\r\nIs it necessary to have office 2007 installed to Excelreader work? on both m/cs i have Excel 2003 installed.\r\n\r\nPlease reply. \r\n",
+      "PostedDate": "2009-05-24T23:51:10.99-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-06-12T14:05:49.63-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-08-24T11:56:06.533-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I use \"exceldatareader-27264\" and it's output Excel.dll in my WinForm app. When open xlsx file,I got \"Stream is not seekable\".\r\nWhy?",
+      "PostedDate": "2009-11-24T03:07:58.41-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-11-24T03:07:59.947-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:52.743-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:36.853-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

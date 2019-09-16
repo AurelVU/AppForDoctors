@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "292292",
+    "ThreadId": "85830",
+    "Html": "<p>I have a column which is simply a text TRUE or FALSE however after after putting it into a dataset (Dim result As DataSet = excelReader.AsDataSet()) the entire column is completely blank.</p>\r\n<p>The only way I have figured to fool it is to place a single quote in front of the TRUE/FALSE and then it pulls everything in just fine. &nbsp;Doesn't seem to make a difference whether I use .xls or .xlsx.</p>\r\n<p>&nbsp;</p>\r\n<p>Any ideas how I could get it to pull in the values properly?</p>",
+    "PostedDate": "2010-02-18T10:15:47.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

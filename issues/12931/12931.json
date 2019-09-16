@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When a continuation breaks comes just before (or in?) the tail/postfix part of the XlsFormattedUnicodeString the ReadStrings method doesn't handle this case correctly.\n\nYou have to check if there are still chars to read.\nint charsLeft = (int)(len - (last - prefix - offset) / (str.IsMultiByte ? 2 : 1));\n\nIf charsLeft >0 then the available code handles the case correctly.\n\nIf charsLeft == 0 then the available code still reads the current string but fails when reading the next string because the new offset is wrong.\n\nWhen charsLeft == 0 the new offset should be\noffset = contoffset + 4 + size - last + offset;\nAnd the temp buffer\nBuffer.BlockCopy(m_bytes, (int)contoffset + 4, buff, (int)(last - offset), (int)(size - last + offset));\nThere is no encoding byte?\n\nThis code addition worked in my case (xls file was too big to send as attachment).\nAfter the changes all the strings were read correctly.\n\nNo errors are thrown when reading the SST.\nNo errors are thrown when getting strings out of the SST when the index exceeds the bounds of the array (empty string is returned).\nSo I only detected this issue when running queries on the migrated data (Excel to SQL).\n\nI didn't test other cases, e.g. continuation breaks in the head/prefix part, because I don't know if this is even possible.",
+    "LastUpdatedDate": "2017-11-27T20:47:33.03-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-04-15T13:55:20.03-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "XlsBiffRecord.ReadStrings does not handle all cases correctly",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12931
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "According to (http://www.digitalpreservation.gov/formats/digformatspecs/Excel97-2007BinaryFileFormat(xls)Specification.pdf#page=59&zoom=100) the encoding byte is added when the continued data is a string. So the current source code is not handling the situation when the encoding byte is not added.",
+      "PostedDate": "2014-10-17T01:41:16.47-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:33.03-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

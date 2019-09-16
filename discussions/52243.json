@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "175505",
+    "ThreadId": "52243",
+    "Html": "When I try to open an xls spreadsheet with the Excel stream reader I get the following error:<br>\r\n<br>\r\nExcel.Exceptions.InvalidHeaderException was unhandled<br>\r\n  Message=&quot;Error: Invalid file signature&quot;<br>\r\n  Source=&quot;Excel&quot;<br>\r\n  StackTrace:<br>\r\n       at Excel.Core.XlsHeader.ReadHeader(Stream file) in C:\\Documents and Settings\\steveh\\My Documents\\Visual Studio 2008\\Projects\\ExcelDataReader\\Excel\\Core\\XlsHeader.cs:line 232<br>\r\n       at Excel.ExcelDataReader..ctor(Stream fileStream, Boolean promoteToColumns) in C:\\Documents and Settings\\steveh\\My Documents\\Visual Studio 2008\\Projects\\ExcelDataReader\\Excel\\ExcelDataReader.cs:line 58<br>\r\n       at Excel.ExcelDataReader..ctor(Stream fileStream) in C:\\Documents and Settings\\steveh\\My Documents\\Visual Studio 2008\\Projects\\ExcelDataReader\\Excel\\ExcelDataReader.cs:line 42<br>\r\n       at ExcelStreamLibraryTest.Program.Main(String[] args) in C:\\Documents and Settings\\steveh\\My Documents\\Visual Studio 2008\\Projects\\ExcelStreamLibrary\\ExcelStreamLibraryTest\\Program.cs:line 16<br>\r\n       at System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)<br>\r\n       at System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)<br>\r\n       at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()<br>\r\n       at System.Threading.ThreadHelper.ThreadStart_Context(Object state)<br>\r\n       at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)<br>\r\n       at System.Threading.ThreadHelper.ThreadStart()<br>\r\n  InnerException: <br>\r\n",
+    "PostedDate": "2009-04-03T15:18:19.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188736",
+    "ThreadId": "52243",
+    "Html": "<p>I have the same&nbsp;broplem:</p>\r\n<p>Excel.Exceptions.InvalidHeaderException: Error: Invalid file signature<br>&nbsp;&nbsp; at Excel.Core.XlsHeader.ReadHeader(Stream file) in E:\\Download\\excel\\exceldatareader-10542\\Excel\\Core\\XlsHeader.cs:line 232<br>&nbsp;&nbsp; at Excel.ExcelDataReader..ctor(Stream fileStream, Boolean promoteToColumns) in E:\\Download\\excel\\exceldatareader-10542\\Excel\\ExcelDataReader.cs:line 58<br>&nbsp;&nbsp; at Excel.ExcelDataReader..ctor(Stream fileStream) in E:\\Download\\excel\\exceldatareader-10542\\Excel\\ExcelDataReader.cs:line 42<br>&nbsp;&nbsp; at MyTest.Form1.button1_Click(Object sender, EventArgs e) in E:\\Download\\excel\\exceldatareader-10542\\MyTest\\Form1.cs:line 23<br>&nbsp;&nbsp; at System.Windows.Forms.Control.OnClick(EventArgs e)<br>&nbsp;&nbsp; at System.Windows.Forms.Button.OnClick(EventArgs e)<br>&nbsp;&nbsp; at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)<br>&nbsp;&nbsp; at System.Windows.Forms.Control.WmMouseUp(Message&amp; m, MouseButtons button, Int32 clicks)<br>&nbsp;&nbsp; at System.Windows.Forms.Control.WndProc(Message&amp; m)<br>&nbsp;&nbsp; at System.Windows.Forms.ButtonBase.WndProc(Message&amp; m)<br>&nbsp;&nbsp; at System.Windows.Forms.Button.WndProc(Message&amp; m)<br>&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)<br>&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)<br>&nbsp;&nbsp; at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)</p>",
+    "PostedDate": "2009-05-11T00:43:50.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188758",
+    "ThreadId": "52243",
+    "Html": "<p>Oh, my excel file&nbsp;does not correcly.</p>",
+    "PostedDate": "2009-05-11T02:14:02.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811414",
+    "ThreadId": "52243",
+    "Html": "<p>Hi,</p>\r\n<p>I'm getting the same problem. Any suggestion so far?</p>\r\n<p>thanks</p>\r\n<p>PP</p>",
+    "PostedDate": "2012-03-16T06:43:39.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "879934",
+    "ThreadId": "52243",
+    "Html": "<p>Same problem here I can upload file if needed any idea what can cause this ?</p>",
+    "PostedDate": "2012-07-20T06:42:04.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "880012",
+    "ThreadId": "52243",
+    "Html": "<p>Ok I think I found my issue,</p>\r\n<p>There are two methods</p>\r\n<p>1) ExcelReaderFactory.CreateBinaryReader(</p>\r\n<p>2)&nbsp;ExcelReaderFactory.CreateOpenXmlReader(</p>\r\n<p>first method is for reading *.xls and second one is for *xlsx file types,</p>\r\n<p>for my case I used 1) method with .xlsx file and thus have been getting exception (Invalid signature)..</p>\r\n<p>hope will help...</p>",
+    "PostedDate": "2012-07-20T07:12:40.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

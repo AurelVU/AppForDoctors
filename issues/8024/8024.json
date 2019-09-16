@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\nI'm using Excel Data Reader on Linux with mono project installed.\n \nwhen I tried to read a file with portuguese encoding (iso-8859-1) that have characters like Ç, ª, º, etc, i can't read this characters correctly!\n \nI tried the same program in windows and works ok.\n \nIn Linux...\nExample:\nInput data:\n4ª Série\n \nOutput data:\n4? S?rie\n \nI'm using:\n \n                FileStream stream = File.Open(inputFile, FileMode.Open, FileAccess.Read);\n                IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n \nNormally to define the encoding i use:\n \n              StreamReader sr = new StreamReader(stream,System.Text.Encoding.GetEncoding(\"iso-8859-1\"));\n \nBut in this case i can't do that because CreateBinaryReader only doesn't accept.\n \nanyone have any suggestions?",
+    "LastUpdatedDate": "2013-02-21T17:47:41.873-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-01-03T08:42:44.06-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "reading using encoding iso-8859-1",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 8024
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

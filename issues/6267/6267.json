@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Not compatible with Excel files created from Crystal Reports for VS 2008 (export report to Excel file).",
+    "LastUpdatedDate": "2013-10-28T08:50:25.14-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-06-09T22:48:10.527-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Crystal Reports for VS 2008",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 6267
+  },
+  "FileAttachments": [
+    {
+      "FileId": 2277,
+      "FileName": "Categories.xls",
+      "DownloadUrl": ".\\2277"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "see: Neither stream 'Workbook' nor 'Book' was found in file \nhttps://exceldatareader.codeplex.com/discussions/461766\n",
+      "PostedDate": "2013-10-28T08:50:25.14-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

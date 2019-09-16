@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1113746",
+    "ThreadId": "464093",
+    "Html": "I tried to modify the source of version 2.1 and when i compile it didn't work :\r<br />\nIt is mentioned in the home page that framework 2.0 should be used.\r<br />\n<br />\nI've got visual studio 10 on seven with framework 3.5 and 4.0\r<br />\n<br />\nI tried to modify Excel\\Build.Debug.CF.bat to access the correct csc compiler and the required assembly needed :\r<br />\n<br />\nso i set:\r<br />\n  SET CSC=C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe /nologo\r<br />\nand i set also:\r<br />\n  set NETCF_PATH=C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\r<br />\n<br />\ni had also to create the missing sub-directory and file:\r<br />\n   Binaries\\netcf-20\\ICSharpCode.SharpZipLib.dll\r<br />\n<br />\nBut the compilation failed with those errors:\r<br />\nExcelDataReader.cs(152,45): error CS0117: 'Excel.Core.BinaryFormat.XlsWorksheet'<br />\n<pre><code>    ne contient pas de définition pour 'Data'</code></pre>\n\nExcelDataReader.cs(306,10): error CS0117: 'Excel.Core.BinaryFormat.XlsWorksheet'<br />\n<pre><code>    ne contient pas de définition pour 'Data'\n</code></pre>\n\nIt seems &quot;Data&quot; member doesn't exist in Excel.Core.BinaryFormat.XlsWorksheet' class\r<br />\n<br />\nCan you confirm me that I must use Framework 2.0 to compile v2.1 version (82323) ?\r<br />\nCan you confirm me that I must use Framework 2.0 to compile v2.0.1 version (27264) ?\r<br />\n<br />\nThanks in advance\r<br />\nBest regards\r<br />\nP. Gineste<br />\n",
+    "PostedDate": "2013-10-29T09:49:36.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114959",
+    "ThreadId": "464093",
+    "Html": "You don't need 2.0 to compile.\r<br />\n<br />\nI quite happily use 4.0<br />\n",
+    "PostedDate": "2013-10-31T03:03:13.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114980",
+    "ThreadId": "464093",
+    "Html": "\r\n<div name=\"divtagdefaultwrapper\" id=\"divtagdefaultwrapper\" style=\"font-family:Calibri,Arial,Helvetica,sans-serif; font-size:12pt; color:#000000; margin:0\">\r\n<div style=\"font-family:Calibri,Arial,Helvetica,sans-serif; font-size:16px; background-color:rgb(255,255,255); margin-top:0px; margin-bottom:0px\">\r\nThank you very much.</div>\r\n<div style=\"font-family:Calibri,Arial,Helvetica,sans-serif; font-size:16px; background-color:rgb(255,255,255); margin-top:0px; margin-bottom:0px\">\r\nI succeeded to compile</div>\r\n<div>\r\n<p><br>\r\n</p>\r\n<div style=\"font-family:Tahoma; font-size:13px\">\r\n<div><font size=\"2\">\r\n<div>___________________________<br>\r\n<br>\r\nPascal Gineste<br>\r\nGFI Informatique<br>\r\n04 76 61 30 29<br>\r\n</div>\r\n</font></div>\r\n</div>\r\n</div>\r\n<p><br>\r\n</p>\r\n<div style=\"color:rgb(40,40,40)\">\r\n<hr tabindex=\"-1\" style=\"display:inline-block; width:98%\">\r\n<div id=\"divRplyFwdMsg\" dir=\"ltr\"><font face=\"Calibri, sans-serif\" color=\"#000000\" style=\"font-size:11pt\"><b>De :</b> Ian1971 &lt;[email removed]&gt;<br>\r\n<b>Envoyé :</b> jeudi 31 octobre 2013 11:03<br>\r\n<b>À :</b> Gineste Pascal<br>\r\n<b>Objet :</b> Re: Try to compile v2.1 (82323) or v2.01 (27264) failed [ExcelDataReader:464093]</font>\r\n<div></div>\r\n</div>\r\n<div>\r\n<p>From: Ian1971</p>\r\n<div id=\"ThreadNotificationPostBody\">You don't need 2.0 to compile. <br>\r\n<br>\r\nI quite happily use 4.0<br>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-10-31T04:13:10.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

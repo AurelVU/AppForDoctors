@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "There is no support currently for unprotect in this library. In our application we use other third-party libraries to unprotect spreadsheets before opening them with ExcelDataReader, such as SecureBlackBox (not cheap though).",
+    "ClosedDate": "2014-04-09T01:43:21.153-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "dear sir\n\ni have an asp.net application that use the excel.dll to read the excel spread-sheet it works fine.  however, today i encounter a file that looks fine but when the code read it, it cause exception.\n\nthe asp.net code looks like the following:\n\n               Dim iFileNameLeng As Integer = 0\n                Dim sFileNamePath As String\n                'Dim sFileNameONly As String\n                If (Not FileUpload1 Is Nothing) AndAlso (FileUpload1.HasFile) Then\n                    sFileNamePath = FileUpload1.PostedFile.FileName\n                    iFileNameLeng = InStr(1, StrReverse(sFileNamePath), \"\\\")\n                    'If iFileNameLeng > 0 Then\n                    'FileUpload1.PostedFile.SaveAs(\"C:\\yyyy.txt\")\n                    Dim bytes As Byte() = FileUpload1.FileBytes\n                    Dim stream As MemoryStream = New MemoryStream(bytes)\n                    Dim excelReader As IExcelDataReader\n                    'If (sFileNamePath.IndexOf(\".xlsx\") > -1) OrElse (sFileNamePath.IndexOf(\".xlsm\") > -1) Then\n                    If (sFileNamePath.IndexOf(\".xlsx\") > -1) Then\n                        excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream)\n                    Else\n                        excelReader = ExcelReaderFactory.CreateBinaryReader(stream)\n                    End If\n                    excelReader.IsFirstRowAsColumnNames = True\n                    Dim ds As DataSet = excelReader.AsDataSet\n\n                    While (excelReader.Read)\n                    End While\n                    excelReader.Close()\n\nThe exception happened in the ExcelReaderFactory.CreateBinaryReader, \n\nThe exception message text:\n\n NotSupportedException was unhandled by user code\nNo data is available for encoding 24128",
+    "LastUpdatedDate": "2014-04-09T01:43:21.153-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-04-08T13:10:51.29-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "unable to read an excel file",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12876
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4962,
+      "FileName": "Tait Station Survey Template in latest 2005 format - Apr2014.xls",
+      "DownloadUrl": ".\\4962"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "The file is protected. I have the same problem. There is no Unprotect method in this library.",
+      "PostedDate": "2014-04-08T23:20:09.7-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-04-08T23:37:51.253-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-04-09T01:43:21.153-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

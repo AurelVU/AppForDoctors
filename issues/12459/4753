@@ -1,0 +1,102 @@
+xbuild CEC.csproj
+XBuild Engine Version 2.10.8.1
+Mono, Version 2.10.8.1
+Copyright (C) Marek Sieradzki 2005-2008, Novell 2008-2011.
+
+Build started 11/15/2013 11:32:40 AM.  
+__________________________________________________
+Project "/home/den/work/contactor/ceos1/CEC.csproj" (default target(s)):
+        Target PrepareForBuild:
+                Configuration: Debug Platform: AnyCPU
+                Created directory "bin/Debug/"
+                Created directory "obj/Debug/"
+        Target ResolveProjectReferences:
+                Project "/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/Excel.csproj" (default target(s)):
+                        Target PrepareForBuild:
+                                Configuration: Debug Platform: AnyCPU
+                                Created directory "bin/Debug/"
+                                Created directory "obj/Debug/"
+                        Target CopyFilesMarkedCopyLocal:
+                                Copying file from '/home/den/work/contactor/ceos1/ExcelDataReader/src/Lib/ICSharpCode.SharpZipLib.dll' to '/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/bin/Debug/I
+CSharpCode.SharpZipLib.dll'
+                        Target GenerateSatelliteAssemblies:
+                        No input files were specified for target GenerateSatelliteAssemblies, skipping.
+                        Target CoreCompile:
+                                Tool /usr/bin/gmcs execution started with arguments: /noconfig /debug:full /debug+ /keyfile:Excel.snk /optimize- /out:obj/Debug/Excel.dll Core/BinaryFormat/Enums.cs Core/Binar
+yFormat/XlsBiffBlankCell.cs Core/BinaryFormat/XlsBiffBOF.cs Core/BinaryFormat/XlsBiffBoundSheet.cs Core/BinaryFormat/XlsBiffContinue.cs Core/BinaryFormat/XlsBiffDbCell.cs Core/BinaryFormat/XlsBiffDimensions.
+cs Core/BinaryFormat/XlsBiffEOF.cs Core/BinaryFormat/XlsBiffFormatString.cs Core/BinaryFormat/XlsBiffFormulaCell.cs Core/BinaryFormat/XlsBiffFormulaString.cs Core/BinaryFormat/XlsBiffIndex.cs Core/BinaryForm
+at/XlsBiffIntegerCell.cs Core/BinaryFormat/XlsBiffInterfaceHdr.cs Core/BinaryFormat/XlsBiffLabelCell.cs Core/BinaryFormat/XlsBiffLabelSSTCell.cs Core/BinaryFormat/XlsBiffMulBlankCell.cs Core/BinaryFormat/Xls
+BiffMulRKCell.cs Core/BinaryFormat/XlsBiffNumberCell.cs Core/BinaryFormat/XlsBiffRecord.cs Core/BinaryFormat/XlsBiffRKCell.cs Core/BinaryFormat/XlsBiffRow.cs Core/BinaryFormat/XlsBiffSimpleValueRecord.cs Cor
+e/BinaryFormat/XlsBiffSST.cs Core/BinaryFormat/XlsBiffStream.cs Core/BinaryFormat/XlsBiffUncalced.cs Core/BinaryFormat/XlsBiffWindow1.cs Core/BinaryFormat/XlsDirectoryEntry.cs Core/BinaryFormat/XlsFormattedU
+nicodeString.cs Core/BinaryFormat/XlsRootDirectory.cs Core/BinaryFormat/XlsStream.cs Core/BinaryFormat/XlsWorkbookGlobals.cs Core/BinaryFormat/XlsWorksheet.cs Core/FormatReader.cs Core/Helpers.cs Core/OpenXm
+lFormat/XlsxDimension.cs Core/OpenXmlFormat/XlsxNumFmt.cs Core/OpenXmlFormat/XlsxSST.cs Core/OpenXmlFormat/XlsxStyles.cs Core/OpenXmlFormat/XlsxWorkbook.cs Core/OpenXmlFormat/XlsxWorksheet.cs Core/OpenXmlFor
+mat/XlsxXf.cs Core/ZipWorker.cs Exceptions/BiffRecordException.cs Exceptions/HeaderException.cs Core/BinaryFormat/XlsFat.cs Core/BinaryFormat/XlsHeader.cs Errors.cs ExcelBinaryReader.cs ExcelReaderFactory.cs
+ IExcelDataReader.cs ExcelOpenXmlReader.cs Properties/AssemblyInfo.cs /target:library /define:"DEBUG;TRACE" /reference:../Lib/ICSharpCode.SharpZipLib.dll /reference:/usr/lib/mono/2.0/System.dll /reference:/u
+sr/lib/mono/2.0/System.Data.dll /reference:/usr/lib/mono/2.0/System.Xml.dll /reference:/usr/lib/mono/2.0/mscorlib.dll /warn:4
+Core/FormatReader.cs(26,37): warning CS0219: The variable `isDate' is assigned but its value is never used
+Core/ZipWorker.cs(187,44): warning CS0219: The variable `ex' is assigned but its value is never used
+Core/BinaryFormat/XlsHeader.cs(171,30): warning CS0168: The variable `value' is declared but never used
+Core/BinaryFormat/XlsHeader.cs(172,29): warning CS0219: The variable `miniSectorSize' is assigned but its value is never used
+Core/BinaryFormat/XlsFat.cs(16,38): warning CS0169: The private field `Excel.Core.BinaryFormat.XlsFat.m_sectorSize' is never used
+Core/BinaryFormat/XlsFat.cs(17,39): warning CS0414: The private field `Excel.Core.BinaryFormat.XlsFat.m_isMini' is assigned but its value is never used
+Core/BinaryFormat/XlsFat.cs(18,51): warning CS0414: The private field `Excel.Core.BinaryFormat.XlsFat.m_rootDir' is assigned but its value is never used
+ExcelOpenXmlReader.cs(37,32): warning CS0414: The private field `Excel.ExcelOpenXmlReader.instanceId' is assigned but its value is never used
+                        Target DeployOutputFiles:
+                                Copying file from '/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/obj/Debug/Excel.dll.mdb' to '/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/bin/Debug/Excel.dll.mdb'
+                                Copying file from '/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/obj/Debug/Excel.dll' to '/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/bin/Debug/Excel.dll'
+                Done building project "/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/Excel.csproj".
+        Target CopyFilesMarkedCopyLocal:
+                Copying file from '/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/bin/Debug/Excel.dll' to '/home/den/work/contactor/ceos1/bin/Debug/Excel.dll'
+                Copying file from '/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/bin/Debug/Excel.dll.mdb' to '/home/den/work/contactor/ceos1/bin/Debug/Excel.dll.mdb'
+                Copying file from '/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/bin/Debug/ICSharpCode.SharpZipLib.dll' to '/home/den/work/contactor/ceos1/bin/Debug/ICSharpCode.SharpZipLib.dll'
+        Target GenerateSatelliteAssemblies:
+        No input files were specified for target GenerateSatelliteAssemblies, skipping.
+        Target CoreCompile:
+                Tool /usr/bin/gmcs execution started with arguments: /noconfig /debug:full /debug+ /optimize- /out:obj/Debug/ App.cs /define:"DEBUG;TRACE" /reference:/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/bin/Debug//Excel.dll /reference:/usr/lib/mono/2.0/mscorlib.dll /reference:/usr/lib/mono/2.0/System.dll /reference:/usr/lib/mono/2.0/System.Data.dll /reference:/usr/lib/mono/2.0/System.Xml.dll /reference:/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/bin/Debug/ICSharpCode.SharpZipLib.dll /warn:4
+                Unhandled Exception: System.ArgumentException: assemblyName cannot have zero length.
+                  at System.Reflection.AssemblyName..ctor (System.String assemblyName) [0x00000] in <filename unknown>:0
+                  at Mono.CSharp.AssemblyDefinition.CreateAssemblyName () [0x00000] in <filename unknown>:0
+                  at Mono.CSharp.AssemblyDefinitionDynamic.Create (System.AppDomain domain, AssemblyBuilderAccess access) [0x00000] in <filename unknown>:0
+                  at Mono.CSharp.Driver.Compile () [0x00000] in <filename unknown>:0
+                  at Mono.CSharp.Driver.Main (System.String[] args) [0x00000] in <filename unknown>:0
+                [ERROR] FATAL UNHANDLED EXCEPTION: System.ArgumentException: assemblyName cannot have zero length.
+                  at System.Reflection.AssemblyName..ctor (System.String assemblyName) [0x00000] in <filename unknown>:0
+                  at Mono.CSharp.AssemblyDefinition.CreateAssemblyName () [0x00000] in <filename unknown>:0
+                  at Mono.CSharp.AssemblyDefinitionDynamic.Create (System.AppDomain domain, AssemblyBuilderAccess access) [0x00000] in <filename unknown>:0
+                  at Mono.CSharp.Driver.Compile () [0x00000] in <filename unknown>:0
+                  at Mono.CSharp.Driver.Main (System.String[] args) [0x00000] in <filename unknown>:0
+/usr/lib/mono/4.0/Microsoft.CSharp.targets: error : Compiler crashed with code: 1.
+        Task "Csc" execution -- FAILED 
+        Done building target "CoreCompile" in project "/home/den/work/contactor/ceos1/CEC.csproj".-- FAILED
+Done building project "/home/den/work/contactor/ceos1/CEC.csproj".-- FAILED
+
+Build FAILED.
+
+Warnings:
+
+/home/den/work/contactor/ceos1/CEC.csproj (default targets) ->
+/usr/lib/mono/4.0/Microsoft.Common.targets (ResolveProjectReferences target) ->
+/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/Excel.csproj (default targets) ->
+/usr/lib/mono/4.0/Microsoft.CSharp.targets (CoreCompile target) ->
+
+        Core/FormatReader.cs(26,37): warning CS0219: The variable `isDate' is assigned but its value is never used
+        Core/ZipWorker.cs(187,44): warning CS0219: The variable `ex' is assigned but its value is never used
+        Core/BinaryFormat/XlsHeader.cs(171,30): warning CS0168: The variable `value' is declared but never used
+        Core/BinaryFormat/XlsHeader.cs(172,29): warning CS0219: The variable `miniSectorSize' is assigned but its value is never used
+        Core/BinaryFormat/XlsFat.cs(16,38): warning CS0169: The private field `Excel.Core.BinaryFormat.XlsFat.m_sectorSize' is never used
+        Core/BinaryFormat/XlsFat.cs(17,39): warning CS0414: The private field `Excel.Core.BinaryFormat.XlsFat.m_isMini' is assigned but its value is never used
+        Core/BinaryFormat/XlsFat.cs(18,51): warning CS0414: The private field `Excel.Core.BinaryFormat.XlsFat.m_rootDir' is assigned but its value is never used
+        ExcelOpenXmlReader.cs(37,32): warning CS0414: The private field `Excel.ExcelOpenXmlReader.instanceId' is assigned but its value is never used
+
+Errors:
+
+/home/den/work/contactor/ceos1/CEC.csproj (default targets) ->
+/usr/lib/mono/4.0/Microsoft.CSharp.targets (CoreCompile target) ->
+
+        /usr/lib/mono/4.0/Microsoft.CSharp.targets: error : Compiler crashed with code: 1.
+        
+         8 Warning(s)
+         1 Error(s)
+
+Time Elapsed 00:00:01.1062540
+

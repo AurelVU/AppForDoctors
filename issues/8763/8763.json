@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I use ExcelDataReader to read data from Excel file. But some special character is wrong.\nFor example: \ncontent in excel is \"Voõ thò nguyeãn\" but the result is \"Voơ tḥ nguyeăn\".\nWhat is the problem???\n \nThanks",
+    "LastUpdatedDate": "2013-02-21T17:47:39.24-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-05-09T22:11:46.027-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Issue: wrong result",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 8763
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3337,
+      "FileName": "Test.zip",
+      "DownloadUrl": ".\\3337"
+    }
+  ],
+  "Comments": []
+}

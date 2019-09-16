@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1488887",
+    "ThreadId": "659769",
+    "Html": "Hello, <br />\nI am using Excel daat reader to read excel into datatable and converting it to CSV file. <br />\nAll is working fine except the date time from excel is loading into datatable as 12 hour format string and i need it to be 24 hour format in csv output. <br />\n<br />\nCan any one help me how to get the date time in 24 hour format using exceldatareader?<br />\n<br />\nRegards,<br />\nAmit<br />\n",
+    "PostedDate": "2016-11-28T03:37:26.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

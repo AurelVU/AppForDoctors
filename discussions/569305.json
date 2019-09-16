@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1311506",
+    "ThreadId": "569305",
+    "Html": "Hi Team,<br />\n<br />\nInitially i have 20 records in my excel sheet with formatted(given rows colors).when i debug the code i am getting 20 records. this is fine. but when i debug the code after deleting the 10 records from excel sheet i am still getting 20 records. 10 records coming as blank. i mean the empty records rows also coming in dataset.<br />\n<br />\nnow how do i remove the empty record rows.  please help<br />\n",
+    "PostedDate": "2014-10-08T04:24:19.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When trying to read the contents of a spreadsheet that only has 1 value in top left cell (A1), the data set returned from IExcelDataReader.AsDataSet has no tables in it.  Thus, I am unable to read the value.  It works when reading a spreadsheet that has more than 1 cell filled in.  \n \nI used the typical code to open the file.  Afterwards, result.Tables.Count equals 0.\n<code>\nIExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\nDataSet result = excelReader.AsDataSet();\n</code>\n \nI've attached the file that I tried to read.",
+    "LastUpdatedDate": "2013-02-21T17:47:46.55-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-11-24T08:44:48.113-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "IExcelDataReader.AsDataSet() returns 0 tables when spreadsheet has only 1 value.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 4734
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1740,
+      "FileName": "Book2.xlsx",
+      "DownloadUrl": ".\\1740"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I have a protected excel 97-2003 worksheet with 84 rows and 23 columns and I get the same error. Works fine if I save it as excel 2007.",
+      "PostedDate": "2009-12-07T06:23:18.753-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have a protected excel 97-2003 worksheet with 84 rows and 23 columns and I get the same problem (no data tables). Works fine if I save it as excel 2007.",
+      "PostedDate": "2009-12-07T06:23:51.69-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Further investigation shows that this seems to be specific to the excel installed. One of our Asian users from India, when they populate a spreadsheet from their pc in india (excel 2007), reading the excel file returns no rows, but if they populate a spreadsheet here in the uk (excel 2007), it returns rows.\r\nMaybe something to do with the default language or office service pack installed",
+      "PostedDate": "2009-12-10T02:45:32.033-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I managed to fix it (or rather was able to put something in that got it working, without really understanding why it works)\r\nIn ExcelBinaryReader, replace readworksheetglobals with....\r\n\r\n\r\n        private XlsBiffIndex GetIndex(XlsWorksheet sheet, bool isFirstIteration)\r\n        {\r\n            m_stream.Seek((int)sheet.DataOffset, SeekOrigin.Begin);\r\n\r\n            XlsBiffBOF bof = m_stream.Read() as XlsBiffBOF;\r\n\r\n            XlsBiffIndex idx = null;\r\n\r\n            if (bof == null || bof.Type != BIFFTYPE.Worksheet) return null;\r\n\r\n            idx = m_stream.Read() as XlsBiffIndex;\r\n\r\n            if (null == idx)\r\n            {\r\n                if (isFirstIteration)\r\n                    return GetIndex(sheet, false);\r\n                return m_stream.Read() as XlsBiffIndex;\r\n            }\r\n\r\n            return idx;\r\n        }\r\n\r\n\t\tprivate bool readWorkSheetGlobals(XlsWorksheet sheet, out XlsBiffIndex idx)\r\n\t\t{\r\n            idx = GetIndex(sheet, true);\r\n\r\n            if (null == idx)\r\n                return false;\r\n\r\n\t\t\tidx.IsV8 = isV8();\r\n\r\n\t\t\tXlsBiffRecord trec;\r\n\t\t\tXlsBiffDimensions dims = null;\r\n\r\n\t\t\tdo\r\n\t\t\t{\r\n\t\t\t\ttrec = m_stream.Read();\r\n\t\t\t\tif (trec.ID == BIFFRECORDTYPE.DIMENSIONS)\r\n\t\t\t\t{\r\n\t\t\t\t\tdims = (XlsBiffDimensions)trec;\r\n\t\t\t\t\tbreak;\r\n\t\t\t\t}\r\n\r\n\t\t\t} while (trec != null && trec.ID != BIFFRECORDTYPE.ROW);\r\n\r\n\t\t\tm_maxCol = 256;\r\n\r\n\t\t\tif (dims != null)\r\n\t\t\t{\r\n\t\t\t\tdims.IsV8 = isV8();\r\n\t\t\t\tm_maxCol = dims.LastColumn - 1;\r\n\t\t\t\tsheet.Dimensions = dims;\r\n\t\t\t}\r\n\r\n\t\t\tm_maxRow = (int)idx.LastExistingRow;\r\n\r\n\t\t\tif (idx.LastExistingRow <= idx.FirstExistingRow)\r\n\t\t\t{\r\n\t\t\t\treturn false;\r\n\t\t\t}\r\n\r\n\t\t\tm_depht = 0;\r\n\r\n\t\t\treturn true;\r\n\t\t}",
+      "PostedDate": "2009-12-10T06:14:20.73-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-02-22T04:12:11.443-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've also had this problem and it seems that it is related to the SheetID property. In my excel 2007 file I have only one sheet and this sheet has an ID = 2, however on my harddrive in the unpacked workbook folder there is no sheet2.xml file, only sheet1.xml exists. Also if you open the workbook file in a hex editor ther is no /xl/sheet2.xml element in it, only /xl/sheet1.xml. What should be used to get the correct file is the RID property. It will contain the corect index for the file name.\r\n\r\nI've done some tests and it works on my machine. I've modified the code like this:\r\n\r\nIn XlsxWorksheet:\r\n\r\npublic int FileId\r\n{\r\n\tget\r\n\t{\r\n\t\treturn GetRID(_rid);\r\n\t}\r\n}\r\n\r\nprivate int GetRID(string ridS)\r\n{\r\n\tint rid = 0;\r\n\tMatch match;\r\n\tif ((match = Regex.Match(ridS, @\"\\w+(?<ReadId>\\d+)\", RegexOptions.ExplicitCapture)).Success)\r\n\t{\r\n\t\tint.TryParse(match.Groups[\"ReadId\"].Value, out rid);\r\n\t}\r\n\r\n\treturn rid;\r\n}\r\n\r\nIn ExcelOpenXmlReader:\r\n\r\nprivate void ReadSheetGlobals(XlsxWorksheet sheet)\r\n{\r\n\t_sheetStream = _zipWorker.GetWorksheetStream(sheet.FileId);\r\n        // the rest of the code is the same\r\n\r\n}",
+      "PostedDate": "2010-02-22T06:49:58.673-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2011-09-29T04:41:55.927-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:46.55-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am getting this Error while reading a file.\n\nWe can see the data when we open the file in Openoffice 3.3.0.\n\nNote : This file was generated from dataTable Using EEPLUS(epplus.codeplex.com)",
+    "LastUpdatedDate": "2013-02-21T17:47:30.833-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-12-21T02:18:35.223-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Cannot find central directory",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 11455
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4392,
+      "FileName": "ExcelDemo.xlsx",
+      "DownloadUrl": ".\\4392"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "When you open this file in excel it tells you it cannot open it. Then it tries to repair it and does subsequently open it.\n\"Excel found unreadable content\"\"\nSo, I it seems that EPPLUS is not outputing a very good xlsx file. \r\n\r\nLooking for this issue in EPPlus I found this\nhttp://epplus.codeplex.com/discussions/265191\nSo it may be worth looking at how you have generated the file.",
+      "PostedDate": "2012-12-21T07:19:02.09-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I am also getting this error.  I am using .XLSM documents created in Excel.  I have 100 of these documents all derived from the same template.  I loop through a directory to process them all.  Of the 100, about 20 will open and read fine.  The rest report \"Cannot Find Central Directory\".  \r\n\r\nIt appears it is coming from the Excel.Core.ZipWorker class which is a property of Excel.ExcelOpenXMLReader.  I think it has something to do with the TempPath directory.  I have checked the temp directory it is looking for at run time and it does not exist.  An example of this path is C:\\Users\\user_name\\AppData\\Local\\Temp\\TMP_Z130035634396911380.  The path exists up until the Temp folder and there are tons of TMP_* folders present, but none of them with that ID number.  Any ideas?\r\n\r\nhttp://i.imgur.com/0jAz7em.png?1\n",
+      "PostedDate": "2013-01-24T21:05:30.52-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-01-24T21:10:19.737-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Are you able to attach a file that shows this behaviour? Or you can private\nmessage me if you don't want the file online.\r\n\r\nCheers\nIan",
+      "PostedDate": "2013-01-25T02:45:22.587-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have found that this must be related to some kind of permissions issue on reading the files.  Not NTFS permissions but some kind of UAC permissions, because these files came from someone else's computer perhaps?\r\n\r\nIf I open the files in Excel, then immediately close them, it asks me if I want to save changes (even though I didn't make any).  If I say \"Yes\", the files will open fine using ExcelDataReader after that.  Weird...",
+      "PostedDate": "2013-01-25T08:30:30.023-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:30.833-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

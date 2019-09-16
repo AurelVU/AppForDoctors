@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In ZipWorker.Extract, any exceptions when reading the zip file are caught.\n\nSure, I can check whether ExceptionMessage has been set, but the examples don't show that, and other problems generate real exceptions, as far as I can tell.\n\nWouldn't it be better, if the ZipWorker re-throws the exception, after doing its cleanup?",
+    "LastUpdatedDate": "2013-07-12T03:21:16.523-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-07-12T03:21:16.523-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Exceptions from reading zip in danger of getting ignored",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11935
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

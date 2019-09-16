@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am using below code to get all excelsheel sheet data.\n\nIExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n                    excelReader.IsFirstRowAsColumnNames = true;                    \n                    DataSet result = excelReader.AsDataSet();\n                    excelReader.IsFirstRowAsColumnNames = false;                    \n                    dtExcelSheetData = result.Tables[SheetName];\n\nBut I want add my own column names.",
+    "LastUpdatedDate": "2017-01-02T00:20:29.2-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2017-01-02T00:19:31.91-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "How to Add New Header Names?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 14026
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "We are trying to import the xls file which is created in Excel 2010 and saved as .xls format. We are not able to import the file. We are getting the below error\nSystem.ArgumentOutOfRangeException: Specified argument was out of the range of valid values. Parameter name: offset at System.Web.HttpInputStream.Seek(Int64 offset, SeekOrigin origin)",
+    "LastUpdatedDate": "2013-09-18T00:09:07.72-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-09-18T00:09:06.343-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Not able to import xls file saved in Excel 2010 as xls file",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12188
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4683,
+      "FileName": "TestSL.xls",
+      "DownloadUrl": ".\\4683"
+    }
+  ],
+  "Comments": []
+}

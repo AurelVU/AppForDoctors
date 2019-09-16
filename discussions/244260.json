@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "559188",
+    "ThreadId": "244260",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I suggest to extend the ReadSheetRow(XlsxWorksheet sheets) method with nicer date and time output:</p>\r\n<p>if (((DateTime)o).Year == 1899 &amp;&amp; ((DateTime)o).Month == 12 &amp;&amp; ((DateTime)o).Day == 30)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o = ((DateTime)o).ToShortTimeString();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o = ((DateTime)o).ToShortDateString();</p>\r\n<p>What do you think?</p>\r\n",
+    "PostedDate": "2011-02-02T00:20:56.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

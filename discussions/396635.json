@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "916554",
+    "ThreadId": "396635",
+    "Html": "\r\n<p>Hi All,</p>\r\n<p>How could i read selected column data in a specific excel sheet.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks.&nbsp;</p>\r\n",
+    "PostedDate": "2012-09-24T02:48:29.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027214",
+    "ThreadId": "396635",
+    "Html": "Try using DataSet, something like<br />\n<pre><code>using(IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream)) {\n    DataSet result = excelReader.AsDataSet(); // populate to result\n    var dt = ds.Tables[&quot;FooTable&quot;];\n    foreach (DataRow dr in dt.Rows)\n    {\n       var magicalPonyData = dr[&quot;Column1&quot;].ToString();\n        // do something with your magical data\n    }\n}</code></pre>\n\n",
+    "PostedDate": "2013-04-08T06:54:41.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

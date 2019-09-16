@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "630897",
+    "ThreadId": "262262",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I have moved from the development environment to the server &amp; am getting errors when creating or running the ExcelReaderFactory.</p>\r\n<p>As I said, works perfectly on the dev environment.</p>\r\n<p>I have set the permissions of the app folder/framework folder but still no good.</p>\r\n<p>Are their any dependencies required by this object.</p>\r\n<p>Any ideas as to what could be going wrong?</p>\r\n<p>&nbsp;</p>\r\n<p>Regards<span style=\"color:#008000; font-size:x-small\"><span style=\"color:#008000; font-size:x-small\"></span></span></p>\r\n&nbsp;",
+    "PostedDate": "2011-06-21T20:52:22.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

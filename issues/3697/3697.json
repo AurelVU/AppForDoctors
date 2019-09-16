@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Resolved in the last release version.",
+    "ClosedDate": "2009-08-24T14:12:48.503-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi i use this dll and i have a problem abaut dates.In excel i have column format date and its value = 31.07.2009\n \nBut when i get to dataset its value become 40055 so the date value is wrong.\n \nHow can i solve this problem",
+    "LastUpdatedDate": "2013-05-16T05:00:02.57-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-08-05T01:43:26.067-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Turkish Date Format",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 3697
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

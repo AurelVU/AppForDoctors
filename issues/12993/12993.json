@@ -1,0 +1,86 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "We are facing issue with date in .xls file.When we read the file using  ExcelReaderFactory.CreateBinaryReader() all the dates availed in excel file converting to a number.\n\nDll version we are using is 2.1.2.0\n\nHow can we solve this issue any idea?\nCheck the attachment to get better idea.\n\n\ncode we used :\n public DataTable getDataTableOfExcel(Stream stream, string filename, bool IsFirstRowHasHeader)\n        {\n            try\n            {               \n                IExcelDataReader excelReader = null;\n                FileInfo fileInfo = new FileInfo(filename);\n                if (fileInfo.Extension.ToLower().Equals(\".xls\"))\n                    //1. Reading from a binary Excel file ('97-2003 format; *.xls)\n                    excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n                else\n                    //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)\n                    excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n\n                excelReader.IsFirstRowAsColumnNames = IsFirstRowHasHeader;\n                DataSet ds = excelReader.AsDataSet();               \n                DataTable dt = ds.Tables[0].Copy();\n                return dt;\n            }\n            catch (Exception ex)\n            {\n                Logger.logError(logforimportrecipients, ex);\n                throw ex;\n            }\n        }",
+    "LastUpdatedDate": "2015-02-02T08:44:59.283-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-05-03T06:04:02.663-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Date issue with ExcelReaderFactory.CreateBinaryReader()",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12993
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4982,
+      "FileName": "ActualDataInFile.PNG",
+      "DownloadUrl": ".\\4982"
+    },
+    {
+      "FileId": 4983,
+      "FileName": "DataTablePreview.PNG",
+      "DownloadUrl": ".\\4983"
+    },
+    {
+      "FileId": 4984,
+      "FileName": "IssuePic.PNG",
+      "DownloadUrl": ".\\4984"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "\nI think you can solve your problem by either \r\n\r\na) using the following method from ExcelReaderFactory to create the binary reader:\r\n\r\n```\npublic static IExcelDataReader CreateBinaryReader(Stream fileStream, bool convertOADate)\n```\r\n\r\nwith convertOADate set to true.\r\n\r\nOR\r\n\r\nb) retrieving the data set using method\r\n\r\n```\n/// <summary>\n///Read all data in to DataSet and return it\n/// </summary>\n/// <param name=\"convertOADateTime\">if set to <c>true</c> [try auto convert OA date time format].</param>\n/// <returns>The DataSet</returns>\nDataSet AsDataSet(bool convertOADateTime);\n```\r\n\r\nagain with convertOADateTime set to true.",
+      "PostedDate": "2014-05-05T06:48:58.517-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-05-06T04:33:24.753-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thank you for you reply.\nI am using the code as you given above(i.e  using bool  convertOADate option) but still same issue.\nCan you check my code once here,\n---------------------------------------------\nFileStream Stream = new FileStream(Path.Combine(\"E:\\\\\", \"DOB_Test_XLS.xls\"), FileMode.Open, FileAccess.Read);    \n            IExcelDataReader excelReader = null;\n            FileInfo fileInfo = new FileInfo(\"DOB_Test_XLS.xls\");\n            if (fileInfo.Extension.ToLower().Equals(\".xls\"))\n                //1. Reading from a binary Excel file ('97-2003 format; *.xls)\n                excelReader = ExcelReaderFactory.CreateBinaryReader(Stream, true);\n            else\n                //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)\n                excelReader = ExcelReaderFactory.CreateOpenXmlReader(Stream);\r\n\r\n            excelReader.IsFirstRowAsColumnNames = false;\n            DataSet ds = excelReader.AsDataSet();  \n--------------------------------------------------------\nam i doing any mistake here?\nAnd i can't use 2nd way(retrieving the data set using method), because the file may contains minimum of 500k records .This raises performance issue again to convert all values to date time.\r\n\r\n",
+      "PostedDate": "2014-05-06T04:33:25.833-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I got the expected result finally just by doing change in this line.\r\n\r\nDataSet ds = excelReader.AsDataSet(true); \r\n\r\nthank you\r\n\r\n",
+      "PostedDate": "2014-05-06T05:36:10.393-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I am facing a similar issue wherein the dates from my Excel are not being read properly.\r\n\r\nI followed the suggestions mentioned above, but the issue still persists. Can anyone please help?\r\n\r\nThanks.",
+      "PostedDate": "2014-09-05T16:39:28.64-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I had to use the Boolean flag for converting dates both when creating the reader and extracting the data set.  When I did this it worked.\n.\n.\n.\n            IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(file.InputStream, true);\r\n\r\n            excelReader.IsFirstRowAsColumnNames = true;\n            DataSet result = excelReader.AsDataSet(true);\n.\n.\n.",
+      "PostedDate": "2015-02-02T08:44:59.283-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

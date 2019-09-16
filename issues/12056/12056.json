@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\nit would be great if you could remove the ICSharpCode.SharpZipLib dependency and use the 4.5 ZipFile and ZipArchive instead:\nhttp://msdn.microsoft.com/en-us/library/system.io.compression.ziparchive.aspx\nhttp://msdn.microsoft.com/en-us/library/system.io.compression.zipfile.aspx",
+    "LastUpdatedDate": "2014-05-04T19:11:20.76-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-08-20T15:30:29.94-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Remove ICSharpCode.SharpZipLib dependency",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 4,
+    "Id": 12056
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "So that would work only for .NET 4.5 and above. But it'd be great.",
+      "PostedDate": "2013-09-24T16:52:35.947-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-02-27T07:59:23.987-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-05-04T19:11:20.76-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

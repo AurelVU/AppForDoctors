@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "693441",
+    "ThreadId": "278243",
+    "Html": "\r\n<p>Files that are downloaded from the internet may be in &quot;Read Only&quot; mode.&nbsp; When you open them in excel you get the &quot;Protected View&quot; bar at the top with &quot;Enable Editing&quot; button.</p>\r\n<p>Unless I click that button, I am not able to get Excel Data Reader to open these files.</p>\r\n<p>When attempting to do the first .Read() operation I get this:</p>\r\n<p>System.NullReferenceException: Object reference not set to an instance of an object.<br>\r\n&nbsp;&nbsp; at Excel.ExcelBinaryReader.findFirstDataCellOffset(Int32 startOffset)<br>\r\n&nbsp;&nbsp; at Excel.ExcelBinaryReader.initializeSheetRead()<br>\r\n&nbsp;&nbsp; at Excel.ExcelBinaryReader.Read()</p>\r\n<p>Is there any way around these?</p>\r\n",
+    "PostedDate": "2011-11-03T10:04:16.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090087",
+    "ThreadId": "278243",
+    "Html": "&quot;Is there any way around these?&quot; \r<br />\ni am in the same trouble!<br />\n",
+    "PostedDate": "2013-09-09T01:40:16.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

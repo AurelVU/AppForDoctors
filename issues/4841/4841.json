@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The shared strings parser \"ReadSharedStrings\" in XlsxWorkbook.cs simple breaks on elements with name \"t\".\nThis doesn't work for shared strings which start with the <r> tag:\nExample xml:\n \n<r>\n- <rPr>\n  <sz val=\"8\" /> \n  <rFont val=\"바탕\" /> \n  <family val=\"1\" /> \n  <charset val=\"129\" /> \n  </rPr>\n  <t>를</t> \n  </r>\n- <r>\n- <rPr>\n  <sz val=\"8\" /> \n  <rFont val=\"Verdana\" /> \n  <family val=\"2\" /> \n  </rPr>\n  <t xml:space=\"preserve\"></t> \n  </r>\n- <r>\n- <rPr>\n  <sz val=\"8\" /> \n  <rFont val=\"바탕\" /> \n  <family val=\"1\" /> \n  <charset val=\"129\" /> \n  </rPr>\n  <t>사용하여</t> \n  </r>",
+    "LastUpdatedDate": "2013-02-21T17:47:46.353-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-12-08T16:34:23.61-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "2007 xlsx support -- doesn't support sharedStrings",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 4841
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

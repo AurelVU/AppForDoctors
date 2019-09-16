@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1200049",
+    "ThreadId": "528120",
+    "Html": "I clear formating and nothing.<br />\nI formating numeric with 2 decimal and nothing<br />\nnot get decimal number.<br />\nIn the column excel &quot;0,2&quot;<br />\nin the dataset visualizatos &quot;2&quot;<br />\n<br />\nwhat is the problem. ?<br />\n",
+    "PostedDate": "2014-01-28T10:02:06.617-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1200338",
+    "ThreadId": "528120",
+    "Html": "i change the excel<br />\n",
+    "PostedDate": "2014-01-29T01:26:28.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1200460",
+    "ThreadId": "528120",
+    "Html": "So, is this issue resolved?<br />\n",
+    "PostedDate": "2014-01-29T06:13:43.997-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1200486",
+    "ThreadId": "528120",
+    "Html": "not \r<br />\n<br />\nI changed the excel column and I have removed the decimals.<br />\nI set integers\r<br />\n<br />\n&quot;0,2&quot; for &quot;20&quot;<br />\n",
+    "PostedDate": "2014-01-29T07:09:38.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

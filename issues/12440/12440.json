@@ -1,0 +1,76 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Getting an ArgumentOutOfRangeException as soon as I try the CreateBinaryReader method:\n\n```\n        private void CPImport2003(Account account, HttpPostedFile file, ResponseArg response)\n        {\n            using (IExcelDataReader dr = ExcelReaderFactory.CreateBinaryReader(file.InputStream)) \n            {\n                DataSet ds = dr.AsDataSet();\n            }\n        }\n```\n\nHere's the stack trace from VS 2010\n\n```\n   at System.Web.HttpInputStream.Seek(Int64 offset, SeekOrigin origin)\n   at Excel.Core.BinaryFormat.XlsFat..ctor(XlsHeader hdr, List`1 sectors, Int32 sizeOfSector, Boolean isMini, XlsRootDirectory rootDir) in c:\\development\\eapidemo\\third-party\\ExcelDataReader\\ExcelDataReader\\Excel\\Core\\BinaryFormat\\XlsFat.cs:line 52\n   at Excel.Core.BinaryFormat.XlsHeader.GetMiniFAT(XlsRootDirectory rootDir) in c:\\development\\eapidemo\\third-party\\ExcelDataReader\\ExcelDataReader\\Excel\\Core\\BinaryFormat\\XlsHeader.cs:line 177\n   at Excel.Core.BinaryFormat.XlsStream..ctor(XlsHeader hdr, UInt32 startSector, Boolean isMini, XlsRootDirectory rootDir) in c:\\development\\eapidemo\\third-party\\ExcelDataReader\\ExcelDataReader\\Excel\\Core\\BinaryFormat\\XlsStream.cs:line 26\n   at Excel.Core.BinaryFormat.XlsRootDirectory..ctor(XlsHeader hdr) in c:\\development\\eapidemo\\third-party\\ExcelDataReader\\ExcelDataReader\\Excel\\Core\\BinaryFormat\\XlsRootDirectory.cs:line 21\n   at Excel.ExcelBinaryReader.readWorkBookGlobals() in c:\\development\\eapidemo\\third-party\\ExcelDataReader\\ExcelDataReader\\Excel\\ExcelBinaryReader.cs:line 154\n   at Excel.ExcelBinaryReader.Initialize(Stream fileStream) in c:\\development\\eapidemo\\third-party\\ExcelDataReader\\ExcelDataReader\\Excel\\ExcelBinaryReader.cs:line 872\n   at Excel.ExcelReaderFactory.CreateBinaryReader(Stream fileStream) in c:\\development\\eapidemo\\third-party\\ExcelDataReader\\ExcelDataReader\\Excel\\ExcelReaderFactory.cs:line 22\n   at Kpa.Web.Helpers.FileUploadHandler.CPImport2003(Account account, HttpPostedFile file, ResponseArg response) in C:\\dev\\MKO\\KpaWeb\\Kpa.Web\\Helpers\\FileUploadHandler.cs:line 441\n   at Kpa.Web.Helpers.FileUploadHandler.HandleCPImport(String parentId, HttpPostedFile file, ResponseArg response) in C:\\dev\\MKO\\KpaWeb\\Kpa.Web\\Helpers\\FileUploadHandler.cs:line 341\n   at Kpa.Web.Helpers.FileUploadHandler.ProcessRequest(HttpContext context) in C:\\dev\\MKO\\KpaWeb\\Kpa.Web\\Helpers\\FileUploadHandler.cs:line 98\n```\n\nAnd the simple test spreadsheet I'm trying to read in.\n\nNote that I've got an HttpPostedFile to build the InputStream from.   Also note that this version was created by saving as Excel97-2003 Workbook from a newer version of Excel.\n\nI'd just downloaded the Excel Data Reader dll from CodePlex, so it shouldn't be an out-of-date problem.",
+    "LastUpdatedDate": "2013-11-10T16:58:22.72-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-11-06T14:10:56.503-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ArgumentOutOfRange creating binary reader",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12440
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4743,
+      "FileName": "CPImport2003.xls",
+      "DownloadUrl": ".\\4743"
+    },
+    {
+      "FileId": 4745,
+      "FileName": "Rapidline pricing.xls",
+      "DownloadUrl": ".\\4745"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "BTW, I backed up to v 2.0.1 and get past the CreateBinaryReader problem.  This works both with the MemoryStream or if I use my HttpPostedFile's InputStream directly.\r\n\r\nSo, a little mess-up in v 2.1 I guess?\r\n\r\nAnyway, I think this will be enough to allow me to press on trying to use the DataReader.",
+      "PostedDate": "2013-11-06T14:37:46.433-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Yes, 2.1 added support for more variants of xls (following the spec), but some of these require being able to jump around in the file. This should be revisited to see if it can retain support and not break non-seekable streams",
+      "PostedDate": "2013-11-08T04:39:13.677-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-11-10T16:57:38.27-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi,\r\n\r\nI believe I have the same issue. When I try to run the following with the attached XLS file:\r\n\r\n```\nusing (var fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read))\n{\n    IExcelDataReader excelReader = null;\n    if (importExportDefinition.ImportExportFormat == ImportExportFormat.XLSX)\n    {\n        excelReader = ExcelReaderFactory.CreateOpenXmlReader(fileStream);\n    }\n    else if (importExportDefinition.ImportExportFormat == ImportExportFormat.XLS)\n    {\n        excelReader = ExcelReaderFactory.CreateBinaryReader(fileStream);\n    }\n```\r\n\r\nI get this error:\r\n\r\n```\nSystem.ArgumentOutOfRangeException occurred\n  HResult=-2146233086\n  Message=Non-negative number required.\nParameter name: count\n  Source=mscorlib\n  ParamName=count\n  StackTrace:\n       at System.Text.EncodingNLS.GetString(Byte[] bytes, Int32 index, Int32 count)\n       at Excel.Core.BinaryFormat.XlsBiffSST.ReadStrings()\n       at Excel.ExcelBinaryReader.readWorkBookGlobals()\n       at Excel.ExcelBinaryReader.Initialize(Stream fileStream)\n       at Excel.ExcelReaderFactory.CreateBinaryReader(Stream fileStream)\n       at Readysell.Module.BusinessLogic.ImportExport.ImportExportHelper.ImportFile(UnitOfWork unitOfWork, ImportExportDefinition importExportDefinition, String fileName) in c:\\Users\\Adam\\Documents\\Visual Studio 2013\\Projects\\Readysell.beta\\Readysell.Module\\BusinessLogic\\ImportExport\\ImportExportHelper.cs:line 249\n  InnerException: \n```",
+      "PostedDate": "2013-11-10T16:57:39.517-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-11-10T16:58:22.72-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

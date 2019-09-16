@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1425294",
+    "ThreadId": "637935",
+    "Html": "Hello,\r<br />\nI am new using this cool utility and since I am reading heavy documents I cannot use the function &quot;AsDataSet()&quot;.\r<br />\nHow can I obtain the sheet name of the current sheet that I am looping through?<br />\n<pre><code>Excel.IExcelDataReader r;\n            if (string.Compare(ext, &quot;.xls&quot;) == 0) r = Excel.ExcelReaderFactory.CreateBinaryReader(file.InputStream, Excel.ReadOption.Loose);\n            else r = Excel.ExcelReaderFactory.CreateOpenXmlReader(file.InputStream);\n\n            do\n            {\n                // Some initialization stuff\n             \n                //Loop through data sheet\n                while (r.Read())\n                {\n                   //Logic\n                }\n            } while (r.NextResult());</code></pre>\n\n",
+    "PostedDate": "2015-05-13T14:41:11.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1425296",
+    "ThreadId": "637935",
+    "Html": "I just found out there is a property called &quot;Name&quot; which is the sheetname of my current result.\r<br />\n<br />\nSorry for any inconvenience<br />\n",
+    "PostedDate": "2015-05-13T15:05:07.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-05-13T15:05:12.127-07:00"
+  }
+]

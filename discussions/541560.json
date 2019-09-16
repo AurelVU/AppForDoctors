@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1231687",
+    "ThreadId": "541560",
+    "Html": "My Excelsheet looks like this:\r<br />\n<br />\n<a href=\"http://cdn.imghack.se/images/cdc24215d3d5079628a58878520c3028.png\" rel=\"nofollow\">http://cdn.imghack.se/images/cdc24215d3d5079628a58878520c3028.png</a>\r<br />\n<br />\n<br />\nHere is the part of my method that matters:<br />\n<pre><code>[HttpPost]\n    public ActionResult ShowExcelFile(GetExcel model)\n    {\n        DataSet result = null;\n            var file = model.Files[0];\n            if (file != null &amp;&amp; file.ContentLength &gt; 0)\n            {\n                // .xlsx\n                IExcelDataReader reader = ExcelReaderFactory.CreateOpenXmlReader(file.InputStream);\n\n                // .xls\n                //IExcelDataReader reader = ExcelReaderFactory.CreateBinaryReader(file.InputStream);\n\n                reader.IsFirstRowAsColumnNames = true; // if your first row contains column names\n                result = reader.AsDataSet();\n                reader.Close();\n            }\n\n            for (int i = 1; i &lt; result.Tables[0].Rows.Count; i++)\n            {\n                DataRow data = result.Tables[0].Rows[i];\n                System.Diagnostics.Debug.Write(data.Table.Rows[i][&quot;Amortization&quot;]);\n            }\n        return View(&quot;ShowExcelFile&quot;);\n        }\n</code></pre>\n\nSystem.Diagnostics.Debug.Write gives me no output, like &quot;Amortization&quot; doesn't exist.\r<br />\n<br />\nMy model:<br />\n<pre><code>public class GetExcel\n    {\n        public List&lt;HttpPostedFileBase&gt; Files { get; set; }\n\n        public GetExcel()\n        {\n            Files = new List&lt;HttpPostedFileBase&gt;();\n        }\n    }\n</code></pre>\n\nMy HTML:<br />\n<pre><code>@using (Html.BeginForm(&quot;ShowExcelFile&quot;, &quot;ShowExcel&quot;, FormMethod.Post, new { enctype = &quot;multipart/form-data&quot; }))\n        {\n            @Html.TextBoxFor(m =&gt; m.Files, new { type = &quot;file&quot;, name = &quot;Files&quot; })&lt;br /&gt;\n            &lt;input type=&quot;submit&quot; value=&quot;Upload file&quot; /&gt;\n        }\n</code></pre>\n\nBut when I use this Excelsheet:\r<br />\n<br />\n<a href=\"http://cdn.imghack.se/images/1fd5dab2a891c3adda8cd33114ef07c1.png\" rel=\"nofollow\">http://cdn.imghack.se/images/1fd5dab2a891c3adda8cd33114ef07c1.png</a>\r<br />\n<br />\nIt works fine and I get all values from column &quot;Amortization&quot; in output. Both files are .xlsx\r<br />\n<br />\nCan anyone help me with this?<br />\n",
+    "PostedDate": "2014-04-08T00:43:24.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1232178",
+    "ThreadId": "541560",
+    "Html": "If you download the latest code. There is a test app, which will open any excel sheet you give it. Try both sheets with this and see if they work the same.\r<br />\n<br />\nIf they don't then either you could try stepping through the code to see where the difference is, or perhaps unzip the xlsx's and inspect the contents.\r<br />\nor you can upload copies of the files here in an issue, and I may be able to take a look at them at some point. However, I am extremely busy so I wouldn't be able to look at anything soon.<br />\n",
+    "PostedDate": "2014-04-09T01:36:47.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1238535",
+    "ThreadId": "541560",
+    "Html": "Hi krillezzz<br />\nI have just been digging about in your code. I think the issue is that you set data to be a single row <br />\n<pre><code>                DataRow data = result.Tables[0].Rows[i];\n                System.Diagnostics.Debug.Write(data.Table.Rows[i][&quot;Amortization&quot;]);</code></pre>\n\nThen access a Table within that row and rows within that table. I have tried <br />\n<pre><code>                    string val = data[1].ToString();</code></pre>\n\nand that works.<br />\n<pre><code>                   string nval = data[&quot;Title&quot;].ToString();</code></pre>\n\nAlso works<br />\n",
+    "PostedDate": "2014-04-27T09:37:27.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

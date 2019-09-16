@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "migrated to github",
+    "ClosedDate": "2014-08-05T02:04:23.96-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When I try to read a corrupted .xls file (with a part of file accidentally lost), my application hangs in an infinite loop, while I expect it to fail with some exception. As I use the library in a web application, such behavior can slow down the server greatly. It also creates a vulnerability to DDOS attacks. An example corrupted file is attached.\n\nThis issue can only be reproduced in \"Any CPU\" or \"x64\" build mode, as in \"x86\" OutOfMemory exception is thrown.\n\n__Issue reason:__\nI have discovered that the apllication loops in a \"do while\" cycle in XlsStream.ReadStream. The fat.GetNextSector never returns FATMARKERS.FAT_EndOfChain, so the loop never stops.\n\n__Fix proposal:__\nInfinite loop can easily be avoided by analyzing the return value of m_fileStream.Read call (the number of bytes read from file). When the file is read to end, m_fileStream.Read returns zero, and it means that we can exit the loop. So I added additional check to the \"while\" statement.\nWith such fix, an attempt to read a corrupted file results in an \"ArgumentOutOfRange\" exception thrown somewhere further in code. This is way better than a hang; however, the thrown exception is not informative. I guess we can throw an exception about file corruption explicitly when we get \"zero\" from m_fileStream.Read, but I'm not sure that in normal operation such situation can never happen (I just don't know the ExcelDataReader inner structure well enough). I have attached both variants of the fix.\n\nCan the fix be added to the trunk version? Should I upload the patch in the \"Source Code\" section?\n\nThanks!",
+    "LastUpdatedDate": "2014-08-05T02:04:23.96-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-06-18T06:33:10.31-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "XlsStream.ReadStream hangs on corrupted file",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13090
+  },
+  "FileAttachments": [
+    {
+      "FileId": 5004,
+      "FileName": "XlsStream issue.zip",
+      "DownloadUrl": ".\\5004"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Thanks. I'll take a look at it as soon as I get some time.",
+      "PostedDate": "2014-06-23T09:29:47.34-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-06-23T09:30:09.517-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-08-05T02:04:23.96-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

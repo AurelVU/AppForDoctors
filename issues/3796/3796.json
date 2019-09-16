@@ -1,0 +1,81 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When testing this component against an Excel 2007 Workbook with 4 sheets containing data, only 2 were visible. I tried AsDataSet which contained just two tables and also using .NextResult and .Read which iterated through just two sheets. Is this a limitation of the component?",
+    "LastUpdatedDate": "2013-02-21T17:47:47.573-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-08-20T03:05:08.46-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Number of worksheets visible in Excel2007 seems limited to 2",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 3796
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1369,
+      "FileName": "WindowsApplication2.zip",
+      "DownloadUrl": ".\\1369"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Could you please provide a sample file?",
+      "PostedDate": "2009-08-24T14:32:41.527-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have included a VS2008 project and a sample spreadsheet (Excel2007) with 3 sheets with data and one with no data. The application only seems to see two of the sheets.\r\nMany thanks for your attention",
+      "PostedDate": "2009-08-25T02:11:26.653-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-08-25T02:11:28.217-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have the same problem, also with an excel 2007 file. The problem is that the ExcelOpenXmlReader reads the wronge range from sheet 3 (procedure ReadSheetGlobals)",
+      "PostedDate": "2009-09-21T02:05:53.53-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "i got nearly the same problem and issued it.\r\nthe problem is, that the sheetId from the excel workbook (xl\\\\workbook.xml) has automatic continued sheet ids. when you delete some sheets and create some new ones, there are always new ids generated.\r\nthese ids are used in the lib to generate the sheetname (sheet<n>.xml in xl\\\\worksheets), but the sheetname ids are always continued from 1 till x and are not corresponding with the sheet ids from the workbook.xml.\r\n\r\ni will try to fix this bug, with changing the id saving mechanism for a worksheet in XlsxWorkbook.cs/ReadWorkbook(stream xmlFileStream)",
+      "PostedDate": "2009-11-05T05:44:30.573-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "my short workaround was the following bugfix:\r\n\r\nprivate void ReadWorkbook(Stream xmlFileStream)\r\n\t\t{\r\n\t\t\tsheets = new List<XlsxWorksheet>();\r\n\r\n\t\t\tusing (XmlReader reader = XmlReader.Create(xmlFileStream))\r\n\t\t\t{\r\n                // sheet names start with 1 (sheet1.xml, sheet2.xml etc.)\r\n                int sheetId = 1;\r\n\t\t\t\twhile (reader.Read())\r\n\t\t\t\t{\r\n\t\t\t\t\tif (reader.NodeType == XmlNodeType.Element && reader.Name == N_sheet)\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t/*sheets.Add(new XlsxWorksheet(\r\n\t\t\t\t\t\t\t\t\t\t\t   reader.GetAttribute(A_name),\r\n\t\t\t\t\t\t\t\t\t\t\t   int.Parse(reader.GetAttribute(A_sheetId)), reader.GetAttribute(A_rid)));\r\n                        */\r\n                        sheets.Add(new XlsxWorksheet(\r\n                                       reader.GetAttribute(A_name),\r\n                                       sheetId++,\r\n                                       reader.GetAttribute(A_rid)));\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t}\r\n\r\n\t\t\t\txmlFileStream.Close();\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\ni replaced the sheet id from the workbook file with a simple loop id.",
+      "PostedDate": "2009-11-05T05:50:10.643-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:47.573-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

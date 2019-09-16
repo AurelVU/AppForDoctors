@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have a cell (lets say \"CustomerPresentation\") which contains rich texts, for example: bold font, underscored, bulleted, illalics etc. like all Rich Texts.\nI am using this code to read value from that cell and other cells into a Grid:\n \nExcel.IExcelDataReader excelReader = Excel.ExcelReaderFactory.CreateOpenXmlReader(FileUpload1.FileContent);\nFileUpload1.FileContent.Close();\nDataSet result = excelReader.AsDataSet();\nDataTable dt = result.Tables[0];\nGridView1.DataSource = dt.AsDataView();\nGridView1.DataBind();\n \nBut, those Rich text values are never read and comes as blank.\nPlease suggest some alternate way, properties to set to read those Rich Texts successfully?\n \nThanks.",
+    "LastUpdatedDate": "2013-02-21T17:47:46.163-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-12-16T18:10:28.683-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Excel Data Reader cannot read underscored text and other Rich Texts like bullets.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 4912
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

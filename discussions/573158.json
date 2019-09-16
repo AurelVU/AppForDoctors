@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1326180",
+    "ThreadId": "573158",
+    "Html": "This API can work on dot net compact framework? I got this issue &quot;Error\t2\tThe type 'System.Data.IDataRecord' is defined in an assembly that is not referenced. You must add a reference to assembly 'System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.&quot; I used dot net compact framework 2.0<br />\n",
+    "PostedDate": "2014-11-25T20:06:39.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

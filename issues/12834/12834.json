@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Empty rows (with no cell) can lead to erroneous end of sheet detection.\nPatch : ExcelBinaryReader.cs\nMethod : moveToNextRecordNoIndex()\n\nOld code :\n```\nif (record.IsCell)\n\t\t\t\t{\n\t\t\t\t\tvar candidateCell = record as XlsBiffBlankCell;\n\t\t\t\t\tif (candidateCell != null)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (candidateCell.RowIndex == m_currentRowRecord.RowIndex)\n\t\t\t\t\t\t\tcell = candidateCell;\n\t\t\t\t\t}\n\t\t\t\t}\n\n```\n\nPatched code :\n\n```\n\t\t\t\tif (record.IsCell)\n\t\t\t\t{\n\t\t\t\t\tvar candidateCell = record as XlsBiffBlankCell;\n\t\t\t\t\tif (candidateCell != null)\n\t\t\t\t\t{\n                        // if (candidateCell.RowIndex == m_currentRowRecord.RowIndex) // [jerome.raffalli]\n                        // in case of empty row no cell exists for this row, so we have to exit [jerome.raffalli]\n                        if (candidateCell.RowIndex __>=__ m_currentRowRecord.RowIndex)\n                                cell = candidateCell;\n\t\t\t\t\t}\n\t\t\t\t}\n\n```\n\nJérôme",
+    "LastUpdatedDate": "2014-03-21T12:39:20.063-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-03-21T12:39:15.523-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "binary reader not returning all rows",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12834
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4948,
+      "FileName": "Dicbug.xls",
+      "DownloadUrl": ".\\4948"
+    }
+  ],
+  "Comments": []
+}

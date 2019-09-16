@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1466739",
+    "ThreadId": "652499",
+    "Html": "Hi\r<br />\n<br />\nGreat tool - and it works a treat!\r<br />\n<br />\nHowever, when testing I could read files that were open for editing, but go the last saved version. For some reason, now I get the file as locked (Exception HResult -2147024864) whenever the user has it open.\r<br />\n<br />\nIs there any way to open the file for &quot;read only if locked&quot;?\r<br />\n<br />\nThanks in advance<br />\n",
+    "PostedDate": "2016-03-14T07:52:37.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

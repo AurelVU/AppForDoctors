@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Below issue is raised randomly in one of our server. It is replicated very randomly.\n\n Error Message :The directory is not empty.\n Error InnerException :\n Error Occured In Target :Void DeleteHelper(System.String, System.String, Boolean)\n Error StackTrace :   at System.IO.Directory.DeleteHelper(String fullPath, String userPath, Boolean recursive)\n   at System.IO.Directory.Delete(String fullPath, String userPath, Boolean recursive)\n   at ExcelFrameWork.Core.ZipWorker.CleanFromTemp()    at iSOFT.ExcelFrameWork.Core.ZipWorker.Dispose(Boolean disposing) in \\ToolsFrame\\ExcelFrameWork\\ExcelReader\\Core\\ZipWorker.cs:line 232\n   at ExcelFrameWork.Core.ZipWorker.Dispose() in \\ToolsFrame\\ToolsFrame\\ExcelFrameWork\\ExcelReader\\Core\\ZipWorker.cs:line 219\n   at ExcelFrameWork.ExcelOpenXmlReader.Close() in \\ToolsFrame\\ToolsFrame\\ExcelFrameWork\\ExcelReader\\ExcelOpenXmlReader.cs:line 351\n   at DeploymentToolsFrame.CreateExcelFile.ReadDataFromExcel(String Filename) in \\ToolsFrame\\ExcelManager\\CreateExcelFile.cs:line 208\n   at DeploymentToolsFrame.ManageExcel.Read(String ExFilePath, String tabName, String Query, String WhereCondition, DataTable& dtExcel) in \\ToolsFrame\\ToolsFrame\\ExcelManager\\ManageExcel.cs:line 264\n   at DeploymentSynchronize.ResolveSyncData.GetSyncDataTable() in \\ToolsFrame\\ToolsFrame\\Configuration\\ResolveSyncData.cs:line 184",
+    "LastUpdatedDate": "2015-03-16T04:03:09.047-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-03-16T04:01:47.41-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "The directory is not empty",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13502
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

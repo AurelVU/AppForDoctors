@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "634663",
+    "ThreadId": "263227",
+    "Html": "\r\n<p>Serious bug on reading data</p>\r\n<p>&nbsp;Reading excel file attachment is inconsistent</p>\r\n<p>I ask you to observe the first line</p>\r\n<p>815149&nbsp;&nbsp;0&nbsp;&nbsp;715171&nbsp;MARIO ROSSI&nbsp;EXCEL</p>\r\n<p>This is what I find in datatable</p>\r\n<p><br>\r\n815149&nbsp;&nbsp;0&nbsp;&nbsp;&quot;&quot;&nbsp;&quot;&quot;&nbsp;&nbsp;DATATABLE</p>\r\n<p>The numerical values are read correctly</p>\r\n<p>The other data are missing</p>\r\n<p>Why does this happen?</p>\r\n",
+    "PostedDate": "2011-06-29T03:29:40.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

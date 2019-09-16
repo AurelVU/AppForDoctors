@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "414344",
+    "ThreadId": "203865",
+    "Html": "<p>I've got an excel spreadsheet that has video data in it.&nbsp; One of the column has the following format:</p>\r\n<p>mm:ss:ff</p>\r\n<p>where mm is the minute, ss is the second and ff is the frame of the video.&nbsp; Displays just fine in Excel, but when I read it, it gets converted to a floating point value.</p>\r\n<p>Unfortunately, I have a number of these to read and the location of the field is not always the same column.&nbsp; Is there some way to read everything in as a string instead of having it change the data on me?</p>\r\n<p>Everything else reads just fine.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2010-03-04T13:13:51.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

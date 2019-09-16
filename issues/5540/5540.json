@@ -1,0 +1,76 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi\nTry to open attached file. \nR8C6 cell has value (TOYOTA) – but when using excelReader.AsDataSet() method the cell is empty.\nThank you, in advance.",
+    "LastUpdatedDate": "2013-02-21T17:47:44.763-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-02-28T09:56:46.153-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Incorrect empty value",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 5540
+  },
+  "FileAttachments": [
+    {
+      "FileId": 2009,
+      "FileName": "AMAXX.xls",
+      "DownloadUrl": ".\\2009"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Tested and seems to be working ok in the planned release version of the exceldatareader",
+      "PostedDate": "2010-09-12T03:49:14.437-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-12T03:49:41.827-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Will be fixed in the soon to be released version\r\n\r\n\n\n** Closed by robalexclark 12/09/2010 03:49",
+      "PostedDate": "2010-09-12T03:49:45.653-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Will be fixed in the soon to be released version",
+      "PostedDate": "2010-09-12T03:49:46.24-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Which release was this fixed in?  I just tested it with the version 2.0.1.0 (Run time v2.0.50727) and I'm still getting an empty string where \"TOYOTA\" should have been.  Please let me know where I can download the version that has the fix for this. ",
+      "PostedDate": "2011-06-16T13:43:28.91-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:44.763-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

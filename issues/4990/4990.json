@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi:\n \n   I'm using Excel Data Reader to read an Excel 2007 workbook and I got a DataTableReader for each sheet, so far so good; but on always the Column10 value is the same of Column9 on every sheet.\n   I found a workaround, inserting a column between those columns, the table show the right values.\n \n  The program is en C# VS.net 2008.\n \n   Can someone help to find another solution?\n \n   Thanks in advance\n \nRegards\n \nSergio Norzagaray",
+    "LastUpdatedDate": "2013-02-21T17:47:45.767-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-12-24T19:38:34.837-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Duplicate Column Values on Excel 2007",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 4990
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

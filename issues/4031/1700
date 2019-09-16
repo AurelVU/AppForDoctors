@@ -1,0 +1,95 @@
+private bool ReadSheetRow(XlsxWorksheet sheet)
+{
+   if (null == _xmlReader) return false;
+
+   if (_emptyRowCount != 0)
+   {
+      _cellsValues = new object[sheet.ColumnsCount];
+      _emptyRowCount--;
+      _depth++;
+
+      return true;
+   }
+
+   if (_savedCellsValues != null)
+   {
+      _cellsValues = _savedCellsValues;
+      _savedCellsValues = null;
+      _depth++;
+
+      return true;
+   }
+
+   if ((_xmlReader.NodeType == XmlNodeType.Element && _xmlReader.Name == XlsxWorksheet.N_row) ||
+        _xmlReader.ReadToFollowing(XlsxWorksheet.N_row))
+   {
+      _cellsValues = new object[sheet.ColumnsCount];
+
+
+      int rowIndex = int.Parse(_xmlReader.GetAttribute(XlsxWorksheet.A_r));
+      if (rowIndex != (_depth + 1))
+      {
+         _emptyRowCount = rowIndex - _depth - 1;
+      }
+
+      while (_xmlReader.Read())
+      {
+
+         if (_xmlReader.Depth == 2) break;
+
+         if (_xmlReader.NodeType == XmlNodeType.Element && _xmlReader.Name == XlsxWorksheet.N_c)
+         {
+            string a_s = _xmlReader.GetAttribute(XlsxWorksheet.A_s);
+            string a_t = _xmlReader.GetAttribute(XlsxWorksheet.A_t);
+            string a_r = _xmlReader.GetAttribute(XlsxWorksheet.A_r);
+
+            int col, row;
+            XlsxDimension.XlsxDim(a_r, out col, out row);
+
+            _xmlReader.ReadToDescendant(XlsxWorksheet.N_v);
+            object o;                                       //
+                                                            // This section replaces
+            if (!_xmlReader.IsEmptyElement)                 // line 173 in original
+            {                                               // code.
+               o = _xmlReader.ReadElementContentAsObject(); //
+
+               if (null != a_t && a_t == XlsxWorksheet.A_s)
+               {
+                  o = _workbook.SST[Convert.ToInt32(o)];
+               }
+               else if (null != a_s)
+               {
+                  XlsxXf xf = _workbook.Styles.CellXfs[int.Parse(a_s)];
+
+                  if (xf.ApplyNumberFormat && IsDateTimeStyle(xf.NumFmtId) && o != null && o.ToString() != string.Empty)
+                  {
+                     o = DateTime.FromOADate(Convert.ToDouble(o, CultureInfo.InvariantCulture));
+                  }
+               }
+            }
+            else                           // Added
+            {                              // Added
+               o = (object)String.Empty;   // Added
+            }                              // Added
+
+            if (col - 1 < _cellsValues.Length)
+               _cellsValues[col - 1] = o;
+         }
+      }
+
+      if (_emptyRowCount > 0)
+      {
+         _savedCellsValues = _cellsValues;
+         return ReadSheetRow(sheet);
+      }
+      else
+         _depth++;
+
+      return true;
+   }
+
+   _xmlReader.Close();
+   if (_sheetStream != null) _sheetStream.Close();
+
+   return false;
+}

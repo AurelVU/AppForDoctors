@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "We have a customer who is having Excel files generated in perl through the Spreadsheet::WriteExcel module that return no data when calling AsDataSet() with the ExcelBinaryReader (and IsValid = TRUE).\n \nYou can read more about this open-source perl module here:\nhttp://search.cpan.org/~jmcnamara/Spreadsheet-WriteExcel-2.37/\n \nThis module has a method called \"compatibility_mode()\"\nhttp://cpansearch.perl.org/src/JMCNAMARA/Spreadsheet-WriteExcel-2.37/docs/WriteExcel.html#compatibility_mode()\n \nwithout calling compatibility_mode(), the XLS file generated doesn't contain INDEX, DBCELL, or ROW records. The latest version of Excel Data Reader expects an INDEX record directly after the BIFF record (which it should) ... but it causes it to not return any data rows.\n \nI modified the ExcelBinaryReader.cs to accomidate XLS files that only contains some sort of CELL record, regardless of INDEX, DBCELL, or ROW records.\nThe attached file contains my changes against the 55029 build.",
+    "LastUpdatedDate": "2013-02-21T17:47:42.79-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-10-25T12:18:14.007-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "No data returned from AsDataSet for XLS files generated with Spreadsheet::WriteExcel perl module (with fix)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7480
+  },
+  "FileAttachments": [
+    {
+      "FileId": 2675,
+      "FileName": "ExcelBinaryReader.cs",
+      "DownloadUrl": ".\\2675"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Thanks, your work saved me a lot of time.",
+      "PostedDate": "2012-10-09T06:45:35.14-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-10-09T06:45:55.53-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:42.79-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

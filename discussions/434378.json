@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1006193",
+    "ThreadId": "434378",
+    "Html": "Hi,\r<br />\n<br />\nI'm researching options to open Excel files on an Azure WebRole. This means that no OLEDB (JET) providers can be/are installed (not easily anyway). \r<br />\n<br />\nBecasue this library says it is compatible with other platforms I figured it would not need an OLEDB provider to work.\r<br />\n<br />\nIs that true?\r<br />\n<br />\nThanx,\r<br />\nMarc<br />\n",
+    "PostedDate": "2013-02-25T02:07:28.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006210",
+    "ThreadId": "434378",
+    "Html": "That's correct,\r<br />\n<br />\nI'm new on the project so I've not tried any different platforms other than plain old Windows but it does do direct file reading, not relying on external components.<br />\n",
+    "PostedDate": "2013-02-25T02:52:04.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006221",
+    "ThreadId": "434378",
+    "Html": "Excellent. If it works on plain Windows, it'll work on Azure. \r<br />\n<br />\nThanx.<br />\n",
+    "PostedDate": "2013-02-25T03:43:26.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006242",
+    "ThreadId": "434378",
+    "Html": "It definitely works on Azure. That is where I use it myself.<br />\n",
+    "PostedDate": "2013-02-25T04:52:19.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

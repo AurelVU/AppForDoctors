@@ -1,0 +1,774 @@
+﻿// If defined it uses core/helper functions provided by ExcelDataReader Library.
+//#define USE_EXCEL_CORE
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.IO;
+using System.Globalization;
+
+using Excel;
+using Excel.Core;
+
+namespace Excel
+{
+    /*
+        Extends ExcelReaderFactory:
+
+        /// <summary>
+        /// Creates an instance of <see cref="ExcelCsvReader"/>
+        /// </summary>
+        /// <param name="fileStream">The file stream.</param>
+        /// <returns></returns>
+        public static IExcelDataReader CreateOpenXmlReader(Stream fileStream)
+        {
+            IExcelDataReader reader = new ExcelCsvReader();
+            reader.Initialize(fileStream);
+
+            return reader;
+        }
+     */
+
+    /// <summary>
+    /// ExcelDataReader Class
+    /// </summary>
+    public class ExcelCsvReader: IExcelDataReader, IDataReader, IDataRecord, IDisposable
+    {
+        #region Helpers and private members/methods
+
+        //private CultureInfo ITA = new CultureInfo("it-IT");
+        //private CultureInfo USA = new CultureInfo("en-US");
+
+        private const string WORKBOOK = "Workbook";
+        private const string BOOK = "Book";
+        private const string COLUMN = "Column";
+        private const string SHEET = "Sheet";
+
+        private readonly Encoding m_Default_Encoding = Encoding.UTF8;
+        private Encoding m_encoding;
+        private bool m_isValid;
+        private bool m_isClosed;
+        private List<CsvWorksheet> m_sheets;
+        private TextReader m_stream;
+        private DataSet m_workbookData;
+        private string m_exceptionMessage = String.Empty;
+        private bool _isFirstRowAsColumnNames = false;
+        private Stream m_file;
+        private int m_SheetIndex;
+        private bool m_ConvertOADate;
+        private bool m_IsFirstRead;
+        private object[] m_cellsValues;
+
+        internal ExcelCsvReader()
+        {
+            this.m_encoding = this.m_Default_Encoding;
+            this.m_isValid = true;
+            this.m_SheetIndex = -1;
+            this.m_IsFirstRead = true;
+        }
+
+        ~ExcelCsvReader()
+        {
+            this.Dispose(false);
+        }
+
+        private void fail(string message)
+        {
+            this.m_exceptionMessage = message;
+            this.m_isValid = false;
+            this.m_file.Close();
+            this.m_isClosed = true;
+            this.m_workbookData = null;
+            this.m_sheets = null;
+            this.m_stream = null;
+            this.m_encoding = null;
+        }
+
+        static private string[] TokenizeLine(string line)
+        {
+            List<string> tokens = new List<string>();
+
+            bool quoting = false;
+            string token = String.Empty;
+
+            for (int i = 0; i < line.Length; i++)
+            {
+                char ch = line[i];
+                if (ch == '\"')
+                {
+                    // Does it open a new literal string or close the token?
+                    if (quoting)
+                    {
+                        // New token
+                        tokens.Add(token);
+                        token = String.Empty;
+                        // Skip any char until the next ';'
+                        for (; i < line.Length; i++)
+                        {
+                            ch = line[i];
+                            if (ch == ';')
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    else token = String.Empty;
+                    quoting = !quoting;
+                }
+                else if (ch == ';')
+                {
+                    // Are we reading a literal string?
+                    if (!quoting)
+                    {
+                        // New token
+                        tokens.Add(token);
+                        token = String.Empty;
+                    }
+                    else token += ch;
+                }
+                // Continue tokenizing
+                else token += ch;
+            }
+
+            tokens.Add(token);
+
+            return tokens.ToArray();
+        }
+
+#if !USE_EXCEL_CORE
+        static private void FixDataTypes(DataSet dataset)
+        {
+            List<DataTable> tables = new List<DataTable>(dataset.Tables.Count);
+            bool convert = false;
+            foreach (DataTable table in dataset.Tables)
+            {
+                if (table.Rows.Count == 0)
+                {
+                    tables.Add(table);
+                }
+                else
+                {
+                    DataTable newTable = null;
+                    for (int i = 0; i < table.Columns.Count; i++)
+                    {
+                        Type type = null;
+                        foreach (DataRow row in table.Rows)
+                        {
+                            if (!row.IsNull(i))
+                            {
+                                Type curType = row[i].GetType();
+                                if (curType != type)
+                                {
+                                    if (!(type == null))
+                                    {
+                                        type = null;
+                                        break;
+                                    }
+                                    type = curType;
+                                }
+                            }
+                        }
+                        if (type != null)
+                        {
+                            convert = true;
+                            if (newTable == null)
+                            {
+                                newTable = table.Clone();
+                            }
+                            newTable.Columns[i].DataType = type;
+                        }
+                    }
+                    if (newTable != null)
+                    {
+                        newTable.BeginLoadData();
+                        foreach (DataRow row2 in table.Rows)
+                        {
+                            newTable.ImportRow(row2);
+                        }
+                        newTable.EndLoadData();
+                        tables.Add(newTable);
+                    }
+                    else
+                    {
+                        tables.Add(table);
+                    }
+                }
+            }
+            if (convert)
+            {
+                dataset.Tables.Clear();
+                dataset.Tables.AddRange(tables.ToArray());
+            }
+        }
+
+        static private void AddColumnHandleDuplicate(DataTable table, string columnName)
+        {
+            string adjustedColumnName = columnName;
+            DataColumn column = table.Columns[columnName];
+            int i = 1;
+            while (column != null)
+            {
+                adjustedColumnName = string.Format("{0}_{1}", columnName, i);
+                column = table.Columns[adjustedColumnName];
+                i++;
+            }
+            table.Columns.Add(adjustedColumnName, typeof(object));
+        }
+#endif
+
+        private void readWorkBookGlobals()
+        {
+            try
+            {
+                // Create the first and only Worksheet
+                this.m_sheets = new List<CsvWorksheet>();
+                this.m_sheets.Add(new CsvWorksheet(m_sheets.Count, SHEET + (m_sheets.Count + 1)));
+            }
+            catch (Exception ex)
+            {
+                this.fail(ex.Message);
+                return;
+            }
+        }
+
+        private void readWholeWorkSheetNoIndex(bool triggerCreateColumns, DataTable table)
+        {
+            while ((this as IDataReader).Read() && this.m_depth != this.m_maxRow)
+            {
+                bool justAddedColumns = false;
+                if (triggerCreateColumns)
+                {
+                    if (this._isFirstRowAsColumnNames || (this._isFirstRowAsColumnNames && this.m_maxRow == 1))
+                    {
+                        for (int i = 0; i < Math.Min(this.m_maxCol, this.m_cellsValues.Length); i++)
+                        {
+                            if (this.m_cellsValues[i] != null && this.m_cellsValues[i].ToString().Length > 0)
+                            {
+#if USE_EXCEL_CORE
+                                Helpers.
+#endif
+                                AddColumnHandleDuplicate(table, this.m_cellsValues[i].ToString());
+                            }
+                            else
+                            {
+#if USE_EXCEL_CORE
+                                Helpers.
+#endif
+                                AddColumnHandleDuplicate(table, COLUMN + i);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j < Math.Min(this.m_maxCol, this.m_cellsValues.Length); j++)
+                        {
+                            table.Columns.Add(null, typeof(object));
+                        }
+                    }
+                    triggerCreateColumns = false;
+                    justAddedColumns = true;
+                    table.BeginLoadData();
+                }
+                if (!justAddedColumns && this.m_depth > 0 && (!this._isFirstRowAsColumnNames || this.m_maxRow != 1))
+                {
+                    table.Rows.Add(this.m_cellsValues);
+                }
+            }
+            if (this.m_depth > 0 && (!this._isFirstRowAsColumnNames || this.m_maxRow != 1))
+            {
+                table.Rows.Add(this.m_cellsValues);
+            }
+        }
+
+        private DataTable readWholeWorkSheet(CsvWorksheet sheet)
+        {
+            DataTable table = new DataTable(sheet.Name);
+            bool triggerCreateColumns = true;
+            readWholeWorkSheetNoIndex(triggerCreateColumns, table);
+            table.EndLoadData();
+            return table;
+        }
+
+        public bool ConvertOaDate
+        {
+            get
+            {
+                return this.m_ConvertOADate;
+            }
+            set
+            {
+                this.m_ConvertOADate = value;
+            }
+        }
+
+        #endregion
+
+        #region IExcelDataReader Members
+
+        void IExcelDataReader.Initialize(Stream fileStream)
+        {
+            this.m_file = fileStream;
+            this.m_stream = new StreamReader(m_file);
+            this.readWorkBookGlobals();
+            this.m_SheetIndex = 0;
+        }
+
+        DataSet IExcelDataReader.AsDataSet(bool convertOADateTime)
+        {
+            if (!this.m_isValid)
+            {
+                return null;
+            }
+
+            if (this.m_isClosed)
+            {
+                return this.m_workbookData;
+            }
+
+            this.ConvertOaDate = convertOADateTime;
+            this.m_workbookData = new DataSet();
+
+            for (int index = 0; index < (this as IExcelDataReader).ResultsCount; index++)
+            {
+                DataTable table = this.readWholeWorkSheet(this.m_sheets[index]);
+                if (table != null)
+                {
+                    this.m_workbookData.Tables.Add(table);
+                }
+            }
+
+            this.m_file.Close();
+            this.m_isClosed = true;
+            this.m_workbookData.AcceptChanges();
+
+#if USE_EXCEL_CORE
+            Helpers.
+#endif
+            FixDataTypes(this.m_workbookData);
+
+            return this.m_workbookData;
+        }
+
+        DataSet IExcelDataReader.AsDataSet()
+        {
+            return (this as IExcelDataReader).AsDataSet(false);
+        }
+
+        string IExcelDataReader.ExceptionMessage
+        {
+            get { return m_exceptionMessage; }
+        }
+
+        bool IExcelDataReader.IsFirstRowAsColumnNames
+        {
+            get
+            {
+                return this._isFirstRowAsColumnNames;
+            }
+            set
+            {
+                this._isFirstRowAsColumnNames = value;
+            }
+        }
+
+        bool IExcelDataReader.IsValid
+        {
+            get { return this.m_isValid; }
+        }
+
+        string IExcelDataReader.Name
+        {
+            get
+            {
+                if (this.m_sheets != null && this.m_sheets.Count > 0)
+                {
+                    return this.m_sheets[this.m_SheetIndex].Name;
+                }
+                return null;
+            }
+        }
+
+        int IExcelDataReader.ResultsCount
+        {
+            get { return m_sheets.Count; }
+        }
+
+        #endregion
+
+        #region IDataReader Members
+
+        void IDataReader.Close()
+        {
+            this.m_file.Close();
+            this.m_isClosed = true;
+        }
+
+        int IDataReader.Depth
+        {
+            get { return this.m_depth; }
+        }
+
+        DataTable IDataReader.GetSchemaTable()
+        {
+            throw new NotSupportedException();
+        }
+
+        bool IDataReader.IsClosed
+        {
+            get
+            {
+                return this.m_isClosed;
+            }
+        }
+
+        bool IDataReader.NextResult()
+        {
+            if (this.m_SheetIndex >= (this as IExcelDataReader).ResultsCount - 1)
+            {
+                return false;
+            }
+            this.m_SheetIndex++;
+            this.m_IsFirstRead = true;
+            return true;
+        }
+
+        private bool m_canRead;
+        private int m_maxCol = 65535;
+        private int m_maxRow = 65535;
+        private int m_depth = 0;
+
+        private bool readWorkSheetRow()
+        {
+            if ((m_stream as StreamReader).EndOfStream)
+            {
+                return false;
+            }
+
+            string line = m_stream.ReadLine();
+
+            if (!String.IsNullOrEmpty(line.Trim()))
+            {
+                string[] tokens = TokenizeLine(line);
+
+                // With the exception of the first line, if it represents the column header
+                if (m_depth == 0 && _isFirstRowAsColumnNames)
+                {
+                    this.m_cellsValues = tokens;
+                }
+                else
+                {
+                    this.m_cellsValues = new object[tokens.Length];
+
+                    for (int i = 0; i < this.m_cellsValues.Length; i++)
+                    {
+                        string aString = tokens[i];
+                        try
+                        {
+                            //long Result;
+                            //DateTime Date;
+                            //if (long.TryParse(aString, out Result))
+                            //{
+                            //    string conv = Result.ToString();
+                            //    if (aString == conv)
+                            //    {
+                            //        if ((Result & -281474976710656L) != -281474976710656L)
+                            //        {
+                            //            double d = BitConverter.ToDouble(BitConverter.GetBytes(Result), 0);
+                            //            this.m_cellsValues[i] = d;
+                            //        }
+                            //    }
+                            //    // else "not-significant leading zero (0)"
+                            //}
+                            //else if (DateTime.TryParseExact(aString, new string[] { "dd/MM/yyyy" }, ITA.DateTimeFormat, DateTimeStyles.None, out Date))
+                            //{
+                            //    this.m_cellsValues[i] = Date;//.ToString(USA);
+                            //}
+                            //else
+                            {
+                                this.m_cellsValues[i] = aString;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            ex.ToString();
+                        }
+                    }
+                }
+            }
+
+            this.m_depth++;
+
+            return this.m_depth < this.m_maxRow;
+        }
+
+        private bool moveToNextRecord()
+        {
+            this.m_canRead = this.readWorkSheetRow();
+            return this.m_canRead;
+        }
+
+        bool IDataReader.Read()
+        {
+            if (!this.m_isValid)
+            {
+                return false;
+            }
+            if (this.m_IsFirstRead)
+            {
+                this.m_IsFirstRead = false;
+                if (this.m_SheetIndex == -1)
+                {
+                    this.m_SheetIndex = 0;
+                }
+            }
+            return this.moveToNextRecord();
+        }
+
+        int IDataReader.RecordsAffected
+        {
+            get { throw new NotSupportedException(); }
+        }
+
+        #endregion
+
+        #region IDataRecord Members
+
+        int IDataRecord.FieldCount
+        {
+            get
+            {
+                if (m_cellsValues == null)
+                {
+                    return 0;
+                }
+                return Math.Min(this.m_maxCol, m_cellsValues.Length);
+            }
+        }
+
+        bool IDataRecord.GetBoolean(int i)
+        {
+            return !(this as IDataRecord).IsDBNull(i) && bool.Parse(this.m_cellsValues[i].ToString());
+        }
+
+        byte IDataRecord.GetByte(int i)
+        {
+            throw new NotSupportedException();
+        }
+
+        long IDataRecord.GetBytes(int i, long fieldOffset, byte[] buffer, int bufferoffset, int length)
+        {
+            throw new NotSupportedException();
+        }
+
+        char IDataRecord.GetChar(int i)
+        {
+            throw new NotSupportedException();
+        }
+
+        long IDataRecord.GetChars(int i, long fieldoffset, char[] buffer, int bufferoffset, int length)
+        {
+            throw new NotSupportedException();
+        }
+
+        IDataReader IDataRecord.GetData(int i)
+        {
+            throw new NotSupportedException();
+        }
+
+        string IDataRecord.GetDataTypeName(int i)
+        {
+            throw new NotSupportedException();
+        }
+
+        DateTime IDataRecord.GetDateTime(int i)
+        {
+            if ((this as IDataRecord).IsDBNull(i))
+            {
+                return DateTime.MinValue;
+            }
+            object val = this.m_cellsValues[i];
+            if (val is DateTime)
+            {
+                return (DateTime)val;
+            }
+            string valString = val.ToString();
+            double dVal;
+            try
+            {
+                dVal = double.Parse(valString);
+            }
+            catch (FormatException)
+            {
+                return DateTime.Parse(valString);
+            }
+            return DateTime.FromOADate(dVal);
+        }
+
+        decimal IDataRecord.GetDecimal(int i)
+        {
+            if ((this as IDataRecord).IsDBNull(i))
+            {
+                return -79228162514264337593543950335m;
+            }
+            return decimal.Parse(this.m_cellsValues[i].ToString());
+        }
+
+        double IDataRecord.GetDouble(int i)
+        {
+            if ((this as IDataRecord).IsDBNull(i))
+            {
+                return -1.7976931348623157E+308;
+            }
+            return double.Parse(this.m_cellsValues[i].ToString());
+        }
+
+        Type IDataRecord.GetFieldType(int i)
+        {
+            throw new NotSupportedException();
+        }
+
+        float IDataRecord.GetFloat(int i)
+        {
+            if ((this as IDataRecord).IsDBNull(i))
+            {
+                return -3.40282347E+38f;
+            }
+            return float.Parse(this.m_cellsValues[i].ToString());
+        }
+
+        Guid IDataRecord.GetGuid(int i)
+        {
+            throw new NotSupportedException();
+        }
+
+        short IDataRecord.GetInt16(int i)
+        {
+            if ((this as IDataRecord).IsDBNull(i))
+            {
+                return -32768;
+            }
+            return short.Parse(this.m_cellsValues[i].ToString());
+        }
+
+        int IDataRecord.GetInt32(int i)
+        {
+            if ((this as IDataRecord).IsDBNull(i))
+            {
+                return -2147483648;
+            }
+            return int.Parse(this.m_cellsValues[i].ToString());
+        }
+
+        long IDataRecord.GetInt64(int i)
+        {
+            if ((this as IDataRecord).IsDBNull(i))
+            {
+                return -9223372036854775808L;
+            }
+            return long.Parse(this.m_cellsValues[i].ToString());
+        }
+
+        public string GetName(int i)
+        {
+            throw new NotSupportedException();
+        }
+
+        int IDataRecord.GetOrdinal(string name)
+        {
+            throw new NotSupportedException();
+        }
+
+        string IDataRecord.GetString(int i)
+        {
+            if ((this as IDataRecord).IsDBNull(i))
+            {
+                return null;
+            }
+            return this.m_cellsValues[i].ToString();
+        }
+
+        object IDataRecord.GetValue(int i)
+        {
+            return this.m_cellsValues[i];
+        }
+
+        int IDataRecord.GetValues(object[] values)
+        {
+            throw new NotSupportedException();
+        }
+
+        bool IDataRecord.IsDBNull(int i)
+        {
+            if (this.m_cellsValues == null) return true;
+            if (this.m_cellsValues.Length < i) return true;
+            return this.m_cellsValues[i] == null || DBNull.Value == this.m_cellsValues[i];
+        }
+
+        object IDataRecord.this[string name]
+        {
+            get { throw new NotSupportedException(); }
+        }
+
+        object IDataRecord.this[int i]
+        {
+            get { return this.m_cellsValues[i]; }
+        }
+
+        #endregion
+
+        #region IDisposable Members
+
+        private bool disposed = false;
+
+        void IDisposable.Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    if (this.m_workbookData != null)
+                        this.m_workbookData.Dispose();
+                    if (this.m_sheets != null)
+                        this.m_sheets.Clear();
+                }
+                this.m_workbookData = null;
+                this.m_sheets = null;
+                this.m_stream = null;
+                this.m_encoding = null;
+                this.disposed = true;
+            }
+        }
+
+        #endregion
+    }
+
+    internal class CsvWorksheet
+    {
+        public CsvWorksheet(int index, string SheetName)
+        {
+            this.m_Index = index;
+            this.m_Name = SheetName;
+        }
+
+        private readonly int m_Index;
+        private readonly string m_Name;
+
+        public string Name
+        {
+            get { return this.m_Name; }
+        }
+
+        public int Index
+        {
+            get { return this.m_Index; }
+        }
+    }
+}

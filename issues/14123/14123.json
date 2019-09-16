@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Error message \"Invalid Signature \" throwing up when tried to read .xlsb file. Could you please help me out to for any approach which can be used to read data from .xlsb file using exceldatareader.",
+    "LastUpdatedDate": "2017-07-28T10:10:20.59-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2017-07-28T10:08:50.733-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Exceldatareader is not supporting .XLSB file",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 14123
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "How to read .xlsb file using Exceldatareader",
+      "PostedDate": "2017-07-28T10:10:20.59-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

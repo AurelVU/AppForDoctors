@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "999568",
+    "ThreadId": "432721",
+    "Html": "It seems there is a problem with &quot;european&quot; numbers, where floating point numbers are separated by a , and not a .\r<br />\nWhen reading OADates an error occurs at ExcelOpenXmlReader.cs \r<br />\ndouble.TryParse(o.ToString(), out number))\r<br />\nIf I change it to double.TryParse(o.ToString().Replace('.',','), out number)) all works correct. <br />\n",
+    "PostedDate": "2013-02-11T06:55:47.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "999571",
+    "ThreadId": "432721",
+    "Html": "There was a recent fix for this. Please try the latest source from the repo.\r<br />\n<br />\nRegards\r<br />\nIan<br />\n",
+    "PostedDate": "2013-02-11T06:58:21.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

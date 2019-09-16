@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Add this to ExcelOpenXmlReader around line 190:\nfor (int index = 0; index < _cellsValues.Length; index++)\n\t\t\t\t\t{\n                        if (_cellsValues[index] != null && _cellsValues[index].ToString().Trim().Length > 0)\n                        {                            \n                            if (table.Columns[_cellsValues[index].ToString().Trim()] == null) table.Columns.Add(_cellsValues[index].ToString().Trim());\n                            else table.Columns.Add(_cellsValues[index].ToString().Trim() + \"_\" + Guid.NewGuid().ToString().Substring(0, 8));\n                        }\n                        else\n                        {                            \n                            if (table.Columns[string.Concat(COLUMN, index)] == null) table.Columns.Add(string.Concat(COLUMN, index));\n                            else table.Columns.Add(string.Concat(COLUMN, index) + \"_\" + Guid.NewGuid().ToString().Substring(0, 8));\n                        }\n\t\t\t\t\t}",
+    "LastUpdatedDate": "2013-02-21T17:47:32.013-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-08-16T18:31:18.553-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "How to allow duplicate column names in worksheet",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11089
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4198,
+      "FileName": "ExeclDataReaderPatch.PNG",
+      "DownloadUrl": ".\\4198"
+    }
+  ],
+  "Comments": []
+}

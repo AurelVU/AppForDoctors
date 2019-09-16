@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\nI have been using the Excel Data Reader for the past few days and its really very good.. Most of the common issues like empty cells, sheet names in ascending order etc are fixed by Excel Data Reader.\nOne issue that Im facing is that, if I want to select only a few columns from the excel sheet, how do I do that?\nCurrently Im not able to find any info about how to select only a few columns using the Excel Data Reader.\nFor e.g. I want to select columns A, D, F, G only from the excel sheet and save those.\nLooking forward to a solution from your end.\nThanks in advance..",
+    "LastUpdatedDate": "2013-03-18T06:24:13.803-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-03-12T06:14:32.717-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Select only few columns from the excel sheet",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11629
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Can you give me some more information on what you are trying to achieve?\nAre you trying to get a dataset with just a subset of the columns in it?\nIf so, what is your motivation for doing so (UI adapter, memory footprint etc)?\r\n\r\nCheers\nIan",
+      "PostedDate": "2013-03-12T08:43:38.653-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi Ian,\nThanks for looking into the issue.\nLet me first tell you what I want to achieve. We will be receiving xls files from various clients with lots of data in it. Of these only few select columns will be useful to us and we would be saving those in our database.. Using the Excel Data Reader we will be converting this xls to csv to upload the data in database.\nBut while converting the xls to csv we will take only the required data and convert to csv.\nSo if the xls has 15-20 columns say from from A - P and we need to extract only a few columns say A to D then from G to K, and L and N..\nSo what I am looking for is, when I use the CreateOpenXmlReader or the CreateBinaryReader, I can pass which all columns I want. Currently I can achieve this by using the columns headers in the datatable which we get.\nFor this, I either need to pass the columns headers which will be teh actual haeder text like \"Name\", \"Address\" etc or something like Column1, Column2, etc..\nBut what I would like to pass is Coumns A, B, F,H etc which are the actuals columns in the xls.\r\n\r\nHope you got what Im trying to achieve here.\nSorry for the long description.. ",
+      "PostedDate": "2013-03-12T22:45:00.51-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@poonamT I think your use case is a bit unusual so I don't think this is something we would change the interface of the library for. I would suggest using the DataReader like methods rather than using a dataset. That way you can step through each line of the sheet and populate your own structure with the columns you are interested in. \nYou could still use datasets, but it wouldn't be very memory efficient or performant if your sheets are very large and you only care about a few columns.\r\n\r\nHope this help",
+      "PostedDate": "2013-03-18T03:35:32.44-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks for the reply Ian.\nCurrently I have done something similar as I could not find any other solution..",
+      "PostedDate": "2013-03-18T06:24:13.803-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

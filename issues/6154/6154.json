@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed in the next release",
+    "ClosedDate": "2010-09-12T03:56:32.647-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Excel Data Reader skips the cell when reading xlsx file.\nYou need to fix the code in ExcelOpenXlmReader.cs: ExcelOpenXmlReader.ReadSheetRow(XlsxWorksheet sheet):\n \ncurrent version:\n \nif (_xmlReader.NodeType == XmlNodeType.Element && _xmlReader.Name == XlsxWorksheet.N_c)\n{\n\tstring a_s = _xmlReader.GetAttribute(XlsxWorksheet.A_s);\n\tstring a_t = _xmlReader.GetAttribute(XlsxWorksheet.A_t);\n\tstring a_r = _xmlReader.GetAttribute(XlsxWorksheet.A_r);\n \n\tint col, row;\n\tXlsxDimension.XlsxDim(a_r, out col, out row);\n \n\t_xmlReader.ReadToDescendant(XlsxWorksheet.N_v))\n\tobject o = _xmlReader.ReadElementContentAsObject();\n \nfixed version:\n \n \nif (_xmlReader.NodeType == XmlNodeType.Element && _xmlReader.Name == XlsxWorksheet.N_c)\n{\n\tstring a_s = _xmlReader.GetAttribute(XlsxWorksheet.A_s);\n\tstring a_t = _xmlReader.GetAttribute(XlsxWorksheet.A_t);\n\tstring a_r = _xmlReader.GetAttribute(XlsxWorksheet.A_r);\n \n\tint col, row;\n\tXlsxDimension.XlsxDim(a_r, out col, out row);\n \n\tobject o;\n\tif (_xmlReader.ReadToDescendant(XlsxWorksheet.N_v))\n\t\to = _xmlReader.ReadElementContentAsObject();\n\telse\n\t\to = \"\";",
+    "LastUpdatedDate": "2013-05-16T04:59:59.803-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-05-22T08:18:34.79-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Excel Data Reader skips the cell when reading xlsx file",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 6154
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

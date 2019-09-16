@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I hava an excel file, and in Sheet1 there some data, Sheet2 and Sheet3 by default they are empty. I read data by ExcelReaderFactory.CreateOpenXmlReader(stream).AsDataSet(), Sheet1's data is correct, but Only one DataTable int the returned dataset, I even can't get Sheet2 and Sheet3's name.\n  How can I do it correctly?\n\n  Thank you all.",
+    "LastUpdatedDate": "2014-08-07T00:31:35.18-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-06-06T20:37:53.97-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Can't capture empty sheet",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 11864
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4578,
+      "FileName": "Table.xlsx",
+      "DownloadUrl": ".\\4578"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "This may be a side point but why would you want to read empty sheets?",
+      "PostedDate": "2013-06-07T07:11:57.797-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Yes, this is a side point really.\nBut Excel Data Reader's view is different from an Excel'view, that if I use more than one difference excel SDKs, only Excel Data Reader is special.\nThis issue is not hugrry, if it is easy to implement, better.\nThanks SteveHolle.",
+      "PostedDate": "2013-06-09T03:21:42.55-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Does use the IDataReader interface and GetNextResult help?",
+      "PostedDate": "2013-06-14T01:19:30.6-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-08-07T00:29:56.997-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "One good example of wanting to read an empty sheet is for unit tests, e.g. to mock an empty DataTable being returned from a query.  ",
+      "PostedDate": "2014-08-07T00:31:35.18-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

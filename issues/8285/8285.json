@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "If I read the attached spreadsheet as a DataSet, the cell A1 is read as having a null value.  In fact, it has a text value of \"#REF!\".\n \nNote that this is different to the issue where actual broken references were being treated as null.  I've submitted a patch to that problem as #8213.",
+    "LastUpdatedDate": "2013-02-21T17:47:41.68-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-02-01T18:07:09.97-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "\"#REF!\" string in cell is read as null",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 8285
+  },
+  "FileAttachments": [
+    {
+      "FileId": 2983,
+      "FileName": "TestTextHashRefBang.xls",
+      "DownloadUrl": ".\\2983"
+    }
+  ],
+  "Comments": []
+}

@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed in next release",
+    "ClosedDate": "2010-09-12T04:01:07.423-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In the spreadsheet file attached I've found the Excel Data Reader is skipping some cells. I've spent hours trying to debug it but haven't been able to work out what is going on.\n \nI've documented all of this here: http://stackoverflow.com/questions/2249023/\n \nAny help (quickly) would be greatly appreciated.",
+    "LastUpdatedDate": "2013-05-16T05:00:00.263-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-02-11T19:04:04.607-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Missing some cell values from .xlsx file",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 5320
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1966,
+      "FileName": "TestDataReader.xlsx",
+      "DownloadUrl": ".\\1966"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I am having a similar issue. I have two files one is xls and the other is xlsx and the xls works fine, but the same file converted to xlsx will import but with worksheets and data mixed up. I too have tried several things but can not seem to figure it out. ",
+      "PostedDate": "2010-05-08T19:12:41.65-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "If you apply patch 5267 from http://exceldatareader.codeplex.com/SourceControl/PatchList.aspx then you should find this problem is fixed. If you're not able to apply patches then contact me and I'll send through my copy.",
+      "PostedDate": "2010-05-09T17:00:57.453-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-12T04:01:07.423-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:45.15-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:00.263-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

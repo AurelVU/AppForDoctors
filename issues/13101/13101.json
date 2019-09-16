@@ -1,0 +1,66 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "issue migrated to gituhb",
+    "ClosedDate": "2014-08-05T01:54:55.05-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "A spreadsheet I've encountered in the wild doesn't conform properly to the Excel binary format spec, and in the DIMENSION record uses the zero based index of the last column, rather than the zero based index of the column after the last column, for the colMac value. As a consequence, ExcelDataReader skips reading the last column of the spreadsheet. Excel and OpenOffice both open the file without any problems, and if you save it after opening it, they will fix the bad DIMENSION record.\n\nI've attached the spreadsheet in question. If you're curious about its provenance, you can find it here: http://www.adrbnymellon.com/dr_directory.jsp. You have to look for the \"Download to Excel\" link, click it, agree to some legalese, and then you can download. \n\nI've written a patch that allows this file to be read properly. It's similar to the fix for Issue #12667; it compares the number of columns from the DIMENSION record with the number of columns from the first row record, and if the number of columns from the row record is greater, it goes with that. The fix does not cause any existing working tests to fail, and I've included a unit test to exercise the new code. The patch is attached.",
+    "LastUpdatedDate": "2014-08-05T01:54:55.05-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-06-24T11:38:35.793-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Columns skipped when DIMENSION record is incorrect",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13101
+  },
+  "FileAttachments": [
+    {
+      "FileId": 5007,
+      "FileName": "dimension_columns_one_too_few.diff",
+      "DownloadUrl": ".\\5007"
+    },
+    {
+      "FileId": 5008,
+      "FileName": "Test_DimensionColumnsOneTooFew.xls",
+      "DownloadUrl": ".\\5008"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Couldn't figure out multiple attachments, here's the problem file.",
+      "PostedDate": "2014-06-24T11:39:42.183-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks for patch. I'll take a look at incorporating it soon.",
+      "PostedDate": "2014-06-25T01:22:38.32-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-08-05T01:54:55.05-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

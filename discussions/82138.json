@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "282212",
+    "ThreadId": "82138",
+    "Html": "<p>I am using ExcelReader to insert via SQLBULKCOPY but it gives and error because GetOrdinal is not supported, any solution?</p>",
+    "PostedDate": "2010-01-27T02:15:01.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435389",
+    "ThreadId": "82138",
+    "Html": "<p>you can read column names like this:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>excelReader.Read();\r\n\r\n<span style=\"color:blue\">var</span> columns = <span style=\"color:blue\">new</span> Dictionary&lt;<span style=\"color:blue\">string</span>, <span style=\"color:blue\">int</span>&gt;();\r\n\r\n<span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = 0; i &lt; excelReader.FieldCount; i++)\r\n{\r\n   columns.Add(excelReader.GetString(i).Trim(), i);\r\n}    \r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-04-26T01:39:06.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714160",
+    "ThreadId": "82138",
+    "Html": "<p>Is there any plan to implement this in the future ? I think it's very important to have these functions implemented.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-12-19T04:11:59.697-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

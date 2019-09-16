@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I can't read the right text from simple test xls file.\nI think it's caused by chinese encoding.  see attachment for the file i use.\nThe same test passed in open test.xlsx file \nRegards and thanks",
+    "LastUpdatedDate": "2013-02-21T17:47:43.87-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-04-28T22:08:30.45-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Chinese encoding reading error",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6027
+  },
+  "FileAttachments": [
+    {
+      "FileId": 2163,
+      "FileName": "ImportTest.xls",
+      "DownloadUrl": ".\\2163"
+    }
+  ],
+  "Comments": []
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1284671",
+    "ThreadId": "558360",
+    "Html": "Hello!\r<br />\n<br />\nThank you for the lib, it's working very well.\r<br />\n<br />\nI have nevertheless a problem when I try to use it on an iOS plateform.\r<br />\nI'm working in the Unity3D environment, with C# in Mono. \r<br />\nMy project is working well with OSX or Windows, but when I try to build it on iOS it seems that the dlls can not be used.\r<br />\n<br />\nIs there an easy way to make it work?<br />\n",
+    "PostedDate": "2014-08-04T08:05:19.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1285234",
+    "ThreadId": "558360",
+    "Html": "The <em>Excel</em> library is dependent upon <a href=\"http://icsharpcode.github.io/SharpZipLib/\" rel=\"nofollow\">SharpZipLib</a>. If you first build <em>SharpZipLib</em> for iOS, and then reference it from your Excel iOS project, you should be able to build successfully.<br />\n",
+    "PostedDate": "2014-08-04T14:03:13.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

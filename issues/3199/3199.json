@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Resolved in the last release version.",
+    "ClosedDate": "2009-08-24T14:12:46.567-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi, I downloaded the source and ran the unit tests on my machine which has UK regional settings and I got several failures to do with dates.  I assume that the code expects dates in US format.",
+    "LastUpdatedDate": "2013-05-16T05:00:03.847-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-06-05T01:21:06.62-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "UK Date format not handled",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 3199
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I tried changing my regional settings to US, and all I get is the number rather than a date format.  No errors though.",
+      "PostedDate": "2009-07-16T05:30:28.32-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-07-16T05:30:34.873-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-08-24T11:10:29.73-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-08-24T14:12:46.567-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:50.177-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:03.847-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

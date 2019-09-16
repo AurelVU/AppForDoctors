@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "701733",
+    "ThreadId": "280390",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I have a report rendered from Reporting Services 2005&nbsp;in Excel format.</p>\r\n<p>I am able to stream the report but when try to get the data in a dataset it fails.Exception Thrown. Unable to cast object of type 'Excel.Core.BinaryFormat.XlsBiffRecord' to type 'Excel.Core.BinaryFormat.XlsBiffDbCell'.</p>\r\n<p>If i however open the excel report and save it, then run my code, everything works fine. i've tried the recommended version v2 as well as the latest but to no avail.</p>\r\n<p>&nbsp;<span style=\"font-size:x-small\"><span style=\"color:#008080; font-size:x-small\"><span style=\"color:#008080; font-size:x-small\">FileStream</span></span><span style=\"font-size:x-small\"> inStream =\r\n</span><span style=\"color:#008080; font-size:x-small\"><span style=\"color:#008080; font-size:x-small\">File</span></span><span style=\"font-size:x-small\">.OpenRead(</span><span style=\"color:#008080; font-size:x-small\"><span style=\"color:#008080; font-size:x-small\">Path</span></span><span style=\"font-size:x-small\">.Combine(path,\r\n</span><span style=\"color:#800000; font-size:x-small\"><span style=\"color:#800000; font-size:x-small\">&quot;Report.xls&quot;</span></span><span style=\"font-size:x-small\">));</span></span></p>\r\n<p></p>\r\n<div><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">&nbsp;</span></span></div>\r\n<p></p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"></p>\r\n<p>&nbsp;<span style=\"color:#008000; font-size:x-small\"><span style=\"color:#008000; font-size:x-small\">//1. Reading from a binary Excel file ('97-2003 format; *.xls)</span></span><span style=\"color:#008000; font-size:x-small\">&nbsp;</span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n</span></span></p>\r\n</span></span>\r\n<p></p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"></p>\r\n<p>&nbsp;<span style=\"color:#008080; font-size:x-small\"><span style=\"color:#008080; font-size:x-small\">IExcelDataReader</span></span><span style=\"font-size:x-small\"> excelReader =\r\n</span><span style=\"color:#008080; font-size:x-small\"><span style=\"color:#008080; font-size:x-small\">ExcelReaderFactory</span></span><span style=\"font-size:x-small\">.CreateBinaryReader(inStream);</span></p>\r\n<span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><font size=\"2\">\r\n<p>&nbsp;</p>\r\n</font></span></span></span></span></span></span></span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n<p>&nbsp;<span style=\"color:#008000; font-size:x-small\"><span style=\"color:#008000; font-size:x-small\">//3. DataSet - Create column names from first row</span></span><span style=\"color:#008000; font-size:x-small\">&nbsp;</span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n</span></span></p>\r\n</span></span>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"></p>\r\n<p>&nbsp;<span style=\"color:#008080; font-size:x-small\"><span style=\"color:#008080; font-size:x-small\">DataSet</span></span><span style=\"font-size:x-small\"> result = excelReader.AsDataSet();\r\n<strong>//Exception Thrown here</strong></span></p>\r\n</span></span>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color:#008080; font-size:x-small\"><span style=\"color:#008080; font-size:x-small\"><span style=\"color:#008080; font-size:x-small\">Regards,</span></span></span></p>\r\n<p><span style=\"color:#008080; font-size:x-small\"><span style=\"color:#008080; font-size:x-small\"><span style=\"color:#008080; font-size:x-small\">Avesh</span></span></span></p>\r\n<p></p>\r\n<p></p>\r\n",
+    "PostedDate": "2011-11-22T05:11:01.28-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "760123",
+    "ThreadId": "280390",
+    "Html": "<p>ahahah..i think you should change another report rendered from Reporting Services in your excel format.</p>\r\n<p>try this: <a href=\"http://www.keepautomation.com/products/net_barcode_reporting_service/\">http://www.keepautomation.com/products/net_barcode_reporting_service/</a></p>\r\n<p>i used this one for month, it works fine.</p>",
+    "PostedDate": "2012-02-13T00:52:42.923-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "760149",
+    "ThreadId": "280390",
+    "Html": "<p>Is there any other way of solving this issue without splurging out cash</p>",
+    "PostedDate": "2012-02-13T01:08:52.523-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986329",
+    "ThreadId": "280390",
+    "Html": "\r\n<p>Based on what I read here (<a href=\"http://exceldatareader.codeplex.com/workitem/10688\">http://exceldatareader.codeplex.com/workitem/10688</a>) you can fix it by replacing this in the ExcelBinaryReader class:</p>\r\n<p style=\"padding-left:30px\">XlsBiffDbCell startCell = (XlsBiffDbCell)m_stream.ReadAt(startOffset);</p>\r\n<p>With this:</p>\r\n<p style=\"padding-left:30px\">// Some malformed .xls files can have BIFFRECORDTYPE<br>\r\n// entries before the first XlsBiffDbCell, so it's <br>\r\n// important to loop over these untill we actually <br>\r\n// find the first XlsBiffDbCell. <br>\r\nXlsBiffRecord record = m_stream.ReadAt(startOffset); <br>\r\nwhile (!(record is XlsBiffDbCell)) <br>\r\n{<br>\r\n&nbsp; &nbsp; startOffset += record.Size;<br>\r\n&nbsp; &nbsp; record = m_stream.ReadAt(startOffset); <br>\r\n}</p>\r\n<p>This hasn't fixed all my SSRS-related problems however. The value of my cells is still garbled, and the types of cells are wrong.</p>\r\n",
+    "PostedDate": "2013-01-14T01:46:18.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986345",
+    "ThreadId": "280390",
+    "Html": "\r\n<p>I think this is probably why there are issues with openoffice generated files as well. I'll look into it further. Are you able to attach an example SSRS file for testing?</p>\r\n",
+    "PostedDate": "2013-01-14T02:17:58.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986472",
+    "ThreadId": "280390",
+    "Html": "\r\n<p>Hm, that might be a little tricky as this is company data and confidential. And I can't edit the data out, because that would cause me to save it in Excel and solve the problem... I'll see what I can do.</p>\r\n",
+    "PostedDate": "2013-01-14T07:22:36.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988066",
+    "ThreadId": "280390",
+    "Html": "\r\n<p>I've checked in a change that should resolve this. Can you test it with your xls?</p>\r\n",
+    "PostedDate": "2013-01-17T04:19:27.843-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988148",
+    "ThreadId": "280390",
+    "Html": "\r\n<p>Well, it no longer crashes, but as mentioned <a href=\"http://exceldatareader.codeplex.com/workitem/10688\">\r\nhere</a>, I'm still having some problems:</p>\r\n<ul>\r\n<li>The headers of my tables are just Column1, Column2, etc, instead of the actual headers\r\n</li><li>The DataTable starts with a large amount of empty rows </li><li>The cells containg data like &quot;\\0MyConten&quot; instead of &quot;MyContent&quot; </li></ul>\r\n<p>For us, this is no longer a priority, as the end user will always edit the file from SSRS and save it in Excel. So feel free to work on other features first, as you see fit. Thanks for the effort!</p>\r\n",
+    "PostedDate": "2013-01-17T06:38:19.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988167",
+    "ThreadId": "280390",
+    "Html": "\r\n<div dir=\"ltr\">Thanks for the update. I think I need to get hold of some sample SSRS reports from somewhere to test it properly.\r\n</div>\r\n<div><br>\r\n<br>\r\n<div>On Thu, Jan 17, 2013 at 2:38 PM, petermorlion <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\" target=\"_blank\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: petermorlion</p>\r\n<div>\r\n<p>Well, it no longer crashes, but as mentioned <a href=\"http://exceldatareader.codeplex.com/workitem/10688\" target=\"_blank\">\r\nhere</a>, I'm still having some problems:</p>\r\n<ul>\r\n<li>The headers of my tables are just Column1, Column2, etc, instead of the actual headers\r\n</li><li>The DataTable starts with a large amount of empty rows </li><li>The cells containg data like &quot;\\0MyConten&quot; instead of &quot;MyContent&quot; </li></ul>\r\n<p>For us, this is no longer a priority, as the end user will always edit the file from SSRS and save it in Excel. So feel free to work on other features first, as you see fit. Thanks for the effort!</p>\r\n</div>\r\n<div>\r\n<div>\r\n<p>Read the <a href=\"http://exceldatareader.codeplex.com/discussions/280390#post988148\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:ExcelDataReader@discussions.codeplex.com?subject=[ExcelDataReader:280390]\" target=\"_blank\">ExcelDataReader@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:ExcelDataReader@discussions.codeplex.com\" target=\"_blank\">\r\nExcelDataReader@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://exceldatareader.codeplex.com/subscriptions/thread/project/edit\" target=\"_blank\">\r\nunsubscribe or change your settings</a> on codePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at\r\n<a href=\"http://codeplex.com\" target=\"_blank\">codeplex.com</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2013-01-17T07:02:52.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

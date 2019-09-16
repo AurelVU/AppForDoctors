@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed when user updated to latest source.",
+    "ClosedDate": "2013-02-04T11:29:08.123-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "__Unit test following fix:__\n\nTrying to read a .xls file and I get this --> Error: Neither stream 'Workbook' nor 'Book' was found in file.\n\nStepping though the code while it was reading the file confirms the error message is technically right. There is a 'WORKBOOK' entry though.\n\nAt the bottom of the XlsRootDirectory.cs file, is a method FindEntry that does the finding. I just changed it to be case insensitive and it read the file ok.\n\nFrom this: \nif\n(e.EntryName == EntryName)\n\nTo this:\nif\n(string.Compare(e.EntryName,\n EntryName, true)\n == 0)",
+    "LastUpdatedDate": "2014-01-23T04:49:39.74-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-01-28T23:46:10.99-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error reading binary (.xls) file",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11538
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Could you put this fix in a new package on NuGet?\r\n\r\nRelease 17 januari 2013\nBugfix is done after this point.\r\n\r\nExcept for this bug, nice work!",
+      "PostedDate": "2014-01-23T04:49:39.74-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+Index: Excel/ExcelBinaryReader.cs
+===================================================================
+--- Excel/ExcelBinaryReader.cs	(revision 87802)
++++ Excel/ExcelBinaryReader.cs	(working copy)
+@@ -44,10 +44,11 @@
+ 
+ 		private bool m_IsFirstRead;
+ 		private bool _isFirstRowAsColumnNames;
++		private bool _columnIndexStartsAt1 = false;
+ 
+ 		private const string WORKBOOK = "Workbook";
+ 		private const string BOOK = "Book";
+-		private const string COLUMN = "Column";
++		private string COLUMN = "Column";
+ 
+ 		private bool disposed;
+ 		
+@@ -465,7 +466,7 @@
+ 							if (m_cellsValues[i] != null && m_cellsValues[i].ToString().Length > 0)
+ 								Helpers.AddColumnHandleDuplicate(table, m_cellsValues[i].ToString());
+ 							else
+-								Helpers.AddColumnHandleDuplicate(table, string.Concat(COLUMN, i));
++								Helpers.AddColumnHandleDuplicate(table, string.Concat(COLUMN, i + (_columnIndexStartsAt1 ? 1 : 0)));
+ 						}
+ 					}
+ 					else
+@@ -512,7 +513,7 @@
+ 							if (m_cellsValues[i] != null && m_cellsValues[i].ToString().Length > 0)
+ 								Helpers.AddColumnHandleDuplicate(table, m_cellsValues[i].ToString());
+ 							else
+-								Helpers.AddColumnHandleDuplicate(table, string.Concat(COLUMN, i));
++								Helpers.AddColumnHandleDuplicate(table, string.Concat(COLUMN, i + (_columnIndexStartsAt1 ? 1 : 0)));
+ 						}
+ 					}
+ 					else
+@@ -1212,6 +1213,18 @@
+ 			}
+ 		}
+ 
++		public bool ColumnIndexStartsAt1
++		{
++			get { return _columnIndexStartsAt1; }
++			set { _columnIndexStartsAt1 = value; }
++		}
++
++		public String DefaultColumnName
++		{
++			get { return COLUMN; }
++			set { COLUMN = value; }
++		}
++
+ 		public bool ConvertOaDate
+ 		{
+ 			get { return m_ConvertOADate; }
+Index: Excel/ExcelOpenXmlReader.cs
+===================================================================
+--- Excel/ExcelOpenXmlReader.cs	(revision 87802)
++++ Excel/ExcelOpenXmlReader.cs	(working copy)
+@@ -33,7 +33,8 @@
+ 
+ 		private bool disposed;
+ 		private bool _isFirstRowAsColumnNames;
+-		private const string COLUMN = "Column";
++		private bool _columnIndexStartsAt1 = false;
++		private string COLUMN = "Column";
+ 		private string instanceId = Guid.NewGuid().ToString();
+ 
+ 		private List<int> _defaultDateTimeStyles;
+@@ -382,7 +383,7 @@
+ 						if (_cellsValues[index] != null && _cellsValues[index].ToString().Length > 0)
+ 							Helpers.AddColumnHandleDuplicate(table, _cellsValues[index].ToString());
+ 						else
+-							Helpers.AddColumnHandleDuplicate(table, string.Concat(COLUMN, index));
++							Helpers.AddColumnHandleDuplicate(table, string.Concat(COLUMN, index + (_columnIndexStartsAt1 ? 1 : 0)));
+ 					}
+ 				}
+ 				else continue;
+@@ -415,6 +416,18 @@
+ 			}
+ 		}
+ 
++		public bool ColumnIndexStartsAt1
++		{
++			get { return _columnIndexStartsAt1; }
++			set { _columnIndexStartsAt1 = value; }
++		}
++
++		public String DefaultColumnName
++		{
++			get { return COLUMN; }
++			set { COLUMN = value; }
++		}
++
+ 		public bool IsValid
+ 		{
+ 			get { return _isValid; }
+Index: Excel/IExcelDataReader.cs
+===================================================================
+--- Excel/IExcelDataReader.cs	(revision 87802)
++++ Excel/IExcelDataReader.cs	(working copy)
+@@ -59,5 +59,9 @@
+ 		/// </value>
+ 		bool IsFirstRowAsColumnNames { get;set;}
+ 
++		String DefaultColumnName { get; set; }
++
++		bool ColumnIndexStartsAt1 { get; set; }
++
+ 	}
+ }
+\ No newline at end of file

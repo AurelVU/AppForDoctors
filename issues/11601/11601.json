@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-03-11T04:23:06.16-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Calls to GetDateTime() always perform a ToString() operation on the cell value and then attempt several transformation operations to obtain a DateTime.\n\nThere is a case where the cell value may already be a DateTime value (see pushCellValue method which contains conversion calls)\n\nIt is possible that some information may be lost in the conversion from DateTime to string and then back to DateTime again.. (depending on format strings set for the current culture)...\n\nIt is suggested that the cell value be checked first, and returned without conversion if it has already previously been converted to a DateTime.",
+    "LastUpdatedDate": "2017-11-27T20:47:30.46-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-02-26T01:37:42.49-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ExcelBinaryReader:  GetDateTime(..) call can sometimes reprocess cell values already stored as DateTime",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11601
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This sounds valid to me. Thanks for submitting the patch. We'll look at it soon.",
+      "PostedDate": "2013-02-26T04:27:04.36-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-11T03:30:38.543-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 82882.",
+      "PostedDate": "2013-03-11T04:23:06.16-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:55.797-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:30.46-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

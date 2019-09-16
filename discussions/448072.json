@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1060469",
+    "ThreadId": "448072",
+    "Html": "how to display excel file to data grid view?\r<br />\nand user can choose the sheet to?\r<br />\n<br />\nthanks<br />\n",
+    "PostedDate": "2013-06-24T09:37:53.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060488",
+    "ThreadId": "448072",
+    "Html": "There are many ways to do what your looking for, the following is a simplistic answer:<br />\n<pre><code>public Form1()\n{\n  InitializeComponent();\n  LoadSheets();\n}\n\nprivate void LoadSheets()\n{\n  string _PathFilename = @&quot;C:\\Temp\\test3.xlsx&quot;;\n  using (FileStream streamIn = File.Open(_PathFilename, FileMode.Open, FileAccess.Read))\n  using (IExcelDataReader execlReader = (Path.GetExtension(_PathFilename) == &quot;.xlsx&quot; ? ExcelReaderFactory.CreateOpenXmlReader(streamIn) : ExcelReaderFactory.CreateBinaryReader(streamIn)))\n  {\n    DataSet ds = new DataSet();\n    ds = execlReader.AsDataSet();\n\n    int r = ds.Tables[0].Rows.Count;\n    int c = ds.Tables[0].Columns.Count;\n\n    if (ds.Tables.Count &lt; 1)\n    {\n      MessageBox.Show(&quot;  No sheets in workbook.&quot;);\n    }\n    else\n    {\n      int x = 0, y = 0;\n      foreach (DataTable sheet in ds.Tables)\n      {\n        DataGridView dgv = new DataGridView();\n        dgv.Location = new Point(x+=100, y+=100);\n        dgv.DataSource = sheet;\n        this.Controls.Add(dgv);\n      }\n    }\n  }\n}</code></pre>\n\n",
+    "PostedDate": "2013-06-24T10:14:27.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060499",
+    "ThreadId": "448072",
+    "Html": "why do you initialize r an c but you don;t use it?<br />\n",
+    "PostedDate": "2013-06-24T10:44:37.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060502",
+    "ThreadId": "448072",
+    "Html": "That's from your previous request where you wanted to know how many rows and columns.<br />\n",
+    "PostedDate": "2013-06-24T10:49:01.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060509",
+    "ThreadId": "448072",
+    "Html": "oh i see. thanks a lot.\r<br />\nmy previous problem has been solved :)\r<br />\n<br />\nbut, why if i put the location, the position of result not same with my data grid design??\r<br />\n*sorry my grammar is so bad\r<br />\nthanks :)<br />\n",
+    "PostedDate": "2013-06-24T11:04:11.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060527",
+    "ThreadId": "448072",
+    "Html": "The location is only an x\\y position where the grid starts drawing at.  If you don't change your offset, the grids wind up on top of each other.  I'm afraid I can't answer your design requirements.  My example was not meant to be a full design.  You need one grid for each sheet.  You could place them on the form manually and use their names in the code.<br />\n",
+    "PostedDate": "2013-06-24T12:01:51.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060681",
+    "ThreadId": "448072",
+    "Html": "oh i see..\r<br />\n<br />\nbut i change &quot;dgv&quot; to my grid view's name and when i run my program, the grid appear under the tab page (fyi i use tab page in my program).\r<br />\nhow to solved it?<br />\n",
+    "PostedDate": "2013-06-24T21:08:54.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060910",
+    "ThreadId": "448072",
+    "Html": "If you have 3 sheets you need three datagridview controls.  So you will have to set sheet[0] to dgv1, sheet[1] to dgv2, etc.  My example creates three new datagridviews dynamically.  Also, don't use the location part of the code if you are placing the grids on the form.<br />\n",
+    "PostedDate": "2013-06-25T07:29:01.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

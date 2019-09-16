@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1354817",
+    "ThreadId": "581588",
+    "Html": "hi all,\r<br />\ni have a problem opening an excel that i receive from third party...\r<br />\nproblem is in '<strong><em>public static XlsBiffRecord GetRecord</em></strong>' on the step '<strong><em>uint ID = BitConverter.ToUInt16(bytes, (int)offset);</em></strong>' (destination matrix is not enought big....).\r<br />\nvalues:\r<br />\n '<strong>bytes</strong>'=[4096]\r<br />\n '<strong>offset</strong>'=4095\r<br />\n<br />\nbut if i open the excel and save it dll is working fine.\r<br />\nsomeone have the same problem?!\r<br />\n<br />\nin case i could attach the xls to try.\r<br />\nthank in advance.<br />\n",
+    "PostedDate": "2015-02-23T00:36:06.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

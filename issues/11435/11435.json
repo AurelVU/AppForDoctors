@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "i have created webpart whcih can read excel sheet data and posted into Sharepoint 2010 List, using ExcelReader (http://exceldatareader.codeplex.com/). everything was going fine. but when user having colored text in excel sheet at that time field values cant read the data from excel sheet.. if suppose before reading excel sheet user set font color as Black, then read the complete data from excel sheet and posted to sharepoint list.\n \nDoes any one face like this issue...!\n \nHow can i read the excel sheet data if it is in colored text with following..\n \nmy code:\n \n                    HttpPostedFile postedFile = fupExcelSheet.PostedFile;  // fileupload control\n                     string filename = Path.GetFullPath(postedFile.FileName);\n                     string extension = Path.GetExtension(postedFile.FileName);\n                     int contentLength = postedFile.ContentLength;\n                     IExcelDataReader excelReader = null;\n                     DataSet result1 = null;                   \n                    DataTable dtExcelRecords = new DataTable();\n                     byte[] buffer = new byte[(int)fupExcelSheet.FileContent.Length];\n                     fupExcelSheet.FileContent.Read(buffer, 0, buffer.Length);\n                     Stream stream = new MemoryStream(buffer);                  \n                     if (extension.Trim().ToUpper() == \".XLS\")\n                     {\n                         excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n                     }\n                     else if (extension.Trim().ToUpper() == \".XLSX\")\n                     {\n                         excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n                     }\n                     result1 = excelReader.AsDataSet();\n                     dtExcelRecords = result1.Tables[0];\n \nhow can i read the data from excel sheet having colored text.",
+    "LastUpdatedDate": "2013-03-14T08:37:24.417-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-12-17T01:08:25.06-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Colored Text cant read from Excel sheet",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 11435
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I've recreated this issue, so am trying to fix it.",
+      "PostedDate": "2012-12-17T06:10:41.933-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Actually, scratch that, my test was faulty. I can't recreate. Are you able to supply a spreadsheet that shows this issue?",
+      "PostedDate": "2012-12-17T06:18:47.87-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-17T06:19:00.053-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-01-15T08:00:42.713-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:31.213-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-14T08:37:24.417-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

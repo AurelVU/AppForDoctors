@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I was trying to use excelreader. But all the columnnames don't get read and the data is empty as well. Below is my (simple) code\n \n //create a reader\n            IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n            \n            \n            //...\n            //4. DataSet - Create column names from first row\n            excelReader.IsFirstRowAsColumnNames = true;\n            DataSet dataSet = excelReader.AsDataSet();",
+    "LastUpdatedDate": "2013-02-21T17:47:33.787-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-05-06T02:31:27.92-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Unable to read my sheet",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10739
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4042,
+      "FileName": "SampleSheet (8).xls",
+      "DownloadUrl": ".\\4042"
+    }
+  ],
+  "Comments": []
+}

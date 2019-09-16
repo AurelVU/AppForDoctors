@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have hosted my web application which uses Excel Data Reader in Hostgator shared hosting server. I am getting the foll. error. What needs to be done to fix it? \n\nLocally in my dev box, everything works sweet.\n\nError details:\n\nSystem.Security.SecurityException: Request for the permission of type 'System.Security.Permissions.EnvironmentPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089' failed.\n   at System.Security.CodeAccessSecurityEngine.Check(Object demand, StackCrawlMark& stackMark, Boolean isPermSet)\n   at System.Security.CodeAccessSecurityEngine.Check(CodeAccessPermission cap, StackCrawlMark& stackMark)\n   at System.Security.CodeAccessPermission.Demand()\n   at System.IO.Path.GetTempPath()\n   at Excel.Core.ZipWorker..ctor() in exceldatareader-82970\\Excel\\Core\\ZipWorker.cs:line 69\n   at Excel.ExcelOpenXmlReader.Initialize(Stream fileStream) in exceldatareader-82970\\Excel\\ExcelOpenXmlReader.cs:line 313\n   at Excel.ExcelReaderFactory.CreateOpenXmlReader(Stream fileStream) in  exceldatareader-82970\\Excel\\ExcelReaderFactory.cs:line 74",
+    "LastUpdatedDate": "2014-03-14T11:11:58.337-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-12-02T08:45:17.283-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "System.Security.SecurityException in Windows Shared hosting",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12540
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I'm not sure but I would suspect that your web app doesn't have the same permissions as your account in the dev box.  I'm pretty sure that is how it should be.\r\n\r\nAnyone with more web experience have a more specific answer?",
+      "PostedDate": "2013-12-02T11:58:56.603-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-03-14T11:00:46.01-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have the same problem, I try to read an Excel (xlsx) file but I get this error, just with the new version of the excel files (xlsx) with the old version (xls) I don't have any problem. how did you fix this error?",
+      "PostedDate": "2014-03-14T11:11:58.337-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

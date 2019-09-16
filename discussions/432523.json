@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "998660",
+    "ThreadId": "432523",
+    "Html": "Hello,\r<br />\n<br />\nI'm trying to use this library in Powershell on Windows 7/Server2008R2.\r<br />\nDo you have any examples of using it? If so how do I create a object from it?\r<br />\n<br />\nAlso, I had to change the targetFramework to .net 3.5 so it would load in Powershell.\r<br />\n<br />\n$filepath=&quot;C:\\Users\\me\\Downloads\\2.1.beta.src\\Excel\\bin\\Debug\\Excel.4.0.dll&quot;\r<br />\n<a href=\":LoadFile($filepath)\" rel=\"nofollow\">System.Reflection.Assembly</a>::LoadFile($filepath)\r<br />\n$a = New-Object [Excel.ExcelBinaryReader] \r<br />\n<br />\nOutput:\r<br />\n<br />\nPS C:\\Windows\\system32&gt; $filepath=&quot;C:\\Users\\me\\Downloads\\2.1.beta.src\\Excel\\bin\\Debug\\Excel.4.0.dll&quot;\r<br />\n<br />\n<a href=\":LoadFile($filepath)\" rel=\"nofollow\">System.Reflection.Assembly</a>::LoadFile($filepath)\r<br />\n<br />\n$a = New-Object [Excel.ExcelBinaryReader] <br />\n<h1>New-Object -TypeName [Excel.4.0].IExcelDataReader</h1>\n<h1>[appdomain]::CurrentDomain.GetAssemblies()</h1>\nGAC    Version        Location                                                                                                                \r<br />\n<hr />\nFalse  v2.0.50727     C:\\Users\\me\\Downloads\\2.1.beta.src\\Excel\\bin\\Debug\\Excel.4.0.dll                                                  <br />\nNew-Object : Cannot find type [[Excel.ExcelBinaryReader]]: make sure the assembly containing this type is loaded.\r<br />\nAt line:5 char:16<br />\n<ul>\n<li>\n$a = New-Object &lt;&lt;&lt;&lt;  [Excel.ExcelBinaryReader] <br />\n<ul>\n<li>CategoryInfo          : InvalidType: (:) [New-Object], PSArgumentException</li>\n<li>\nFullyQualifiedErrorId : TypeNotFound,Microsoft.PowerShell.Commands.NewObjectCommand<br />\n</li>\n</ul>\n</li>\n</ul>\n",
+    "PostedDate": "2013-02-08T10:00:58.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998790",
+    "ThreadId": "432523",
+    "Html": "The constructor for ExcelBinaryReader is internal. There's code for how to use the project on the <a href=\"http://exceldatareader.codeplex.com/\" rel=\"nofollow\">project home page</a>. Load the assembly as you did, then get a FileStream:<br />\n<pre><code>&gt; $file = [System.IO.File]::OpenRead(&quot;$($pwd.Path)\\Book1.xls&quot;)</code></pre>\n\nPass the FileStream to the factory method:<br />\n<pre><code>&gt; $reader = [Excel.ExcelReaderFactory]::CreateBinaryReader($file)</code></pre>\n\nAnd read from it as directed on the home page. You should make sure to close and dispose the reader and file when you're done with them.<br />\n",
+    "PostedDate": "2013-02-08T17:36:26.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

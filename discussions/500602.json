@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1169291",
+    "ThreadId": "500602",
+    "Html": "I'm using the AsDataSet() method to import large Excel files into DataSets. It performs extremely well until I hit a file that has a lot of formatting. With formatting, I cancelled after ~ 30 minutes. I then opened the Excel file, removed all formatting, and it worked almost instantly.\r<br />\n<br />\nI'm using .xls files, not .xlsx.\r<br />\n<br />\nI might have the option of removing the formatting when they are generated, but it would be a lot easier for me if I could somehow make then work, whether it's by telling ExcelDataReader to ignore the formatting or by somehow removing it before processing.\r<br />\n<br />\nAny ideas?<br />\n",
+    "PostedDate": "2014-01-15T08:07:59.763-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1183687",
+    "ThreadId": "500602",
+    "Html": "That is interesting. What was the formatting? dates etc? or graphical mostly?<br />\n",
+    "PostedDate": "2014-01-20T01:35:43.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1184565",
+    "ThreadId": "500602",
+    "Html": "\r\n<div dir=\"ltr\">Text color, text font type, text size. When I highlighted all and said &quot;Remove Formatting&quot; it took seconds to import. I was dealing with 50,000&#43; rows, but not many columns.\r\n<div><br>\r\n</div>\r\n<div>The source of the Excel file was an export from Business Objects, so the formatting was applied in the report.</div>\r\n</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-01-20T07:25:26.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1186764",
+    "ThreadId": "500602",
+    "Html": "\r\n<div dir=\"ltr\">How many rows was it?</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-01-21T01:48:16.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1186766",
+    "ThreadId": "500602",
+    "Html": "\r\n<div dir=\"ltr\">Sorry just saw that you said 50000&#43;</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-01-21T01:48:26.603-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1198854",
+    "ThreadId": "500602",
+    "Html": "I tried creating a 60000 row sheet with formatting, but it ran quite quickly. Was there a lot of different formats throughout the file? Was it tabular data? Were rows varying in format?<br />\n",
+    "PostedDate": "2014-01-27T01:59:19.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1198962",
+    "ThreadId": "500602",
+    "Html": "\r\n<div dir=\"ltr\">Interesting. I'll look deeper at the file. It was created from Business Objects so there might have been some other garbage in play. I'll check to see if it's proprietary data also, and if not then maybe I'll send a copy.</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-01-27T06:36:55.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1200461",
+    "ThreadId": "500602",
+    "Html": "\r\n<div dir=\"ltr\">That would be good</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-01-29T06:14:15.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

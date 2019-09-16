@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When you use 1904 Date System Excel file, getDateTime method returns invalid values since the library assumes that Excel files use 1900 Date System. The library should check which Date System the excel file is using.\n \nREPRO STEP\n========\n1. Open Excel and go to Options -> Advanced menu.\n2. Check \"Use 1904 date system.\"\n3. Enter date in the excel file.\n4. Read the date from the library.\n \nNOTE\n====\n1904 date system is defaulted in Mac version of Excel.",
+    "LastUpdatedDate": "2017-11-27T20:47:28.063-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-11-19T18:53:19.563-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Need 1904 Date System Handling",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 9852
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

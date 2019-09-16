@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1313625",
+    "ThreadId": "569865",
+    "Html": "I have an Excel file with hyperlinks (to a web site) inside. The library only offers access to the visible text (ds.Tables[0].Rows[0].ItemArray[0]), not to the hyperlink itself.\r<br />\n<br />\nI can't see any properties indicating hyperlinks are supported at all.\r<br />\n<br />\nAm I right?<br />\n",
+    "PostedDate": "2014-10-15T08:09:53.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1314623",
+    "ThreadId": "569865",
+    "Html": "I also want to know the solution.<br />\n",
+    "PostedDate": "2014-10-18T07:51:34.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

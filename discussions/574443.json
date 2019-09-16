@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1330257",
+    "ThreadId": "574443",
+    "Html": "I added the reference in VS2008 to excel.4.5.dll and it fails saying it's not found. What am I doing wrong?<br />\n",
+    "PostedDate": "2014-12-09T10:31:24.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1331152",
+    "ThreadId": "574443",
+    "Html": "As far as I'm aware, Visual Studio 2008 does not support .NET 4.5 (the newest supported version would be .NET 3.5), which is what that version is built against. Consider upgrading to Visual Studio 2013 (the Community Edition is free, after all).\r<br />\n<br />\nWhile it's not a canonical resource, this table seems to show what versions of Visual Studio support which frameworks: <a href=\"http://en.wikipedia.org/wiki/Microsoft_Visual_Studio#History\" rel=\"nofollow\">http://en.wikipedia.org/wiki/Microsoft_Visual_Studio#History</a><br />\n",
+    "PostedDate": "2014-12-11T14:34:21.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

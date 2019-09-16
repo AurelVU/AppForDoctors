@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Double values are wrongly readed when the machine is set to a culture that uses comma instead of point as a decimal separator.",
+    "LastUpdatedDate": "2013-02-21T17:47:42.42-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-11-04T14:13:00.167-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error reading double value from diferent CultureInfos",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7570
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Indeed.\r\n\r\nI´m working on a fix, so, no matter the machine culture, the AsDataSet() method always returns the values encoded with the InvariantCulture.\r\n\r\nThanks.",
+      "PostedDate": "2010-11-04T16:23:23.403-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-11-04T16:23:49.487-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-01-22T05:41:01.25-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:42.42-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

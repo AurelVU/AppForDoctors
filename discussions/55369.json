@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "186971",
+    "ThreadId": "55369",
+    "Html": "Would you have a rough time line by which you would be able to add excel 2007 reading capabilities.\r\n",
+    "PostedDate": "2009-05-05T08:12:09.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193094",
+    "ThreadId": "55369",
+    "Html": "<p>Excel reader is very useful in reading excels on 64-bit machine.</p>\r\n<p>Please let me know when you would be able to add excel 2007, &nbsp;'vkapoorjefco', did u&nbsp;get any answer?</p>\r\n<p>Do&nbsp;you know any other way of reading excel 2007 on 64-bit machine?&nbsp;</p>",
+    "PostedDate": "2009-05-22T00:26:36.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "211594",
+    "ThreadId": "55369",
+    "Html": "<p>Hi,</p>\r\n<p>Can someone tell me how to read Excel 2007?</p>\r\n<p>My code manage to read Excel '97-2003, but not 2007. The code implementation is different for 97-2003 and 2007?</p>\r\n<p>Please help!</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2009-07-13T23:49:56.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

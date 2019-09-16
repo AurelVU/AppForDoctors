@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1112239",
+    "ThreadId": "463608",
+    "Html": "Is there a method to ignore blankrows?<br />\n",
+    "PostedDate": "2013-10-25T12:56:02.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114961",
+    "ThreadId": "463608",
+    "Html": "I don't think so. You'd have to roll that yourself by using the IDataReader interface<br />\n",
+    "PostedDate": "2013-10-31T03:06:12.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

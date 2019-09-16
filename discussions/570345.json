@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1315346",
+    "ThreadId": "570345",
+    "Html": "Hi,\r<br />\n<br />\nI come to an issue that when using the ExcelOpenXmlReader, the numbers formated as text in Excel are always converted to double, ex: the number 0006181(text) is converted to 6181.0(double).\r<br />\nIn line 279 there is a verification to see if the format is text:<br />\n<pre><code>else if (xf.NumFmtId == 49)\n  o = o.ToString();</code></pre>\n\nbut the convertion is from the object already converted to double!\r<br />\n<br />\nSugestion:<br />\n<pre><code>else if (xf.NumFmtId == 49)\n   o = _xmlReader.Value;</code></pre>\n\nthis will preserve numbers as text, as long as they are formated as text in Excel.<br />\n",
+    "PostedDate": "2014-10-21T07:39:53.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

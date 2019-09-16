@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The problem happens when we create a excel file and add some sheet more and then  removed the firsts. The sheetid value assigned and the sheetX.xml file generated at begining has correlative numbers, \n \nsheetid=1 -> sheet1.xml\nsheetid=2 -> sheet2.xml\nsheetid=3 -> sheet3.xml\n...\n \nif we remove the first item the sheetids don't change, but the sheetX.xml files change.\n \nsheetid=2 -> sheet1.xml\nsheetid=3 -> sheet2.xml\n \nWhen the reader try to open the sheet, it doesn't find the file, because it tries to open the file worsheets/sheet[sheetid].xml.\n \nFor resolve this issue I apply this change to the ExcelOpenXmlReader class adding the following line to the ReadSheetGlobals Method:\n \nprivate void ReadSheetGlobals(XlsxWorksheet sheet)\n{\n    //take the sheetid assign to the file from the path\n    int fileNumberName = Int32.Parse(sheet.Path.ToString().Substring(16, sheet.Path.Length + 1 - 17).Split('.')[0]);\n \n    _sheetStream = _zipWorker.GetWorksheetStream(fileNumberName);\n \n\tif (null == _sheetStream) return;\n \n\t_xmlReader = XmlReader.Create(_sheetStream);\n \n\twhile (_xmlReader.Read())\n\t{\n\t\tif (_xmlReader.NodeType == XmlNodeType.Element && _xmlReader.Name == XlsxWorksheet.N_dimension)\n\t\t{\n\t\t\tstring dimValue = _xmlReader.GetAttribute(XlsxWorksheet.A_ref);\n \n\t\t\tif (dimValue.IndexOf(':') > 0)\n\t\t\t{\n\t\t\t\tsheet.Dimension = new XlsxDimension(dimValue);\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\t_xmlReader.Close();\n\t\t\t\t_sheetStream.Close();\n\t\t\t}\n \n\t\t\tbreak;\n\t\t}\n\t}\n}\n \nThis fixed only has been tested for the case I'm working, so i'ts not tested fully.",
+    "LastUpdatedDate": "2013-02-21T17:47:45.403-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-02-11T04:52:27.763-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "No return data if first sheet has a sheetid greater than 1",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 5300
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "When calling AsDataSet, a dataset with no tables is returned.  This only seems to happen when called with a workbook that would has had sheets added/removed.  When will this fix be pushed out?  I was using the current version?",
+      "PostedDate": "2010-05-07T09:16:59.703-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "this is fixed by referencing the path instead on the worksheet number, will be fixed in the next release",
+      "PostedDate": "2010-09-12T04:07:57.55-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-12T04:08:10.833-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "fixed in the next release\r\n\r\n\n\n** Closed by robalexclark 12/09/2010 04:08",
+      "PostedDate": "2010-09-12T04:08:14.207-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "fixed in the next release",
+      "PostedDate": "2010-09-12T04:08:14.847-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:45.403-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

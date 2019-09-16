@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1007681",
+    "ThreadId": "434713",
+    "Html": "In the following code I don't understand why you try to parse the value as a double then assign object o this parsed value. The code after this parsing you handle strings but at this point you've converted it to a double.  So in Excel I have a string of 02272013 will come out as 2272013.\r<br />\n<br />\nI would think the double.parse should happen after any string handling.<br />\n<pre><code>double number;\n                        object o = _xmlReader.Value;\n\n                        var style = NumberStyles.Any;\n                        var culture = CultureInfo.InvariantCulture;\n                        if (double.TryParse(o.ToString(), style, culture, out number))\n                            o = number;\n\n                        if (null != a_t &amp;&amp; a_t == XlsxWorksheet.A_s) //if string\n                        {\n                            o = Helpers.ConvertEscapeChars(_workbook.SST[int.Parse(o.ToString())]);\n                        }\n                        if (null != a_t &amp;&amp; a_t == XlsxWorksheet.N_inlineStr) //if string inline\n                        {\n                            o = Helpers.ConvertEscapeChars(o.ToString());\n                        }</code></pre>\n\n",
+    "PostedDate": "2013-02-27T08:15:45.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007682",
+    "ThreadId": "434713",
+    "Html": "I don't think I understand either, it sounds like an issue. The original authors of that code have moved on so we can't ask them (unless that is a new commit).\r<br />\n<br />\nI can copy this to a work item if you are able to submit an Excel document and a small function that shows the issue.<br />\n",
+    "PostedDate": "2013-02-27T08:20:08.38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

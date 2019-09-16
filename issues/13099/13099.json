@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi guys,\n\nwe're having an issue while reading our excel sheets. It seems that if a cell value references to another cell the value is always treated as a number.\n\nE.g. Having a text value of 0004 in A5.\nCell B1 (formated as text and displayed by excel as 0004) references to A5 by =$A$5\nThe value read by ExcelDataReader 2.1.2.0 and below treats it as 4.\n\nIf you need any further information just leave a comment here and I'll provide you those infos and support you as best as I can.\n\nThank you very much in advance.",
+    "LastUpdatedDate": "2014-06-24T02:08:10-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-06-24T02:08:10-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Problems with references in an excel sheet",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13099
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

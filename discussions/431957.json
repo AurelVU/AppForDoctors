@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "996422",
+    "ThreadId": "431957",
+    "Html": "I am having trouble reading a column that has the words TRUE and FALSE under them.  It inconsistently reads the columns.  Sometimes it will say 0, and other times nothing.  Any idea what I could be doing wrong?  <br />\n",
+    "PostedDate": "2013-02-04T16:11:24.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "996570",
+    "ThreadId": "431957",
+    "Html": "Do you have a sample Excel document that I can check this against? Also, possibly some sample code that you are using.<br />\n",
+    "PostedDate": "2013-02-05T02:21:56.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

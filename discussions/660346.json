@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1490316",
+    "ThreadId": "660346",
+    "Html": "I am using IExcelDataReader in my Project in order to import the Excel worksheet into DataTable. Everything works fine but in one of my project the excel sheet is hidden, and IExcelDataReader doea not import the excel which is hidden.\r<br />\n<br />\nPlease help me out on this its very urgent.\r<br />\n<br />\nBelow is my sample code:<br />\n<pre><code>        'Create a new DataTable.\n        Dim dt As New DataTable()\n\n        Dim lstream As FileStream = File.Open(strFileName, FileMode.Open, FileAccess.Read)\n\n        Dim lexcReader As IExcelDataReader = ExcelReaderFactory.CreateBinaryReader(lstream)\n\n        Dim lresult As DataSet = lexcReader.AsDataSet\n\n        lexcReader.IsFirstRowAsColumnNames = True\n\n        While lexcReader.Read\n\n        End While\n\n        lexcReader.Close()\n        lexcReader.Dispose()\n\n        Return lresult.Tables(0)\n</code></pre>\n\nThanks, any quick reply will be apprecited.<br />\n",
+    "PostedDate": "2016-12-26T23:47:11.24-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

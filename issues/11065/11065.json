@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I an excel 2007 Workbook  I have numeric value 58.9285484. From a dotnet client application  I am using CreateOpenXmlReader to read the values. But when reading the values I am getting it as 58.928548399999997. Any idea what could wrong.\n \n        private void ImportXlsx()\n        {\n            string sFilePath = txtFilePath.Text;\n            int rowIndex = 0;\n            string colValue = \"\";\n            string colValue1 = \"\";\n \n            IExcelDataReader excelReader;\n            DataColumn XlsDataColumn = null;\n            DataRow XlsDataRow = null;\n            DataTable XlsDataTable = null;\n            DataSet result = null;\n \n            FileStream stream = File.Open(sFilePath, FileMode.Open, FileAccess.Read);\n \n            excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n            excelReader.IsFirstRowAsColumnNames = true;\n            result = excelReader.AsDataSet();            \n            XlsDataTable = result.Tables[0];\n \n            long rowCount = XlsDataTable.Rows.Count;\n            long columnCount = XlsDataTable.Columns.Count;\n            \n            for (int row = 1; row <= rowCount; row++)\n            {\n                XlsDataRow = XlsDataTable.Rows[row - 1];\n \n                for (int col = 1; col <= columnCount; col++)\n                {\n                    colValue = XlsDataRow[col-1] as string;\n                    MessageBox.Show(colValue.ToString());\n                }\n            }         \n        }\n \nPlease help me out in resolving the issue",
+    "LastUpdatedDate": "2013-11-26T10:55:42.683-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-08-08T21:51:18.593-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "In Excel 2007 Numeric Value 58.9285484 is read as 58.928548399999997",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 11065
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Any help appreciated",
+      "PostedDate": "2012-08-08T21:52:12.917-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:32.347-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-11-26T10:55:42.683-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

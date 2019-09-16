@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "655990",
+    "ThreadId": "268573",
+    "Html": "\r\n<p>Please help its very needed currently.</p>\r\n<p>The output databale does not have the bool which i am looking for.</p>\r\n<p>&#65279;&#65279;&#65279;&#65279;Type|Month|Date|IsProductExprired|</p>\r\n<p>111|11|20110912|False</p>\r\n<p>The excel file is not able to read this record, the follwoing code which gives me the data table it has bool conversions (True,False) which are not represented in the datatable. its all blank and null</p>\r\n<pre>           FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);\r\n\r\n            //1. Reading from a binary Excel file ('97-2003 format; *.xls)\r\n            IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\r\n            //...\r\n            //1. Reading from a OpenXml Excel file (2007 format; *.xlsx)\r\n            //IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\r\n            //...\r\n            //3. DataSet - Create column names from first row\r\n            excelReader.IsFirstRowAsColumnNames = true;\r\n            DataSet result = excelReader.AsDataSet();\r\n\r\n            return result.Tables[tableName];</pre>\r\n<p>If you want i can send you a sample file.</p>\r\n<p>&nbsp;</p>\r\n<p>Kind Regards</p>\r\n<p>Vinay</p>\r\n",
+    "PostedDate": "2011-08-10T10:59:24.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "656023",
+    "ThreadId": "268573",
+    "Html": "<p>Here is the Test.</p>\r\n<p><span style=\"font-size: x-small;\"><span style=\"font-size: x-small;\">\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        [TestMethod]\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> excelReaderReadBoolDefault()\r\n        {\r\n            IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(Helper.GetTestWorkbook(<span style=\"color: #a31515;\">\"Test_num_double_date_bool_string\"</span>));\r\n\r\n            DataTable result = excelReader.AsDataSet().Tables[0];\r\n\r\n            Assert.IsNotNullOrEmpty(result.Rows[22][3].ToString());\r\n            Assert.AreEqual(result.Rows[22][3], <span style=\"color: blue;\">true</span>);\r\n\r\n            excelReader.Close();\r\n        }\r\n\r\nshould be able to get this one as a bool or even as a string to get the value in the cell. its fine with me if every thing is treated as a string also.</pre>\r\n<pre><span style=\"font-size: x-small;\"></span></pre>\r\n</div>\r\n</span></span></p>",
+    "PostedDate": "2011-08-10T11:36:14.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "656066",
+    "ThreadId": "268573",
+    "Html": "<div style=\"background-color: white; color: black;\">\n<pre><span style=\"color: blue;\">private</span> <span style=\"color: blue;\">bool</span> readWorkSheetRow()\r\n\t\t{\r\n\t\t\tm_cellsValues = <span style=\"color: blue;\">new</span> <span style=\"color: blue;\">object</span>[m_maxCol];\r\n\r\n\t\t\t<span style=\"color: blue;\">while</span> (m_cellOffset &lt; m_stream.Size)\r\n\t\t\t{\r\n\t\t\t\tXlsBiffRecord rec = m_stream.ReadAt(m_cellOffset);\r\n\t\t\t\tm_cellOffset += rec.Size;\r\n\r\n\t\t\t\t<span style=\"color: blue;\">if</span> ((rec <span style=\"color: blue;\">is</span> XlsBiffDbCell)) { <span style=\"color: blue;\">break</span>; };<span style=\"color: green;\">//break;</span>\r\n\t\t\t\t<span style=\"color: blue;\">if</span> (rec <span style=\"color: blue;\">is</span> XlsBiffEOF) { <span style=\"color: blue;\">return</span> <span style=\"color: blue;\">false</span>; };\r\n\r\n\t\t\t\t<span style=\"color: #ff0000;\">XlsBiffBlankCell cell = rec as XlsBiffBlankCell;\r\n\t\t\t\t//rec.ID == &nbsp;&nbsp;ID&nbsp;BOOLERR&nbsp;Excel.Core.BinaryFormat.BIFFRECORDTYPE<br />\t</span><span style=\"color: #ff0000;\">\t\t\tif ((null == cell) || (cell.ColumnIndex &gt;= m_maxCol)) continue;\r\n</span>\t\t\t\t<span style=\"color: blue;\">if</span> (cell.RowIndex != m_depht) { m_cellOffset -= rec.Size; <span style=\"color: blue;\">break</span>; };\r\n\r\n\t\t\t\tpushCellValue(cell);\r\n\t\t\t}\r\n\r\n\t\t\tm_depht++;\r\n\r\n\t\t\t<span style=\"color: blue;\">return</span> m_depht &lt; m_maxRow;\r\n\t\t}\r\n\r\n</pre>\n<pre>Thats the place its failing its not treating the cell for some reason as a correct cell.</pre>\n<pre>Its very difficult for me to understand the offset Excel notations. </pre>\n<pre>All i wanted is a datatable to traverse.</pre>\n<pre>It's working fine for all the other cells only for these ones its showing some thing very different.</pre>\n<pre>Kind regards</pre>\n<pre>Vinay.</pre>\n</div>",
+    "PostedDate": "2011-08-10T12:32:32.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

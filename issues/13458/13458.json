@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n\nFirst of all, I need to say that the ExcelDataReader is a very nice feature. I am already using it for a while now and it a pretty good way to read excel files without having MS-Office installed.\n\nUnfortunately, I encountered an issue with reading data in Excel files (using excelReader.AsDataSet()).\n\nCell valuas that rely on a formula are not updated. \n\nI.e. when I use a formula to manipulate a date. Lets say: =TODAY()-10 and I read it on the day that I opened and save the Excel file it is retrieved properly. \n\nBut when I read it the next day (or any day in the future) without touching the Excel-file, I recieve the outcome of the formula as when it was last saved.\n\nIs this familiar behaviour and is there a solution? It makes no sence to reopen and save the excel file each time prior to reading the data using the ExcelDataReader.\n\nDying for an answer here... \n\nKind regards",
+    "LastUpdatedDate": "2015-02-11T00:52:17.273-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-02-11T00:52:17.273-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "cell values are not updated when using a formula. Required to open Excel file",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13458
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

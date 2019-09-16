@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed in this release.",
+    "ClosedDate": "2009-08-24T14:21:45.65-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When calling NextResult() for a 2007 spreadsheet it would return the name and info of the second sheet.  I grabbed the code and added the following to the contructor for ExcelOpenXmlReader()\n \n _resultIndex = -1;\n \nIt seems to fix the problem.",
+    "LastUpdatedDate": "2013-05-16T05:00:03.273-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-07-09T10:52:49.923-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Possible bug with NextResult in ExcelOpenXmlReader()",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 3485
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I also had to add if (_resultIndex == -1) _resultIndex = 0; in InitializeSheetRead() in ExcelOpenXmlReader.cs\r\n\r\nprivate bool InitializeSheetRead()\r\n\t\t{\r\n\t\t\tif (ResultsCount <= 0) return false;\r\n\r\n            if (_resultIndex == -1) _resultIndex = 0;\r\n\r\n\t\t\tReadSheetGlobals(_workbook.Sheets[_resultIndex]);\r\n\r\n\t\t\tif (_workbook.Sheets[_resultIndex].Dimension == null) return false;\r\n\r\n\t\t\t_isFirstRead = false;\r\n\r\n\t\t\t_depth = 0;\r\n\t\t\t_emptyRowCount = 0;\r\n\r\n\t\t\treturn true;\r\n\t\t}",
+      "PostedDate": "2009-07-10T12:59:05.703-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-08-24T11:10:31.133-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-08-24T14:21:45.65-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:49.14-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:03.273-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

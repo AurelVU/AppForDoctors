@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1027215",
+    "ThreadId": "439507",
+    "Html": "Is there anyone out there that would be interested in writing some very very basic tutorial-like documentation for this project? I am willing contribute as a writer but I don't know how and haver never done so before. I could write some examples like how to access sheets using DataSet or such.\r<br />\n<br />\nI don't know much and I still have a lot of questions myself, like how does excelReader.Read() actually work and how to control it (point to another sheet!!), but I want to help get this more popular and better documented.<br />\n",
+    "PostedDate": "2013-04-08T06:59:37.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027218",
+    "ThreadId": "439507",
+    "Html": "It would definitely be useful to have a 'recipe' book of how to do common things. I don't have much time but could work on it with you, I'm just not able to do much myself. I've just checked and I have access to the documentation wiki so I can format and check your work.<br />\n",
+    "PostedDate": "2013-04-08T07:02:55.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

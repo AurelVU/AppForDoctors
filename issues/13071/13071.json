@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am trying to read in a large amount of data using your wonderful tool, which is ideal. \nThe problem is that the file in question has very large data in a cell\n\n\nAny help would be much appreciated",
+    "LastUpdatedDate": "2014-06-11T11:18:58.647-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-06-11T11:18:57.42-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Unable to read full cell data",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13071
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4999,
+      "FileName": "ExampleFile.xls",
+      "DownloadUrl": ".\\4999"
+    }
+  ],
+  "Comments": []
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1264929",
+    "ThreadId": "551310",
+    "Html": "I've tried this out in my app and the functionality and speed are great. However some of the design choices have me a bit perplexed. I had to do some surgery to get it working with my existing code and workbooks, but I would love to see those changes done properly. I recognize that what I'm suggesting here would be a big change, and may be considered outside the scope of this project, but I think it would open it up to a much broader audience. These are just suggestions. Happy to help out if there is interest. (In fact I'll be doing it anyway because I have to ;-)<br />\n<ul>\n<li>This doesn't actually do what an IDataReader is supposed to do (forward-only cursor). In the implementation, it eager-loads the entire workbook into a DataSet. There isn't any way to efficiently pick and choose what you want. This would be a nice utility to have in addition, but makes it unusable for the real world (e.g,, multi-MB workbooks with tens of worksheets) both for performance and memory use. What I would normally think of as the actual cursor implementation is locked up in the AsDataSet() method. At a minimum that needs to be factored out.</li>\n<li>\nIf you look at its related interfaces and the other implementations, IDataReader is intended to collaborate with these other interfaces rather than have the whole kitchen sink. Implementing IDbConnection makes it easy to factor out the set up and tear down of the &quot;database&quot; and IDbCommand lets you query just what you need. This is a typical workflow in our app:<br />\n</li>\n</ul>\n<pre><code>using (IDbConnection conn = Factory.CreateDbConnection(...)\nusing (IDbCommand command = Factory.CreateDbCommand(conn, ....)\n{\n  command.CommandText = &quot;SELECT * FROM SomeSheet&quot;;\n  using (IDbDataReader reader = command.ExecuteReader()\n  {\n    // Do stuff\n  }\n  command.CommandText = &quot;SELECT * FROM SomeOtherSheet&quot;;\n  using (IDbDataReader reader = command.ExecuteReader()\n  {\n    // Do stuff\n  }\n}</code></pre>\n\nThis sort of thing is not possible to do currently. I'm not really suggesting implementing something that parses SQL as that would be a lot of work for not much benefit. And I'm not suggesting that these intefaces are some paragon of design, but for this to be a true substitute for OleDb*, it can't break all the existing client code. Aside from that, in lieu of following the established pattern of collaborating interfaces, I have to find some way to be able to query workbooks efficiently. I was able to work around this and make it work with our client code without too much surgery on ExcelDataReader, but I'm still re-opening the workbook for each worksheet, and that's negating a lot of the speed benefit.<br />\n",
+    "PostedDate": "2014-07-11T11:26:30.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1265436",
+    "ThreadId": "551310",
+    "Html": "Thanks for showing an interesting and a desire to help. I can't really comment on the origins of some of the design decisions as I really started maintaining this project a year or two ago when I found I really liked it but that it was essentially abandoned. Since then my time on it has had to fit around my real work, which has been crazy busy.\r<br />\n<br />\nWith regard to your comments, I am not sure you are correct in your first point about it loading the entire workbook as a dataset if you are only using the IDataReader interface. I may be wrong but I think the Read implementation does read just one row at a time. Clearly the AsDataset method does create a dataset. Personally, I only use the IDataReader interface. If you are right then I would be very interested as that would provide me with some performance gains.\r<br />\n<br />\nWith regard to your second point I think it makes sense.\r<br />\n<br />\nIf you are really serious about helping, then I would like to propose that we move the project to Github, and then start collaborating over there, to scope out a version 3 release, as I find it a lot more efficient than codeplex and as I am so busy, efficiency is key.\r<br />\n<br />\nLet me know what you think\r<br />\nIan<br />\n",
+    "PostedDate": "2014-07-14T02:41:14.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1266072",
+    "ThreadId": "551310",
+    "Html": "<blockquote>\nnot sure you are correct in your first point about it loading the entire workbook as a dataset<br />\n</blockquote>\nYes, you're right. I got into it a little deeper, and found that you can pick a worksheet individually by looping on NextResult() until you find the one(s) you're looking for. As long as there weren't any dependencies in your code between the results from different worksheets, this would work fine.<br />\n<blockquote>\nmove the project to Github<br />\n</blockquote>\nWell, having figured out how to use this for my purposes, I'm feeling a little less ambitious, but I would like to pay some dues for the use of the project. I too am crazy busy, but I have to make this work for my own purposes anyway, so I'll be able to devote time to it. I've never contributed to an open source project before, so any advice/guidance appreciated. Likewise I haven't used Github, so if you could take the lead in setting that up, or provide me with guidance (not how to use it but any rules/protocols/patterns), that would be helpful. Speaking of which, one thing I'm a little concerned about is the version discrepancy between NuGet (2.1.2.3) and CodePlex (2.1.2.0). Where are those changes getting checked in?\r<br />\n<br />\nI'll follow up with some detailed change proposals, with the goal being to change as little as possible at first while still getting the functionality that seems needed to me. At this point I think worksheet random access (setter for Name?) and reading named ranges would be my first suggestions. \r<br />\n<br />\n<br />\nThanks!\r<br />\n<br />\nSteve<br />\n",
+    "PostedDate": "2014-07-15T17:06:19.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1266159",
+    "ThreadId": "551310",
+    "Html": "The version discrepancy is because the only changes were fixes to the nuget package, and I didn't have time to update the codeplex download version - and little motivation to do so as there are no real changes in it. I agree though it looks confusing.\r<br />\n<br />\nI'll hopefully look to setting up on github next week. I've contributed to open source software before, it's quite rewarding and of course good for the cv/resume.\r<br />\n<br />\nCheers\r<br />\nIan<br />\n",
+    "PostedDate": "2014-07-16T02:09:54.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1284615",
+    "ThreadId": "551310",
+    "Html": "fyi it is now up on github <a href=\"https://github.com/ExcelDataReader/ExcelDataReader\" rel=\"nofollow\">https://github.com/ExcelDataReader/ExcelDataReader</a>\r<br />\n<br />\nAs far as contributing to that basically the workflow is:<br />\n<ol>\n<li>Fork the repository</li>\n<li>Get an issue to work on, make some changes</li>\n<li>\nSend a pull request to ask a maintainer (currently me) to merge back into the original repository<br />\n</li>\n</ol>\nI'll be starting to add issues, features to the issue list for discussion. Feel free to add any of your own.\r<br />\n<br />\nCheers\r<br />\nIan<br />\n",
+    "PostedDate": "2014-08-04T07:22:43.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1287340",
+    "ThreadId": "551310",
+    "Html": "Great, thanks! Change proposals to follow.<br />\n",
+    "PostedDate": "2014-08-06T15:20:46.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

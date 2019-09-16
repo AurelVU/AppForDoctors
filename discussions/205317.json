@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "419475",
+    "ThreadId": "205317",
+    "Html": "<p>I'm using ExcelDataReader in ASP.NET 3.5 to read xls and xlsx files and it works flawlessly for xls, but generates an error while trying to read xlsx from the same directory on my local developing computer:</p>\r\n<p>excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);</p>\r\n<h2><em><em>Security Exception</em></em></h2>\r\n<p><span style=\"font-family:Arial,Helvetica,Geneva,SunSans-Regular,sans-serif\"><strong>Description: </strong>The application attempted to perform an operation not allowed by  the security policy. &nbsp;To grant this application the required permission  please contact your system administrator or change the application's  trust level in the configuration file.             <br><br> <strong> Exception Details: </strong>System.Security.SecurityException:  Request for the permission of type  'System.Security.Permissions.EnvironmentPermission, mscorlib,  Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'  failed.</span></p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-family:Arial,Helvetica,Geneva,SunSans-Regular,sans-serif\">Anybody experienced the same problem? </span></p>\r\n<p><br><span style=\"font-family:Arial,Helvetica,Geneva,SunSans-Regular,sans-serif\">Thanks in advance,</span></p>\r\n<p><span style=\"font-family:Arial,Helvetica,Geneva,SunSans-Regular,sans-serif\">Eugene<br></span></p>",
+    "PostedDate": "2010-03-17T15:59:06.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "587771",
+    "ThreadId": "205317",
+    "Html": "<p>I am currently experiencing the same problem.&nbsp; Were you ever able to figure out a solution for this?</p>\r\n<p>Thanks,</p>\r\n<p>Jon</p>",
+    "PostedDate": "2011-03-28T12:00:57.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "597396",
+    "ThreadId": "205317",
+    "Html": "<p>Is there an update to this problem?&nbsp; I am looking for a solution myself as well.&nbsp; Any info is appreciated.&nbsp; Thanks.</p>",
+    "PostedDate": "2011-04-14T12:02:46.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "598163",
+    "ThreadId": "205317",
+    "Html": "<p>I too am experiencing the very same issue. The code works fine for .xls files with the CreateBinaryReader method, yet throws the Security Exception on .xlsx files with the CreateOpenXmlReader method. If anyone has found the solution for this, please post. Thank you.</p>",
+    "PostedDate": "2011-04-15T12:12:49.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "669710",
+    "ThreadId": "205317",
+    "Html": "<p>I have the same problem, somebody found the solution to this issue?.</p>\r\n<p>Thank you.</p>",
+    "PostedDate": "2011-09-09T07:53:15.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710041",
+    "ThreadId": "205317",
+    "Html": "<p>any updates on this issue? &nbsp;i am running into the same thing.</p>",
+    "PostedDate": "2011-12-09T12:05:34.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906907",
+    "ThreadId": "205317",
+    "Html": "<p>I am receiving this issue when trying to use the dll in my website hosted on a Rackspace cloud server. It works fine locally.</p>",
+    "PostedDate": "2012-08-31T08:11:38.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085901",
+    "ThreadId": "205317",
+    "Html": "<strong>CHADDOX wrote:</strong><br />\n<blockquote>\nI am receiving this issue when trying to use the dll in my website hosted on a Rackspace cloud server. It works fine locally.<br />\n</blockquote>\nI'm having the same problem. Local it all fine. On web server it not working.<br />\n",
+    "PostedDate": "2013-08-28T12:11:26.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1242412",
+    "ThreadId": "205317",
+    "Html": "I'm having the same problem on my server, somebody have a fix?<br />\n",
+    "PostedDate": "2014-05-07T00:51:55.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1242436",
+    "ThreadId": "205317",
+    "Html": "Xlsx files have to be  unzipped. Does your application have permissions to the temp folder?<br />\n",
+    "PostedDate": "2014-05-07T02:02:41.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

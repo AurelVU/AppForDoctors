@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Am I the only one experiencing this?  I can't believe that.\n\nI haven't seen any documentation on this issue.\nI'm using version 2.1.2.0. Everything else works fine.\n\nIf I do Save as from excel the number formats just fine.\n\nWhen doing excelDataReader.AsDataSet I get a scientific notation number.\nThis number 100025440003960000 becomes this - 1.00E+17.\n\nThis is a complete deal breaker for me.\nI like the library because it's fast and easy to use but if I can't resolve this I have to find another library to use.\n\nAny info would be greatly appreciated.\n\nThanks.",
+    "LastUpdatedDate": "2014-12-04T02:32:27.59-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-12-01T11:33:14.413-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Large Numbers are being converted into scientific notation",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13335
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I've created this issue on github as we have moved from codeplex\r\n\r\nhttps://github.com/ExcelDataReader/ExcelDataReader/issues/39",
+      "PostedDate": "2014-12-04T02:26:05.99-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Is this on xls or xlsx?",
+      "PostedDate": "2014-12-04T02:31:21.967-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "future replies will be to github...accidentally sent that one here",
+      "PostedDate": "2014-12-04T02:32:27.59-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

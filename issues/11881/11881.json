@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I think the following line in method ExcelBinaryReader.readWorkSheetRow() is wrong:\n```\nm_cellsValues = new object[m_maxCol];\n```\nReason:\nm_maxCol holds the index of the last column, not the column count. We get a \"one-off\" here. Just fix the line like so:\n```\nm_cellsValues = new object[m_maxCol+1];\n```",
+    "LastUpdatedDate": "2015-02-06T11:33:55.083-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-06-18T07:43:35.797-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "IndexOutOfRangeException - array for cell values too small",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11881
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have IndexOutOfRangeException when I import excel files in old format\n[details](http://dev-doc.blogspot.com/2015/02/c-exceldatareader-indexoutofrangeexcept.html)",
+      "PostedDate": "2015-02-06T11:33:55.083-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

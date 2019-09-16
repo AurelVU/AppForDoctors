@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1130201",
+    "ThreadId": "471484",
+    "Html": "Hello all, I'm currently trying to develop a source code to read an excel file in Windows Mobile 6.5 using VB.NET 2005 (Framework 2.0 Net.). I have add reference files like system.data, excel.dll from CodePlex. By the time we debug the errors are like this: File or Assembly name MissingMethodException 'System.Data, version 2.0.0.0 .... or one of its dependencies was not found'. please help your explain. Thanks.<br />\n",
+    "PostedDate": "2013-11-29T01:33:30.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1226121",
+    "ThreadId": "539988",
+    "Html": "My users typically have data containing more than 2 decimal points, that is formatted in Excel to show just two decimal places.  Ideally, when I import this data, I would get the values as displayed in Excel, rather than the actual value in the cell.  So for instance, cell contains 1.019, but is formatted for 2 decimals, so 1.02 is displayed in the worksheet.  When I import the data, I get the actual underlying value of 1.019 rather than 1.02.  I was planning to use SqlBulkCopy to load this data into a SQL database table, which doesn't give me the option of doing any rounding prior to inserting into the database, so my table with a column type of decimal(10,2) ends up with a value of 1.01, i.e. truncates beyond 2 decimal places, rather than rounding and inserting 1.02 into the table.\r<br />\n<br />\nIs there any support within the Excel Data Reader to use the same rounding that is achieved via the numeric format applied in the Excel worksheet?\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2014-03-24T10:50:56.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

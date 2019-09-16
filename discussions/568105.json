@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1307198",
+    "ThreadId": "568105",
+    "Html": "What dependencies does this api have? Does excel have to be installed on the machine which uses this api? What other dll's are needed? (not including the core .net framework)\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2014-09-22T16:29:57.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1307295",
+    "ThreadId": "568105",
+    "Html": "The current version on nuget as a dependency on ICSharpCode.SharpZipLib.dll.\r<br />\n<br />\nThere is a new version currently in beta but not on nuget which you can try that does not have the SharpZipLib dependency\r<br />\n<a href=\"https://github.com/ExcelDataReader/ExcelDataReader/tree/f-portable\" rel=\"nofollow\">https://github.com/ExcelDataReader/ExcelDataReader/tree/f-portable</a>\r<br />\n<br />\nIt does have a dependency on PCLStorage though, as it is based on a portable class library.\r<br />\n \r<br />\nPlease send all future questions to github as we have moved there now\r<br />\n<a href=\"https://github.com/ExcelDataReader/ExcelDataReader/issues\" rel=\"nofollow\">https://github.com/ExcelDataReader/ExcelDataReader/issues</a><br />\n",
+    "PostedDate": "2014-09-23T02:03:52.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

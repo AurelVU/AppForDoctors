@@ -1,0 +1,81 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I get the following error when the code hits the followng line of code: While excelReader.Read()\n \nIndex was out of range. Must be non-negative and less than the size of the collection.\nParameter name: index\n \n \nDim stream As FileStream = File.Open(\"c:\\documents\\test.xlsx\", FileMode.Open, FileAccess.Read)\n \n \n              Dim excelReader As IExcelDataReader = ExcelReaderFactory.CreateOpenXmlReader(stream)\n                 ' Dim result As DataSet = excelReader.AsDataSet()\n                       excelReader.IsFirstRowAsColumnNames = True\n        Dim result As DataSet = excelReader.AsDataSet()\n \n              While excelReader.Read()\n            'excelReader.GetValue(0)\n        End While\n \n                excelReader.Close()\n \n    End Sub",
+    "LastUpdatedDate": "2013-02-21T17:47:32.173-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-08-13T11:37:44.053-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "While excelReader.Read()",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11075
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4193,
+      "FileName": "Doc1.docx",
+      "DownloadUrl": ".\\4193"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\r\n\r\nI am dealing with the exact same problem. Have you found the solution? xls files work but not xlsx\r\n\r\nThanks,\r\nChristis",
+      "PostedDate": "2012-08-23T03:31:30.433-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have not found a solution. I am using the xls version",
+      "PostedDate": "2012-08-23T04:08:25.61-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks mreale,\r\n\r\nI think the problem is with the .NET framework. If you were using .net 4, that might have been the problem",
+      "PostedDate": "2012-08-23T04:50:04.22-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "What .net framework are you using. If different from .4 then which one and did it resolve the problem?",
+      "PostedDate": "2012-08-23T05:09:34.673-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I haven't changed framework (i am using .NET 4) because my website needs it for running, but i have read elsewhere that the assemblies are for being used by .NET 2. Hope this helps",
+      "PostedDate": "2012-08-23T05:57:25.307-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thank you",
+      "PostedDate": "2012-08-23T06:34:16.48-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:32.173-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

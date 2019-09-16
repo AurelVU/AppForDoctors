@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi\n\nWe cannot get the ExcelDataReader to open the attached file.  We receive the file from a 3rd party, I do not know how they are generating the file.  If we open the file in Excel and resave as an xls file the ExcelDataReader can open it.  The file after saving from Excel is different than the file supplied to us.\n\nThe file is definitely not in openExcel format.",
+    "LastUpdatedDate": "2015-04-22T22:41:17.37-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-04-22T22:41:15.617-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Will not open binary Excel file",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13556
+  },
+  "FileAttachments": [
+    {
+      "FileId": 5187,
+      "FileName": "Hunter_Valley_full_cycle_time-Job-Brio_repository-3225-Cycle_1.xls",
+      "DownloadUrl": ".\\5187"
+    }
+  ],
+  "Comments": []
+}

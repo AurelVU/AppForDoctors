@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1011587",
+    "ThreadId": "435696",
+    "Html": "<strong>Im using ExcelDataReader v2.1.dll, Jan 17, 2013, Beta</strong> <br />\n<pre><code> public static DataTable ReadArchiveData(string fileName)\n    {\n        FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);\n        //IExcelDataReader excelReader =  ExcelReaderFactory.CreateOpenXmlReader(stream); // Excel 2007 ++\n        IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);  // excel 97 - 2003\n\n        excelReader.IsFirstRowAsColumnNames = true;\n\n        DataSet result = excelReader.AsDataSet();\n\n         excelReader.Close();\n        return result.Tables[&quot;Archive data&quot;];\n    }</code></pre>\n\nWhen i use <br />\n<pre><code> IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream); </code></pre>\n\nReadArchiveData return 0 rows. If i convert the same Excel file to .xlsx format and then use<br />\n<pre><code>IExcelDataReader excelReader =  ExcelReaderFactory.CreateOpenXmlReader(stream); </code></pre>\n\nReadArchiveData returns the correct number of rows.<br />\n<br />\nUnfortunately, all the Excel files i want to process are all Excel 2003(.xls).<br />\nWhat could be causing this, how can i get it return the correct rows in my worksheet or how can i convert the workbook to .xlsx because thats what works for me now before reading the file?. <br />\n",
+    "PostedDate": "2013-03-06T23:45:19.933-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012378",
+    "ThreadId": "435696",
+    "Html": "Where was the xls generated from?\r<br />\nAre you able to provide a test file?<br />\n",
+    "PostedDate": "2013-03-08T07:08:04.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1142273",
+    "ThreadId": "435696",
+    "Html": "I am also facing same problem.<br />\n",
+    "PostedDate": "2013-12-25T23:37:33.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1198900",
+    "ThreadId": "527357",
+    "Html": "I can't find examples, inline source documentation or other documentation about this project. What I've seen from the short introduction is that this library can read Excel files into DataSet-like table structures. This may work fine if the Excel worksheets are strict tables with only one header row containing the column names. But if the file contains arbitrary data with custom header rows, footer rows and other stuff, I need to access the cells directly and read the raw data from them. Can this library provide such methods? Like, say, access row 10, column 3, interpret as decimal number, or maybe even give me the raw string value (if that exists) for me to interpret it on my own as number, currency, date or something else.<br />\n",
+    "PostedDate": "2014-01-27T02:56:10.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1198911",
+    "ThreadId": "527357",
+    "Html": "I think you have two options. <br />\n<ol>\n<li>\nUse datasets but specify reader.IsFirstRowAsColumnNames = false so that the whole sheet is the contents of the dataset.\r<br />\nThen in your example for row 10 column 3 you would have ds.Tables[0].Rows[9][2]<br />\n</li>\n<li>\nUse the <a href=\"http://msdn.microsoft.com/en-us/library/system.data.idatareader(v=vs.110).aspx\" rel=\"nofollow\">IDataReader</a> interface and step through until you get to row 10 then read the value for field 3<br />\n</li>\n</ol>\n",
+    "PostedDate": "2014-01-27T03:27:00.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

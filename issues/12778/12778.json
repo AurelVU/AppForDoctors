@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n\nI'm getting\n\"Additional information: Could not load file or assembly 'ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73' or one of its dependencies. \"\n\nwhy does it look for this specific version?",
+    "LastUpdatedDate": "2014-02-26T07:13:22.333-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-02-26T07:11:14.09-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ExcelDataReader can't find ICSharpCode.SharpZipLib",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12778
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "In https://exceldatareader.codeplex.com/SourceControl/latest#Excel/Excel.4.5.csproj and other csproj files you specify this version. Please remove this and rely on the nuget package.",
+      "PostedDate": "2014-02-26T07:13:22.333-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

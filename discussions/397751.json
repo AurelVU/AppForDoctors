@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "920743",
+    "ThreadId": "397751",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp; &nbsp;I have a problem, I only want the cell values as text, not as various objects, such as integer / float / datetime, etc.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp; &nbsp; In EPPlus which I am using for 2007 and above formats, I can read a Cell.Text value, which gives me a string as displayed when opened in excel. This means I get the data how it looks.</p>\r\n<p>&nbsp;</p>\r\n<p>At them&nbsp;moment&nbsp;I have all kinds of strange conversion going on, i,e, datetimes being converted to decimal values.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp; &nbsp;Is there a way to modify your library to give me just the &quot;display&quot; text of a cell.</p>\r\n<p>&nbsp;</p>\r\n<p>Hope someone can help.</p>\r\n<p>&nbsp;</p>\r\n<p>Dan</p>\r\n",
+    "PostedDate": "2012-10-02T10:45:43.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948818",
+    "ThreadId": "397751",
+    "Html": "\r\n<p>Hi Dan, GetValue() might support your needs. It returns an object (which you might have to check for null).</p>\r\n",
+    "PostedDate": "2012-11-29T01:19:19.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948876",
+    "ThreadId": "397751",
+    "Html": "\r\n<p>I fixed this by taking the latest source code and compiling that. The last release is from 2009, while there have been changes since then.</p>\r\n",
+    "PostedDate": "2012-11-29T02:47:37.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

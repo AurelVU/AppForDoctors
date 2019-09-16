@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am using [Excel Data Reader](https://exceldatareader.codeplex.com/) to read my excel. my code is\n\n```\n                IExcelDataReader reader = null;\n\n                FileStream stream = System.IO.File.Open(file.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);\n\n                if (file.FileName.EndsWith(\".xls\"))\n                {\n                    reader = ExcelReaderFactory.CreateBinaryReader(stream);\n                }\n                else if (file.FileName.EndsWith(\".xlsx\"))\n                {\n                    reader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n                }\n                else\n                {\n                    reader = null;\n                }\n\n                reader.IsFirstRowAsColumnNames = true;\n\n                var exceldata = reader.AsDataSet().Tables[0];\n```\n\nI have more than 400 rows and 10 columns in excel But exceldata is returning only first column data. All 400 rows with only first column data.\n\nWhat i am missing? Please help.",
+    "LastUpdatedDate": "2016-10-14T03:35:52.757-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-11-05T08:54:12.187-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Excel Data Reader unable to read all columns data",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 13764
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have the same problem it is only importing the first column of the excel file into the data set. Really stange because for other files it is working. \r\n\r\nDid you find a solution? \r\n\r\nKind regards,\r\n\r\nJorrit ",
+      "PostedDate": "2016-10-14T03:35:43.61-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2016-10-14T03:35:52.757-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

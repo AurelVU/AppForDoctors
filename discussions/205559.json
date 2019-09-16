@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "420479",
+    "ThreadId": "205559",
+    "Html": "<p>Hi,</p>\r\n<p>Here's an example to explain my issue:</p>\r\n<p>WorkSheet&nbsp;1:</p>\r\n<p>C1 - 10</p>\r\n<p>C2 - 20</p>\r\n<p>C3 = C1 + C2</p>\r\n<p>Now, i need to read this and copy it to WorkSheet 2</p>\r\n<p>However, Worksheet 2 has '30' in C3 instead of the formula.</p>\r\n<p>So, is copying of formula supported by the reader?</p>\r\n<p>Cheers,</p>\r\n<p>Vinayak.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-19T23:42:50.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

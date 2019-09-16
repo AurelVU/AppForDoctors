@@ -1,0 +1,81 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n \nWhen i try to read some excel files .xls its giving me this error, what is the cause for this error :(\n \nIndex was outside the bounds of the array.",
+    "LastUpdatedDate": "2013-06-27T01:53:47.463-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-06-24T22:04:40.28-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Index was outside the bounds of the array.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10936
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4104,
+      "FileName": "ExcelError.png",
+      "DownloadUrl": ".\\4104"
+    },
+    {
+      "FileId": 4591,
+      "FileName": "regnos.xlsx",
+      "DownloadUrl": ".\\4591"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi.,\r\n\r\nFirst you count the number of columns in excel sheet  and then write your code.",
+      "PostedDate": "2012-08-10T00:58:00.13-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:33.08-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "```\nI got this using DLL identified as version 2.0.0157. The test code swas simply:\n```",
+      "PostedDate": "2013-06-27T01:15:46.783-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I got this and reduced the test code to:\r\n\r\n```\nusing System;\nusing System.IO;\nusing Excel;\nusing System.Data;\r\n\r\nnamespace TestExcel\n{\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            using(FileStream fs = new FileStream(@\"C:\\Users\\derek.dongray\\Documents\\regnos.xlsx\",FileMode.Open,FileAccess.Read))\n            using(IExcelDataReader exceldr = Excel.Factory.CreateReader(fs, ExcelFileType.OpenXml))\n            {\n                DataSet ds = exceldr.AsDataSet();\n                Console.ReadKey();\n            }\n        }\n    }\n}\r\n\r\n```\nThe .xlsx file contained 3 sheets (with data - about 10 text entries - in column 1 of Sheet1 and similar data in column 2 of Sheet3. There was nothing in Sheet2 (it was never even opened when creating the file), which is where I suspect the problem is. After trying to edit the XLSX to produce a minimal dataset, the error stopped, so I think a pathological case when the format of the Excel file is unusual.",
+      "PostedDate": "2013-06-27T01:26:32.15-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-06-27T01:53:41.6-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "This is the minimal workbook I eventually produced which shows the error. Sheet1 & Sheet2 are empty (have been deleted and added). Sheet3 has the text \"zzzz\" in cells B1 and B2. Column A of Sheet3 has been deleted and inserted.",
+      "PostedDate": "2013-06-27T01:53:47.463-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

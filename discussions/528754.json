@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1202086",
+    "ThreadId": "528754",
+    "Html": "Hi Team,<br />\n<pre><code>      I want user to give option to browse and upload excel sheet and then load worksheet data into sql server table.\n     Dev Server its fine, But in Prod.Server I don't have write access on any directory. So, I have to read it directly from the memory stream without saving it. Following code am executing with the help of ExcelData Reader dll, could you please suggest if am on the right track to avoid any write permission issue on web server?\n\n    if (FileUploadControl.HasFile)\n        {\n            try\n            {\n                string fileExt = System.IO.Path.GetExtension(FileUploadControl.FileName);\n\n                if (fileExt == &quot;.xls&quot;)\n                 {\n                   Stream myStream = FileUploadControl.PostedFile.InputStream;\n\n                    IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(myStream);\n\n                    excelReader.IsFirstRowAsColumnNames = true;\n\n                    DataSet ds1 = excelReader.AsDataSet();\n\n                     excelReader.Close();\n                   }</code></pre>\n\n",
+    "PostedDate": "2014-02-03T08:01:42.21-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1202876",
+    "ThreadId": "528754",
+    "Html": "\r\n<div dir=\"ltr\">You may need to read use Stream.CopyTo to read everything in the InputStream into a seekable MemoryStream. Otherwise you may have issue with the InputStream not being seekable.</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-02-05T03:09:05.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1203460",
+    "ThreadId": "528754",
+    "Html": "Ok thanks,<br />\n<pre><code>           modified code as per you suggested. Is this ok? \n\n            MemoryStream memStream = new MemoryStream();\n            Stream myStream = FileUploadControl.PostedFile.InputStream;\n\n            myStream.CopyTo(memStream);\n\n           IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(memStream);\n          excelReader.IsFirstRowAsColumnNames = true;\n          DataSet ds1 = excelReader.AsDataSet();\n          excelReader.Close();</code></pre>\n\n",
+    "PostedDate": "2014-02-06T07:17:20.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1203639",
+    "ThreadId": "528754",
+    "Html": "\r\n<div dir=\"ltr\">That looks about right. Does it work?</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-02-06T10:00:17.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1249650",
+    "ThreadId": "528754",
+    "Html": "Thanks for this.\r<br />\n<br />\nI tried this (i.e. copy to memory stream) and yes, it does work.\r<br />\n<br />\nThis is very helpful for using this on Azure since we don't want to save files to local storage.<br />\n",
+    "PostedDate": "2014-05-26T06:36:20.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1275110",
+    "ThreadId": "528754",
+    "Html": "This does not work for me....\r<br />\n<br />\nI get a read timeout error?\r<br />\n<br />\nalso tried as per MS: Stream myStream = FileUpload1.FileContent; \r<br />\n<br />\non this I get an invalid signature\r<br />\n<br />\nAnyone have this working ok?\r<br />\n<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2014-07-22T07:46:01.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1275118",
+    "ThreadId": "528754",
+    "Html": "Never mind me silly got it to work:\r<br />\n<br />\n<br />\n  if (fileExt.ToUpper() == &quot;.XLS&quot; )<br />\n<pre><code>                {\n\n                    excelReader =ExcelReaderFactory.CreateBinaryReader(memStream);\n                }\n\n                if (fileExt.ToUpper() == &quot;.XLSX&quot;)\n                {\n                 excelReader =  ExcelReaderFactory.CreateOpenXmlReader(memStream);\n                }\n\n</code></pre>\n\nMuch better :-)<br />\n",
+    "PostedDate": "2014-07-22T08:15:07.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

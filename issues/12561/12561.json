@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-03-04T06:27:11.697-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Subj, but in nuget discription writed that need SharpZipLib 0.86 or more. But by fact work only with 0.85.5 That cause many problem when use other assemblies, that work with 0.86",
+    "LastUpdatedDate": "2014-03-05T08:06:58.97-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-12-06T09:39:11.367-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Not work with ICSharpCode.SharpZipLib 0.86",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12561
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "When installing the package NuGet should have added binding redirects to a app/web.config. They allow ExcelDataReader to correctly work with the 0.86 version of the SharpZipLib.",
+      "PostedDate": "2014-02-27T07:54:44.53-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Would it be better if I just update ExcelDataReader to use 0.86?",
+      "PostedDate": "2014-03-04T04:39:02.357-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "2vertigo093i \nYes, NuGet do this, but  Excel Data Reader still use old version, which is in its folder\r\n\r\nIan1971 \nYes, I think this will be better solution. I do this by myself for my project, all work fine.\n",
+      "PostedDate": "2014-03-04T05:13:35.507-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 87450: use sharpsziplib 0.86",
+      "PostedDate": "2014-03-04T06:27:11.697-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Nuget package has been update. Let me know if it works ok.",
+      "PostedDate": "2014-03-04T06:31:08.983-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@jabacrack, ExcelDataReader will use whatever version specified by redirects. It ever won't know about SharpZipLib being redirected.\r\n\r\n@Ian, thanks, this is the only proper solution. ;-)",
+      "PostedDate": "2014-03-05T07:32:12.953-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I do not remember exactly what the problem was, but there was some annoying libraries versions mismatching.\nThank you for your work.",
+      "PostedDate": "2014-03-05T08:06:58.97-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

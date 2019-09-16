@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have the following code in my ASP.NET application:\n \nusing (FileStream stream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))\n{\n\tusing (IExcelDataReader reader = ExcelReaderFactory.CreateBinaryReader(stream))\n\t{\n\t\treader.IsFirstRowAsColumnNames = true;\n \n\t\twhile (reader.Read())\n\t\t{\n\t\t\t// Do stuff\n\t\t}\n\t}\n}\nbut when I do the first read, it is attempting to read from the first row (which contains the column names), rather than taking the second row as the first row of actual data. Obviously, I can work around the issue by adding an extra reader.Read() before reading the actual data, but it would be much better if the IExcelDataReader would do it internally if IsFirstRowAsColumnNames is set.",
+    "LastUpdatedDate": "2017-11-27T20:47:27.843-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-05-10T17:34:00.6-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "IsFirstRowAsColumnNames not working correctly",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 8796
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have just confirmed this bug as well.  \nIsFirstRowAsColumnNames works perfectly for xlsx files but not for xls files.\r\n\r\nUsing 2.1.0 Jan 17 version.\r\n\r\nLet me know if you need more detail and I can help you to reproduce.",
+      "PostedDate": "2013-02-25T12:41:48.5-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-25T12:41:55.057-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-10-14T03:32:01.997-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "For me, even .XLSX also fails. Also I am making use of \"ICSharpCode.SharpZipLib.dll\" with the latest version 0.86. Actually I re-compiled the Excel.dll with this version of sharpziplib.dll. As said earlier, this works in my local machine for both .xls and .xlsx but gets fails in QA box. ",
+      "PostedDate": "2014-03-24T10:08:11.453-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-04-23T03:41:07.447-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:27.843-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

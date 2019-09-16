@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "268612",
+    "ThreadId": "78480",
+    "Html": "<p>I am using Excel Data Reader and it is meeting my expectation in terms of Importing excel column data. I need to figure out one more thing. Let's say, I have an Excel column &quot;Title&quot; which is of plain text and then another column &quot;job description&quot; which contains rich texts like: bold font, underlined texts, bulleted texts, illalics texts etc.</p>\r\n<p>Excel Data Reader is ignoring underlined texts, for example, &quot;The <span style=\"text-decoration:underline\">cool</span> place&quot;. It cannot read after the &quot;The &quot; text. Is there property I have set to enable Excel Data Reader to read underlined texts?</p>",
+    "PostedDate": "2009-12-17T12:32:21.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

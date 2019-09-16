@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1360155",
+    "ThreadId": "584695",
+    "Html": "An interesting one this - I've been using ExcelDataReader for ages without problems, but I've just had a problem reading an Open XML spreadsheet created with SAP.<br />\n\r<br />\nTrying .AsDataSet gives out of memory (ie, looping), while using .Read gives correct results for the first row, then .IsDbNull for every other row - and also loops.\r<br />\n<br />\nIf the spreadsheet is opened and saved in Excel (or OpenOffice), everything is fine.\r<br />\n<br />\nI had a look at the xml contents, and notices that in xl\\worksheets\\sheet1.xml, the 1st sheetdata\\row has r=0 not r=1.  But the 2nd row is r=2!\r<br />\n<br />\nClearly, this is a problem with SAP not ExcelDataReader.  But is it easily resolved in ExcelDataReader?\r<br />\n<br />\nExcelDataReader version 2.1.2.3, Net 2.0\r<br />\n<br />\nI can't post the whole sheet as it's client data, but here's the relevant part, with r=&quot;0&quot; not r=&quot;1&quot;:<br />\n<pre><code>  &lt;sheetData&gt;\n    &lt;row r=&quot;0&quot; spans=&quot;&quot;&gt;\n      &lt;c r=&quot;A1&quot; s=&quot;1&quot; t=&quot;s&quot;&gt;\n        &lt;v&gt;202&lt;/v&gt;\n      &lt;/c&gt;\n      &lt;c r=&quot;B1&quot; s=&quot;1&quot; t=&quot;s&quot;&gt;\n        &lt;v&gt;203&lt;/v&gt;\n      &lt;/c&gt;\n    &lt;/row&gt;\n    &lt;row r=&quot;2&quot; spans=&quot;1:12&quot;&gt;\n</code></pre>\n\n",
+    "PostedDate": "2015-03-05T09:39:48.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1360353",
+    "ThreadId": "584695",
+    "Html": "Have now had a look at the source code, and I think the problem's in ExcelOpenXMLReader.cs, ReadSheetRow. There's a section<br />\n<pre><code>            if (_emptyRowCount != 0)\n            {\n                _cellsValues = new object[sheet.ColumnsCount];\n                _emptyRowCount--;\n                _depth++;\n\n                return true;\n            }\n</code></pre>\n\nOnce _emptyRowCount &lt; 0 this will loop.\r<br />\n<br />\nWill now find out how to post this on GitHub...<br />\n",
+    "PostedDate": "2015-03-06T01:17:56.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

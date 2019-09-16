@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "This Exception is thrown when a worksheet (tab) in a workbook contains only charts such as bar or line charts.\n \nIt happens when I try to close the OpenXmlReader on an .xlsm or .xlsx workbook\nexcelReader = ExcelReaderFactory.CreateOpenXmlReader(GetWorkbookStream(_excelFilePath));\nDataSet result = excelReader.AsDataSet();\nexcelReader.Close();\n \nHere is the call stack for my app:\nC:\\Users\\Public\\Documents\\Analytics\\JobWatchFolder\\120321_QA1-D3_Analysis.xlsm FATAL Load Error:\n The process cannot access the file 'sheet1.xml' because it is being used by another process.\n   at System.IO.Directory.DeleteHelper(String fullPath, String userPath, Boolean recursive, Boolean throwOnTopLevelDirectoryNotFound)\n   at System.IO.Directory.Delete(String fullPath, String userPath, Boolean recursive, Boolean checkHost)\n   at System.IO.Directory.Delete(String path, Boolean recursive)\n   at Excel.Core.ZipWorker.CleanFromTemp()\n   at Excel.Core.ZipWorker.Dispose(Boolean disposing)\n   at Excel.Core.ZipWorker.Dispose()\n   at Excel.ExcelOpenXmlReader.Close()\n   at Analytics.SpreadsheetLoader.GetSpreadsheetAsDataSet() in C:\\Users\\nstein\\Documents\\Visual Studio 2010\\Projects\\Analytics\\AnalyticsExcel\\SpreadsheetLoader.cs:line 1669\n   at Analytics.SpreadsheetLoader.Load() in C:\\Users\\nstein\\Documents\\Visual Studio 2010\\Projects\\Analytics\\AnalyticsExcel\\SpreadsheetLoader.cs:line 131\n \nsheet1.xml is found in the temp folder\nC:\\Users\\nstein\\AppData\\Local\\Temp\\TMP_Z129791639525889739\\xl\\chartsheets\nThe TMP_Z... folder is created by ZipWorker class.\n \nLooking at Excel.ExcelOpenXmlReader.System.Data.DataSet AsDataSet(bool convertOADateTime), you see the following code.\n\tReadSheetGlobals(_workbook.Sheets[_resultIndex]);\n    //error here\n\tif (_workbook.Sheets[_resultIndex].Dimension == null) continue;\n\t\nLooking at Excel.ExcelOpenXmlReader.ReadSheetGlobals, the first line is\n\t_sheetStream = _zipWorker.GetWorksheetStream(sheet.Path);\nIn the while loop 8 lines down, the test is made...\n\tif (_xmlReader.NodeType == XmlNodeType.Element && _xmlReader.Name == XlsxWorksheet.N_dimension)\nA charts only worksheet has no XlsxWorksheet.N_dimension, so the test always fails and the code\n\t_xmlReader.Close();\n\t_sheetStream.Close();\nnever executes and the block returns without ever closing the two class scoped objects.\nThe _xmlReader is reassigned the next time through, so it is no problem.\nHowever, when the _sheetStream is assigned the next time through and the chartsheets\\sheet1.xml file is left open.\nWhen the folder delete is attempted during Excel.ExcelOpenXmlReader.Close(), an Exception is thrown.\n \nAt line 273, the code should read\n\tif (_workbook.Sheets[_resultIndex].Dimension == null)\n\t{\n\t\t_sheetStream.Close();\t// close the xml file in the temp folder\n\t\t_xmlReader.Close();\t\t// though this does matter\n\t\tcontinue;\n\t}",
+    "LastUpdatedDate": "2013-02-21T17:47:34.717-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-04-17T13:08:20.08-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Cannot delete file or folder because it is use by another process.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10665
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

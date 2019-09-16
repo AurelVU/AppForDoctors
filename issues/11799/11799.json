@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When I try to read a record from an Excel File with Read() method, a \"System.SystemException\" was unhandled Message=\"Data de OleAut inválida.\" I think the cause of the exception there is a field in excel file which is a data type that is not recognized (Date and Time for example), because when I debug the program, I get all the records until the record that exists a Date or Hour field.\n\nPlease, I'll apreciate any help, thanks!",
+    "LastUpdatedDate": "2013-05-29T08:31:32.4-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-05-22T05:55:29.513-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "method Read returns System.SystemException",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11799
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4540,
+      "FileName": "ExemploImportExcel.xlsx",
+      "DownloadUrl": ".\\4540"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I'm guessing this must be a localization problem, but I don't have time to debug it right now. If you manage to get it working from the source, please send a patch so we can try and incorporate it.\r\n\r\nCheers\n",
+      "PostedDate": "2013-05-29T08:31:32.4-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

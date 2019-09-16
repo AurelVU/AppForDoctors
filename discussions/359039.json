@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "847062",
+    "ThreadId": "359039",
+    "Html": "\r\n<p>I have an excel spreadsheet with columns that have null values, the code picks up these null columns&nbsp;but fails to read some columns that have actual values!</p>\r\n<p>does anyone have any issues with this?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-06-10T05:00:57.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948820",
+    "ThreadId": "359039",
+    "Html": "\r\n<p>I'm having the same problem. Haven't found a solution yet. I'll let you know when I do.</p>\r\n",
+    "PostedDate": "2012-11-29T01:20:11.33-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

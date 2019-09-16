@@ -1,0 +1,105 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When I try to use the ExcelReaderFactory.CreateBinaryReader method with an HttpInputStream to create an IExcelDataReader object, I get the following exception.\n\n> Specified argument was out of the range of valid values.\nParameter name: offset",
+    "LastUpdatedDate": "2017-11-27T20:47:31.723-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-03-15T20:26:28.39-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "CreateBinaryReader(HttpInputStream)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 11644
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Are you able to paste the stack trace?",
+      "PostedDate": "2013-03-18T03:56:49.41-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "System.ArgumentOutOfRangeException was unhandled by user code\n  Message=Specified argument was out of the range of valid values.\nParameter name: offset\n  Source=System.Web\n  ParamName=offset\n  StackTrace:\n       at System.Web.HttpInputStream.Seek(Int64 offset, SeekOrigin origin)\n       at Excel.Core.BinaryFormat.XlsFat..ctor(XlsHeader hdr, List`1 sectors, Int32 sizeOfSector, Boolean isMini, XlsRootDirectory rootDir)\n       at Excel.Core.BinaryFormat.XlsHeader.GetMiniFAT(XlsRootDirectory rootDir)\n       at Excel.Core.BinaryFormat.XlsStream.CalculateMiniFat(XlsRootDirectory rootDir)\n       at Excel.Core.BinaryFormat.XlsStream..ctor(XlsHeader hdr, UInt32 startSector, Boolean isMini, XlsRootDirectory rootDir)\n       at Excel.Core.BinaryFormat.XlsRootDirectory..ctor(XlsHeader hdr)\n       at Excel.ExcelBinaryReader.readWorkBookGlobals()\n       at Excel.ExcelBinaryReader.Initialize(Stream fileStream)\n       at Excel.ExcelReaderFactory.CreateBinaryReader(Stream fileStream)\n       at CallingClass.UploadExcelInventory() \n",
+      "PostedDate": "2013-03-18T10:37:49.9-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Any info on this issue?  ",
+      "PostedDate": "2013-04-02T21:27:01.523-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-04-26T07:00:34.733-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "It must be related to your specific spreadsheet. Where did it come from? Are you able to post it?",
+      "PostedDate": "2013-05-22T01:30:19.863-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "No, I can't post it sorry.  I tried it with several different sheets with completely different formats, so I highly doubt it has anything to do with the specific spreadsheet.  Furthermore, if I save that exact same sheet to the server and then read it as a file stream, everything runs fine and IExcelDataReader is created properly. \r\n\r\nIf you are releasing an upload library for Excel spreadsheets, then it should be able to handle and spreadsheet formatting, or at least provide some guidelines on the spreadsheet restrictions. I understand that you are doing this for free and its much appreciated, but if you are not going to put any effort into actually looking at what might be causing this issue in your code, then why even bother with responding?\n",
+      "PostedDate": "2013-05-23T12:40:33.273-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "You seem to be under the mistaken impression that this is my code or even my project. Like you I was just a user of this library who had a problem with the library, but as the project was basically dead I got hold of the code figured out what was wrong with the issue I had and fixed it. I then decided to try and breathe some life into what was pretty much a dead project with zero activity, and have done so and it now works in the majority of cases as far as I am aware. This basically means 5 mins here and there and any other time I can carve out for it, but paid work has to come first.\r\n\r\nWith regard to your particular problem, it is most likely related to HttpInputStream not being seekable, so you could try reading the whole stream into a memory stream first and then using that instead maybe? Or if large saving it to filesystem and the opening a file stream.\r\n\r\n\nRegards\nIan\r\n\r\n",
+      "PostedDate": "2013-05-23T15:30:46.68-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "As I said your efforts are much appreciated, because I know you are doing this for free.  You are listed as one of the developers on this project so I assumed that you are one of the creators of this library.   Thanks for taking the effort to give this a second look.  \r\n\r\nI am already uploading the file to the server and loading it as a file stream, I just wanted to avoid having to load the file into memory without loading it on the server at all.  I tried converting the HttpInputStream into a memory stream as well but I cannot remember now why that did not work for me.  Could have been the issue with the Upload Control I was using to upload the file.\r\n\r\nDo you have any samples you could possibly provide to show how to convert from HttpInputStream to MemoryStream without saving the excel file to the server?",
+      "PostedDate": "2013-05-23T16:25:22.98-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Have you tried Stream.CopyTo(ms) ?\r\n\r\nOne thing to consider is how big your files are. If you are copying the whole thing into a memory stream that could lead to a problem with scaling, depends on your needs though. ",
+      "PostedDate": "2013-05-24T01:37:03.057-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-06-06T06:11:37.37-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi,\nI have the same challenge Stream.CopyTo didn't help so far.",
+      "PostedDate": "2013-06-06T06:11:43.4-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi,\r\n\r\nUsing Excel.4.5.dll on a Framework 4.5 the following code works for me:\r\n\r\nStream stream = new MemoryStream();\nfupExcel.PostedFile.InputStream.CopyTo(stream);\nstream.Position = 0;\nIExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream as Stream); \r\n\r\nCheers\nDaniel",
+      "PostedDate": "2013-06-06T07:11:15.847-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:31.723-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

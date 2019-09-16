@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "561901",
+    "ThreadId": "244968",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>i&acute;m getting this exception:<br>\r\n<br>\r\nBuffer size is less than minimum BIFF record size.</p>\r\n<p>What's this?<br>\r\nHow can I avoid it?</p>\r\n<p>Thank&acute;s in advance.</p>\r\n",
+    "PostedDate": "2011-02-07T05:48:24.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "588948",
+    "ThreadId": "244968",
+    "Html": "<p>I'm getting this error too, when reading certain XLS files using ExcelBinaryReader. Seems like the number of bytes to be read in these files is not cleanly divisible by 4, so the XlsBiffRecord constructor throws this exception when it parses the last row.</p>\n<p>I initially thought maybe it was just one bad file, but I've seen 3 of these now. The files open normally in Excel, but can't be opened using ExcelBinaryReader. Is there something I should be looking for in the files themselves? I assume it's not data --  I can copy/paste contents from a bad file into a new file and they can be read correctly, that's how we're working around the issue now.</p>\n<p>Edit to put in a stack trace :)</p>\n<p>System.ArgumentException was unhandled by user code<br />&nbsp; Message=\"Error: Buffer size is less than minimum BIFF record size.\"<br />&nbsp; Source=\"ExcelDataReader\"<br />&nbsp; StackTrace:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Excel.Core.BinaryFormat.XlsBiffRecord..ctor(Byte[] bytes, UInt32 offset) in C:\\code\\ExcelDataReader\\Excel\\Core\\BinaryFormat\\XlsBiffRecord.cs:line 28<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Excel.Core.BinaryFormat.XlsBiffRecord.GetRecord(Byte[] bytes, UInt32 offset) in C:\\code\\ExcelDataReader\\Excel\\Core\\BinaryFormat\\XlsBiffRecord.cs:line 150<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Excel.Core.BinaryFormat.XlsBiffStream.ReadAt(Int32 offset) in C:\\code\\ExcelDataReader\\Excel\\Core\\BinaryFormat\\XlsBiffStream.cs:line 98<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Excel.ExcelBinaryReader.readWorkSheetRow() in C:\\code\\ExcelDataReader\\Excel\\ExcelBinaryReader.cs:line 306<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Excel.ExcelBinaryReader.moveToNextRecord() in C:\\code\\ExcelDataReader\\Excel\\ExcelBinaryReader.cs:line 461<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Excel.ExcelBinaryReader.Read() in C:\\code\\ExcelDataReader\\Excel\\ExcelBinaryReader.cs:line 669<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; [... Client code details removed ...]</p>",
+    "PostedDate": "2011-03-30T10:12:54.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "598181",
+    "ThreadId": "244968",
+    "Html": "<p>Hi, has anyone found a solution to this issue?</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2011-04-15T12:41:07.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

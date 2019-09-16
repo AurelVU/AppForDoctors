@@ -1,0 +1,90 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-01-15T08:00:08.95-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In case open xlsx format file, when  read decimal like 2.2 or 4.4 after stream.Write(..)i read in xlm file the decimal from xlsx file is 2.200000000000002 or 4.4000000000004. But i want the decimal is 2.2 or 4.4. Have problem in write decimal.",
+    "LastUpdatedDate": "2013-05-16T04:59:58.563-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-05-03T02:27:42.263-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Read decimal wrong in xlsx format.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10725
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Im having a similar issue.  If I create an excel file with 8.8 in A1 and save it as xlsx.  Excel saves 8.80000000000007 in the xml file for the sheet.  Thus when reading with Excel Data Reader, I get 8.80000000000007.",
+      "PostedDate": "2012-10-12T08:17:08.53-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Interestingly that is how it appears in the xml. I will look at the ooxml spec to try and figure it out.",
+      "PostedDate": "2012-12-17T14:10:46.017-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Even more interesting is that I can't actually recreate the bug in exceldatareader. I can see 8.80000000000007 in the xml but it correctly comes out as 8.8 when read.\nCan you try with the latest version?",
+      "PostedDate": "2012-12-17T14:48:39.953-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Reading more about I think it is down to how doubles work. In the .net docs it states they are usually only kept to 15 decimal places precision and the 7 in the above is the 16th place, which would be why it comes out ok. There was a fix recently to use data types better so that might be why I can't recreate the issue in ExcelDataReader",
+      "PostedDate": "2012-12-18T02:20:12.13-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "This article has some info that might explain what is going on in excel\nhttp://support.microsoft.com/kb/78113\nsee section \"Repeating Binary Numbers and Calculations with Results Close to Zero\"",
+      "PostedDate": "2012-12-18T02:26:25.223-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-18T02:28:46.127-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Associated with changeset 81878.",
+      "PostedDate": "2012-12-18T03:46:23.807-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-01-15T08:00:08.95-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:33.96-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:58.563-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "630625",
+    "ThreadId": "262191",
+    "Html": "\r\n<p>If any cell in a sheet has a sort icon in it, the entire sheet is skipped when reading AsDataSet()</p>\r\n<p>And when reading line by line with while Read, it seems to NOT want to start at row 0. i.e. I had an excel spreadsheet as the 2nd sheet in a workbook with 100&#43; columns (all of which had sorts) and 1000&#43; rows, and it started reading (successfully mind you)\r\n at row 911.</p>\r\n",
+    "PostedDate": "2011-06-21T08:18:01.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "630630",
+    "ThreadId": "262191",
+    "Html": "<p>I take the first part back. it seems that the 2nd sheet, no matter how many sheets there are, is ignored.</p>\r\n<p>&nbsp;</p>\r\n<p>And while the sheet NAMES are loaded in the right order, the sheet DATA is loaded backwards!</p>",
+    "PostedDate": "2011-06-21T08:25:52.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

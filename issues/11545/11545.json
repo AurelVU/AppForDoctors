@@ -1,0 +1,126 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am using the Jan 17, 2013 build of Excel Data Reader.  I have an xls file (from one of our clients, not sure how they created this file) which does not have Index.  When I try to read this file using BinaryReader, I get a datatable with the correct no. of rows, but all the columns in these rows are empty. That is no data is being returned.  \n\nHowever if I save the xls file in Excel, then I am able to read the file successfully with Binary Reader.\n\nPlease provide a fix for this.",
+    "LastUpdatedDate": "2017-11-27T20:47:29.493-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-01-31T10:09:05.557-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Reading xls file with No Index returns a datatable with empty rows",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 11545
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4455,
+      "FileName": "test02132013.xls",
+      "DownloadUrl": ".\\4455"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I'm certain it's the same issue as [#10121](http://exceldatareader.codeplex.com/workitem/10121) I reported. That is, a compliant parser of BIFF8 (one flavor of what you call \"binary format\") should not rely on the presence of index records or even on them being correct but should rather locate and parse the DIMENSION record whose presense is mandatory as defined by the [[MS-XLS]](http://msdn.microsoft.com/en-us/library/cc313154) document.",
+      "PostedDate": "2013-02-01T01:58:07.977-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I'll take a look at it. ",
+      "PostedDate": "2013-02-01T03:39:33.173-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Please let us know when we can expect a fix for this.",
+      "PostedDate": "2013-02-07T09:49:55.02-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Are you able to provide a example file that shows this problem? If so, I can probably look at the issue but otherwise I am struggling to recreate it.",
+      "PostedDate": "2013-02-08T01:29:03.727-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "The xls file from our client includes SSN etc. So unfortunately we cannot send you the file. ",
+      "PostedDate": "2013-02-08T08:35:05.22-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have just applied a potential fix for this issue. Can you try one of your files against the latest source?",
+      "PostedDate": "2013-02-13T11:52:06.287-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-13T14:41:55.063-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-13T15:08:54.19-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks for the fix. I haven't got a chance to test your fix yet.\r\n\r\nWe just managed to get a test file ( where some columns have been intentionally left blank) from our client with the same issue. I am attaching the test file herewith. Please use this to test your fix, and confirm if your able to retrieve the data from all the rows.\n",
+      "PostedDate": "2013-02-13T15:08:55.32-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I tested with the latest ExcelBinaryReader.cs.  I am still getting empty rows. So the issue is still not fixed.",
+      "PostedDate": "2013-02-13T15:27:25.117-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've spent quite a while looking at this tonight. It's something to do with the way it using the compound file format.  I really am a novice at the binary format however.\nThe directory entry for the stream looks like: \nDirectory Entry:Workbook type:STGTY_STREAM, firstsector:8, streamSize:37723, isEntryMiniStream:False\r\n\r\nbut it appears to me that there is row information prior to sector 8 in the document in sector 3 in fact. And maybe it is this that is causing the problem because it thinks all the rows are blank.\r\n\r\nThe problem may be related to reading the sector allocation table which starts at 0x200 and you can see there that it starts at sector 4, goes 5, 6, 7, 21, 8, 9, a, b, c, d, e, f, 20, 3, 22\nSo you can see that the sectors are not sequential in the document (which is allowed) but my guess is that somewhere here lies the problem.\r\n\r\nAnyway, I can't do any more on this right now. I will have another crack at it on Monday if my real job allows, but be aware that I have no obligation to solve this problem and can't spend much more time on what seems to be an edge case. If I was you I would start thinking about mitigation strategies \n1) try and figure it out yourself. If you fancy doing that then open office have the best docs on the file format. http://www.openoffice.org/sc/excelfileformat.pdf  \n2) find a commercial component\n3) use excel automation to open and save the docs in excel\n4) something else\r\n\r\nGood luck\nIan",
+      "PostedDate": "2013-02-15T13:50:15.807-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks Ian for following up on this issue. Its unfortunate that you are unable to fix the issue.\r\n\r\nI looked around. I am able to read these xls files (with no index) using freeware ExcelLibrary. \r\n\r\nPlease change the status of this ticket to Open so that it doesn't mislead other users since the issue is still not fixed. Thanks again.\r\n\r\n",
+      "PostedDate": "2013-02-20T15:47:50.037-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:29.15-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "re-opening as there still seems to be issues with some sheets without index records",
+      "PostedDate": "2013-02-25T09:10:00.617-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-02-13T18:40:11.38-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:29.493-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

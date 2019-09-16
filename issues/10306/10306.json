@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "ExcelReaderFactory.CreateBinaryReader returns no data from .xls file if column and rows are hidden. It works fine with .xlsx file.\n \nPlease suggest solution......",
+    "LastUpdatedDate": "2013-02-21T17:47:35.773-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-02-06T02:44:01.853-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "No data returned from .xls file if column and rows are hidden",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10306
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3855,
+      "FileName": "Test_Performance.xls",
+      "DownloadUrl": ".\\3855"
+    }
+  ],
+  "Comments": []
+}

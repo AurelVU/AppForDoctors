@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "267904",
+    "ThreadId": "78305",
+    "Html": "<p>Dear owner,</p>\r\n<p>i really exciting with your object, i have tried and successfully,&nbsp; but i have a question for you, hopefully you can give any solution regarding your object.</p>\r\n<p>the question is how can i read the object/control value that in excel worksheet, for example: i have a registration form using excel and in that excel i have 4 dropdownlist, how can i read and get the value of 4 dropdownlist.</p>\r\n<p>thanks</p>\r\n<p>Yanuar</p>",
+    "PostedDate": "2009-12-15T23:47:23.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "544179",
+    "ThreadId": "78305",
+    "Html": "\r\n<p>I have the same issue. I have an excel with 50 sheets and on the first sheet there is a list of clients.</p>\r\n<p>On the rest of the sheets, the first list of clients is loaded in a drop-down and then for the clients their name is filled in afterwards with a formula.</p>\r\n<p>&nbsp;</p>\r\n<p>The dataset method reads everything up until the drop-down is found.</p>\r\n<p>Any help?</p>\r\n",
+    "PostedDate": "2011-01-05T01:50:01.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

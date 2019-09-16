@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1293293",
+    "ThreadId": "562088",
+    "Html": "When I try to execute the following lines:\r<br />\nDataSet ds = new DataSet();\r<br />\nds = execlReader.AsDataSet();\r<br />\n<br />\nI get the following exception:\r<br />\nNot a legal Ole Aut date\r<br />\n<br />\nAny ideas?<br />\n",
+    "PostedDate": "2014-08-25T15:23:20.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293680",
+    "ThreadId": "562088",
+    "Html": "Some additional info, I have identified the rows that are throwing the exception.  The cell type is date.  The field displays ########### and when I click on the cell I see negative 3650000 in the value window, obviously a bad date.  Excel handles the bad data by replacing the value with # signs but the  reader exceptions out on the conversion to DataSet.  Is there any way to force the reader to fill the rest of the DataSet and ignore or return an error value for the bad fields?\r<br />\n<br />\nAlong those lines, I'm trying to figure out how to get the ExcelDataReader source from GitHub and trace through to see where the exception is thrown but I'm a GetHub noob.  Can anyone give me a step-by-step?\r<br />\n<br />\nThanks for all the work that goes into supporting something like this. <br />\n",
+    "PostedDate": "2014-08-26T13:47:13.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293723",
+    "ThreadId": "562088",
+    "Html": "Ok, I managed to get the source downloaded and fixed the problem in the following routine by range checking the DateTime.FromOADate values from the MS documentation, following the line &quot;added to fix out of range problem, sdh, 20140826&quot;:<br />\n<pre><code>    public static object ConvertFromOATime(double value)\n    {\n        if ((value &gt;= 0.0) &amp;&amp; (value &lt; 60.0))\n        {\n            value++;\n        }\n        //if (date1904)\n        //{\n        //    Value += 1462.0;\n        //}\n\n      // added to fix out of range problem, sdh, 20140826\n      if (value &lt; 657435.0)\n      {\n        value = 657435.0;\n      }\n      else if (value &gt; 2958465.99999999)\n      {\n        value = 2958465.99999999;\n      }\n        return DateTime.FromOADate(value);\n    }\n\n</code></pre>\n\nLet me know how you would like to handle this.<br />\n",
+    "PostedDate": "2014-08-26T15:17:32.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293832",
+    "ThreadId": "562088",
+    "Html": "Thanks for this.\r<br />\n<br />\nFyi - In github, create a github account. Then fork the project. It will then give you a clone url, or if on windows you can use the &quot;clone in desktop link&quot;.\r<br />\nMake your changes, then commit them locally and push them back to github (that will be to your fork - you won't be able to push to the exceldatareader repo). \r<br />\n<br />\nThen go to Pull Request on your fork and click new pull request. That will send a pull request to the exceldatareader repo, which I can review and then merge in.<br />\n",
+    "PostedDate": "2014-08-27T01:17:10.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1298182",
+    "ThreadId": "562088",
+    "Html": "Hmm, you lost me at &quot;and push them back to github&quot;.  I have committed my changes to my local copy but after that I'm at a loss as to how to check this into the github repository.  I'm running git from Visual Studio 2012 if that helps at all.  Maybe I checked the source out incorrectly?\r<br />\n<br />\nThanks.<br />\n",
+    "PostedDate": "2014-09-02T08:13:11.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1298352",
+    "ThreadId": "562088",
+    "Html": "Ok, I think I got the github stuff worked through.  I think I submitted a pull request but, if not, let me know and I will try again.<br />\n",
+    "PostedDate": "2014-09-02T14:53:55.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

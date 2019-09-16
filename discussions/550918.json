@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1263575",
+    "ThreadId": "550918",
+    "Html": "When I read the data from excel file and load it onto my C# application, the hidden columns are also fetched. How can I avoid or identify the hidden columns??<br />\n",
+    "PostedDate": "2014-07-08T02:37:15.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

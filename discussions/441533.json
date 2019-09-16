@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1035560",
+    "ThreadId": "441533",
+    "Html": "Hi All,\r<br />\ni wanna get the name and count of the columns of user excel files, but i do not to send whole the file to the server, but just some first bytes of it, to just read the first rows.   how can i do that? is there any way not to send all of the file? \r<br />\ni check the source of ExcelReaderFactory, since it get a stream to create an excel reader, i hope to do it same as below, but it didn't work!<br />\n<pre><code>public List&lt;string&gt; Getheader()\n        {\n            List&lt;string&gt; headers = new List&lt;string&gt;();\n            byte[] hdrToRead = System.Text.Encoding.UTF8.GetBytes(remainedXlsStr);\n            MemoryStream stream = new MemoryStream(hdrToRead);\n            IExcelDataReader excelReader = null;\n\n            switch (currentFileType)\n            {\n                case (XlsType.xlsx):\n                    {\n                        excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n                        break;\n                    }\n                case (XlsType.xls):\n                    {\n                        excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n                        break;\n                    }\n                case (XlsType.notSupported):\n                    {\n                        break;\n                    }\n            }\n\n            if (excelContent.HasHeader)\n                excelReader.IsFirstRowAsColumnNames = true;\n\n            if (excelReader.Read())\n            { // first row\n                for (int i = 0; i &lt; excelReader.FieldCount; i++)\n                {\n                    // fieldType = excelReader.GetValue(i).GetType();\n                    headers.Add(excelReader.GetValue(i).ToString());\n                }\n            }\n            return headers;\n        }</code></pre>\n\n",
+    "PostedDate": "2013-04-25T04:02:13.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1035567",
+    "ThreadId": "441533",
+    "Html": "I don't think you are going to be able to do it without sending the whole file. This is because:\r<br />\n<br />\na) If you are using xlsx then it is essentially a zip so it is all or nothing\r<br />\nb) If you are using xls then the file does not necessarily contain data sequentially. The xls header contains information on where the data can be found but that data can be spread all over the file.\r<br />\n<br />\nRegards\r<br />\nIan<br />\n",
+    "PostedDate": "2013-04-25T04:14:09.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1035936",
+    "ThreadId": "441533",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div>ok :(</div>\r\n<div>so you means there is no way at all , or if i use excelReader i cant do that ?</div>\r\n<div><span dir=\"ltr\" id=\":115\">I really appreciate you taking time to answer my question :)</span></div>\r\n<div></div>\r\n</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2013-04-25T23:53:23.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036071",
+    "ThreadId": "441533",
+    "Html": "I don't think there is any way at all.<br />\n",
+    "PostedDate": "2013-04-26T06:50:14.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036180",
+    "ThreadId": "441533",
+    "Html": "thanks <br />\n",
+    "PostedDate": "2013-04-26T09:58:40.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036414",
+    "ThreadId": "441533",
+    "Html": "to use less memory when Converting big Excel files to DB , it differ to use AsDataSet() or using code same as below? by using excelReader.Read() ,and creating small DataTables ..., <br />\n<pre><code> public DataTable ConvertXlsBlockToDataTable(IExcelDataReader excelReader, int RowCount)\n        {\n            DataTable xlsDt = new DataTable();\n            string xlsFieldValue = string.Empty;\n            int columnNumber = 0;\n            var row = xlsDt.NewRow();\n          \n            for (int i = 0; i &lt; RowCount; i++)\n                {\n                    if (excelReader.Read())\n                    {\n                        for (int fl = 0; fl &lt; excelReader.FieldCount; fl++)\n                        {\n                            \n                            if (excelReader.GetValue(fl) != null)\n                             xlsFieldValue = excelReader.GetValue(fl).ToString();\n                             row[columnNumber] =  xlsFieldValue;\n                             columnNumber++;\n                        }\n\n                      \n                        columnNumber = 0;\n                        row = xlsDt.NewRow();\n           \n                    }\n                    else\n                    {\n                        if (excelReader.NextResult())\n                        {\n                            if (excelReader.Read())\n                            {\n                                ...</code></pre>\n\n",
+    "PostedDate": "2013-04-27T00:04:24.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

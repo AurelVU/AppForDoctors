@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "207306",
+    "ThreadId": "61137",
+    "Html": "<p>I have an InfoPath form with a File Attachment control, the value return by the File Attachment control is a 64-based string, the value is not a Excel file path.</p>\r\n<p>Thus, I couldn't find a way to push the value into FileStream, but I tried to push the value into MemoryStream. My code as below:</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">string</span> content = <span style=\"color:Green\">// value returned from File Attachment control</span>\r\nbytes[] contentBytes = Convert.FromBase64String(content);\r\n<span style=\"color:Green\">// This contentBytes not only contains the data in Excel file,</span>\r\n<span style=\"color:Green\">// also the file name, file size, etc.</span>\r\nbytes[] dataBytes = <span style=\"color:Green\">// get the bytes[] of only the data in Excel file</span>\r\nMemoryStream stream = <span style=\"color:Blue\">new</span> MemoryStream(dataBytes);\r\n\r\n<span style=\"color:Green\">// The attached Excel is .xls file</span>\r\nIExcelDataReader reader = Factory.CreateReader(stream, ExcelFileType.Binary);\r\nDataSet ds = reader.AsDataSet();\r\n\r\n<span style=\"color:Blue\">while</span>(reader.Read())\r\n{\r\n    <span style=\"color:Green\">// <span style=\"color:#ff0000\">**</span> reader.GetString(index) returns empty value;</span>\r\n}\r\n\r\nDataTable dt = ds.Tables[0];\r\nDataRowCollection rows = dt.Rows;\r\n<span style=\"color:Blue\">for</span>(<span style=\"color:Blue\">int</span> i = 0; i &lt; rows.Count; i++)\r\n{\r\n    <span style=\"color:Blue\">foreach</span>(DataColumn column <span style=\"color:Blue\">in</span> dt.Columns)\r\n    {\r\n        <span style=\"color:Green\">// <span style=\"color:#ff0000\">**</span> rows[i][column.Ordinal] returns empty value;</span>\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n<p>Where do I did incorrectly?</p>\r\n<p>Please advice, thanks.</p>",
+    "PostedDate": "2009-06-30T16:26:35.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "207846",
+    "ThreadId": "61137",
+    "Html": "<p>Hi,</p>\r\n<p>Just would like&nbsp;to share my experience, I couldn't read my excel is because I have chinese font-family in my excel file. It's working fine after I've changed the font-family to Arial. Anyway, how to make this excel reader understand chinese font type. And also, I have a column contains date value, but seems this excel reader doesn't understand date format data.</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2009-07-02T00:54:51.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

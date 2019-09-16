@@ -1,0 +1,86 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "This may be similar to a recently reported issue. In the attached xlsx file when it is imported using ExcelReaderFactory.CreateOpenXmlReader(stream) if any cell is blank then the cell to the right of it loses its value (i.e. it is not imported correctly). Also there are wierd rounding errors on may of the cells (e.g. 32115.35 becomes 32115.34999999999999999).",
+    "LastUpdatedDate": "2013-02-21T17:47:44.933-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-02-21T00:12:18.373-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Missing values and strange rounding in xlsx file",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 5446
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1989,
+      "FileName": "Stats Spreasheet for all Genes.xlsx",
+      "DownloadUrl": ".\\1989"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Can't repeat this problem (may be fixed in latest source). Have added your spreadsheets to the tests though\r\n\r\n\n\n** Closed by robalexclark 12/09/2010 12:35",
+      "PostedDate": "2010-09-13T01:11:27.36-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-13T01:11:28.253-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Same problem... Office 2010, file name: \"pippo.xlsx\".\r\n\r\nThe cell H14 is empty, into the H15 there is \"Pippo\". But reading H15 using the library I receive Null value.\r\nIf I add a value into H14 too, then I can read also \"pippo\" from H15!\r\n\r\nIf I save the file in xls format I don't have this problem.\r\nSomeone can help me?",
+      "PostedDate": "2011-04-11T08:13:53.407-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Have you downloaded and compiled the latest source code (added early this year)? Chances are that this issue may have been fixed...",
+      "PostedDate": "2011-04-13T02:46:57.14-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi thank you for your attention :)\r\n\r\nIncredible but where is this new version???? I am still using the version: ExcelDataReader v.2.0.1.0 realesed on 2009/08/24!!!\r\nI am going in DOWNLOADS and I cannot find any version of this year. Could you show me the exact link?",
+      "PostedDate": "2011-04-13T03:59:02.797-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Heiiii OK thank you very much for your suggestions :D\r\n\r\nFinally I solved the problem: in Source Code (and NOT in Downloads) I downloaded and compiled the updated library (by negrijp - 59893) and now it's working without problems, also with xlsx files! Bye ;)",
+      "PostedDate": "2011-04-14T00:56:55.077-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Please look at work item 8969. it should solve your problem.",
+      "PostedDate": "2011-06-17T07:20:17.83-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:44.933-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

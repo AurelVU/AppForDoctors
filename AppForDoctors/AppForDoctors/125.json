@@ -1,0 +1,17 @@
+﻿{
+  "questions": [
+    {
+      "NameValue": "rew",
+      "MainQuestion": "sd"
+    },
+    {
+      "NameValue": "fvd",
+      "MainQuestion": "rew"
+    },
+    {
+      "Options": [ "fd", "rew", "grd" ],
+      "NameValue": "few",
+      "MainQuestion": "34esf"
+    }
+  ]
+}

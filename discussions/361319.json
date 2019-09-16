@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "855130",
+    "ThreadId": "361319",
+    "Html": "\r\n<p>Stupid question, but is it possible to write/create an excel file? I know the name of the project is Excel Data Reader, but this one line makes it interesting:</p>\r\n<p>FileStream stream = File.Open(openFileDialog1.FileName, FileMode.Open, FileAccess.Read);</p>\r\n<p>You can do FileMode.Create, and FileAccess.ReadWrite</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for reading!</p>\r\n",
+    "PostedDate": "2012-06-28T11:42:16.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

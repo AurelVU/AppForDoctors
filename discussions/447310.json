@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1057853",
+    "ThreadId": "447310",
+    "Html": "i'm in progress to create an application in c# .\r<br />\nbut i got a problem. i want to count how much column and row in excel file but i can't do this. \r<br />\nfor example : i browse a file .xlsx. after this, i click OK and program can show number of columns and rows in this .xlsx.\r<br />\nanybody can help me?\r<br />\nthank you<br />\n",
+    "PostedDate": "2013-06-17T10:24:30.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1057907",
+    "ThreadId": "447310",
+    "Html": "<pre><code>static void Main(string[] args)\n{\n  string _PathFilename = @&quot;C:\\Temp\\tri_201918.xlsx&quot;;\n  using (FileStream streamIn = File.Open(_PathFilename, FileMode.Open, FileAccess.Read))\n  using (IExcelDataReader execlReader = (Path.GetExtension(_PathFilename) == &quot;.xlsx&quot; ? ExcelReaderFactory.CreateOpenXmlReader(streamIn):               ExcelReaderFactory.CreateBinaryReader(streamIn)))\n  {\n    DataSet ds = new DataSet();\n    ds = execlReader.AsDataSet();\n\n    int r = ds.Tables[0].Rows.Count;\n    int c = ds.Tables[0].Columns.Count;\n</code></pre>\n\nAt this point, r has the number of rows and c has the number of columns in sheet 0.<br />\n",
+    "PostedDate": "2013-06-17T12:37:12.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060470",
+    "ThreadId": "447310",
+    "Html": "thanks for spend your time to reply my problem.\r<br />\nit helps so much thanks :)<br />\n",
+    "PostedDate": "2013-06-24T09:38:52.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

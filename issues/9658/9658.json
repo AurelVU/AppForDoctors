@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "•\twe are using a dll called 'Excel.dll(2.0.1.0)' (Specifically excelReader.AsDataSet()) method to read the data from .xls file. \n•\tIts observed that, whenever data deleted from columns (not entire row from.xls file) the above method is recognizing as data rows \n                for processing.\n•\tHence, its displaying wrong record processing count and not proceeding. \n•\tSo, please let me know how to go ahead to find resolution.\nHere attaching a file, where it is having just 2 rows data, but identified as 120. Request you to look into this issue and provide the needful resolution. Thanks.",
+    "LastUpdatedDate": "2013-02-21T17:47:37.34-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-10-17T05:30:49.03-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "whenever data deleted from columns (not entire row from.xls file) still it is recognizing as data rows",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 9658
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3561,
+      "FileName": "Asset 150 ftg mbrs18.xls",
+      "DownloadUrl": ".\\3561"
+    }
+  ],
+  "Comments": []
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1218993",
+    "ThreadId": "537906",
+    "Html": "Hi, \r<br />\n<br />\nI am new to this but I have been using the ExcelDataReader to upload an Excel Spreadsheet to a Database, \r<br />\n<br />\nthis has worked great for a spreadsheet with just one set of data in it but I have been asked to extend this to allow the import of data from a range within the spreadsheet, for example A3:K?  Where the data could continue for any number of records.\r<br />\n<br />\nIs this possible?  or is there anything that you can suggest?\r<br />\n<br />\nThanks\r<br />\n<br />\nDarren<br />\n",
+    "PostedDate": "2014-03-04T06:20:16.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1238105",
+    "ThreadId": "537906",
+    "Html": "I have just had to implement something like this when we switched from OLE DB to the Excel Data Reader to read Excel files in our product.  I modified the Excel Data Reader code to make it possible to:<br />\n<ul>\n<li>read a specific worksheet into a data table (instead of reading the entire workbook into a dataset and then retrieving the data table of interest)</li>\n<li>\nread a specific cell range from a specific worksheet into a data table<br />\n</li>\n</ul>\nI am about to contact the Ian1971 to see if it would be possible to integrate these changes into the Excel Data Reader.<br />\n",
+    "PostedDate": "2014-04-25T10:26:22.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1239768",
+    "ThreadId": "537906",
+    "Html": "I just replied to your email Daniel if you wanted to send me the changes.\r<br />\n<br />\nIt seems a bit stone age to be emailing changes around, but codeplex forces us into this. I really need to migrate this to github.<br />\n",
+    "PostedDate": "2014-04-30T05:50:18.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

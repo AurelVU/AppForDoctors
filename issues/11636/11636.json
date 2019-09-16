@@ -1,0 +1,121 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-03-18T03:26:44.503-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n\nI am using  the 2.1 beta binaries.\nwhen trying to open a SQL server reporting services generated excel, and converting to a dataset, I get the following exception:\nArgumentException was unhandled \n\"BIFF Stream error: Buffer size is less than entry length\"\n\n```\nstring excelPath = @\"actualfullpathofexcelfile.xls\";\n\nFileStream streamExcelBase = File.Open(excelPath, FileMode.Open, FileAccess.Read);\nIExcelDataReader excelReaderBase = ExcelReaderFactory.CreateBinaryReader(streamExcelBase);\n\n//below line throws exception\nDataSet reportDataset = excelReaderBase.AsDataSet(); \n\n```\nAny ideas?\n\nThanks in advance.\nFaiz",
+    "LastUpdatedDate": "2017-11-27T20:47:30.88-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-03-12T21:57:34.777-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "\"BIFF Stream error\" when converting to dataset",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11636
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4478,
+      "FileName": "ARReportTest.xls",
+      "DownloadUrl": ".\\4478"
+    },
+    {
+      "FileId": 4531,
+      "FileName": "1481_empty.xls",
+      "DownloadUrl": ".\\4531"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Are you able to attach an example spreadsheet that has this problem? Unfortunately I do not have access to reporting services so cannot generate one to check it.",
+      "PostedDate": "2013-03-13T04:08:38.913-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-13T15:14:50.73-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks Ian, I have attached the xls file.\r\n\r\nThere aren't any issues opening the xls with Excel, although I suspect Excel might be more forgiving. \r\n\r\n\r\n\r\n\n",
+      "PostedDate": "2013-03-13T15:14:51.88-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-15T06:51:42.693-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 82970: Added new option when creating BinaryReader ReadOption. Set it to Loose to skip bounds check when reading a record. It seems that SQL Reporting services creates some records that have invalid bounds. Excel itself opens them ok, so adding this option should make it work similarly.\n\nAlso I found the the implementation of LABEL was incorrect and was offset by one character. LABEL is not usually used in BIFF8 but it seems SQL reporting services does use it.",
+      "PostedDate": "2013-03-18T03:26:44.503-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@faizulhasan can you get latest source (change set 82970), then use the new overload for CreateBinaryReader passing in ReadOption.Loose.\r\n\r\nCheers\n",
+      "PostedDate": "2013-03-18T03:28:16.11-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@Ian1971 Are there plans to release the changes introduced in 82970 via NuGet?",
+      "PostedDate": "2013-05-07T10:09:38.367-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-07T10:59:29.363-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I may have jumped the gun on my previous comment. I've attempted to pass ReadOption.Loose to CreateBinaryReader for the attached file and reader.Read() returns false on the first invocation. Attempts to call .AsDataSet() return an empty dataset.",
+      "PostedDate": "2013-05-07T10:59:30.25-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:55.3-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi, I am facing the same problem, Can you please suggest where could i find the updated dll. Is that somewhere on codeplex or GIT? \nOr do we have any other workaround? I am using the ExcelDataReader2.1.1",
+      "PostedDate": "2013-10-07T03:07:38.44-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I got the same issue today, while working on a crystal report generated excel. I am using the latest dlls. Was this issue not fixed ?",
+      "PostedDate": "2014-02-13T17:55:20.737-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "i have the same problem.",
+      "PostedDate": "2014-11-26T19:39:44.16-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:30.88-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-01-02T06:54:41.33-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "If I try to open a corrupt file, it goes into infinite loop, and then OutOfMemoryException. The only way is to kill the process.\n\n```\nFileStream stream = File.Open(\"c:\\\\temp\\\\corrupt.xls\", FileMode.Open, FileAccess.Read);\nIExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n```\n\n2nd line will go into infinite loop. \n\ncorrupt.xls is attached.\n\nAppreciated any help. Please let me know if need more information. Thanks.",
+    "LastUpdatedDate": "2017-11-27T20:47:32.707-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-12-05T13:08:50.51-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Corrupt XLS file goes into infinite loop",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 12556
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4783,
+      "FileName": "corrupt.xls",
+      "DownloadUrl": ".\\4783"
+    },
+    {
+      "FileId": 4793,
+      "FileName": "ExcelDataReaderInstantiator.cs",
+      "DownloadUrl": ".\\4793"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Curious, why do you want to try to open a corrupt file?  Excel has some repair options and that is where I would recommend repairing a corrupt file.  When I try to open the file in excel I get the message \"The document is corrupt and cannot be opened.  To try and repair it, use the Open and Repair command in the Open dialog box and select Extract Data when prompted.\"",
+      "PostedDate": "2013-12-05T13:22:15.09-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Files come through FTP (we dont have control). Our service picks up the files processes those. In case of corrupt file it goes into infinite loop with 100% CPU usage. The only way to recover from there is to kill the service.",
+      "PostedDate": "2013-12-05T14:13:49.087-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Maybe it's throwing an exception.  You might try surrounding it with a try block.",
+      "PostedDate": "2013-12-05T14:33:59.383-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I think you can set a timeout for the stream also.",
+      "PostedDate": "2013-12-05T14:35:46.557-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "* It is not throwing any exception for sure. You can try this out.\n* Note that the issue is with this line...\n```\nIExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n```\n* Yes, ofcourse I can have a timeout for the statement. I just thought to let you guys know about it.",
+      "PostedDate": "2013-12-06T06:54:38.883-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-12-11T11:49:05.183-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Just for the record, if anyone bumps into, the attached class was used to instantiate the reader with timeout...\r\n\r\n```\nExcelDataReaderInstantiator excelDataReaderInstantiator = new ExcelDataReaderInstantiator(fileName);\nif (excelDataReaderInstantiator.ExcelReader != null)\n   {\n      //do your stuff\n   }\r\n\r\n```",
+      "PostedDate": "2013-12-11T11:49:06.823-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-01-02T06:11:17.26-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 86978: I've added a trap for the fat table reading zero for the next sector. I don't think this is allowed anyway, and this stops the infinite loop issue",
+      "PostedDate": "2014-01-02T06:54:41.33-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:32.707-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1138150",
+    "ThreadId": "474868",
+    "Html": "Hi\r<br />\n<br />\nI am just doing a basic save from the Open XML library, so no changes is being done to the excel file. But when I try to read it with the Excel Data Reader it gives my sheet count back as 0. I compared the 2 files in their xml form and they are identical. \r<br />\n<br />\nSaving the file:<br />\n<pre><code>                    WorksheetPart wsPart = wbPart.GetPartById(s.Id) as WorksheetPart;\n                    WorksheetWriter writer = new WorksheetWriter(doc, wsPart);\n\n                    if (wsPart == null)\n                    {\n                        continue;\n                    }\nvar calcChainPart = wbPart.CalculationChainPart;\n                    wbPart.DeletePart(calcChainPart);\n                    wbPart.DeletePart(wbPart.VbaProjectPart);\n\n                    foreach (Row row in wsPart.Worksheet.Descendants&lt;Row&gt;())\n                    {\n                        foreach (Cell c in row.Elements&lt;Cell&gt;())\n                        {\n                           \n                            if (c.CellFormula != null &amp;&amp; (!(String.IsNullOrEmpty(c.CellFormula.ToString()))))\n                            {\n                                c.CellFormula.Remove();\n                            }\n\n\n                        }\n                    } \n                }\n                wbPart.Workbook.Save();\n</code></pre>\n\nOpening again in Excel Reader:<br />\n<pre><code>FileStream stream = System.IO.File.Open(@&quot;D:\\Book1.xlsx&quot;, FileMode.Open);\n\n                        IExcelDataReader excelReader;\n                        switch (ext)\n                        {\n                            case &quot;.xls&quot;:\n                                excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n                                break;\n                            case &quot;.xlsx&quot;:\n                                excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n                                break;\n                            case &quot;.xlsm&quot;:\n                                excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n                                break;\n                            default:\n                                ErrorMessage = &quot;Incompatible file type.&quot;;\n                                return RedirectToAction(&quot;Index&quot;);\n                        }\n                        \n                        DataSet result = excelReader.AsDataSet();\n                        int sheetCount = result.Tables.Count;</code></pre>\n\nWhen opening the file with excel it has no problems.<br />\n",
+    "PostedDate": "2013-12-19T03:09:44.977-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1138165",
+    "ThreadId": "474868",
+    "Html": "I'm not sure if there are any test cases for Open XML at the moment. There must be some difference in the xml though, otherwise it would work.<br />\n",
+    "PostedDate": "2013-12-19T03:59:06.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1138182",
+    "ThreadId": "474868",
+    "Html": "I see there is minor differences, openxml has changed one of the namespaces which maybe could have caused this.\r<br />\nI think I will close the issue and use linq to excel which currently works.<br />\n",
+    "PostedDate": "2013-12-19T04:41:24.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

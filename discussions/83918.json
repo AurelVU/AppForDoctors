@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "288198",
+    "ThreadId": "83918",
+    "Html": "<p>Hi,</p>\r\n<p>I have a question/observation regarding how it appears the&nbsp;<span>CreateOpenXmlReader method works.</span></p>\r\n<p><span>From what I've seen in the source code the content of the sheets is saved (for xlsx files) in the temporary files.</span></p>\r\n<p><span>Was this necesary? </span></p>\r\n<p><span>Is this likely to be changed in the future?</span></p>\r\n<p><span>My primary concern is that I was planning to use this component for reading uploaded excel files on the web app and I didn't want any files saved on the server.</span></p>\r\n<p><span>Cheers</span></p>\r\n<p><span>Ivan</span></p>",
+    "PostedDate": "2010-02-10T05:24:13.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430453",
+    "ThreadId": "83918",
+    "Html": "<p>This maybe due to ZipWorker.</p>\r\n<p>Regards, Tasos</p>",
+    "PostedDate": "2010-04-13T06:41:43.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430467",
+    "ThreadId": "83918",
+    "Html": "<p>xlsx files are a zipped set of mostly xml files. Which appears to be the reason for using the ICSharpCode.SharpZipLib library. ZipWorker knows how to use the unzipped files (in their folder structures).</p>\r\n<p>The problem I have is that it looks like the clean-up code doesn't have the expected result -&gt; no clean-up...</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-13T07:19:14.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430471",
+    "ThreadId": "83918",
+    "Html": "<p>Interestingly, the clean-up now works! :-/</p>\r\n<p>(After I have removed the many existing TMP_Z temporary folders, I haven't seen anymore being left again.)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-13T07:26:35.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430476",
+    "ThreadId": "83918",
+    "Html": "<p>Thanks for your replies Tasos. It is good to know the xslx files are working now. I will try to test it tomorrow.</p>\r\n<p>Regards, Ivan</p>",
+    "PostedDate": "2010-04-13T07:35:59.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

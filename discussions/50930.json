@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "170682",
+    "ThreadId": "50930",
+    "Html": "if excel have chinese word,the word will be lose.<br>\r\n<br>\r\nmaybe is encoding problem.<br>\r\n<br>\r\nbut, the object have too much encoding setting in anywhere.<br>\r\n<br>\r\nany one know how to fix it?<br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2009-03-22T17:56:32.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060435",
+    "ThreadId": "50930",
+    "Html": "I am having the same issue. A cell with Chinese characters in it, comes out as an empty string. Oddly enough the first cell with Chinese worked, but then every other cell had an empty string for the value of the column...<br />\n",
+    "PostedDate": "2013-06-24T08:31:59.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1061323",
+    "ThreadId": "50930",
+    "Html": "Hmmm not sure. Sounds like a bug but I don't have time right now to open the code up. Your best bet is to download the latest source and try and step through it.<br />\n",
+    "PostedDate": "2013-06-26T02:41:37.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1106598",
+    "ThreadId": "50930",
+    "Html": "The issue is with Unicode strings that use phonetic string data. \r<br />\n<br />\nPer: <a href=\"http://msdn.microsoft.com/en-us/library/dd943830(v=office.12).aspx\" rel=\"nofollow\">http://msdn.microsoft.com/en-us/library/dd943830(v=office.12).aspx</a>\r<br />\n<br />\nThe 3rd byte in the XLUnicodeRichExtendedString record, 3 bit in that byte, if it's enabled, the string has Extended data...\r<br />\n<br />\nFunny enough, ExcelDataReader support this, but it's been commented out for a very long time:<br />\n<pre><code>        /// &lt;summary&gt;\n        /// Checks if string has Extended record\n        /// &lt;/summary&gt;\n        public bool HasExtString\n        {\n            get { return false; }\n            // ((Flags &amp; FormattedUnicodeStringFlags.HasExtendedString) == FormattedUnicodeStringFlags.HasExtendedString); }\n        }</code></pre>\n\nRemove the comments on the flag test, and Extended unicode strings won't blow up the SST.<br />\n",
+    "PostedDate": "2013-10-11T14:56:05.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

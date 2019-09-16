@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When reading an .xlsx sheet with IExcelDataReader.AsDataSet strings that only contain numbers are converted to decimals\nlike 0100 becomes 100.0\nIf I use ' to force a string it works.\n\nI would be greatful for a quick update.",
+    "LastUpdatedDate": "2015-09-02T00:58:22.283-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-08-19T08:00:28.31-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Numeric strings are converted to numbers",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 13688
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I also have the same issue",
+      "PostedDate": "2015-08-22T00:17:27.21-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "In Excel Sheet i Change the Cell Data Type to Number with 0 Decimal Place, Then also it mapping  all integer to the Double Data type",
+      "PostedDate": "2015-08-22T00:21:21.563-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "If the data is stored in the excel sheet as some type of numeric the reader is working correctly.  Any formatting performed on the column to make it look like 0100 will not affect the data output.  What I could suggest is selecting the entire sheet in excel and forcing it to text format.  \r\n\r\nI generally do all my data formatting in whatever target system I'm using the data in.  There are various ways to right justify zero fill data in most languages.  How are you using the data?",
+      "PostedDate": "2015-08-24T07:10:54.837-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "The spreadsheet cell has a formula to extract a piece of a string and the resulting string is a General Ledger name. I can't rely on it to be a certain length, I have to retrieve the actual string that is the result in Excel. (Excel shows it correctly as a string). If it happens to be 00100, the reader returns a datatable with a field of type double and a value of 100.0 , it should be a field of type string, value \"00100\".",
+      "PostedDate": "2015-08-24T08:02:34.693-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "How you format the cell data type does NOT effect the data stored in the cell.  If the data is stored as a numeric type it will come out as a decimal type.  As far as I know, the reader has no way to determine what formatting you have put on that cell.  The formatting is only for viewing in excel, not modifying the stored data.  The way you can tell what the underlying excel data looks like is to change the cell to text.\r\n\r\nAll you have to do is convert 100.0 into whatever format you want once you read it out.  Whatever language you are using when you read the data has information on the web on how to turn a numeric value into a formatted left justified 0 filled string.  Formatting the excel sheet to look different will not help you at all.",
+      "PostedDate": "2015-09-01T09:02:20.46-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "The data is stored in another cell as '00100 and then collected onto this sheet by means of a lookup. The contents of the cell is 000100 (notice the missing quote). The reader provides me with 100.0, so I can't tell whether it was 100 or 0100 or 00100, which in this application is significant.\r\n\r\nOther than that the reader works great.",
+      "PostedDate": "2015-09-02T00:58:22.283-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

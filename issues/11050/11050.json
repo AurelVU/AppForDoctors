@@ -1,0 +1,86 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "it is not taking into data set why i don't know\n \nand my code , Attachment PROMAS.xlsx\n \nFileStream stream = File.Open(filepath, FileMode.Open, FileAccess.Read);\nExcel.IExcelDataReader excelReader = Excel.Factory.CreateReader(stream, ExcelFileType.OpenXml);\nExcelDS = excelReader.AsDataSet();           -----Here i am getting problem\nexcelReader.Close();",
+    "LastUpdatedDate": "2013-02-21T17:47:32.523-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-08-06T04:13:32.187-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "The ReadElementContentAsObject method is not supported on node type EndElement.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11050
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4169,
+      "FileName": "PROMAS.xlsx",
+      "DownloadUrl": ".\\4169"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Reply Plz",
+      "PostedDate": "2012-08-06T04:14:55.43-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-08-06T04:16:33.32-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-08-06T04:17:39.163-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "It is Urgent",
+      "PostedDate": "2012-08-06T04:21:15.743-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-08-06T04:37:48.937-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Check this link - http://exceldatareader.codeplex.com/\r\n\r\nExcelReaderFactory.CreateOpenXmlReader(stream);",
+      "PostedDate": "2012-08-10T00:39:50.167-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "\r\nCheck this link - http://exceldatareader.codeplex.com/\r\n\r\nExcelReaderFactory.CreateOpenXmlReader(stream);",
+      "PostedDate": "2012-08-10T00:40:40.653-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:32.523-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

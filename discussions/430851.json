@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "992051",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>Hi , I tried the source and binaries which are not compatible with the WinRT platform.</p>\r\n<p>I like to know is there any support for the same in future.</p>\r\n",
+    "PostedDate": "2013-01-25T05:36:23.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992118",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>I've not even tried the code on WinRT but I can't see why it would not work. Is there a specific issue such as an API not being present on RT?</p>\r\n",
+    "PostedDate": "2013-01-25T07:49:28.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992606",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>I am using VS 2012 Express for Windows 8 which is compatible only for Windows Store apps. I tried to use the source but it was incompatible&nbsp; (failed to load in &#65279;VS) , tried on using the .dll binaries too .(I am not sure how to refer them)..</p>\r\n<p>I got stuck at this point . Let me know if some one could able to use this for developing Windows Store apps.</p>\r\n",
+    "PostedDate": "2013-01-27T02:19:05.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992749",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>Could you expand on the 'not compatible' bit such as an error message? It might be that the main project will load but the tests won't as I don't think they are supported in VS Express. So perhaps just try adding the .csproj for the main project to your\r\n solution.</p>\r\n<p>It is only a class project so should load for any .Net type.</p>\r\n",
+    "PostedDate": "2013-01-27T12:15:23.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992957",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>Hi ,&nbsp;</p>\r\n<p>I tried to add the &quot;Excel4.0&quot; &nbsp;project located at &quot;2.1.beta.src\\Excel&quot; &nbsp;to my working solution .VS shows an error dialog stating &quot;This edition of Visual Studio only supports Windows store apps&quot; and declined the add project operation.</p>\r\n<p>On Clicking &quot;Help&quot; on the same dialog will open the below link in the browser.</p>\r\n<p><a title=\"Help Link\" href=\"http://msdn.microsoft.com/en-us/library/vstudio/hh266747(v=vs.110).aspx\" target=\"_blank\">MoreInformation - Help</a></p>\r\n<p>I am using Windows 8 Pro &nbsp;&amp;&nbsp;<span style=\"font-size:10pt\">Visual Studio 2012 Express for Windows 8</span></p>\r\n",
+    "PostedDate": "2013-01-28T02:20:09.28-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992963",
+    "ThreadId": "430851",
+    "Html": "\r\n<div dir=\"ltr\">Do you have the same problem with the .net 2 framework project &quot;excel.csproj&quot;?</div>\r\n<div><br>\r\n<br>\r\n<div>On Mon, Jan 28, 2013 at 10:20 AM, rajmohank <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\" target=\"_blank\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: rajmohank</p>\r\n<div>\r\n<p>Hi , </p>\r\n<p>I tried to add the &quot;Excel4.0&quot; project located at &quot;2.1.beta.src\\Excel&quot; to my working solution .VS shows an error dialog stating &quot;This edition of windows only supports windows store apps&quot;\r\n</p>\r\n<p>On Clicking &quot;Help&quot; on the same dialog will open the below link in the browser.</p>\r\n<p><a title=\"More Help\" href=\"http://msdn.microsoft.com/en-us/library/vstudio/hh266747(v=vs.110).aspx\" target=\"_blank\">#mce_temp_url#</a></p>\r\n</div>\r\n<div>\r\n<div>\r\n<p>Read the <a href=\"http://exceldatareader.codeplex.com/discussions/430851#post992957\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:ExcelDataReader@discussions.codeplex.com?subject=[ExcelDataReader:430851]\" target=\"_blank\">ExcelDataReader@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:ExcelDataReader@discussions.codeplex.com\" target=\"_blank\">\r\nExcelDataReader@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://exceldatareader.codeplex.com/subscriptions/thread/project/edit\" target=\"_blank\">\r\nunsubscribe or change your settings</a> on codePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at\r\n<a href=\"http://codeplex.com\" target=\"_blank\">codeplex.com</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2013-01-28T02:25:25.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992991",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>Yes . The same issue exists in&nbsp;<span>.net 2 framework for me .</span></p>\r\n<p><span><span>I am using Windows 8 Pro &nbsp;&&nbsp;</span><span>Visual Studio 2012 Express for Windows 8</span><br>\r\n</span></p>\r\n",
+    "PostedDate": "2013-01-28T03:30:37.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992996",
+    "ThreadId": "430851",
+    "Html": "\r\n<div dir=\"ltr\">Starting with a clean solution, does it allow you to add a new c# class library?</div>\r\n<div><br>\r\n<br>\r\n<div>On Mon, Jan 28, 2013 at 11:30 AM, rajmohank <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\" target=\"_blank\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: rajmohank</p>\r\n<div>\r\n<p>Yes . The same issue exists in <span>.net 2 framework for me .</span></p>\r\n<p><span><span>I am using Windows 8 Pro & </span><span>Visual Studio 2012 Express for Windows 8</span><br>\r\n</span></p>\r\n</div>\r\n<div>\r\n<div>\r\n<p>Read the <a href=\"http://exceldatareader.codeplex.com/discussions/430851#post992991\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:ExcelDataReader@discussions.codeplex.com?subject=[ExcelDataReader:430851]\" target=\"_blank\">ExcelDataReader@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:ExcelDataReader@discussions.codeplex.com\" target=\"_blank\">\r\nExcelDataReader@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://exceldatareader.codeplex.com/subscriptions/thread/project/edit\" target=\"_blank\">\r\nunsubscribe or change your settings</a> on codePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at\r\n<a href=\"http://codeplex.com\" target=\"_blank\">codeplex.com</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2013-01-28T03:34:55.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993003",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>Ya it allows , More over I have used many C# class libraries as part of my project . One to mention is&nbsp;<a title=\"WinRTXAMLToolKit\" href=\"winrtxamltoolkit.codeplex.com\" target=\"_self\">winrtxamltoolkit.codeplex.com</a>&nbsp;&amp; few were created by me\r\n .</p>\r\n<p>Have u tried using the library in VS 2012 for Windows 8&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-28T03:48:14.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993108",
+    "ThreadId": "430851",
+    "Html": "\r\n<div dir=\"ltr\">What versions of .net framework are they targetting? client profile or not?</div>\r\n<div><br>\r\n<br>\r\n<div>On Mon, Jan 28, 2013 at 11:48 AM, rajmohank <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\" target=\"_blank\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: rajmohank</p>\r\n<div>\r\n<p>Ya it allows , More over I have used many C# class libraries as part of my project . One to mention is\r\n<a title=\"WinRTXAMLToolKit\" href=\"http://winrtxamltoolkit.codeplex.com\" target=\"_blank\">\r\nwinrtxamltoolkit.codeplex.com</a> & few were created by me .</p>\r\n</div>\r\n<div>\r\n<div>\r\n<p>Read the <a href=\"http://exceldatareader.codeplex.com/discussions/430851#post993003\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:ExcelDataReader@discussions.codeplex.com?subject=[ExcelDataReader:430851]\" target=\"_blank\">ExcelDataReader@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:ExcelDataReader@discussions.codeplex.com\" target=\"_blank\">\r\nExcelDataReader@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://exceldatareader.codeplex.com/subscriptions/thread/project/edit\" target=\"_blank\">\r\nunsubscribe or change your settings</a> on codePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at\r\n<a href=\"http://codeplex.com\" target=\"_blank\">codeplex.com</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2013-01-28T08:16:56.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993415",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>where can i get the information regarding the target framework &nbsp;& client profile .</p>\r\n",
+    "PostedDate": "2013-01-28T21:00:00.4-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993479",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>I've updated the project type guids for the class project and installed VS 2012 express here. Managed to load it now but it complains about .Net 4.0 not being on my machine (it is though, I use it for other development). I didn't want to go any further and\r\n install a 'store' version of 4.0, so are&nbsp;<span style=\"font-size:10pt\">you able to test the new project type?</span></p>\r\n<p><span style=\"font-size:10pt\">The tests still won't load, but they all pass.</span></p>\r\n",
+    "PostedDate": "2013-01-29T00:50:06.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993480",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>I should note that the new project type guids still work with VS 2012 standard and all tests pass.</p>\r\n",
+    "PostedDate": "2013-01-29T00:51:18.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993641",
+    "ThreadId": "430851",
+    "Html": "\r\n<p>I hope the problem with VS 2012 Express for Windows Store apps . It only supports the Store version projects . Thanks for the effort you put on to resolve the issue.</p>\r\n<p>I will give a try &nbsp;to make it compatible and let you know if I face issues.</p>\r\n",
+    "PostedDate": "2013-01-29T06:32:49.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

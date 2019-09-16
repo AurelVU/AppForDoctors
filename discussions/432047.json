@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "996714",
+    "ThreadId": "432047",
+    "Html": "When you read DataTime or Data column format its all ok, but when it comes with Time format (HH:mm:ss) it shows bad result. \r<br />\nHere is example which genearates bug: <a href=\"https://docs.google.com/file/d/0B3MlWtD8GB3UTDdDM3I2cm5VeTA/edit?usp=sharing\" rel=\"nofollow\">https://docs.google.com/file/d/0B3MlWtD8GB3UTDdDM3I2cm5VeTA/edit?usp=sharing</a> (choose File/Save)<br />\n",
+    "PostedDate": "2013-02-05T07:16:07.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "996716",
+    "ThreadId": "432047",
+    "Html": "I'll take a look and let you know what I find.<br />\n",
+    "PostedDate": "2013-02-05T07:20:41.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "996739",
+    "ThreadId": "432047",
+    "Html": "This may not be what you want to hear, but it seems to be correct.\r<br />\n<br />\nExcel uses a 1900 based date system and a time without a date is set to January 0 1900 (yes, I know) which is the same as Dec 31 1899 which is what these fields read as.\r<br />\n<br />\nMy unit test (below) confirms that it is working as I expect, can you see anything wrong with it?<br />\n<pre><code>            var dataset = reader.AsDataSet();\n\n            reader.Close();\n\n            Assert.AreEqual(new System.DateTime(1899, 12, 31, 1, 34, 0), dataset.Tables[0].Rows[1][1]);\n            Assert.AreEqual(new System.DateTime(1899, 12, 31, 1, 34, 0), dataset.Tables[0].Rows[2][1]);\n            Assert.AreEqual(new System.DateTime(1899, 12, 31, 18, 47, 0), dataset.Tables[0].Rows[3][1]);\n</code></pre>\n\nMore info in this format from:\r<br />\n<a href=\"http://en.wikipedia.org/wiki/January_0\" rel=\"nofollow\">http://en.wikipedia.org/wiki/January_0</a> (scroll down to the Excel bit)\r<br />\nGoogle for 31/12/1899 and Excel, you'll find loads of people with this query.<br />\n",
+    "PostedDate": "2013-02-05T07:59:45.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997074",
+    "ThreadId": "432047",
+    "Html": "When i try to read this excel i don't have time in DataTime value. <br />\n<img src=\"http://i46.tinypic.com/35l6nvt.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2013-02-05T23:41:25.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997133",
+    "ThreadId": "432047",
+    "Html": "I can see from that screenshot that you are using the Polish locale, I've seen some issues around locales which I think may be it.\r<br />\n<br />\nI'll take another look with that locale but if you could also distil your your test code down to a small function and send me that as well, we can be sure we are addressing the same problem.<br />\n",
+    "PostedDate": "2013-02-06T02:22:49.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997143",
+    "ThreadId": "432047",
+    "Html": "Unable to get it to happen on Polish locale, could you send a small function that shows the issue or alternatively we can chat via Skype.<br />\n",
+    "PostedDate": "2013-02-06T02:32:33.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

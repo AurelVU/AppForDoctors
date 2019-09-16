@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-01-02T06:02:35.63-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Export and xlsx from Google spreadsheets. It appears with no data in ExcelDataReader.\n\nAfter investigation it appears that there is no dimension element in the xlsx from Google.\n\nWe will have to decide what the default should be if dimensions not specified.",
+    "LastUpdatedDate": "2017-11-27T20:47:32.403-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-09-30T07:28:29.3-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Xlsx exported from Google Docs have no data",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12253
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 86976.",
+      "PostedDate": "2014-01-02T06:02:35.63-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:32.403-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

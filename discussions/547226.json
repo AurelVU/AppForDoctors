@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1251783",
+    "ThreadId": "547226",
+    "Html": "Hello,\r<br />\nI'm trying to read the excel sheet and save all of its data into the 2D array. The problem is, that enything I do I get the error: <strong>System.NullReferenceException</strong>. I did FOR loops, I used foreach DataRow etc. but I still fail. My latest try:<br />\n<pre><code>            FileStream stream = File.Open(ExcelSourceFile, FileMode.Open, FileAccess.Read);\n            IExcelDataReader excelReader = Path.GetExtension(ExcelSourceFile).ToLower() == &quot;.xls&quot; ? ExcelReaderFactory.CreateBinaryReader(stream) :ExcelReaderFactory.CreateOpenXmlReader(stream);\n            DataSet ds = new DataSet();\n            ds = excelReader.AsDataSet();\n            DataRowCollection drc = ds.Tables[0].Rows;\n\n\nint j=0;\n            for (int i = 0; i &lt; rows; i++)\n            {\n                foreach (DataColumn column in ds.Tables[0].Columns)\n                {\n                    DataFromExcel[i, j] = ds.Tables[0].Rows[i][j];\n                    j++;\n                }\n            }</code></pre>\n\nThere might be some stuff from my previous tries. I know it must be the easiest thing to do with this library but I can't find the correct method. Hope someone can find few minutes to write it down.\r<br />\n<br />\nBest regards,\r<br />\nMike.<br />\n",
+    "PostedDate": "2014-06-01T19:22:54.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1251851",
+    "ThreadId": "547226",
+    "Html": "You may be best off reading it use the idatareader interface rather than a dataset. It will be quicker anyway. Not sure why you are getting null reference exceptions off top of my head though.   <br />\n",
+    "PostedDate": "2014-06-02T00:47:57.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1252212",
+    "ThreadId": "547226",
+    "Html": "Thank you. <br />\nUnfortunately after spending few more hours with tries it looks like I'm not understanding the iDataReader feature - it looks easy but I'm failing everytime I try to run the &quot;<strong>excelReader.Read()</strong>&quot;. Can anyone post the solution to my problem? I'm unable to do it by myself. <br />\n<br />\nRegards,<br />\nMike.<br />\n",
+    "PostedDate": "2014-06-02T16:49:31.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253670",
+    "ThreadId": "547226",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div><a href=\"http://msdn.microsoft.com/en-us/library/system.data.idatareader.aspx\">http://msdn.microsoft.com/en-us/library/system.data.idatareader.aspx</a><br>\r\n</div>\r\n<div><br>\r\n</div>\r\n</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-06-06T04:55:49.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253919",
+    "ThreadId": "547226",
+    "Html": "Hi, \r<br />\nMe again. \r<br />\n<br />\nSo if I understood well the iDataReader feature I commited this piece of code (the DataSet remained for calculating number of rows and columns):<br />\n<pre><code>FileStream stream = File.Open(ExcelSourceFile, FileMode.Open, FileAccess.Read);\n            IExcelDataReader excelReader = Path.GetExtension(ExcelSourceFile).ToLower() == &quot;.xls&quot; ? ExcelReaderFactory.CreateBinaryReader(stream) :ExcelReaderFactory.CreateOpenXmlReader(stream);\n            \n            DataSet ds = new DataSet();\n            ds = excelReader.AsDataSet();\n            rows = ds.Tables[0].Rows.Count;\n            cols = ds.Tables[0].Columns.Count;\n\n            int row=0;\n            while (excelReader.Read())\n            {\n                for (int column = 0; column&lt;=cols; column++)\n                {\n                    DataFromExcel[row, column] = excelReader[column].ToString();\n                } // this is where code breaks with error: System.NullReferenceException\n                row++;\n            }\n            // DataFromExcel[i, j] =\n            excelReader.Close();</code></pre>\n\nThe error of this code says: <strong>System.NullReferenceException</strong>.  Unfortunately I use VS Express so the debug tool is almost inexisting. At the top of the class there is a declaration:<br />\n<pre><code>object[,] DataFromExcel;</code></pre>\n\nWhat I'm missing?\r<br />\n<br />\nBest regards,\r<br />\nMike.<br />\n",
+    "PostedDate": "2014-06-06T17:24:19.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-06-06T17:38:20.09-07:00"
+  },
+  {
+    "Id": "1253921",
+    "ThreadId": "547226",
+    "Html": "SHAME ON ME! I got the answer right in front of my eyes. I forgot to declare the size of the array. <br />\n<pre><code>(...)\n            rows = ds.Tables[0].Rows.Count;\n            cols = ds.Tables[0].Columns.Count;\n\n            DataFromExcel = new object[rows, cols]; // set the size of the array\n            int row=0;\n            while (excelReader.Read())\n(...)</code></pre>\n\nSorry for wasting your time. <br />\n<br />\nMike.<br />\n",
+    "PostedDate": "2014-06-06T17:34:12.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-06-06T17:38:12.71-07:00"
+  }
+]

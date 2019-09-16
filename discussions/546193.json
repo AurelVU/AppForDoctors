@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1248264",
+    "ThreadId": "546193",
+    "Html": "Hi there,\r<br />\n<br />\nI'm trying to open a file that Excel recognizes as type &quot;Excel 2 Worksheets&quot; but when I open it with  ExcelReaderFactory.CreateBinaryReader(stream), the reader says the file is invalid.\r<br />\n<br />\nIs it supported?\r<br />\n<br />\nRegards,\r<br />\nFabian<br />\n",
+    "PostedDate": "2014-05-22T00:19:52.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248777",
+    "ThreadId": "546193",
+    "Html": "I think that format is not supported.<br />\n",
+    "PostedDate": "2014-05-23T02:12:50.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248779",
+    "ThreadId": "546193",
+    "Html": "Yes, this is my conclusion too :-(<br />\n",
+    "PostedDate": "2014-05-23T02:17:31.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

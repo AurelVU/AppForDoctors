@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "722421",
+    "ThreadId": "285456",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>I am using Excel Data Reader.dll to read excel files. Now I want to read comments in a cell.</p>\r\n<p>Please help me how to read the comments in a cell.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>Shankar L</p>\r\n",
+    "PostedDate": "2012-01-09T05:15:10.023-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726256",
+    "ThreadId": "285456",
+    "Html": "<p>Hello,</p>\r\n<p>First of all, I would say thanks for this tool. It works in my project properly.</p>\r\n<p>Shankar:&nbsp;If you need more than the value of the cells, add a new column to the excel sheet that contains the comments then export the file (write a macro to insert comments to this column). If you need help to make this macro, let me know.</p>\r\n<p>regards,</p>\r\n<p>Csaba J.</p>",
+    "PostedDate": "2012-01-17T01:51:46.803-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

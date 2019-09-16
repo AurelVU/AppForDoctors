@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "440419",
+    "ThreadId": "211945",
+    "Html": "<p>This can't be done. Why would you create an object and call it the same as a Microsoft object? Now I can't reference Excel and Excel Data Reader because it too is called Excel! I need to be able to read an excel file with the Data Reader and return datatables then I need to later create an excel file in a specific format from which I need Excel and not a reader to perform this action. Can't be done because can't reference both objects in the same project. How would you do this?</p>",
+    "PostedDate": "2010-05-07T10:32:38.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475077",
+    "ThreadId": "211945",
+    "Html": "<p>Just download the code, change the namespaces to whatever you want (i.e. &quot;ExcelReader&quot;), compile it, use it and be happy :)</p>",
+    "PostedDate": "2010-07-31T14:20:04.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

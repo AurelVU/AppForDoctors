@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1131054",
+    "ThreadId": "471736",
+    "Html": "I have a weird issue when I read an excel workbook and the column starts off as a set of numbers and then switches to alphanumeric.  I need to force the asDataSet to set mixed column data to text...   The dataset object sets it to typeof <strong>object</strong>... any ideas or examples?\r<br />\n<br />\nExample:\r<br />\nSerial-------------------Tag--------------Room-----------Status\r<br />\n00234567z-------------<strong>T001</strong>------------104-------------In Use\t      <br />\n00234567z-------------<strong>T002</strong>------------104-------------In Use\r<br />\n00234569z-------------<strong>T003z</strong>-----------104-------------In Use\r<br />\n00234570z-------------T004z------------104-------------In Use\r<br />\n00234571z-------------T005z------------112-------------In Use<br />\n",
+    "PostedDate": "2013-12-02T14:11:37.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1341760",
+    "ThreadId": "577685",
+    "Html": "My spreadsheet has data with different formatted info which ExcelDataReader converts to doubles. e.g. $123.45 or £123.45. \r<br />\n<br />\nI just want to read exactly what is viewable in the spreadsheet. Is this possible?\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2015-01-14T04:14:33.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

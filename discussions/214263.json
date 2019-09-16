@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "448886",
+    "ThreadId": "214263",
+    "Html": "I am having problem when I use a .xlsx file, it seems like cannot read field from excel sheet and getting null value even if there is value in the spreadsheet.  \r\n\r\nMy code snippet: \r\n\r\nHttpPostedFile postedFile = file_Selector.PostedFile;\r\nSystem.IO.Stream filestrem = postedFile.InputStream;\r\n\r\nIExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(filestrem);\r\nexcelReader.IsFirstRowAsColumnNames = true;\r\nresult = excelReader.AsDataSet();\r\nDataTableCollection dts = result.Tables;\r\n\r\nforeach (DataTable dt in dts){\r\n\r\nforeach (DataRow row in dt.Rows){\r\n\r\nforeach (DataColumn col in dt.Columns){\r\n\r\n\r\nstring value = row[col].ToString();         // some times get null value, even if there is value in the spreadsheet field \r\n\r\n}\r\n\r\n\r\n}\r\n\r\n}\r\n\r\n\r\nDoes any one has any idea what is wrong with .xlsx file?\r\n\r\n I will appretiate if any one can help me in here.\r\n\r\nThank you in advance for your help.\r\n\r\n\r\n",
+    "PostedDate": "2010-05-28T14:59:54.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478818",
+    "ThreadId": "214263",
+    "Html": "I believe I have the same issue.  I am reading a .xlsx file, which I have verified is correctly in the excelReader from the CreateOpenXmlReader method.  However, when I try to use the excelReader.AsDataSet() method, there are no tables to access.  Sample code is below:\r\n\r\n //Get an Excel file from a SharePoint List - I have verified this works\r\nexcelStream = properties.ListItem.File.OpenBinaryStream();\r\nIExcelDataReader excelReader = null;\r\n\r\n// Reading from a OpenXml Excel file (2007 format; *.xlsx)\r\nexcelReader = ExcelReaderFactory.CreateOpenXmlReader(excelStream);\r\n\r\n// Convert the excelReader object to a dataset and save it as &quot;result&quot;\r\nexcelReader.IsFirstRowAsColumnNames = true;\r\nDataSet modelDS = excelReader.AsDataSet();\r\nDataTable summaryTable = modelDS.Tables[0];\r\n\r\nABOVE CODE RESULTS IN: &quot;Exception: Cannot find table 0.&quot;\r\n\r\nAny help is greatly appreciated!\r\n",
+    "PostedDate": "2010-08-10T14:07:28.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "492428",
+    "ThreadId": "214263",
+    "Html": "<p>If you download the latest source and look through the patches you should be able to fix this. I am working on a new release as we speak incorporating the submitted patches...</p>",
+    "PostedDate": "2010-09-12T02:33:26.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494655",
+    "ThreadId": "214263",
+    "Html": "<p>Can you provide any more info on how to patch this myself? &nbsp;I have the latest 55029 but I'm not sure what I need to look for to allow .xlsx files to work. &nbsp;I'm having the same problem as the guys above... &nbsp;Tnx in advance!</p>\r\n<p>It turns out my issue was related to the ExcelReaderFactory method I was using. &nbsp;The below switches in my code did the trick for me and .xlsx files. &nbsp;Hope this helps somebody some time.</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        IExcelDataReader excelReader = <span style=\"color:blue\">null</span>;\r\n        DataSet ds = <span style=\"color:blue\">new</span> DataSet();\r\n        <span style=\"color:blue\">if</span> (myFile.FileName.ToLower().Contains(<span style=\"color:#a31515\">&quot;.xlsx&quot;</span>))\r\n        {\r\n            Stream excelStream = myFile.InputStream;\r\n            excelReader = ExcelReaderFactory.CreateOpenXmlReader(excelStream);\r\n            excelReader.IsFirstRowAsColumnNames = <span style=\"color:blue\">true</span>;\r\n            excelReader.IsFirstRowAsColumnNames = <span style=\"color:blue\">true</span>;  \r\n            ds = excelReader.AsDataSet();\r\n        }\r\n        <span style=\"color:blue\">else</span>\r\n        {\r\n            <span style=\"color:green\">//regular .xls files</span>\r\n            excelReader = ExcelReaderFactory.CreateBinaryReader(myFile.InputStream);\r\n            excelReader.IsFirstRowAsColumnNames = <span style=\"color:blue\">true</span>;\r\n            ds = excelReader.AsDataSet();\r\n        }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-09-16T14:08:42.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "506996",
+    "ThreadId": "214263",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>robalexclark wrote:</strong><br>\r\n<p>If you download the latest source and look through the patches you should be able to fix this. I am working on a new release as we speak incorporating the submitted patches...</p>\r\n</blockquote>\r\n<p>&nbsp;robalexclark&nbsp; -&nbsp; thank you for the updates to source control.&nbsp; Would it be possible for you to post new DLLs based on rev 55029?&nbsp;&nbsp;I am still in the process of upgrading to VS2010 and cannot open the solution file from the latest source code download.&nbsp; Thanks!</p>",
+    "PostedDate": "2010-10-13T19:53:00.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1223454",
+    "ThreadId": "214263",
+    "Html": "I found the same issue, and it was solved for me by changing the Page's Culture and UICulture to 'en-US'; I was using a different culture (bn-BD), that seems to be cause of the issue.<br />\n",
+    "PostedDate": "2014-03-17T03:19:19.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

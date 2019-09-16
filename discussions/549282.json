@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1258421",
+    "ThreadId": "549282",
+    "Html": "Hello,\r<br />\nI am able to read all excel files with the code you provided but I cant read them if they are already open in Microsoft Excel.\r<br />\nIs it possible?\r<br />\nThanks,<br />\n",
+    "PostedDate": "2014-06-20T14:16:01.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1258818",
+    "ThreadId": "549282",
+    "Html": "Yes, of course :)\r<br />\nExcel locks non-readonly files while modifying them.<br />\n",
+    "PostedDate": "2014-06-23T02:46:45.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

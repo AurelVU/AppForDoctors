@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1043546",
+    "ThreadId": "443645",
+    "Html": "I was just using \r<br />\nDataSet ds = reader.AsDataSet();\r<br />\nto get data from excel files, but with one big file the thing crashed with an OutOfMemory exception. \r<br />\nAm I doing something wrong and is there any way around it?<br />\n",
+    "PostedDate": "2013-05-14T14:08:59.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044343",
+    "ThreadId": "443645",
+    "Html": "Without any specific data I could not say. It could be low memory on your machine or a bug.\r<br />\n<br />\nWe'd need the Excel document and the code you are running to look into it but I'm way too busy too investigate this and I think the other devs are too. It'll be some time before I can look at a sample.<br />\n",
+    "PostedDate": "2013-05-16T01:53:28.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1046930",
+    "ThreadId": "443645",
+    "Html": "AsDataSet would not be a good plan on a large dataset because a DataSet is held in memory. DataSets themselves are very bloated, so this is a recipe for problems.\r<br />\nWhen I use the library I use the IDataReader inteface rather than AsDataSet in order to keep memory usage low.<br />\n",
+    "PostedDate": "2013-05-22T01:31:47.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1054352",
+    "ThreadId": "443645",
+    "Html": "\r\n<div>\r\n<div>The problem was in the excel file, even though it only contained 19k rows, the reader was reading 1.6 Mil rows from it. All other readers also detected that the file had 1.6 mil rows...<br>\r\n<br>\r\nSent from my iPad</div>\r\n<div><br>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-06-08T06:44:06.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055566",
+    "ThreadId": "443645",
+    "Html": "Could you give me an example of how I use IDataReader with the IExcelReaderDataReader.  I have a rather large excel file of about 15,000 rows and would love to know how to use the IDataReader.  My previous code used the dataset method to grab the data, but I think I may need to use the IDataReader since its a large amount of data.  An example of how to do this would be great!  Thanks.<br />\n",
+    "PostedDate": "2013-06-11T13:35:28.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1056724",
+    "ThreadId": "443645",
+    "Html": "something like this<br />\n<pre><code>while (excelReader.Read())\n{\n    var field0 = excelReader.GetInt32(0);  //where 0 is the column index. The column index can also be looked up from the name, but it is quicker to do it straight from the ordinal if you are sure the ordering isn't going to change\n}</code></pre>\n\nMost features of IDataReader are supported<br />\n<a href=\"http://msdn.microsoft.com/en-us/library/system.data.idatareader.aspx\" rel=\"nofollow\">http://msdn.microsoft.com/en-us/library/system.data.idatareader.aspx</a><br />\n",
+    "PostedDate": "2013-06-14T01:14:33.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1347118",
+    "ThreadId": "443645",
+    "Html": "Ian1971 - How does the IDataReader interface work if there are multiple worksheets in the Excel file?  Is there a way to specify which worksheet you are iterating through?<br />\n",
+    "PostedDate": "2015-01-29T06:42:29.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1426900",
+    "ThreadId": "443645",
+    "Html": "Same as jbice question.: How does the IDataReader interface work if there are multiple worksheets in the Excel file? Is there a way to specify which worksheet you are iterating through?<br />\n",
+    "PostedDate": "2015-05-21T09:16:53.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

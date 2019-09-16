@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "hi,\ni found some problem reading excel with some hidden chars.\ni can t understand which are.\nattached the excel example.\nthe problem is about Label SST, that after this wrong encoding, the dll can t extract any other word and during the reading of all excel some other words are skipped.\n\n\n![Image](https://s24.postimg.org/aak6oe5dx/exceldatareader.png)",
+    "LastUpdatedDate": "2017-01-13T07:36:10.537-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2017-01-13T07:36:09.573-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "issue with some hidden chars",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 14041
+  },
+  "FileAttachments": [
+    {
+      "FileId": 6341,
+      "FileName": "aaa.xls",
+      "DownloadUrl": ".\\6341"
+    }
+  ],
+  "Comments": []
+}

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "hi, we use this assembly in our production server which is windows 2008 64bit, but we found when we try to use it to read excel file, it will cause a huge memory usage, and occupy them for long time.\n \nthen i try to set app pool as 32bit compatible, then it works perfect.\n \ncan u help to figure it out?",
+    "LastUpdatedDate": "2013-02-21T17:47:35.3-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-04-11T02:52:57.87-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "cause memory problem in win2008 64bit",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10643
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

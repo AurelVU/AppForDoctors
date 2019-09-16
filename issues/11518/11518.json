@@ -1,0 +1,166 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I can see this package is not updated on Nuget yet.",
+    "LastUpdatedDate": "2014-02-18T00:51:32.26-08:00",
+    "PlannedForRelease": "ExcelDataReader v2.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-01-23T05:12:02.167-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Nuget package",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 8,
+    "Id": 11518
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4884,
+      "FileName": "ExcelDataReader.2.1.2.nupkg",
+      "DownloadUrl": ".\\4884"
+    },
+    {
+      "FileId": 4903,
+      "FileName": "ExcelDataReader.2.1.2.nupkg",
+      "DownloadUrl": ".\\4903"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Can you please include the silverlight binaries in the package too.",
+      "PostedDate": "2013-01-23T06:29:28.16-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-01-23T06:29:35.06-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "This is still labelled a beta so I'd rather hold off putting it on nuget until it has undergone more testing.",
+      "PostedDate": "2013-02-13T11:53:24.46-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-15T07:58:51.66-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:29.72-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-28T03:20:54.58-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-30T19:59:40.97-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I download Excel Data Reader by Nuget, and import it's depend project ICSharpCode.SharpZipLib. But I got an error below:\nSystem.IO.FileLoadException: 未能加载文件或程序集“ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)\r\n\r\nMy project is using VS2012, on Win8-32, with .net-4.0\n",
+      "PostedDate": "2013-05-19T01:27:11.62-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "You will get a lot more users (and thus feedback, testing, etc) if you post a working distribution on NuGet.  The fact that it is still 'beta' is not a good reason.",
+      "PostedDate": "2013-05-21T09:05:52.963-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-21T09:06:00.5-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@dearymz  I've run into the same problem.  The ExcelDataReader currently on Nuget is dependent on SharpZipLib 0.85.5.452, but is not properly configured as such in Nuget.  You can manually install SharpZipLib from NuGet, but it is currently 0.86.\r\n\r\nOne workaround is to add this to your app.config\n```\n      <dependentAssembly>\n        <assemblyIdentity name=\"ICSharpCode.SharpZipLib\" publicKeyToken=\"1b03e6acf1164f73\" culture=\"neutral\" />\n        <bindingRedirect oldVersion=\"0.0.0.0-0.86.0.518\" newVersion=\"0.86.0.518\" />\n      </dependentAssembly>\r\n\r\n```\r\n\r\nbut really the best fix is if ExcelDataReader can change to not need a specific SharpZip version, and also register the dependency in NuGet.",
+      "PostedDate": "2013-05-21T09:09:11.747-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I'm not sure who uploaded 2.1 to nuget, but anyone is welcome to fix it if they can. I do not have time to figure out how to nugets works in order to address this.",
+      "PostedDate": "2013-05-22T01:34:50.67-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have sent an email through Nuget to the owners of the upload to see if I can get named as a co-owner.  Only owners are allowed to change packages.  \r\n\r\nBrandon, it might be more effective to contact the owners through Nuget.  The next step is to get the package declared abandoned and get someone else assigned as the owner.  I would be willing to take a shot at updating the package.\r\n\r\nKeith, can you be more specific about the Silverlight binaries?  If they belong to MS I don't think I will be stepping into that mess.\n",
+      "PostedDate": "2013-05-23T06:50:09.65-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hello, I'm from the NuGet team. We're contacting the current owner to see if they would be willing to add Steve as a co-owner. If they do not respond in the negative within a few business days, I will go ahead and add him.",
+      "PostedDate": "2013-05-24T11:28:36.34-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hello, I've uploaded a new version of the package with latest dll and required dependency to SharpZipLib.\nHope it helps!",
+      "PostedDate": "2013-05-27T22:53:37.987-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Brillinat. thanks",
+      "PostedDate": "2013-05-28T04:48:00.747-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-06-04T07:22:24.657-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-02-03T06:43:27.003-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Please find attached a corrected version of the package. Changed;\r\n\r\n1. Removed ICSharpCode.SharpZipLib.dll. It is specified as a dependency since should not be redistributed.\n2. Removed app/web.config.transform files. It's solely NuGet's due to maintain binding redirects. Anyway the is a mistake in those files missing the required **xmlns** declaration within the **assemblyBinding** element.",
+      "PostedDate": "2014-02-03T06:43:28.673-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks\n@SteveHolle - are you able to check/upload this corrected package. ",
+      "PostedDate": "2014-02-04T04:26:16.59-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-02-17T23:31:08.977-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Updated package with latest 2.1.2 binaries.",
+      "PostedDate": "2014-02-17T23:31:10.25-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Brilliant, thanks. I have uploaded it to nuget",
+      "PostedDate": "2014-02-18T00:51:32.26-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

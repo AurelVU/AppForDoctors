@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n\nI would like to know which versions of Excel is supported? I tried importing a Microsoft Excel 5.0/95 Workbook and had an Array out of bounds error and also the column headers has lots of special characters..\n\nAny idea what might be causing this? \n\nRegards,\nVishal",
+    "LastUpdatedDate": "2014-03-02T03:53:47.78-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-02-10T00:06:26.27-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Excel Versions Supported?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12738
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4896,
+      "FileName": "error small.jpg",
+      "DownloadUrl": ".\\4896"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "The descriptions states what versions are supported. You're version must not be supported.\r\n\r\n\"Lightweight and fast library written in C# for reading Microsoft Excel files __('97-2007__)\"",
+      "PostedDate": "2014-03-02T03:53:47.78-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

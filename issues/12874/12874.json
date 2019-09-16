@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "There is no support currently for unprotect in this library. In our application we use other third-party libraries to unprotect spreadsheets before opening them with ExcelDataReader, such as SecureBlackBox (not cheap though).",
+    "ClosedDate": "2014-04-09T01:43:43.907-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi All,\n\nthis is one of the most useful libs i ever found and use. I have a problem with one Excel doc. I get Exception:\n\nNo data is available for encoding 5951. \n\nWhat is wrong. No other problems so far. \n\nI'm sending you the file in attachment",
+    "LastUpdatedDate": "2014-04-09T01:43:43.907-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-04-08T04:38:25.29-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "No data is available for encoding",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12874
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4960,
+      "FileName": "TEST.xls",
+      "DownloadUrl": ".\\4960"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I figured out what was the problem. The file was Workbook protected. Is there any chance to have something like:\nExcelReaderFactory.CreateBinaryReader(stream, \"password\");\r\n\r\nin the future?\r\n\r\nThanks",
+      "PostedDate": "2014-04-08T07:34:26.723-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-04-09T01:43:43.907-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

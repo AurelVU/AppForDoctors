@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi Support,\n\nThe spreadsheet cell has a formula to extract a piece of a string and the resulting string is a FormulaField\n name.  I have to retrieve the actual string that is the result in Excel. (Excel shows it correctly as a string). If it happens to be 0010, the reader returns a datatable with value of 10 , it should be an actual value (0010) in my datatable.\n\nThis issue is only comes when importing xlsx file, xls works as desired.\n\nThanks.",
+    "LastUpdatedDate": "2016-09-28T03:28:24.147-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2016-09-28T03:28:21.387-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Import with formula issue.",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13989
+  },
+  "FileAttachments": [
+    {
+      "FileId": 6324,
+      "FileName": "ImportWithFormula_Issue.zip",
+      "DownloadUrl": ".\\6324"
+    }
+  ],
+  "Comments": []
+}

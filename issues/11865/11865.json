@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "how can i set Encoding value in reading excel files ?\nthis value in excelDataReader is set to :\nprivate Encoding m_UseEncoding =  Encoding.Default;\n\nfor example how I set Encoding in code below?  \n```\n public List<string> GetHeaders(string filePath)\n        {\n            List<string> headers = new List<string>();\n            FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);\n            IExcelDataReader excelReader = null;\n\n            switch (currentFileType)\n            {\n                case (XlsType.xlsx):\n                    {\n                        excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n                        break;\n                    }\n                case (XlsType.xls):\n                    {\n                        excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n                        break;\n                    }\n                case (XlsType.notSupported):\n                    {\n                        break;\n                    }\n            }\n\n            if (excelReader.Read())\n            { \n                for (int i = 0; i < (FileImporter.ContentProperty as ExcelContentProperty).FirstSheetHeaderLines; i++)\n                {\n                    excelReader.Read();\n                }\n                for (int i = 0; i < excelReader.FieldCount; i++) \n                {\n                  \n                    if (excelReader.GetValue(i) != null)\n                        headers.Add(excelReader.GetValue(i).ToString());\n                    else\n                        headers.Add(\"Col\" + (i + 1));\n                }\n            }\n            excelReader.Close();\n            return headers;\n        }\n```",
+    "LastUpdatedDate": "2013-06-07T23:49:53.44-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-06-07T23:49:53.44-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "read excel files with special encoding",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11865
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

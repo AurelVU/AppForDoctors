@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The date that is parsed by excel data reader is a few years off. \n\nWhen parsing '9/8/2013' exceldatareader is giving me 40056 \nWhen it should actually be 41525 \n\n\nUsing the attached xls file, dates are converted wrongly.\n\nvoid Main() \n{\nvar dt = DateTime.Parse(\"9/8/2013\");\nDouble d = dt.ToOADate();\nConsole.WriteLine(d);   \nConsole.WriteLine(DateTime.FromOADate(d));\n\n// output from exceldata reader\nConsole.WriteLine(DateTime.FromOADate(40056));\n} \n\n\nOutput \n\n41525 \n9/8/2013 12:00:00 AM \n8/31/2009 12:00:00 AM",
+    "LastUpdatedDate": "2014-02-20T15:38:27.807-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-11-13T15:25:39.463-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "DateTime parsing error - the OADate is wrong",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12456
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4751,
+      "FileName": "DateExcel.xls",
+      "DownloadUrl": ".\\4751"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I'm not sure it's quite that simple.  I don't think Excel dates have the same base as most everyone else.  You might want to take a look at this:\r\n\r\nhttp://www.cpearson.com/excel/datetime.htm",
+      "PostedDate": "2013-11-13T15:50:09.057-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Wow .. thanks for that, i was wondering what is going wrong here. So is there any way to detect in data reader whether we should use the 1904 date mode or the 1900 date mode to recalculate the date?\r\n\r\nAs if we just use the default way we are always going to have a 4 year difference with these files.",
+      "PostedDate": "2013-11-13T16:50:59.747-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I don't have to do anything with the dates.  I get date strings out of the following snippet:\r\n\r\nusing (FileStream streamIn = File.Open(_PathFilename, FileMode.Open, FileAccess.Read))\nusing (IExcelDataReader execlReader = (Path.GetExtension(_PathFilename) == \".xlsx\" ?    ExcelReaderFactory.CreateOpenXmlReader(streamIn): ExcelReaderFactory.CreateBinaryReader(streamIn)))\n{\n  DataSet ds = new DataSet();\n  ds = execlReader.AsDataSet();\n  foreach (DataTable sheet in ds.Tables)\n  {\n    foreach (DataRow Row in sheet.Rows)\n    {\n      var x = Row.ItemArray\n      .\n      .\n      .",
+      "PostedDate": "2013-11-14T07:01:12.667-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-02-20T15:22:17.923-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "You can switch the date system in the spreadsheet itself. By default Excel for Windows uses the 1900 system, for Mac uses the 1904.\r\n\r\nGood link on why and how you can change the date system: http://support.microsoft.com/kb/180162/en-us\r\n\r\nWould be nice to have the library take care of this or to return the serial and the system so we can do the calculation.",
+      "PostedDate": "2014-02-20T15:38:27.807-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

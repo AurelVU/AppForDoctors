@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1103666",
+    "ThreadId": "461166",
+    "Html": "I got this exception with an xls file and added the ReadOption.Loose parameter but still get the exception. \r<br />\n<br />\nIt occurs after successfully reading all the rows of this file so I updated the code to continue after the exception is caught and the specific error occurred and there was data in the stringbuilder collecting the rows. Also, I display a message to the user to verify the import worked as expected.\r<br />\n<br />\nGary Davis<br />\n",
+    "PostedDate": "2013-10-04T08:18:40.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1109405",
+    "ThreadId": "461166",
+    "Html": "Hello. I had the same issue. Happened near the end of the file read with the data already captured. File is a SRS output xls file.\r<br />\n<br />\nQuick fix for me for this file at least was the following:\r<br />\n<br />\nHad comment out the check here: XlsBiffRecord.cs line 19<br />\n<pre><code>protected XlsBiffRecord(byte[] bytes, uint offset, ExcelBinaryReader reader)\n        {\n            //if (bytes.Length - offset &lt; 4)\n                //throw new ArgumentException(Errors.ErrorBIFFRecordSize);\n            m_bytes = bytes;\n            this.reader = reader;\n            m_readoffset = (int)(4 + offset);\n\n            //Set readOption to loose to not cause exception here (sql reporting services)\n            if (reader.ReadOption == ReadOption.Strict)\n            {\n                if (bytes.Length &lt; offset + Size)\n                    throw new ArgumentException(Errors.ErrorBIFFBufferSize);\n            }\n            \n        }</code></pre>\n\nAnd add the try/catch here XlsBiffRecord.cs line 52<br />\n<pre><code>        /// &lt;summary&gt;\n        /// Returns data size of this entry\n        /// &lt;/summary&gt;\n        public ushort RecordSize\n        {\n            get \n            {\n                // Added Try Catch block in case of badly formed SQL reporting file with &lt; 4 \n                try\n                {\n                    return BitConverter.ToUInt16(m_bytes, m_readoffset - 2);\n                }\n                catch\n                {\n                    return BitConverter.ToUInt16(m_bytes, m_readoffset - 3);\n                }\n            }\n        }</code></pre>\n\n",
+    "PostedDate": "2013-10-18T15:18:34.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

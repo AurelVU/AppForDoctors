@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "541594",
+    "ThreadId": "239871",
+    "Html": "\r\n<p>&#65279;Format xlsx<br>\r\nIf first column contains null column, last column is lost and null column is added to data set. Excel dimension returs dimension, for example B1:L4, when first column is null. Probably progammer waited there will be range A1:L4 including null column.<br>\r\n<br>\r\nif (col - 1 &lt; _cellsValues.Length)<br>\r\n_cellsValues[col - 1] = o;<br>\r\n<br>\r\nreplace with <br>\r\n<br>\r\nif (col - sheet.Dimension.FirstCol &lt; _cellsValues.Length)<br>\r\n_cellsValues[col - sheet.Dimension.FirstCol] = o;</p>\r\n",
+    "PostedDate": "2010-12-29T03:23:28.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

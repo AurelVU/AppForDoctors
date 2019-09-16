@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "942751",
+    "ThreadId": "403488",
+    "Html": "\r\n<p>There are multiple issues raised with the above error. I think I've found a fix for it, but thought the fix might be lost in amongst all the duplicate issues hence I am adding it to the discussion list rather than replying to one of the many issues. I'm\r\n not even sure if this project is still active but a lot of people seem to use it.</p>\r\n<p>Anyway, I spent a while debugging this error when I was getting it and it turns out that it occurred only when a spreadsheet had multiple sheets and any of them were not Read, i.e. just NextResultSet but not read.</p>\r\n<p>The bug is in OpenXmlReader.ReadSheetGlobals because it creates a new stream by overwriting the _sheetStream field, but it does not first check that _sheetStream is closed. So by adding this to the start of that method it works ok.</p>\r\n<p>&nbsp;</p>\r\n<pre>if (_xmlReader != null) { _xmlReader.Close(); }\n\nif (_sheetStream != null) { _sheetStream.Close(); }</pre>\r\n<p>&nbsp;</p>\r\n<p>Hope this is useful to someone.</p>\r\n",
+    "PostedDate": "2012-11-16T06:15:36.843-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

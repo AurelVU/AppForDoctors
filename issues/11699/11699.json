@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n\n      When i get DataSet using AsDataSet method the work sheet name is not captured\ncompletely in the TableName.File type is 2003 xls.\n\nFor example i get  \"I\\0n\\0v\\0e\\0s\\0t\\0m\\0e\\0\"\nfor sheet  name Investment Grade. \n\nIs there any work around for getting the full worksheet name ?",
+    "LastUpdatedDate": "2013-05-14T03:52:26.107-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-04-11T14:12:09.397-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "worksheet name is not captured in DataSet",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11699
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Looks kind of like a unicode problem?",
+      "PostedDate": "2013-04-11T14:44:32.417-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I agree looks like a unicode issue. can you upload an example spreadsheet?",
+      "PostedDate": "2013-05-14T03:52:26.107-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

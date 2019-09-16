@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In the source I have the line in ExcelOpenXmlReader.AsDataSet(bool convertOADateTime) is:\n \nif(table.Rows.Count > 0) dataset.Tables.Add(table);\n \nHowever this ignores situations in which _isFirstRowAsColumnNames == true but no further rows follow (an XLSX with headers only) and returns a null DataSet. \n \nYou might consider changing the line to:\n \nif(table.Rows.Count > 0 || table.Columns.Count > 0) dataset.Tables.Add(table);\n \nThanks and EXCELLENT work on this!\n \nNicholas",
+    "LastUpdatedDate": "2013-02-21T17:47:42.233-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-11-19T13:09:16.42-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Small Change to",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7704
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

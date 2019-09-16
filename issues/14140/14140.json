@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am have issues using the ExcelDataReader from a webservice. I get an access to the path is denied. Is this a folder permission's error or a file access error?\n\nDoes ExcelDataReader require full access permissions to do it's work opening and reading an excel file?\n\nThanks,\nEd",
+    "LastUpdatedDate": "2017-10-11T08:51:19.627-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2017-10-11T08:51:19.627-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "File permissions required by ExcelDataReader",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 14140
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

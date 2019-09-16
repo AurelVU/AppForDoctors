@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "created issue on github",
+    "ClosedDate": "2014-08-27T01:25:49.423-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "This exception is produced in XlsBiffSST.cs  on last - offset - prefix; The excel file contains Chinese simplified data with some formatting. I don't know how to fix this issue. Your help will be highly appreciated in this regard.",
+    "LastUpdatedDate": "2014-08-27T01:26:43.57-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-08-26T04:16:01.967-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Non-negative number required. Parameter name: count",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13222
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "https://github.com/ExcelDataReader/ExcelDataReader/issues/16",
+      "PostedDate": "2014-08-27T01:26:43.57-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

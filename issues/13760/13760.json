@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am writing a plugin to use within Encompass360 SDK, a loan processing system.\n\nEncompass360 has an interface to upload my .NET dll plugin to this system, which works fine.\n\nI am not trying to use Excel Data Reader to read a spreadsheet that is also uploaded to the system.  (Love the Data Reader interface.)\n\nEverything works fine as long as I use the binary reader with 97-2003 format .xls files.  However, the file size has grown over 64K, so I am trying to use the OpenXmlReader with 2007 format .xlsx files.  \n\nThe ExcelReaderFactory.CreateOpenXmlReader(stream) returns an IExcelDataReader, but it's IsValid status is false and the Exception property states that the ICSharpCode.SharpZipLib.Zip.ZipEntry.IsCompressionMethodSupported method cannot be loaded.\n\nCalling AsDataSet() on the data reader returns null.  \n\nI try to load the SharpZipLib library directly in my plugin, and it fails completely, so I believe the problem is either with the DLL version, or Encompass360s ability to load this dll (even though it loads Excel.4.5.dll just fine - Runtime Version v4.0.30319 and Version 2.1.2.0).\n\nBoth dlls work just fine in a .NET Console application, just not within Encompass 360.  I've contacted them -- not a lot of help.  \n\nMy copy of ICSharpCode.SharpZipLib has a modifed date of 1/2/2014 12:05 PM, a Runtime Version of v2.0.50727 and a Version of 0.85.5.452.\n\nMight you have any ideas how to load this dll to get an OpenXmlReader?  Perhaps another version?\n\nBTW, this fails for all .xlsx spreadsheets, even the simplest 1 col 1 row test case I created, so I have not attached one.\n\nThank you very much.\nDave",
+    "LastUpdatedDate": "2015-10-29T07:53:13.383-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-10-29T07:53:13.383-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Trouble accessing ICSharpCode.SharpZipLib.dll in 3rd party software",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13760
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

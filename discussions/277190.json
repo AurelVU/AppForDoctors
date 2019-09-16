@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "689255",
+    "ThreadId": "277190",
+    "Html": "\r\n<p>I would love to see this library as a package on nuget as it is very useful and easy to use.</p>\r\n",
+    "PostedDate": "2011-10-25T13:33:31.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "696946",
+    "ThreadId": "277190",
+    "Html": "<p>+1 to this sentiment - would be ace to see it on Nuget.</p>",
+    "PostedDate": "2011-11-11T03:31:19.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706474",
+    "ThreadId": "277190",
+    "Html": "<p>Hi,</p>\r\n<p>I created this missing package (and set you as the author of course):</p>\r\n<p><a href=\"http://nuget.org/List/Packages/ExcelDataReader\">http://nuget.org/List/Packages/ExcelDataReader</a></p>\r\n<p>Feel free to contact me if you want the source or an update.</p>\r\n<p>Gtz,</p>\r\n<p>St&eacute;phane.</p>",
+    "PostedDate": "2011-12-02T07:27:08.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990903",
+    "ThreadId": "277190",
+    "Html": "\r\n<p>I can see this package is not updated on Nuget yet.&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-23T05:10:14.447-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990904",
+    "ThreadId": "277190",
+    "Html": "This discussion has been copied to a work item. Click <a href=\"http://exceldatareader.codeplex.com/workitem/11518\">here</a> to go to the work item and continue the discussion.",
+    "PostedDate": "2013-01-23T05:12:01.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

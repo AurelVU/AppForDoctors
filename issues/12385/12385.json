@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I got this error with crystal report xls file.\n\nError: Neither stream 'Workbook' nor 'Book' was found in file \n\nThis because 'Excel Data Reader' defines block strings as  \"Workbook\" and  \"Book\", instead Crystal Report as \"WORKBOOK\":  you have to do a case insensitive comparison!\n\nI suggest to replace \"Excel\\Core\\BinaryFormat\\XlsRootDirectory.cs\" line 75\n\n```\nif (e.EntryName == EntryName)\n```\n\nwith\n\n```\nif (string.Equals(e.EntryName, EntryName, StringComparison.CurrentCultureIgnoreCase))\n```\n\nfor me it solved.\n\nhave a nice day,\nmarco",
+    "LastUpdatedDate": "2013-10-28T08:57:51.29-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-10-28T08:57:51.29-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "crystal report xls: Neither stream 'Workbook' nor 'Book' was found in file",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12385
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

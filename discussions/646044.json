@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1447945",
+    "ThreadId": "646044",
+    "Html": "The following code seems to read from the first worksheet.  How do I select a different worksheet?\r<br />\n<br />\nFileStream stream = <a href=\"mailto:File.Open(@&quot;D:\\Transfer\\NameSample.xls&quot;,\" rel=\"nofollow\">File.Open(@\"D:\\Transfer\\NameSample.xls\",</a> FileMode.Open, FileAccess.Read);\r<br />\nIExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\r<br />\nwhile (excelReader.Read())\r<br />\n {<br />\n<pre><code>this.dataFields = excelReader.FieldCount;\nthis.dataLabel = excelReader.GetString(0);\nthis.dataValue = excelReader.GetString(1);\nthis.dataColor = excelReader.GetString(2);</code></pre>\n\n}\r<br />\n excelReader.Close();<br />\n",
+    "PostedDate": "2015-10-09T15:46:06.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

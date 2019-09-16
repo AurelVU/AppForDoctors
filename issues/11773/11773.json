@@ -1,0 +1,101 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I try to load a .xlsx and the decimal number like 2345,12 look like 2,345123637347E+16, i need fix that faster, what can i do?",
+    "LastUpdatedDate": "2017-11-27T20:47:31.943-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-05-13T10:58:17.013-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Exponential problem when load a .xlsx",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11773
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4533,
+      "FileName": "test.xlsx",
+      "DownloadUrl": ".\\4533"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Can you upload an example spreadsheet with this issue?",
+      "PostedDate": "2013-05-14T03:44:47.237-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-14T07:37:49.903-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I change the field's format many times, and try all formats, nothing work",
+      "PostedDate": "2013-05-14T07:37:50.99-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I can't recreate this. I added a unit test called Issue_11773_Exponential which you might want to look at. Maybe I am not doing the same thing as you, but the test passes ok.",
+      "PostedDate": "2013-05-17T12:31:37.57-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Yes, indeed, i got the same problem when i try to load my worksheet when i use a coma for decimal separator.\nWhen the software unzip the content of ../xl/worksheets/sheet1.xml the value are like this 321.521 and when iopen my xlsx file the values has coma decimal separator like 321,521.\nI has debud the process and it try to parse the string (321.521) to double but your regional setting don't allow to convert this string to double with a dot decimal separator.\r\n\r\nexactly the code is :\r\n\r\ndouble number;\nobject o = _xmlReader.Value;\nif (double.TryParse(o.ToString(), out number))\no = number;\n....\r\n\r\ni have try to shortcut the double parsing, but i got bad number format\nfor ex: 231.99 became 321.9899999999992\r\n\r\ni don't have solution for the moment... i search to solve this ASAP.\r\n\r\nother else if i convert my file to XLS format, it work correctly.\n",
+      "PostedDate": "2013-12-27T03:33:18.83-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-01-03T02:41:46.693-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I just looked at this and I think it has already been fixed.  Can you get the latest code from the repository?",
+      "PostedDate": "2014-01-03T05:33:36.47-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "i download the latest version from nuget, but i still have the problem.\nWhere i can find the latest repository?",
+      "PostedDate": "2014-01-15T09:44:26.543-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "https://exceldatareader.codeplex.com/SourceControl/latest",
+      "PostedDate": "2014-01-17T06:31:37.507-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-01-29T08:15:07.84-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:31.943-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

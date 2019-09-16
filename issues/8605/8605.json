@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "If a cell contains TRUE or FALSE the reader always returns DbNull, even if directly reading the column with GetBoolean().\n \nThere are boolean values in the test spreadsheets but the tests never check them.",
+    "LastUpdatedDate": "2013-02-21T17:47:40.363-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-04-05T21:08:29.587-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Does not read boolean values",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 8605
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This is one of the issues I fixed and provided changes in issue #8536",
+      "PostedDate": "2011-04-06T07:56:15.983-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Still not fixed in the release which is put out.\r\n",
+      "PostedDate": "2011-08-10T11:02:18.29-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2011-08-10T11:02:22.727-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Did do the follwoing test and it failed,  in reality i do have the first row as the header row.\r\n\r\nexcelReader.IsFirstRowAsColumnNames = true;\r\n\r\nthe following test is good enough to show that the Table has some issue.\r\n\r\n    [TestMethod]\r\n        public void excelReaderReadBoolDefault()\r\n        {\r\n            IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(Helper.GetTestWorkbook(\"Test_num_double_date_bool_string\"));\r\n\r\n            DataTable result = excelReader.AsDataSet().Tables[0];\r\n\r\n            Assert.IsNotNullOrEmpty(result.Rows[22][3].ToString());\r\n            Assert.AreEqual(result.Rows[22][3], true);\r\n\r\n            excelReader.Close();\r\n        }",
+      "PostedDate": "2011-08-10T11:32:44.013-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-04-11T05:43:24.077-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:40.363-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

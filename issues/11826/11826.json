@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\nThis is a great utility. However, When uploading huge excel files, Encoding.Default.GetString is error prone because the last parameter in my case exceeds the max limit of int datatype.\n\nKindly replace, Encoding.Default.GetString with an helper method ReadFromBuffer as shown in below link.\n\nhttp://msdn.microsoft.com/en-us/library/05cts4c3(v=vs.100).aspx\n\n// If file size is small, read in a single operation.\n         contents = enc8.GetString(bytes, 0, bytesRead);\n\n// If file size exceeds buffer size, perform multiple reads.\n         contents = ReadFromBuffer(fStream);",
+    "LastUpdatedDate": "2013-05-31T04:36:15.75-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-05-31T04:36:15.75-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Issue with using Encoding.Default.GetString",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11826
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

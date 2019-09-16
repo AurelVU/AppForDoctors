@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I took the latest source code and build it and attached the reference of the new excel.dll to my solution.\nIn my solution i am successfully able to fetch all columns except the Rate Coulmn (PFA the input excel file)",
+    "LastUpdatedDate": "2013-02-21T17:47:32.917-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-07-04T14:07:22.18-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Facing a strange issue while reading my excel file",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10969
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4129,
+      "FileName": "MeterInventory_JUL2012.xlsx",
+      "DownloadUrl": ".\\4129"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "same issue here, please help",
+      "PostedDate": "2012-10-03T10:56:24.597-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:32.917-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "270941",
+    "ThreadId": "79125",
+    "Html": "<p>I have a problem while using your dll to convert Excel data to DataSet, you can check the following URL:</p>\r\n<p><a href=\"http://exceldatareader.codeplex.com/WorkItem/View.aspx?WorkItemId=4978\">http://exceldatareader.codeplex.com/WorkItem/View.aspx?WorkItemId=4978</a></p>",
+    "PostedDate": "2009-12-27T03:51:46.243-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "281550",
+    "ThreadId": "79125",
+    "Html": "<p>Hello,&nbsp; I had the same problem while reading an xlsx.&nbsp;&nbsp;</p>\r\n<p>It seems that the ID is not what is mapping to the sheet.&nbsp; In my case the rID was providing an accurate index.</p>\r\n<p>I was able to fix the problem by changing the the creation fo the xlsxworksheet:</p>\r\n<p>(XlsxWorkBook.cs&nbsp; function ReadWorkbook)</p>\r\n<p>from:</p>\r\n<p>sheets.Add(new XlsxWorksheet(<br>&nbsp;&nbsp;&nbsp;&nbsp; reader.GetAttribute(A_name),<br>&nbsp;&nbsp;&nbsp;&nbsp; int.Parse(reader.GetAttribute(A_sheetId)), reader.GetAttribute(A_rid)));</p>\r\n<p>to:</p>\r\n<p>string rid = reader.GetAttribute(A_rid);<br> int id = Int32.Parse(rid.Substring(3));&nbsp; // the ugly substring is to remove rID from the string and keep only the number<br> sheets.Add(new XlsxWorksheet(<br> &nbsp;&nbsp;&nbsp;&nbsp; reader.GetAttribute(A_name),<br> &nbsp;&nbsp;&nbsp;&nbsp; id, rid));</p>",
+    "PostedDate": "2010-01-25T12:18:01.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1486096",
+    "ThreadId": "658724",
+    "Html": "This is a Wrapper classes around ExcelDataReader to make it work like LinqToExcel.\r<br />\n<br />\nBase on first on source code : <a href=\"http://codereview.stackexchange.com/questions/47227/reading-data-from-excel-sheet-with-exceldatareader\" rel=\"nofollow\">http://codereview.stackexchange.com/questions/47227/reading-data-from-excel-sheet-with-exceldatareader</a>\r<br />\nLinq implementation based on : <a href=\"https://msdn.microsoft.com/en-us/library/bb546158.aspx\" rel=\"nofollow\">https://msdn.microsoft.com/en-us/library/bb546158.aspx</a>\r<br />\n<br />\nProblem:\r<br />\nWhen you compile your software in 64 bits and use LinqToExcel with Office installed in 32 bits mode, you cannot use LinqToExcel.\r<br />\nWhen you compile your software in 32 bits and use LinqToExcel with Office installed in 64 bits mode, you cannot use LinqToExcel.\r<br />\n<br />\nWhy ? because it use a driver (installed with Office) that must be in the same target a your software.\r<br />\nOf course, installing 32 and 64 bits drivers is not easy (there are some workaroud) and not always possible (in compagny for example), or\r<br />\nfor public users.\r<br />\n<br />\nIdea ? Rewrite all code that use LinqToExcel in my software or used another excel reader and make an adapter to work exactly like LinqToExcel.\r<br />\nIt is this second option that I have tried to make.\r<br />\nOf course, for the moment, all LinqToExcel interface is not implemented but 3 functions :<br />\n<ul>\n<li>WorksheetRangeNoHeader</li>\n<li>WorksheetRange</li>\n<li>\nGetColumnNames<br />\n</li>\n</ul>\nYou can use Linq to query into excel, make mapping to automatically fill class on each row.\r<br />\nMapping with column's name is not always the first row, it can be anywhere.\r<br />\n<br />\nProbably it is a good start to make your library more efficient and simple to use.\r<br />\nSur it's missing code to complete linq work.\r<br />\n<br />\nStéphane Château (Feneck91)\r<br />\n<br />\nYou can download it : <a href=\"http://ti1ca.com/8ci1u2xm-ExcelDataReaderLinqToExcelAdapter-ExcelDataReaderLinqToExcelAdapter.zip.html\" rel=\"nofollow\">ExcelDataReaderLinqToExcelAdapter.zip</a><br />\n",
+    "PostedDate": "2016-10-14T07:54:46.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1486109",
+    "ThreadId": "658724",
+    "Html": "There is a bug into it. You cannot use a Where clause.<br />\n<br />\nThis is corrected version of LinqToExcelAdapter: <a href=\"http://ti1ca.com/hi290z85-ExcelDataReaderLinqToExcelAdapter-ExcelDataReaderLinqToExcelAdapter.zip.html\" rel=\"nofollow\">ExcelDataReaderLinqToExcelAdapter.zip</a><br />\n",
+    "PostedDate": "2016-10-14T09:06:57.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1488575",
+    "ThreadId": "658724",
+    "Html": "Create a Version 2 : <br />\n<ul>\n<li>Add Function : Worksheet</li>\n<li>\nThrow exception if Worksheet not found.<br />\n</li>\n</ul>\nThis is version 2 of LinqToExcelAdapter: <a href=\"http://ti1ca.com/b8v7pika-ExcelDataReaderLinqToExcelAdapter-v-2-ExcelDataReaderLinqToExcelAdapter_v_2.zip.html\" rel=\"nofollow\">ExcelDataReaderLinqToExcelAdapter_v_2.zip</a><br />\n",
+    "PostedDate": "2016-11-22T07:54:58.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

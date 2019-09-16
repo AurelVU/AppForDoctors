@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "my code is like this::   if (extension == \".xls\") { //1. Reading from a binary Excel file ('97-2003 format; *.xls) flpd.SaveAs(filename1); stream = File.Open(filename1, FileMode.Open, FileAccess.Read); excelReader = ExcelReaderFactory.CreateBinaryReader(stream); } else if (extension == \".xlsx\") { //2. Reading from a OpenXml Excel file (2007 format; *.xlsx) flpd.SaveAs(filename1); stream = File.Open(filename1, FileMode.Open, FileAccess.Read); excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream); }   My actual problem is that when i am uploading .xls file in database or on physical location on server ,, my column with date values is getting changed into some other format(eg 17-May-2012 to some arbitrary value 4164),,ie maybe due to this line excelReader = ExcelReaderFactory.CreateBinaryReader(stream); but with .xlsx its working fine, so iwas thinking of converting .xls to .xlsx before uploading d file... Is there any better way... because i need to give option for .xls as well to d user",
+    "LastUpdatedDate": "2017-11-27T20:48:00.577-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-06-02T05:41:20.057-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ExcelReader problem for .xls file(date issue)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10844
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I think that number may be an excel Serial date: http://stackoverflow.com/questions/727466/how-do-i-convert-an-excel-serial-date-number-to-a-net-datetime\r\n\r\nI was having the same problem and ended up using that method to convert the value.",
+      "PostedDate": "2012-08-06T11:48:06.033-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "ok but how do you know that one cell is as date value or common numeric one ??",
+      "PostedDate": "2012-09-05T10:40:09.917-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-12T23:18:35.177-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I think this may be fixed by the commit I just made",
+      "PostedDate": "2012-12-17T13:46:23.07-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:33.617-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:48:00.577-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

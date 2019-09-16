@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "512190",
+    "ThreadId": "232234",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I have a problem with a very particular case:</p>\r\n<p>I am working with Reporting Services. When I export a report to Excel and try to read it with ExcelBinaryReader.Read(), the method throws the following exception:</p>\r\n<p><strong>Error Message:</strong></p>\r\n<p>System.InvalidCastException: Unable to cast object of type 'Excel.Core.BinaryFormat.XlsBiffRecord' to type 'Excel.Core.BinaryFormat.XlsBiffDbCell'.</p>\r\n<p><strong>Stack Trace:</strong></p>\r\n<p>Excel.ExcelBinaryReader.findFirstDataCellOffset(Int32 startOffset) : line 104<br>\r\nExcel.ExcelBinaryReader.initializeSheetRead() : line 499<br>\r\nExcel.ExcelBinaryReader.Read() : line 667</p>\r\n<p>If I open the excel with Microsoft Excel and save it without making any changes then ExcelBinaryReader.Read() works.</p>\r\n<p>Any help or idea is welcome.</p>\r\n<p>Thanks!</p>\r\n",
+    "PostedDate": "2010-10-25T08:26:39.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513635",
+    "ThreadId": "232234",
+    "Html": "\r\n<p>I am experiencing a similar problem as well.&nbsp; I have a file from a vendor; when I try to import the file using the AsDataSet() method, I get the exact same exception.&nbsp; If I manually open the .xls file, save it (making no changes) and then re-execute\r\n my code, there are no problems.&nbsp; Odd...</p>\r\n",
+    "PostedDate": "2010-10-27T14:49:09.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "517397",
+    "ThreadId": "232234",
+    "Html": "\r\n<p>Dear Roche, Dear Mills,</p>\r\n<p>Can you provide a small sample file? Send me at negrijp at gmail . com</p>\r\n<p>Thanks.</p>\r\n<p>JP Negri</p>\r\n<p>Developer</p>\r\n",
+    "PostedDate": "2010-11-04T16:19:34.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "517545",
+    "ThreadId": "232234",
+    "Html": "\r\n<p>I have sent you a sample file.</p>\r\n<p>Thank you!</p>\r\n",
+    "PostedDate": "2010-11-05T01:01:10.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526307",
+    "ThreadId": "232234",
+    "Html": "\r\n<p>Did you get the mail?</p>\r\n",
+    "PostedDate": "2010-11-24T01:46:14.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "552718",
+    "ThreadId": "232234",
+    "Html": "\r\n<p>I am having the exact same problem.&nbsp; Do you have any thoughts on a solution?</p>\r\n<p>&nbsp;</p>\r\n<p>Apart from that - its a great tool.&nbsp; Thanks</p>\r\n",
+    "PostedDate": "2011-01-20T09:50:07.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "600613",
+    "ThreadId": "232234",
+    "Html": "<p>Compiling the application with the most recent source did not fix this problem. &nbsp;Does anyone have any other thoughts. &nbsp;I took a look at the source and the solution is beyond me.</p>\r\n<p>&nbsp;</p>\r\n<p>Great tool though. &nbsp;Just wish this would work.</p>",
+    "PostedDate": "2011-04-20T12:37:42.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929387",
+    "ThreadId": "232234",
+    "Html": "<p>Did anyone find a solution to this? I'm having the same problem. I'm using the example code, and opening an Excel spreadsheet output from SQL Server 2008 R2 Reporting Services and get the above error message on excelReader.AsDataSet().</p>",
+    "PostedDate": "2012-10-19T06:34:31.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930331",
+    "ThreadId": "232234",
+    "Html": "<p>any updates on this ?</p>",
+    "PostedDate": "2012-10-22T02:21:27.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986297",
+    "ThreadId": "232234",
+    "Html": "\r\n<p>I've been looking into this and can't seem to find a solution. It occurs when using an Excel that came from SQL Server Reporting Services. This is an Excel in the binary format (97-2003 worksheet). However, when you open the file, and save it (in the same\r\n format, 97-2003 worksheet), it will be read correctly. I've also noticed the saved file will be smaller in size than the original file. This is after just opening it and saving it immediately. No edits whatsoever.</p>\r\n",
+    "PostedDate": "2013-01-14T00:27:27.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986330",
+    "ThreadId": "232234",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Based on what I read here (<a href=\"http://exceldatareader.codeplex.com/workitem/10688\">http://exceldatareader.codeplex.com/workitem/10688</a>) you can fix it by replacing this in the ExcelBinaryReader class:</p>\r\n<p>XlsBiffDbCell startCell = (XlsBiffDbCell)m_stream.ReadAt(startOffset);</p>\r\n<p>With this:</p>\r\n<p>// Some malformed .xls files can have BIFFRECORDTYPE<br>\r\n// entries before the first XlsBiffDbCell, so it's&nbsp;<br>\r\n// important to loop over these untill we actually&nbsp;<br>\r\n// find the first XlsBiffDbCell.&nbsp;<br>\r\nXlsBiffRecord record = m_stream.ReadAt(startOffset);&nbsp;<br>\r\nwhile (!(record is XlsBiffDbCell))&nbsp;<br>\r\n{<br>\r\n&nbsp; &nbsp; startOffset += record.Size;<br>\r\n&nbsp; &nbsp; record = m_stream.ReadAt(startOffset);&nbsp;<br>\r\n}</p>\r\n<p>This hasn't fixed all my SSRS-related problems however. The value of my cells is still garbled, and the types of cells are wrong (for example cells with dates are regarded as cells with numbers).</p>\r\n",
+    "PostedDate": "2013-01-14T01:46:50.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

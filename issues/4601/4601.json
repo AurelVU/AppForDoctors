@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "after checking the code, this fix was already incorporated",
+    "ClosedDate": "2012-12-17T03:39:07.873-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Some calculated columns are coming in blank.  I've tracked the problem down to columns with a XlsBiffFormulaCell and FormulaFlags containing SharedFormulaGroup.\n \nIn XlsBiffFormulaCell.Value for the case of a String, instead of the very next record being a XlsBiffFormulaString, it is actually a ShrFmla.\n \nThe file I'm testing with is confidential, so I cannot provide it.  However, to unit test I created a CSV version of the file then after reading in the file looped through each row of the data set, built a comma delimited line and Asserted each row.\n \nHere's the fix for XlsBiffFormulaCell:\n \n\t\t/// <summary>\n\t\t/// Returns type-dependent value of formula\n\t\t/// </summary>\n\t\tpublic new object Value\n\t\t{\n\t\t\tget\n\t\t\t{\n\t\t\t\tlong val = base.ReadInt64(0x6);\n\t\t\t\tif (((ulong)val & 0xFFFF000000000000) == 0xFFFF000000000000)\n\t\t\t\t{\n\t\t\t\t\tbyte type = (byte)(val & 0xFF);\n\t\t\t\t\tbyte code = (byte)((val >> 16) & 0xFF);\n\t\t\t\t\tswitch (type)\n\t\t\t\t\t{\n\t\t\t\t\t\tcase 0: // String\n//////////////fix\n                            XlsBiffRecord rec = GetRecord(m_bytes, (uint)(Offset + Size));\n                            XlsBiffFormulaString str;\n                            if (rec.ID == BIFFRECORDTYPE.SHRFMLA)\n                                str = GetRecord(m_bytes, (uint)(Offset + Size + rec.Size)) as XlsBiffFormulaString;\n                            else\n                                str = rec as XlsBiffFormulaString;\n//////////////fix\n \n\t\t\t\t\t\t\tif (str == null)\n\t\t\t\t\t\t\t\treturn string.Empty;\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tstr.UseEncoding = m_UseEncoding;\n\t\t\t\t\t\t\t\treturn str.Value;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\tcase 1: // Boolean\n \n\t\t\t\t\t\t\treturn (code != 0);\n\t\t\t\t\t\tcase 2: // Error\n \n\t\t\t\t\t\t\treturn (FORMULAERROR)code;\n\t\t\t\t\t\tdefault:\n\t\t\t\t\t\t\treturn null;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t\treturn Helpers.Int64BitsToDouble(val);\n\t\t\t}\n\t\t}",
+    "LastUpdatedDate": "2013-05-16T05:00:00.64-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-11-05T06:48:22.173-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "XLS Blank Calculated Columns (with proposed fix)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 4601
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

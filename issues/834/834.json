@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Resolved in new release",
+    "ClosedDate": "2009-05-12T09:59:03.767-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hallo people,\n \nUsing this Excel Sheet Reader and reading value -7080,61 this excel reader create its onw value ==> 10730337.63\n \nDoes anybody know why this Excel Reader created his own value. If we use '-7080.62 With apostroph as prefix of this value it wordt correctly.\nIn all other situations it make some crazy value 10730337.63.",
+    "LastUpdatedDate": "2013-05-16T05:00:05.607-07:00",
+    "PlannedForRelease": "First Release",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2008-10-29T03:40:05.367-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Wrong double value by Dejan_Dujak",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 834
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "To solve, edite the method NumFromRK on the Excel.Core.XlsBiffRKCell class, change\r\n\r\nnum = (int) (rk >> 2);\r\n\r\nto\r\n\r\nnum = (double)(int)(rk >> 2 | ((rk & 0x80000000) == 0 ? 0 : 0xC0000000));\r\n\r\nIt worked fine to me, no side effects so far. I found this solution on a comment from TheHologram in the CodeProject page for this same library (old version) at http://www.codeproject.com/KB/office/Excel_DataReader.aspx.\r\n\r\nBest regards,\r\n\r\nJP Negri",
+      "PostedDate": "2008-12-19T14:16:01.937-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2008-12-19T14:16:08.06-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "We applied the patch on change set #10542. A release is on the way!",
+      "PostedDate": "2009-02-05T13:15:48.723-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-04-08T17:59:41.027-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-05-12T09:59:03.767-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:52.457-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:05.607-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

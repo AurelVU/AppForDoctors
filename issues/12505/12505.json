@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "While reading attached excel file, we get an exception \nERROR - Extra data contains Zip64 information but version 2.0 is not high enough",
+    "LastUpdatedDate": "2013-11-25T11:20:51.87-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-11-25T11:20:47.3-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ERROR - Extra data contains Zip64 information but version 2.0 is not high enough",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12505
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4765,
+      "FileName": "Fluent1.xlsx",
+      "DownloadUrl": ".\\4765"
+    }
+  ],
+  "Comments": []
+}

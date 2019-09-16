@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "993241",
+    "ThreadId": "431156",
+    "Html": "\r\n<p>Trying to read a .xls file and I get this --&gt; Error: Neither stream 'Workbook' nor 'Book' was found in file.</p>\r\n<p>Stepping though the code while it was reading the file confirms the error message is technically right. There is a 'WORKBOOK' entry though.</p>\r\n<p>At the bottom of the XlsRootDirectory.cs file, is a method FindEntry that does the finding. I just&nbsp;changed it&nbsp;to be case insensitive and it read the file ok.</p>\r\n<p>From this: <span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\">\r\n<span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\"><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\">if</span></span></span><span style=\"font-size:x-small; font-family:Consolas\">\r\n<span style=\"font-size:x-small; font-family:Consolas\">(e.EntryName == EntryName)</span></span></p>\r\n<p><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\">To this:\r\n</span></span><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\"><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\"><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\"><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\">if\r\n</span></span></span></span><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\">(</span></span><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\"><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\"><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\">string</span></span></span><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\">.Compare(e.EntryName,\r\n EntryName, </span></span><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\"><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\"><span style=\"font-size:x-small; font-family:Consolas; color:#0000ff\">true</span></span></span><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\">)\r\n == 0)</span></span></p>\r\n<p><span style=\"font-size:x-small; font-family:Consolas; color:#008000\"><span style=\"font-size:x-small; font-family:Consolas; color:#008000\"><span style=\"font-size:x-small; font-family:Consolas; color:#008000\">&nbsp;</span></span></span></p>\r\n",
+    "PostedDate": "2013-01-28T12:20:35.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993448",
+    "ThreadId": "431156",
+    "Html": "This discussion has been copied to a work item. Click <a href=\"http://exceldatareader.codeplex.com/workitem/11538\">here</a> to go to the work item and continue the discussion.",
+    "PostedDate": "2013-01-28T23:46:11.263-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993449",
+    "ThreadId": "431156",
+    "Html": "\r\n<p>Excellent, thanks for spotting that. I've put a note in to include it and add it as a unit test.</p>\r\n",
+    "PostedDate": "2013-01-28T23:46:49.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

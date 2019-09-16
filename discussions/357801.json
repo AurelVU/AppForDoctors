@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "842956",
+    "ThreadId": "357801",
+    "Html": "I tried this component it fits my requirement very well. I want to get all the sheet name in excel sheet read using this component. Do you have any idea? Thanks in advance.",
+    "PostedDate": "2012-05-31T01:33:27.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027209",
+    "ThreadId": "357801",
+    "Html": "Use DataSet to achieve this.<br />\n<pre><code>using(IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream)) {\n    DataSet result = excelReader.AsDataSet();\n    foreach (DataTable item in result.Tables)\n    {  \n        &lt;p&gt;@item.TableName&lt;/p&gt;\n    }\n}</code></pre>\n\n",
+    "PostedDate": "2013-04-08T06:50:17.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

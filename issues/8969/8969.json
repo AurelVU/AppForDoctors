@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When parsing some XLSX files you can find some empty cells when using AsDataset() method.\n(sample file attached: resulting dataset doesn't contain data for column PezziA1).\n \nThis happens because you are trying to read unexistant data in ExcelOpenXmlReader.ReadSheetRow(XlsxWorksheet sheet)\nWrong (actual) code follows:\n\t\t\t\t\t\t_xmlReader.ReadToDescendant(XlsxWorksheet.N_v); <-- ERROR!!! (the file contains \"<c r=\\\"O2\\\" s=\\\"6\\\" xmlns=\\\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\\\" />\" so there's no descendant)\n\t\t\t\t\t\tobject o = _xmlReader.ReadElementContentAsObject();\n \n\t\t\t\t\t\tif (null != a_t && a_t == XlsxWorksheet.A_s)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\to = _workbook.SST[Convert.ToInt32(o)];\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse if (null != a_s)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tXlsxXf xf = _workbook.Styles.CellXfs[int.Parse(a_s)];\n \n\t\t\t\t\t\t\tif (xf.ApplyNumberFormat && IsDateTimeStyle(xf.NumFmtId) && o != null && o.ToString() != string.Empty)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\to = DateTime.FromOADate(Convert.ToDouble(o, CultureInfo.InvariantCulture));\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n \n\t\t\t\t\t\tif (col - 1 < _cellsValues.Length)\n\t\t\t\t\t\t\t_cellsValues[col - 1] = o;\n \nYou have to change the code in this way for it to work properly:\n                        if (_xmlReader.ReadToDescendant(XlsxWorksheet.N_v))\n                        {\n                            object o = _xmlReader.ReadElementContentAsObject();\n \n                            if (null != a_t && a_t == XlsxWorksheet.A_s)\n                            {\n                                o = _workbook.SST[Convert.ToInt32(o)];\n                            }\n                            else if (null != a_s)\n                            {\n                                XlsxXf xf = _workbook.Styles.CellXfs[int.Parse(a_s)];\n \n                                if (xf.ApplyNumberFormat && IsDateTimeStyle(xf.NumFmtId) && o != null && o.ToString() != string.Empty)\n                                {\n                                    o = DateTime.FromOADate(Convert.ToDouble(o, CultureInfo.InvariantCulture));\n                                }\n                            }\n \n                            if (col - 1 < _cellsValues.Length)\n                                _cellsValues[col - 1] = o;\n                        }\n \nHope this helps someone.\nI saw lots of people complaining about missing data on XLSX, this will probably fix it.\nIf it does solve your problem please let me know.\nBye,\nLino Barreca",
+    "LastUpdatedDate": "2013-04-17T04:47:27.403-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-06-17T07:11:02.297-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error parsing XLSX: missing data from resulting dataset (attached sample file AND FIX)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 8969
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3374,
+      "FileName": "Error.xlsx",
+      "DownloadUrl": ".\\3374"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Thanks for the above info. However this bug is already fixed using the patches provided. I know, I probably need to pull together another formal compiled release, I'll look into doing that now...",
+      "PostedDate": "2011-06-30T11:47:04.603-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I do not see a Patch in reference to this item# 8969.  I downloaded the latest version of the software but some of my columns are also always null (only with XLSX files).  Can you please provide a link to the Patch that fixes this issue?",
+      "PostedDate": "2011-08-17T17:35:36.49-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:38.557-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-04-17T04:46:12.67-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-04-17T04:47:27.403-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

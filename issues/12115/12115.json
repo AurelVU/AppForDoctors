@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Closing. Was non issue",
+    "ClosedDate": "2013-09-30T07:21:52.74-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am having issue with reading values from cells that have empty cell in the previous column. In attached file Parent Names will read as empty for all rows that have empty email cells. I've tested it with 2.0.1.0 and latest 2.1 build and with latest available source code.",
+    "LastUpdatedDate": "2013-09-30T07:21:52.74-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-08-29T10:09:38.64-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Issue with blank cells in XLSX files.",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12115
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4659,
+      "FileName": "UCAP Roster Test 3_25x.xlsx",
+      "DownloadUrl": ".\\4659"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Please close this issue. It seems that IIS has cached old version in memory which was causing error. I've rebooted machine and repeated test and everything works fine now. Sorry for any inconvenience. Thanks.",
+      "PostedDate": "2013-08-30T07:04:35.46-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-09-30T07:21:52.74-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

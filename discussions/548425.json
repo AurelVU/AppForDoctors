@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1255580",
+    "ThreadId": "548425",
+    "Html": "I need to know the method to get the available sheets present in the excel file. Is there any predefined functions or Methods??? \r<br />\n<br />\nPlease Help me...<br />\n",
+    "PostedDate": "2014-06-12T06:13:50.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1255595",
+    "ThreadId": "548425",
+    "Html": "There is no predefined function.  For our own application, I had to implement a new method, first in the interface:<br />\n<pre><code>        /// &lt;summary&gt;\n        /// Retrieves the names of the worksheets\n        /// &lt;/summary&gt;\n        /// &lt;returns&gt;A list containing the names of the worksheets&lt;/returns&gt;\n        List&lt;string&gt; GetWorksheetNames();</code></pre>\n\nand then in ExcelBinaryReader.cs:<br />\n<pre><code>        public List&lt;string&gt; GetWorksheetNames()\n        {\n            List&lt;string&gt; namesList = new List&lt;string&gt;();\n            foreach (XlsWorksheet worksheet in m_sheets)\n            {\n                namesList.Add(worksheet.Name);\n            }\n\n            return namesList;\n        }</code></pre>\n\nand ExcelOpenXmlReader.cs:<br />\n<pre><code>        public List&lt;string&gt; GetWorksheetNames()\n        {\n            List&lt;string&gt; namesList = new List&lt;string&gt;();\n            for (int ind = 0; ind &lt; _workbook.Sheets.Count; ind++)\n            {\n                namesList.Add(_workbook.Sheets[ind].Name);\n            }\n\n            return namesList;\n        }</code></pre>\n\nI submitted this and other changes allowing for a single worksheet to be retrieved into a DataTable (as opposed to the entire workbook into a DataSet) for consideration to be included in the next version of the Excel Data Reader.<br />\n<br />\nTo obtain the list of worksheets with the current Excel Data Reader code, you would have to call AsDataset() to load the entire workbook into a DataSet, and then iterate through the dataset's data tables to retrieve their names.  By then, though, the content of the entire Excel file has been read.<br />\n",
+    "PostedDate": "2014-06-12T07:11:07.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

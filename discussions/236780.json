@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "529726",
+    "ThreadId": "236780",
+    "Html": "\r\n<p>Hi. Sorry for my very &quot;Bad English&quot; (not the wonderful hard rock '80 group...).</p>\r\n<p>I'm doing some tests using the libary. I've created a simple xlsx file using 2007. The file has 1 sheet with 3 cols and 4 rows.</p>\r\n<p>I use this code:</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FileStream stream = File.Open(@&quot;\\backup\\esempio.xlsx&quot;, FileMode.Open, FileAccess.Read);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; excelReader.IsFirstRowAsColumnNames = true;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DataSet result = excelReader.AsDataSet();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (excelReader.Read())<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; excelReader.Close();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; excelReader.Dispose();</p>\r\n<p>when AsDataSet is executed, the _resultIndex member has a &quot;1&quot; value because the file contain 1 sheet.</p>\r\n<p>When excelReader.Read() is called, it invokes InitializeSheetRead() metod.</p>\r\n<p>In InitializeSheetRead() metod there is this instruction:</p>\r\n<p>ReadSheetGlobals(_workbook.Sheets[_resultIndex]);</p>\r\n<p>here an exception is thrown because of _resultIndex has a &quot;1&quot; value. It should be &quot;0&quot;...</p>\r\n<p>Where is my error?</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2010-12-01T14:44:44.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "549283",
+    "ThreadId": "236780",
+    "Html": "\r\n<p>Try this:</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style=\"white-space:pre\">FileStream stream = File.Open(@&quot;\\backup\\esempio.xlsx&quot;, FileMode.Open, FileAccess.Read);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; excelReader.IsFirstRowAsColumnNames = true;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>//<span style=\"white-space:pre\">DataSet result = excelReader.AsDataSet();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (excelReader.Read())<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; excelReader.Close();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; excelReader.Dispose();</span>&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-14T04:48:52.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

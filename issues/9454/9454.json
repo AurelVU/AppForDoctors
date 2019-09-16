@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi all,\n \nAcually my need is,\n \nWhen the user uploaded the .xls file using fileuploader , I need to open that excel file with out saving it any local drive and read the datas then put it into one dataset.\n \nFoe this I got the dll from this site.\n \nI downloaded the dll and took reference in my page.\n \nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Web;\nusing System.Web.UI;\nusing System.Web.UI.WebControls;\nusing Excel.Core;\nusing ICSharpCode.SharpZipLib;\n \nprotected void Button1_Click(object sender, EventArgs e)\n        {\n            // the ExcelDataReader takes a System.IO.Stream object\n             \n            string excelReader = new ExcelDataReader(FileUpload1.FileContent); //Error\n            FileUpload1.FileContent.Close();\n \n            DataSet wb = excelReader.WorkbookData; //Error\n            // get the first worksheet of the workbook\n            DataTable dt = excelReader.WorkbookData.Tables[0]; //Error\n \n            GridView1.DataSource = dt.AsDataView();\n            GridView1.DataBind();\n \nAm getting error like \"are you missing any namespace \" like that in the (given as //Error) lines.\n \nPlease let me tell did i need to include any other namespace or anything,\n \nIf you r giving your answer with steps its great use full for me..\n \nThanks in advance.\n \nIyappan.S.R",
+    "LastUpdatedDate": "2013-02-21T17:47:38.163-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-08-30T06:04:16.773-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Please help out me for excell read , its very urgent?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 9454
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "II took off .Core and it worked for me. \r\nBut I'm trying in linqpad. \r\nSo using Excel; is working , but using Excel.Core; is not.",
+      "PostedDate": "2012-03-06T11:42:07.897-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:38.163-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

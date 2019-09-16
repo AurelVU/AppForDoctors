@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "first cell after an empty row in binary .xls file is not detected.\n\n__Reason :__\nToo many calls to m_stream.Read();\n\n__Patch :__\n\n```\n\t\tprivate bool moveToNextRecordNoIndex()\n\t\t{\n\t\t\t//seek from current row record to start of cell data where that cell relates to the next row record\n\t\t\t...\n\t\t\tm_currentRowRecord = rowRecord;\n\t\t\t//m_depth = m_currentRowRecord.RowIndex;\n\n            int Memo_Read_Position = m_stream.Position;  // Store current read position [jerome.raffalli]\n\t\t\t//we have now found the row record for the new row, the we need to seek forward to the first cell record\n\t\t\tXlsBiffBlankCell cell = null;\n\t\t\tdo\n\t\t\t{...} while (cell == null);\n\n            // if searched row is < found row, remember to cancel previous reads [jerome.raffalli]\n            bool Cancel_Read = (m_depth < cell.RowIndex);\n\n\t\t\tm_cellOffset = cell.Offset;\n\t\t\tm_canRead = readWorkSheetRow();\n\n            // restore read position [jerome.raffalli]\n            if (Cancel_Read) m_stream.Seek(Memo_Read_Position, SeekOrigin.Begin);\n\n\t\t\t//read last row\n\n```",
+    "LastUpdatedDate": "2014-01-08T14:37:51.717-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-01-08T14:37:51.717-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Missing cell values after empty lines in a binary sheet",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12648
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

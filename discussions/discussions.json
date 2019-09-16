@@ -1,0 +1,1192 @@
+[
+  {
+    "Id": "50930",
+    "Title": "chinese problem",
+    "LatestDate": "2013-10-11T14:56:05.15-07:00"
+  },
+  {
+    "Id": "52243",
+    "Title": "Error: Invalid file signature",
+    "LatestDate": "2012-07-20T07:12:40.327-07:00"
+  },
+  {
+    "Id": "53094",
+    "Title": "old  BIFF, xml and BIFF12",
+    "LatestDate": "2009-04-13T05:59:25.9-07:00"
+  },
+  {
+    "Id": "55124",
+    "Title": "OpenXML support",
+    "LatestDate": "2009-05-02T02:33:22.157-07:00"
+  },
+  {
+    "Id": "55369",
+    "Title": "Excel 2007 format",
+    "LatestDate": "2009-07-13T23:49:56.463-07:00"
+  },
+  {
+    "Id": "56127",
+    "Title": "try DotNetZip",
+    "LatestDate": "2009-05-12T19:01:28.9-07:00"
+  },
+  {
+    "Id": "58863",
+    "Title": "Set First row as Header",
+    "LatestDate": "2009-07-09T05:41:31.627-07:00"
+  },
+  {
+    "Id": "59975",
+    "Title": "Read Excel Work Sheets",
+    "LatestDate": "2009-11-20T12:38:27.03-08:00"
+  },
+  {
+    "Id": "61137",
+    "Title": "Unable to get value from Excel file",
+    "LatestDate": "2009-07-02T00:54:51.483-07:00"
+  },
+  {
+    "Id": "61869",
+    "Title": "Hidden Sheets and Columns",
+    "LatestDate": "2009-07-08T08:40:51.203-07:00"
+  },
+  {
+    "Id": "63769",
+    "Title": "Read Excel Date Column",
+    "LatestDate": "2010-01-15T03:56:03.23-08:00"
+  },
+  {
+    "Id": "65458",
+    "Title": "Problem while reading some Excel binary files - some cells are blank ?!",
+    "LatestDate": "2010-03-30T17:50:09.627-07:00"
+  },
+  {
+    "Id": "67876",
+    "Title": "Temp Folder Issue",
+    "LatestDate": "2009-09-03T07:34:55.253-07:00"
+  },
+  {
+    "Id": "68092",
+    "Title": "hello, i am happy to get this download",
+    "LatestDate": "2009-09-11T19:21:45.613-07:00"
+  },
+  {
+    "Id": "70025",
+    "Title": "Specified method is not supported.\"}\tSystem.Exception",
+    "LatestDate": "2009-09-24T13:07:00.19-07:00"
+  },
+  {
+    "Id": "70727",
+    "Title": "Excel data reader - dimension null",
+    "LatestDate": "2009-11-16T22:57:21.62-08:00"
+  },
+  {
+    "Id": "70743",
+    "Title": "Can't read a BIFF8 file which Excel does read",
+    "LatestDate": "2009-10-01T12:25:32.04-07:00"
+  },
+  {
+    "Id": "70808",
+    "Title": "Accessing individual sheets in a .xlsx file",
+    "LatestDate": "2009-10-02T04:13:43.667-07:00"
+  },
+  {
+    "Id": "72091",
+    "Title": "Excel 2007 (xlsx) support?",
+    "LatestDate": "2009-10-15T06:27:11.43-07:00"
+  },
+  {
+    "Id": "74398",
+    "Title": "No data is available for encoding 55636",
+    "LatestDate": "2009-11-07T00:12:53.777-08:00"
+  },
+  {
+    "Id": "74412",
+    "Title": "Individual Sheet",
+    "LatestDate": "2011-05-13T06:36:58.76-07:00"
+  },
+  {
+    "Id": "76008",
+    "Title": "Cannot compile latest version sourcecode (rev27264)",
+    "LatestDate": "2010-05-20T14:55:34.12-07:00"
+  },
+  {
+    "Id": "76179",
+    "Title": "BIFF7 Support",
+    "LatestDate": "2009-11-25T01:58:53.047-08:00"
+  },
+  {
+    "Id": "77279",
+    "Title": "Can't get ExcelDataReader going - please help",
+    "LatestDate": "2009-12-06T06:56:36.537-08:00"
+  },
+  {
+    "Id": "78305",
+    "Title": "read object/control value in excel",
+    "LatestDate": "2011-01-05T01:50:01.147-08:00"
+  },
+  {
+    "Id": "78480",
+    "Title": "Does Excel Data Reader reads an Excel sheet column which has a Rich Text",
+    "LatestDate": "2009-12-17T12:32:21.317-08:00"
+  },
+  {
+    "Id": "79125",
+    "Title": "Cannot show the correct title ",
+    "LatestDate": "2010-01-25T12:18:01.213-08:00"
+  },
+  {
+    "Id": "82138",
+    "Title": "GetOrdinal Not Supported",
+    "LatestDate": "2011-12-19T04:11:59.697-08:00"
+  },
+  {
+    "Id": "83918",
+    "Title": "File saving from CreateOpenXmlReader",
+    "LatestDate": "2010-04-13T07:35:59.2-07:00"
+  },
+  {
+    "Id": "85830",
+    "Title": "Boolean Problems",
+    "LatestDate": "2010-02-18T10:15:47.9-08:00"
+  },
+  {
+    "Id": "160140",
+    "Title": "Password protected Excel Files",
+    "LatestDate": "2010-12-06T09:43:16.69-08:00"
+  },
+  {
+    "Id": "203865",
+    "Title": "Weird encoding...",
+    "LatestDate": "2010-03-04T13:13:51.173-08:00"
+  },
+  {
+    "Id": "204248",
+    "Title": "Merged cells",
+    "LatestDate": "2010-03-08T14:45:57.897-08:00"
+  },
+  {
+    "Id": "205317",
+    "Title": "Security Exception while trying ExcelReaderFactory.CreateOpenXmlReader(stream);",
+    "LatestDate": "2014-05-07T02:02:41.65-07:00"
+  },
+  {
+    "Id": "205559",
+    "Title": "Read Formula using Excel Reader",
+    "LatestDate": "2010-03-19T23:42:50.707-07:00"
+  },
+  {
+    "Id": "207550",
+    "Title": "Why not working with web applications",
+    "LatestDate": "2010-03-28T04:51:12.407-07:00"
+  },
+  {
+    "Id": "208539",
+    "Title": "AsDataSet method returns no values with xls file",
+    "LatestDate": "2010-04-07T02:48:38.217-07:00"
+  },
+  {
+    "Id": "209198",
+    "Title": "Rounding Numbers",
+    "LatestDate": "2010-04-22T14:50:53.21-07:00"
+  },
+  {
+    "Id": "211945",
+    "Title": "Reference Excel & Excel Data Reader in Same project",
+    "LatestDate": "2010-07-31T14:20:04.06-07:00"
+  },
+  {
+    "Id": "212993",
+    "Title": "Save Data to Excel",
+    "LatestDate": "2010-07-04T05:09:55.733-07:00"
+  },
+  {
+    "Id": "214263",
+    "Title": "Getting null value against .xlsx file",
+    "LatestDate": "2014-03-17T03:19:19.42-07:00"
+  },
+  {
+    "Id": "220416",
+    "Title": "Problem reading Date in .xls.",
+    "LatestDate": "2011-11-13T14:45:34.883-08:00"
+  },
+  {
+    "Id": "226464",
+    "Title": "Fix for Silverlight Excel Reader - Sheet Names Wrong",
+    "LatestDate": "2010-09-08T07:05:04.24-07:00"
+  },
+  {
+    "Id": "228787",
+    "Title": "AsDataSet method returns no values with xls file with compact framework",
+    "LatestDate": "2010-09-27T17:40:54.397-07:00"
+  },
+  {
+    "Id": "232234",
+    "Title": "Problem with excels from Reporting Services",
+    "LatestDate": "2013-01-14T01:46:50.713-08:00"
+  },
+  {
+    "Id": "235372",
+    "Title": "Small Change to ExcelOpenXmlReader",
+    "LatestDate": "2010-11-19T13:12:26.53-08:00"
+  },
+  {
+    "Id": "235708",
+    "Title": "AsDataset Showing Exponential values",
+    "LatestDate": "2010-11-23T04:35:54.36-08:00"
+  },
+  {
+    "Id": "236780",
+    "Title": "error in ExceclOpenXmlReader.InitializeSheetReader",
+    "LatestDate": "2011-01-14T04:48:52.08-08:00"
+  },
+  {
+    "Id": "239871",
+    "Title": "Bug xmsx null column",
+    "LatestDate": "2010-12-29T03:23:28.403-08:00"
+  },
+  {
+    "Id": "243437",
+    "Title": "Are patches being accepted here?",
+    "LatestDate": "2011-04-12T11:59:57.903-07:00"
+  },
+  {
+    "Id": "244260",
+    "Title": "Date and Time Output from AsDataSet()",
+    "LatestDate": "2011-02-02T00:20:56.443-08:00"
+  },
+  {
+    "Id": "244557",
+    "Title": "Date from excel spreadsheet being converted to integer",
+    "LatestDate": "2013-01-07T02:15:08.137-08:00"
+  },
+  {
+    "Id": "244968",
+    "Title": "Buffer size error",
+    "LatestDate": "2011-04-15T12:41:07.727-07:00"
+  },
+  {
+    "Id": "248712",
+    "Title": "Hidden rows and columns in files",
+    "LatestDate": "2011-03-07T05:39:54.183-08:00"
+  },
+  {
+    "Id": "248723",
+    "Title": "AsDataSet fails with excel 2010 files",
+    "LatestDate": "2011-03-07T07:08:17.31-08:00"
+  },
+  {
+    "Id": "249192",
+    "Title": "Preserve DataTypes, Handle encoding",
+    "LatestDate": "2012-06-27T22:10:41.95-07:00"
+  },
+  {
+    "Id": "250213",
+    "Title": "Is this working on 64bit platform?",
+    "LatestDate": "2011-05-23T10:12:31.49-07:00"
+  },
+  {
+    "Id": "250805",
+    "Title": "read meta data?",
+    "LatestDate": "2011-03-23T01:28:00.44-07:00"
+  },
+  {
+    "Id": "252567",
+    "Title": ".net 2.0 version?",
+    "LatestDate": "2011-04-05T05:01:18.27-07:00"
+  },
+  {
+    "Id": "254803",
+    "Title": "Fix issue with DateTime cells in DataSet from .xls",
+    "LatestDate": "2011-04-27T03:50:49.697-07:00"
+  },
+  {
+    "Id": "259963",
+    "Title": "Excel Reader",
+    "LatestDate": "2014-09-24T09:04:39.947-07:00"
+  },
+  {
+    "Id": "261130",
+    "Title": "column names not getting set in datatable",
+    "LatestDate": "2012-03-06T09:41:52.917-08:00"
+  },
+  {
+    "Id": "261239",
+    "Title": "Row counts not consistent with actual xlsx file",
+    "LatestDate": "2013-01-11T09:01:04.91-08:00"
+  },
+  {
+    "Id": "262191",
+    "Title": "Can't read sheets with Sort icons in the header",
+    "LatestDate": "2011-06-21T08:25:52.32-07:00"
+  },
+  {
+    "Id": "262262",
+    "Title": "object reference not set to an instance of an object",
+    "LatestDate": "2011-06-21T20:52:22.02-07:00"
+  },
+  {
+    "Id": "263227",
+    "Title": "Serious bug on reading data",
+    "LatestDate": "2011-06-29T03:29:40.9-07:00"
+  },
+  {
+    "Id": "265775",
+    "Title": "Create a new xlsx file and add multiple sheets",
+    "LatestDate": "2011-07-21T08:27:30.32-07:00"
+  },
+  {
+    "Id": "268254",
+    "Title": "XlsxDimension and sheet.get_Range(input.Cell, input.Cell)",
+    "LatestDate": "2011-08-08T11:07:24.047-07:00"
+  },
+  {
+    "Id": "268573",
+    "Title": "Bool is not parsed in the DataTable.",
+    "LatestDate": "2011-08-10T12:32:32.813-07:00"
+  },
+  {
+    "Id": "269452",
+    "Title": "Is it possible to access cell custom formats?",
+    "LatestDate": "2011-08-17T11:57:02.943-07:00"
+  },
+  {
+    "Id": "270198",
+    "Title": "New download",
+    "LatestDate": "2011-09-08T09:20:53.083-07:00"
+  },
+  {
+    "Id": "273064",
+    "Title": "sheet enumaration",
+    "LatestDate": "2011-09-19T06:04:39.207-07:00"
+  },
+  {
+    "Id": "273864",
+    "Title": "request for sample code of how I can access the \"date1904\" property of the WORKBOOK for both (.xls and .xlsx) .... from ExcelDataReader",
+    "LatestDate": "2011-09-26T08:52:16.337-07:00"
+  },
+  {
+    "Id": "275611",
+    "Title": "Import fails with duplicate column names",
+    "LatestDate": "2011-10-12T08:46:55.057-07:00"
+  },
+  {
+    "Id": "276441",
+    "Title": "Does not seem to be working with Excel 2010 xslx files",
+    "LatestDate": "2011-10-19T06:01:26.03-07:00"
+  },
+  {
+    "Id": "277190",
+    "Title": "Nuget",
+    "LatestDate": "2013-01-23T05:12:01.967-08:00"
+  },
+  {
+    "Id": "277995",
+    "Title": "Help Needed--Excel reads 5.1 value supplied as 5.0999999999999996 and 4.9 as 4.9000000000000004",
+    "LatestDate": "2012-03-13T00:06:59.25-07:00"
+  },
+  {
+    "Id": "278243",
+    "Title": "Protected View - Enable Editing",
+    "LatestDate": "2013-09-09T01:40:16.517-07:00"
+  },
+  {
+    "Id": "278851",
+    "Title": "Data from different tabs coming out together during a single read",
+    "LatestDate": "2011-11-09T06:52:55.063-08:00"
+  },
+  {
+    "Id": "280390",
+    "Title": "Excel Reader .xls files + Reporting Services",
+    "LatestDate": "2013-01-17T07:02:52.22-08:00"
+  },
+  {
+    "Id": "281666",
+    "Title": "I having issues with Object reference not set to an instance of an object",
+    "LatestDate": "2011-12-02T16:50:14.687-08:00"
+  },
+  {
+    "Id": "281913",
+    "Title": "Excel Created with access tables come back blank",
+    "LatestDate": "2012-02-13T00:45:08.27-08:00"
+  },
+  {
+    "Id": "284992",
+    "Title": "XlsBiffSST:ReadStrings does not read all strings of XLS file.",
+    "LatestDate": "2013-10-11T14:59:10.82-07:00"
+  },
+  {
+    "Id": "285456",
+    "Title": "How to read cell comments",
+    "LatestDate": "2012-01-17T01:51:46.803-08:00"
+  },
+  {
+    "Id": "295455",
+    "Title": "How to read data from .xls files if it contains some hidden rows or columns",
+    "LatestDate": "2012-02-06T03:24:52.44-08:00"
+  },
+  {
+    "Id": "325043",
+    "Title": "Fix for all those with xlsx 2007/2010 issues",
+    "LatestDate": "2012-02-18T05:13:15.813-08:00"
+  },
+  {
+    "Id": "346801",
+    "Title": "Index was out of range. Must be non-negative and less than the size of the collection.",
+    "LatestDate": "2012-08-20T06:33:17.053-07:00"
+  },
+  {
+    "Id": "348691",
+    "Title": "Excel attributes",
+    "LatestDate": "2014-02-09T07:05:13.387-08:00"
+  },
+  {
+    "Id": "349441",
+    "Title": "Unable to Read Exported excel file",
+    "LatestDate": "2012-03-21T04:23:59.693-07:00"
+  },
+  {
+    "Id": "351719",
+    "Title": "References Can't Find 'ExcelDataReader'.",
+    "LatestDate": "2012-04-13T15:08:17.97-07:00"
+  },
+  {
+    "Id": "353956",
+    "Title": "Dead project?",
+    "LatestDate": "2012-12-12T08:10:28.16-08:00"
+  },
+  {
+    "Id": "354118",
+    "Title": "Exceldatareader",
+    "LatestDate": "2012-05-01T05:22:40.813-07:00"
+  },
+  {
+    "Id": "357801",
+    "Title": "I need sheet name ",
+    "LatestDate": "2013-04-08T06:50:17.367-07:00"
+  },
+  {
+    "Id": "358325",
+    "Title": ".xlsm file",
+    "LatestDate": "2012-06-04T13:44:25.213-07:00"
+  },
+  {
+    "Id": "359039",
+    "Title": "lots of issues with code, failing to pick up values from spreadsheet",
+    "LatestDate": "2012-11-29T01:20:11.33-08:00"
+  },
+  {
+    "Id": "359507",
+    "Title": "I'm having problems reading '03 xls files",
+    "LatestDate": "2012-06-13T13:48:23.08-07:00"
+  },
+  {
+    "Id": "361214",
+    "Title": "Date time column Issue",
+    "LatestDate": "2012-06-27T21:40:52.83-07:00"
+  },
+  {
+    "Id": "361319",
+    "Title": "Editing/Writing",
+    "LatestDate": "2012-06-28T11:42:16.673-07:00"
+  },
+  {
+    "Id": "396635",
+    "Title": "How to read selected column data  in a specific excel sheet.",
+    "LatestDate": "2013-04-08T06:54:41.953-07:00"
+  },
+  {
+    "Id": "397751",
+    "Title": "How to read plain text values",
+    "LatestDate": "2012-11-29T02:47:37.673-08:00"
+  },
+  {
+    "Id": "399066",
+    "Title": "How to get Cell Address?",
+    "LatestDate": "2012-10-11T23:49:59.673-07:00"
+  },
+  {
+    "Id": "403488",
+    "Title": "Fix for issue \"The process cannot access the file 'sheet1.xml' because it is being used by another process.\"",
+    "LatestDate": "2012-11-16T06:15:36.843-08:00"
+  },
+  {
+    "Id": "404354",
+    "Title": "Error: Unable to cast object of type 'Excel.Core.BinaryFormat.XlsBiffRecord' to type 'Excel.Core.BinaryFormat.XlsBiffDbCell'.",
+    "LatestDate": "2012-11-23T04:44:13.123-08:00"
+  },
+  {
+    "Id": "404996",
+    "Title": "Localization",
+    "LatestDate": "2012-11-29T03:00:24.52-08:00"
+  },
+  {
+    "Id": "405669",
+    "Title": "Excel Data Reader - reading .xlsx ",
+    "LatestDate": "2012-12-12T08:11:28.74-08:00"
+  },
+  {
+    "Id": "405979",
+    "Title": "Add logging?",
+    "LatestDate": "2012-12-19T06:20:18.92-08:00"
+  },
+  {
+    "Id": "429132",
+    "Title": "Excel Reader return empty dataset",
+    "LatestDate": "2013-01-25T15:10:28.42-08:00"
+  },
+  {
+    "Id": "429221",
+    "Title": "Updated classes",
+    "LatestDate": "2013-01-11T07:08:02.56-08:00"
+  },
+  {
+    "Id": "429891",
+    "Title": "2.1 Beta release?",
+    "LatestDate": "2013-01-17T06:00:32.137-08:00"
+  },
+  {
+    "Id": "429981",
+    "Title": "return null dataset, open xls file only have 1 sheet",
+    "LatestDate": "2013-01-23T03:42:27.96-08:00"
+  },
+  {
+    "Id": "430851",
+    "Title": "Will there be support for Windows Store apps which runs on WinRT platform",
+    "LatestDate": "2013-01-29T06:32:49.563-08:00"
+  },
+  {
+    "Id": "431156",
+    "Title": "Error reading binary (.xls) file",
+    "LatestDate": "2013-01-28T23:46:49.267-08:00"
+  },
+  {
+    "Id": "431882",
+    "Title": "Exception reading binary XLS file",
+    "LatestDate": "2013-02-13T14:56:54.377-08:00"
+  },
+  {
+    "Id": "431957",
+    "Title": "reading TRUE/FALSE",
+    "LatestDate": "2013-02-05T02:21:56.11-08:00"
+  },
+  {
+    "Id": "432047",
+    "Title": "Bug: Reading Time Column Format.",
+    "LatestDate": "2013-02-06T02:32:33.053-08:00"
+  },
+  {
+    "Id": "432523",
+    "Title": "How to access this object in Powershell?",
+    "LatestDate": "2013-02-08T17:36:26.65-08:00"
+  },
+  {
+    "Id": "432721",
+    "Title": "Number Error European Format?",
+    "LatestDate": "2013-02-11T06:58:21.323-08:00"
+  },
+  {
+    "Id": "433938",
+    "Title": "dynamically loadind the excel dll",
+    "LatestDate": "2013-02-21T20:14:57.873-08:00"
+  },
+  {
+    "Id": "434378",
+    "Title": "No OLEDB provider needed?",
+    "LatestDate": "2013-02-25T04:52:19.553-08:00"
+  },
+  {
+    "Id": "434702",
+    "Title": "Options?",
+    "LatestDate": "2013-02-27T07:37:25.593-08:00"
+  },
+  {
+    "Id": "434713",
+    "Title": "Strings that start with zero ReadSheetRow bug",
+    "LatestDate": "2013-02-27T08:20:08.38-08:00"
+  },
+  {
+    "Id": "435135",
+    "Title": "Extracting deleted records",
+    "LatestDate": "2013-03-05T15:40:47.807-08:00"
+  },
+  {
+    "Id": "435696",
+    "Title": "ExcelReaderFactory.CreateBinaryReader(stream) is returning an empty DataTable",
+    "LatestDate": "2013-12-25T23:37:33.187-08:00"
+  },
+  {
+    "Id": "435943",
+    "Title": "Open Project issue",
+    "LatestDate": "2013-03-08T13:43:25.25-08:00"
+  },
+  {
+    "Id": "436913",
+    "Title": "Reading Excel with .NET 1.1?",
+    "LatestDate": "2013-03-17T19:03:35.343-07:00"
+  },
+  {
+    "Id": "437952",
+    "Title": "Regarding VSTO",
+    "LatestDate": "2013-04-09T12:18:00.433-07:00"
+  },
+  {
+    "Id": "438785",
+    "Title": "How to use Excel Data Reader",
+    "LatestDate": "2013-04-04T05:20:29.793-07:00"
+  },
+  {
+    "Id": "439174",
+    "Title": "problems with reading Excel file generated by reporting services",
+    "LatestDate": "2013-04-08T22:19:18.097-07:00"
+  },
+  {
+    "Id": "439507",
+    "Title": "Documentation",
+    "LatestDate": "2013-04-08T07:02:55.45-07:00"
+  },
+  {
+    "Id": "440725",
+    "Title": "Unable to read Excel (2003) some information",
+    "LatestDate": "2013-05-22T01:25:33.39-07:00"
+  },
+  {
+    "Id": "441375",
+    "Title": "When compile a Smart Device project show error with IExcelDataReader - VS 2008",
+    "LatestDate": "2013-04-24T01:55:03.697-07:00"
+  },
+  {
+    "Id": "441533",
+    "Title": "creating an excel reader by a stream of the first of the file , not the whole",
+    "LatestDate": "2013-04-27T00:04:24.58-07:00"
+  },
+  {
+    "Id": "441757",
+    "Title": "i need this list : private List<XlsWorksheet> m_sheets or just sheet name",
+    "LatestDate": "2013-04-27T02:57:53.373-07:00"
+  },
+  {
+    "Id": "442052",
+    "Title": "How to read particular excel sheet using Excel Data Reader",
+    "LatestDate": "2013-04-30T05:35:26.343-07:00"
+  },
+  {
+    "Id": "442962",
+    "Title": "csv",
+    "LatestDate": "2014-06-23T03:21:18.02-07:00"
+  },
+  {
+    "Id": "443020",
+    "Title": "Hidden sheets",
+    "LatestDate": "2013-05-16T01:55:06.347-07:00"
+  },
+  {
+    "Id": "443577",
+    "Title": "index out of range exception",
+    "LatestDate": "2013-05-16T01:54:13.977-07:00"
+  },
+  {
+    "Id": "443645",
+    "Title": "reader.AsDataSet() throws an OutOfMemory exception with even not very big excel files (30 meg)",
+    "LatestDate": "2015-05-21T09:16:53.423-07:00"
+  },
+  {
+    "Id": "443948",
+    "Title": "DLL does not compile with silverlight. It was not built against silverlight runtime",
+    "LatestDate": "2013-05-16T12:31:23.893-07:00"
+  },
+  {
+    "Id": "444067",
+    "Title": "excelReader.AsDataSet() does not exist in silverlight",
+    "LatestDate": "2013-05-29T03:57:41.637-07:00"
+  },
+  {
+    "Id": "444341",
+    "Title": " excelReader.GetValues(values) throws NotSupportedException  exception",
+    "LatestDate": "2013-05-22T01:24:02.21-07:00"
+  },
+  {
+    "Id": "444594",
+    "Title": "Only read used range how to do that ?",
+    "LatestDate": "2013-05-22T07:05:39.63-07:00"
+  },
+  {
+    "Id": "445468",
+    "Title": "ArgumentNullException when using CreateOpenXmlReader",
+    "LatestDate": "2013-05-30T07:59:34.94-07:00"
+  },
+  {
+    "Id": "445548",
+    "Title": "ExcelDataReader ponts to different sheet",
+    "LatestDate": "2013-09-26T16:13:46.727-07:00"
+  },
+  {
+    "Id": "446689",
+    "Title": "Google Docs XLSX IndexOutOfRangeException",
+    "LatestDate": "2013-06-11T11:01:17.687-07:00"
+  },
+  {
+    "Id": "446974",
+    "Title": "object reference not set to an instance of an object",
+    "LatestDate": "2014-03-24T08:27:31.627-07:00"
+  },
+  {
+    "Id": "447310",
+    "Title": "how to count row columns in excel",
+    "LatestDate": "2013-06-24T09:38:52.783-07:00"
+  },
+  {
+    "Id": "448072",
+    "Title": "display excel to datagrid view",
+    "LatestDate": "2013-06-25T07:29:01.77-07:00"
+  },
+  {
+    "Id": "448285",
+    "Title": "Problem with decimal numbers",
+    "LatestDate": "2013-08-12T06:59:52.46-07:00"
+  },
+  {
+    "Id": "449568",
+    "Title": "How to Upload and Convert Video File to Flash Video & Streaming using ASP.NET",
+    "LatestDate": "2013-07-10T06:53:15.993-07:00"
+  },
+  {
+    "Id": "451218",
+    "Title": "Slow access to data",
+    "LatestDate": "2013-07-29T06:30:17.573-07:00"
+  },
+  {
+    "Id": "453018",
+    "Title": "ExcelReaderFactory.CreateOpenXmlReader creates empty Dataset if more than 100 columns",
+    "LatestDate": "2013-08-12T08:34:09.393-07:00"
+  },
+  {
+    "Id": "454699",
+    "Title": "Error  with ExcelReaderFactory.CreateBinaryReader(memoryStream).",
+    "LatestDate": "2013-09-10T13:12:01.747-07:00"
+  },
+  {
+    "Id": "456919",
+    "Title": "dataGridView",
+    "LatestDate": "2013-09-15T01:06:07.49-07:00"
+  },
+  {
+    "Id": "460934",
+    "Title": "Reading Named Ranges",
+    "LatestDate": "2013-10-02T07:14:59.643-07:00"
+  },
+  {
+    "Id": "461010",
+    "Title": "Date time converted into int",
+    "LatestDate": "2014-08-27T06:29:06.443-07:00"
+  },
+  {
+    "Id": "461166",
+    "Title": "\"Buffer size is less than minimum BIFF record size\" error even with cs 82970 and Loose option",
+    "LatestDate": "2013-10-18T15:18:34.127-07:00"
+  },
+  {
+    "Id": "461193",
+    "Title": "Writing",
+    "LatestDate": "2013-10-31T03:05:23.483-07:00"
+  },
+  {
+    "Id": "461766",
+    "Title": "Neither stream 'Workbook' nor 'Book' was found in file",
+    "LatestDate": "2014-01-29T06:16:05.687-08:00"
+  },
+  {
+    "Id": "463302",
+    "Title": "v.2.0.1.0 source code",
+    "LatestDate": "2013-10-23T11:57:35.31-07:00"
+  },
+  {
+    "Id": "463608",
+    "Title": "Ignore empty rows ",
+    "LatestDate": "2013-10-31T03:06:12.61-07:00"
+  },
+  {
+    "Id": "464093",
+    "Title": "Try to compile v2.1 (82323) or v2.01 (27264) failed",
+    "LatestDate": "2013-10-31T04:13:10.74-07:00"
+  },
+  {
+    "Id": "466213",
+    "Title": "I have multiple sheets in an Excel file how to read it into a dataset",
+    "LatestDate": "2013-11-06T06:50:00.007-08:00"
+  },
+  {
+    "Id": "468318",
+    "Title": "DateTime parsing error - the OADate is wrong",
+    "LatestDate": "2013-11-12T16:05:14.173-08:00"
+  },
+  {
+    "Id": "468753",
+    "Title": "Can't support other language",
+    "LatestDate": "2013-11-14T17:42:33.327-08:00"
+  },
+  {
+    "Id": "471484",
+    "Title": "Error assembly file name System.Data, version 2.0.0.0",
+    "LatestDate": "2013-11-29T01:33:30.777-08:00"
+  },
+  {
+    "Id": "471736",
+    "Title": "Set the datatype for a column via excelReader.AsDataSet()",
+    "LatestDate": "2013-12-02T14:11:37.067-08:00"
+  },
+  {
+    "Id": "472470",
+    "Title": "Hidden rows",
+    "LatestDate": "2013-12-19T03:57:34.1-08:00"
+  },
+  {
+    "Id": "474291",
+    "Title": "Inaccurate column count causes data to be missed.",
+    "LatestDate": "2013-12-19T04:02:51.5-08:00"
+  },
+  {
+    "Id": "474868",
+    "Title": "After Saving excel document with Open XML the file does not want to open.",
+    "LatestDate": "2013-12-19T04:41:24.73-08:00"
+  },
+  {
+    "Id": "478036",
+    "Title": "Working Example",
+    "LatestDate": "2013-12-26T07:15:54.703-08:00"
+  },
+  {
+    "Id": "478090",
+    "Title": "Problem: Excel\\ExcelBinaryReader.cs missing",
+    "LatestDate": "2013-12-27T03:42:56.477-08:00"
+  },
+  {
+    "Id": "484044",
+    "Title": "In source code Core/ReferenceHelper.cs and SeekErrorMemoryStream.cs are missing",
+    "LatestDate": "2014-01-20T01:40:38.97-08:00"
+  },
+  {
+    "Id": "500602",
+    "Title": "Remove formatting from file",
+    "LatestDate": "2014-01-29T06:14:15.767-08:00"
+  },
+  {
+    "Id": "501345",
+    "Title": "Fork to remove SharpZipLib?",
+    "LatestDate": "2014-01-17T06:50:37.863-08:00"
+  },
+  {
+    "Id": "513864",
+    "Title": "Moving to github?",
+    "LatestDate": "2014-01-20T01:30:40.337-08:00"
+  },
+  {
+    "Id": "527357",
+    "Title": "Examples? Direct cell access?",
+    "LatestDate": "2014-01-27T03:27:00.787-08:00"
+  },
+  {
+    "Id": "528120",
+    "Title": "wrong numbers",
+    "LatestDate": "2014-01-29T07:09:38.277-08:00"
+  },
+  {
+    "Id": "528754",
+    "Title": "Reading excel sheet without saving",
+    "LatestDate": "2014-07-22T08:15:07.66-07:00"
+  },
+  {
+    "Id": "528859",
+    "Title": "Reading formatted strings",
+    "LatestDate": "2014-02-05T04:49:57.187-08:00"
+  },
+  {
+    "Id": "529637",
+    "Title": "AutoSize columns in excel sheet",
+    "LatestDate": "2014-02-11T04:33:18.623-08:00"
+  },
+  {
+    "Id": "537906",
+    "Title": "Import subset of Data from Excel ",
+    "LatestDate": "2014-04-30T05:50:18.33-07:00"
+  },
+  {
+    "Id": "539575",
+    "Title": "Default name for columns with no name",
+    "LatestDate": "2014-03-31T03:42:45.173-07:00"
+  },
+  {
+    "Id": "539988",
+    "Title": "Reading numeric data with same rounding as displayed in Excel.",
+    "LatestDate": "2014-03-24T10:50:56.537-07:00"
+  },
+  {
+    "Id": "540604",
+    "Title": "How to import Image from Excel sheet ",
+    "LatestDate": "2014-04-03T05:34:54.2-07:00"
+  },
+  {
+    "Id": "541560",
+    "Title": "Read column values with Excel Data Reader not working (MVC)",
+    "LatestDate": "2014-04-27T09:37:27.97-07:00"
+  },
+  {
+    "Id": "542990",
+    "Title": "Empty cell values",
+    "LatestDate": "2014-04-23T03:32:03.987-07:00"
+  },
+  {
+    "Id": "545041",
+    "Title": "Read Formula?",
+    "LatestDate": "2014-05-12T01:45:12.233-07:00"
+  },
+  {
+    "Id": "546002",
+    "Title": "Request for a \"Proper\" namespace.",
+    "LatestDate": "2014-05-21T06:59:17.457-07:00"
+  },
+  {
+    "Id": "546193",
+    "Title": "Can't open an excel file of type \"Excel 2 Worksheets\"",
+    "LatestDate": "2014-05-23T02:17:31.33-07:00"
+  },
+  {
+    "Id": "546395",
+    "Title": "Pass in header row value?",
+    "LatestDate": "2014-05-23T09:38:02.427-07:00"
+  },
+  {
+    "Id": "547226",
+    "Title": "Excel sheet to array",
+    "LatestDate": "2014-06-06T17:34:12.957-07:00"
+  },
+  {
+    "Id": "547510",
+    "Title": "Microsoft Excel 97-2003 Worksheet (.xls) bad signature override?",
+    "LatestDate": "2015-07-27T12:09:56.46-07:00"
+  },
+  {
+    "Id": "547850",
+    "Title": "Import values from excel sheet [issue with dates and time]",
+    "LatestDate": "2014-06-12T07:43:42.51-07:00"
+  },
+  {
+    "Id": "547980",
+    "Title": "Reading merged cells",
+    "LatestDate": "2014-06-08T23:50:03.103-07:00"
+  },
+  {
+    "Id": "548425",
+    "Title": "Get the available sheets present in Excel",
+    "LatestDate": "2014-06-12T07:11:07.753-07:00"
+  },
+  {
+    "Id": "548882",
+    "Title": "How to switch between sheets",
+    "LatestDate": "2014-06-19T02:48:20.927-07:00"
+  },
+  {
+    "Id": "549282",
+    "Title": "How to read excel file if it is already open in Microsoft Excel?",
+    "LatestDate": "2014-06-23T02:46:45.38-07:00"
+  },
+  {
+    "Id": "550918",
+    "Title": "INVISIBLE/HIDDEN Excel Columns",
+    "LatestDate": "2014-07-08T02:37:15.623-07:00"
+  },
+  {
+    "Id": "551020",
+    "Title": "Read functions lterally instead of results",
+    "LatestDate": "2014-07-09T04:14:51.757-07:00"
+  },
+  {
+    "Id": "551272",
+    "Title": "Excel Data Reader Version Difference",
+    "LatestDate": "2014-07-11T07:04:09.087-07:00"
+  },
+  {
+    "Id": "551310",
+    "Title": "Design Questions/Suggestions",
+    "LatestDate": "2014-08-06T15:20:46.187-07:00"
+  },
+  {
+    "Id": "554310",
+    "Title": ".NET 2.0 DLL not working without MS Excel installed",
+    "LatestDate": "2014-07-27T22:49:07.987-07:00"
+  },
+  {
+    "Id": "554697",
+    "Title": "Migrated to github",
+    "LatestDate": "2014-07-31T02:18:42.807-07:00"
+  },
+  {
+    "Id": "558360",
+    "Title": "iOS compatibility",
+    "LatestDate": "2014-08-04T14:03:13.217-07:00"
+  },
+  {
+    "Id": "560931",
+    "Title": "Reading wrongly formatted cells",
+    "LatestDate": "2014-08-27T01:20:14.617-07:00"
+  },
+  {
+    "Id": "562084",
+    "Title": "Reading past an exception.",
+    "LatestDate": "2014-08-25T14:10:35.11-07:00"
+  },
+  {
+    "Id": "562088",
+    "Title": "Not a legal Ole Aut date",
+    "LatestDate": "2014-09-02T14:53:55.47-07:00"
+  },
+  {
+    "Id": "562136",
+    "Title": "Non-negative number required. Parameter name: count",
+    "LatestDate": "2014-08-26T04:15:32.133-07:00"
+  },
+  {
+    "Id": "566799",
+    "Title": "\"Define Name\" as DataSet from Excel file",
+    "LatestDate": "2014-09-08T08:49:13.943-07:00"
+  },
+  {
+    "Id": "567110",
+    "Title": "Can we specify cell range",
+    "LatestDate": "2014-09-11T04:28:48.007-07:00"
+  },
+  {
+    "Id": "568105",
+    "Title": "Dependencies",
+    "LatestDate": "2014-09-23T02:03:52.41-07:00"
+  },
+  {
+    "Id": "568973",
+    "Title": "Only one tab sheet is read",
+    "LatestDate": "2014-10-23T04:23:25.31-07:00"
+  },
+  {
+    "Id": "569305",
+    "Title": "how to remove empty rows before formng as dataset",
+    "LatestDate": "2014-10-08T04:24:19.877-07:00"
+  },
+  {
+    "Id": "569865",
+    "Title": "how to get hyperlinks from cells",
+    "LatestDate": "2014-10-18T07:51:34.47-07:00"
+  },
+  {
+    "Id": "570345",
+    "Title": "ExcelOpenXmlReader: numbers stored as text",
+    "LatestDate": "2014-10-21T07:39:53.95-07:00"
+  },
+  {
+    "Id": "571256",
+    "Title": "Read xls cell values as text only",
+    "LatestDate": "2014-11-04T05:00:08.283-08:00"
+  },
+  {
+    "Id": "571296",
+    "Title": "Read cell color formatting",
+    "LatestDate": "2014-11-04T11:42:59.607-08:00"
+  },
+  {
+    "Id": "573158",
+    "Title": "Develop in dot net compact framework",
+    "LatestDate": "2014-11-25T20:06:39.29-08:00"
+  },
+  {
+    "Id": "574443",
+    "Title": "excel.4.5.dll not found",
+    "LatestDate": "2014-12-11T14:34:21.297-08:00"
+  },
+  {
+    "Id": "576185",
+    "Title": "Looking for more flexible overloaded methods in exceldatareader tool",
+    "LatestDate": "2014-12-24T01:15:08.637-08:00"
+  },
+  {
+    "Id": "576190",
+    "Title": "ExcelReaderFactory.cs not found",
+    "LatestDate": "2014-12-24T02:03:27.96-08:00"
+  },
+  {
+    "Id": "577685",
+    "Title": "How to read EXACTLY what is displayed in Excel?",
+    "LatestDate": "2015-01-14T04:14:33.363-08:00"
+  },
+  {
+    "Id": "581588",
+    "Title": "problem open xls",
+    "LatestDate": "2015-02-23T00:36:06.13-08:00"
+  },
+  {
+    "Id": "584695",
+    "Title": "Problems reading XLSX created in SAP",
+    "LatestDate": "2015-03-06T01:17:56.173-08:00"
+  },
+  {
+    "Id": "637935",
+    "Title": "Retrieve sheet name",
+    "LatestDate": "2015-05-13T15:05:07.633-07:00"
+  },
+  {
+    "Id": "639733",
+    "Title": "Issue in converting macro enabled excel to dataset using openxml reader",
+    "LatestDate": "2015-06-09T10:32:05.957-07:00"
+  },
+  {
+    "Id": "639891",
+    "Title": "want to check excel sheet contains formula or not? IS it possible in Excel Data reader?",
+    "LatestDate": "2015-06-12T03:28:44.96-07:00"
+  },
+  {
+    "Id": "646044",
+    "Title": "How do you select a Worksheet for the IExcelDataReader?",
+    "LatestDate": "2015-10-09T15:46:06.067-07:00"
+  },
+  {
+    "Id": "649032",
+    "Title": "XlsxDimension - Object ref not set to an instance of an object",
+    "LatestDate": "2015-12-21T11:52:04.51-08:00"
+  },
+  {
+    "Id": "651607",
+    "Title": "How to make Filtering for a DataTable?",
+    "LatestDate": "2016-02-22T04:47:59.997-08:00"
+  },
+  {
+    "Id": "652499",
+    "Title": "Read-Only Version when Spreadsheet Locked",
+    "LatestDate": "2016-03-14T07:52:37.767-07:00"
+  },
+  {
+    "Id": "658724",
+    "Title": "Alternative to LinqToexcel: implementation of LinqToExcel Adapter",
+    "LatestDate": "2016-11-22T07:54:58.63-08:00"
+  },
+  {
+    "Id": "659769",
+    "Title": "Date time format loading is 12 hour not 24 hour format",
+    "LatestDate": "2016-11-28T03:37:26.493-08:00"
+  },
+  {
+    "Id": "660346",
+    "Title": "Import Hidden sheet",
+    "LatestDate": "2016-12-26T23:47:11.24-08:00"
+  },
+  {
+    "Id": "660681",
+    "Title": "issue with some hidden chars",
+    "LatestDate": "2017-01-13T07:32:22.423-08:00"
+  },
+  {
+    "Id": "662285",
+    "Title": " Does this component need microsoft office?",
+    "LatestDate": "2017-03-29T08:42:30.29-07:00"
+  },
+  {
+    "Id": "663547",
+    "Title": "Error reading Excel file",
+    "LatestDate": "2017-08-03T08:13:51.177-07:00"
+  }
+]

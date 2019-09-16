@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1032294",
+    "ThreadId": "440725",
+    "Html": "Hi,All.<br />\n<br />\nI am routinely write code, but such problems:<br />\n<br />\nUnable to read Excel (2003) in addition to the pure digital cell information!!<br />\n<br />\nMy code:<br />\n<pre><code>FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);\n            IExcelDataReader excelReader;\n            Regex r = new Regex(&quot;.xlsx&quot;);\n            Match m = r.Match(filePath);\n            if (m.Success)\n            {\n\n                //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)\n                excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n                //...\n            }\n            else\n            {\n                //1. Reading from a binary Excel file ('97-2003 format; *.xls).\n                excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n                //...\n            }\n            //3. DataSet - The result of each spreadsheet will be created in the result.Tables\n            //DataSet result = excelReader.AsDataSet();\n            //...\n            //4. DataSet - Create column names from first row\n            //excelReader.IsFirstRowAsColumnNames = true;\n            DataSet ds = excelReader.AsDataSet();\n\n            //5. Data Reader methods\n            if (excelReader.Read())\n            {\n                //excelReader.GetInt32(0);\n                dgv_Data.DataSource = ds.Tables[1];\n            }\n\n            //6. Free resources (IExcelDataReader is IDisposable)\n            excelReader.Close();</code></pre>\n\nThanks advance!<br />\n",
+    "PostedDate": "2013-04-18T01:37:03.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1035565",
+    "ThreadId": "440725",
+    "Html": "I didn't quite understand what the problem was. Can you give me some more information? Maybe a stack trace if there is an exception?<br />\n",
+    "PostedDate": "2013-04-25T04:11:26.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044857",
+    "ThreadId": "440725",
+    "Html": "the problem is that \r<br />\n<br />\nwhen I import 2003excel file use CreateBinaryReader() and set (or not set) IsFirstRowAsColumnNames true,all can't show some special type of data in the excel \r<br />\n<br />\nthose data such as :x1,x2,x3,x4 (Numbers and letters with the format) <br />\n",
+    "PostedDate": "2013-05-16T20:29:37.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1046926",
+    "ThreadId": "440725",
+    "Html": "Can you create an issue and upload an example spreadsheet that exhibits this problem<br />\n",
+    "PostedDate": "2013-05-22T01:25:33.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

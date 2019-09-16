@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1456668",
+    "ThreadId": "649032",
+    "Html": "Hey guys,\r<br />\n<br />\nIm trying to read in a spreadsheet produced from a 3rd party vendor (Aspose) and when i try to do this i get a null exception initializing the XlsxDimension. Has anyone else seen this? is there a work around?<br />\n",
+    "PostedDate": "2015-12-21T11:52:04.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

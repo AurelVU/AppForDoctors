@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "821734",
+    "ThreadId": "351719",
+    "Html": "\r\n<p>Forgive me is this is in another discussion, but I couldn't find it. I am using 'Excel' and 'ICSharpCode.SharpZipLib', but when the code has something like:</p>\r\n<p>// the ExcelDataReader takes a System.IO.Stream object&nbsp; &nbsp; &nbsp;</p>\r\n<p>IExcelDataReader excelReader = new ExcelDataReader(FileUpload1.FileContent);&nbsp; &nbsp; &nbsp;</p>\r\n<p>FileUpload1.FileContent.Close();</p>\r\n<p>DataSet wb = excelReader.WorkbookData;</p>\r\n<p>// get the first worksheet of the workbook&nbsp; &nbsp; &nbsp;</p>\r\n<p>DataTable dt = excelReader.WorkbookData.Tables[0];<br>\r\nGridView1.DataSource = dt.AsDataView();&nbsp; &nbsp; &nbsp;</p>\r\n<p>GridView1.DataBind();</p>\r\n<p>I get an error saying 'the type or namsespace name 'ExcelDataReader' could not be found.</p>\r\n<p>I also can't find it searching through the Object Browser either. What am I missing?</p>\r\n",
+    "PostedDate": "2012-04-09T15:26:51.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "823581",
+    "ThreadId": "351719",
+    "Html": "<p>In your soution, add a new solution folder named 'Libraries'</p>\r\n<p>Copy the .dlls from the download folder into the Libraries folder</p>\r\n<p>In your solution, add a reference to the dlls you just added</p>\r\n<p>Cheers</p>",
+    "PostedDate": "2012-04-13T11:43:59.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "823591",
+    "ThreadId": "351719",
+    "Html": "<p><span style=\"color: #1f497d; font-size: 10pt;\">Thanks so much for the response. Now, when you say 'In your solution, add a new solution' do you really mean 'solution' or is it 'project'. I didn't know you could have other solutions in a solution. i'll try it and see.</span></p>\n<p><span style=\"color: #1f497d; font-size: 10pt;\">I&rsquo;m only just grasping more in-depth aspects of the environment, and it seems like every time I have a small mental victory, it&rsquo;s short-lived by the fact that I run into another  stumbling block which takes me hours to figure out. Have a good weekend. Cheers. ~R</span></p>",
+    "PostedDate": "2012-04-13T12:14:35.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "823638",
+    "ThreadId": "351719",
+    "Html": "<p>I hear ya... I keep running into stumbling blocks as well, as I too am a newbie to using this project.</p>\n<p>What I meant was, in the project, web site, whatever you are working in where you wish to use the ExcelDataReader, follow my instructions in there. FYI, adding the library folder is simply something I like to do to keep seperate any dlls that aren't created by default when my working solution is created. You could skip that step and simply add reference to the Excel dll (and ICSharpCode&nbsp;may be&nbsp;needed as well,&nbsp;&nbsp;I'm not sure) . So when you add the references, simply browse to the folder where you downloaded the dll(s) to.</p>\n<p>After I did all this myself, I kept getting an error when my web page was loaded... the error stated that it &quot;could not load assembly 'Excel, ...&quot; To resolve this I added a reference to the assembies section&nbsp;in the web.config file, and had to ensure the dlls were added to the GAC. That allowed to page to load. I am working in a SharePoint environment , so perhaps this will not happen to you.</p>\n<p>Currently, I am at a new stumbling block which is described here: <a href=\"http://exceldatareader.codeplex.com/discussions/346801\">http://exceldatareader.codeplex.com/discussions/346801</a></p>\n<p>Good luck</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+    "PostedDate": "2012-04-13T14:20:07.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "823648",
+    "ThreadId": "351719",
+    "Html": "<p>I assumed that's what you meant. I have already referenced the DLLs from a&nbsp;folder external to the project. After your response, I tried to bring them into the Project, with no change. I even brought all of the source code in, but got some different issues. I'm not getting an assembly error, just telling that&nbsp;<span>'the type or namsespace name 'ExcelDataReader' could not be found'.</span></p>\r\n<p>Not sure if it will help but...</p>\r\n<p>\r\n<pre>using System;\r\nusing System.IO;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nusing System.Data;\r\nusing System.Web;\r\nusing System.Web.UI;\r\nusing System.Web.UI.WebControls;\r\nusing Excel;\r\nusing ICSharpCode;\r\n\r\nnamespace PartStructChkSht\r\n{\r\n  public partial class adminPart : System.Web.UI.Page\r\n  {\r\n    protected void Page_Load(object sender, EventArgs e)\r\n    {\r\n\r\n    }\r\n    protected void grdListUser_RowCommand(object sender, GridViewCommandEventArgs e)\r\n    {\r\n      int intRowFocus = Convert.ToInt32(e.CommandArgument);\r\n      GridViewRow row = grdListUser.Rows[intRowFocus];\r\n\r\n      Validate();\r\n    }\r\n\r\n    protected void btnUpload_Click(object sender, EventArgs e)\r\n    {\r\n      // the ExcelDataReader takes a System.IO.Stream object\r\n      IExcelDataReader excelReader = new ExcelDataReader(uplPartFile.FileContent);\r\n      uplPartFile.FileContent.Close();\r\n\r\n\r\n    }\r\n\r\n  }\r\n\r\n}\r\n</pre>\r\nIt's the line that starts 'IExcelDataReader excelReader...' that's getting me.</p>\r\n<p>I wish you well with your issue, and wish that I was further along that I may be able to help.&nbsp;</p>",
+    "PostedDate": "2012-04-13T14:31:55.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "823658",
+    "ThreadId": "351719",
+    "Html": "<ol>\n<li>After you imported the dlls into your project, you did delete the original references and added new one to point to the dlls in your project, right?&nbsp;&nbsp;</li>\n</ol>\n<p>&nbsp;&nbsp;&nbsp;&nbsp; 2.&nbsp;&nbsp;Hmmm, I see that you have your using statements, so this suggestion is probably no good, but try prefixing&nbsp;&nbsp; IExcelDataReader with 'Excel', like so: Excel.IExcelDataReader</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp; 3. Otherwise, the sample code I have shows IExcelDataReader as :</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IExcelDataReader excelDataReader = ExcelReaderFacftory.CreateOpenXmlReader(stream);</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;That is different from what you have... see code sample at: <a href=\"http://exceldatareader.codeplex.com/\">http://exceldatareader.codeplex.com/</a>&nbsp;</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Where did your get your code sample from?</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+    "PostedDate": "2012-04-13T14:51:22.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "823663",
+    "ThreadId": "351719",
+    "Html": "<p>Yeah, I made sure I had no references before I shuffled the DLLs around and re-referenced them. The code came from a separate online reference, so I'll try to go through the codeplex.</p>\r\n<p>I've tried the 'ExcelReaderFactory' reference also and get the same error as 'ExcelDataReader'.&nbsp;</p>\r\n<p>You're a peach. Thanks for all of your help.</p>",
+    "PostedDate": "2012-04-13T15:01:30-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "823666",
+    "ThreadId": "351719",
+    "Html": "<p>Alright, good luck.&nbsp; I'm cutting out. Peace! When you get it figured out, post your solution.</p>",
+    "PostedDate": "2012-04-13T15:08:17.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

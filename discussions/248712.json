@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "576606",
+    "ThreadId": "248712",
+    "Html": "\r\n<p>Does this ExcelDataReader have options to ignore hidden field in Excel-files? For example, users upload files with hidden fields (with any trush data), how could I understand in script that this field or row was hidden? By defaults it reads all data in page.\r\n Any answers greatly appreciated!</p>\r\n",
+    "PostedDate": "2011-03-07T05:39:54.183-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

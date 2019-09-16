@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1040875",
+    "ThreadId": "442962",
+    "Html": "I was wondering if the data reader can read csv files created by excel?<br />\n",
+    "PostedDate": "2013-05-08T07:03:46.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040905",
+    "ThreadId": "442962",
+    "Html": "I couldn't honestly say for sure, but I doubt it very much. I've only peeked at the internals but they are all about Excel formats.\r<br />\n<br />\nYou could save yourself a ton of time and use <a href=\"http://www.filehelpers.com/\" rel=\"nofollow\">http://www.filehelpers.com/</a> for this.<br />\n",
+    "PostedDate": "2013-05-08T07:52:29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040930",
+    "ThreadId": "442962",
+    "Html": "Filehelpers is exactly what I'm looking for.  Thanks very much.<br />\n",
+    "PostedDate": "2013-05-08T09:13:12.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1258830",
+    "ThreadId": "442962",
+    "Html": "ExcelCsvReader - CSV reader implementation (<a href=\"https://exceldatareader.codeplex.com/workitem/13097\" rel=\"nofollow\">https://exceldatareader.codeplex.com/workitem/13097</a>)<br />\n",
+    "PostedDate": "2014-06-23T03:21:18.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

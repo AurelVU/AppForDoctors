@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1016506",
+    "ThreadId": "436913",
+    "Html": "I love this component and it makes my life nice and easy. I just got a request to write some code for a legacy box that only has .NET 1.1 on it. Because of the sizable changes to the framework between 1.1 and 2.0, I'm afraid that an upgrade may crash the existing project on there. Is there any way to get this library to work in .NET 1.1? I haven't tried it yet, so maybe it works as is, but I see that the specs say 2.0 or greater. Thanks. <br />\n<pre><code> Seth</code></pre>\n\n",
+    "PostedDate": "2013-03-16T21:54:55.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016662",
+    "ThreadId": "436913",
+    "Html": "There are uses of Generics in there (2.0) but in theory you could replace them with ArrayList.\r<br />\nThere is no Linq so you should be fine on that score.\r<br />\nWithout actually trying it though I could not say for sure, you'd have to really give it a go.\r<br />\n<br />\nAn alternative hacky approach would be for the 1.1 app to drop Excel files on to a network share and have a 2.0 app processing those files outputting the results as CSV for the 1.1 app to pick up.<br />\n",
+    "PostedDate": "2013-03-17T10:12:55.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016806",
+    "ThreadId": "436913",
+    "Html": "I've never compiled a binary from source, and I'm sure that I'd miss one swap to ArrayList that would bomb out the app, so I was leaning towards the hacky way to begin with. We'll probably only run this process a few times, so I'm cool with creating a csv as necessary. I'm still trying to wrap my head around the fact that our production web server is running .NET 1.1. I thought I'd give it a shot. Thanks for your help. \r<br />\nSeth<br />\n",
+    "PostedDate": "2013-03-17T19:03:35.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When i try to read the values from an Excel File with GetValues(object) I get a \"System.NotSupportedException was unhandled Message=\"O método especificado não é suportado.\" Source=\"Excel\" StackTrace: in Excel.ExcelOpenXmlReader.GetValues(Object[] values)\n\n```\nFileStream stream = File.Open(\"excelfile.xlsx\", FileMode.Open, FileAccess.Read);\n\n            //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)\n            IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n            //...\n            //4. DataSet - Create column names from first row\n            excelReader.IsFirstRowAsColumnNames = true;\n            DataSet result = excelReader.AsDataSet();\n\n            //5. Data Reader methods\n            Console.WriteLine(\"Results: \" +excelReader.ResultsCount);\n            while (excelReader.Read())\n            {\n                object[] values = new object[excelReader.FieldCount];\n                excelReader.GetValues(values);\n\n            }\n\n            //6. Free resources (IExcelDataReader is IDisposable)\n            excelReader.Close();\n```",
+    "LastUpdatedDate": "2013-05-22T01:23:30.69-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-05-21T11:00:34.337-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "method GetValues returns System.NotSupportedException",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11797
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "this particular method of IDataReader is not currently supported by ExcelDataReader. I'll leave this issue open though so we can see if other people want it as well,",
+      "PostedDate": "2013-05-22T01:23:30.69-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

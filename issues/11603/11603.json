@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-03-11T04:30:30.173-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "This may be a strange case... but:\n\nIf a string value is stored within a cell with Date formatting....  the string value can be read correctly but then later overwritten by an incorrect DateTime value...\n\nPlease refer to the attached spreadsheet, cell E8\n\nOn investigation this looks to be due to the use of \"if\" rather than \"else if\" within the ReadSheetRow method of the ExcelOpenXmlReader (between the string and string inline conditions)..\n\nA patch will be submitted shortly.",
+    "LastUpdatedDate": "2017-11-27T20:47:30.717-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-02-26T01:53:10.893-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ExcelOpenXmlReader - In some cases, string values in date formatted cells can be read incorrectly",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11603
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4467,
+      "FileName": "CarDetailImport Multi Section.xlsx",
+      "DownloadUrl": ".\\4467"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Again, strange coincidence, I'd just spotted something similar, but I hadn't managed to expose it in a unit test yet so wasn't sure if it was the project that was using ExcelDataReader or the component itself. Thanks for the file and the patch. Will be looked at soon.",
+      "PostedDate": "2013-02-26T04:30:12.23-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-11T03:30:52.233-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 82883.",
+      "PostedDate": "2013-03-11T04:30:30.173-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:55.453-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:30.717-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

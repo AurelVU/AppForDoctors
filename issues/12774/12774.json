@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\n\nWhen I use ExcelReaderFactory.CreateOpenXmlReader() the date fields come as DateTime type and when I use CreateBinaryReader() the date fields come as Int type (OADate).\n\nI've tried using the overloaded AsDataReader(bool convertToOADate) passing true and false, but nothing changed.\n\nI'm using the following code:\n```\n        DataSet result;\n        IExcelDataReader excelReader;\n        public void ReadExcel(string filename, Stream stream)\n        {\n            string extension = Path.GetExtension(filename);\n            \n            if (extension.ToLower().Contains(\"xlsx\"))\n            {\n                excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n            }\n            else\n            {\n                excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n            }\n\n            excelReader.IsFirstRowAsColumnNames = true;\n            result = excelReader.AsDataSet();\n\n            excelReader.Close();\n        }\n```\n\nIs there a way to load data in OADate format when using OpenXml format?",
+    "LastUpdatedDate": "2014-02-26T03:03:38.19-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-02-25T11:13:38.87-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "OpenXmlReader reading DateTime instead of OADate",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12774
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "The parameter is actually convertOADate and what it does is convert an OADate in an excel binary format to a datetime.\r\n\r\nOADate does not apply to OpenXml dates as far as I know. The date is held in the xml as a date string not an OADate.\r\n\r\nIf you wanted to convert a DateTime to an OADate you would have to do that yourself.",
+      "PostedDate": "2014-02-26T00:59:42.627-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "When I open the .xlsx in WinZip and go to the sheet's xml I found the data stored as OADate.\nI really don't know why this is happening.\r\n\r\nThe problem is conveting from string to DateTime. I just don't know how to convert it, because I don't know what format will be used (for example: in brazil date format is dd/mm/yyyy)\n",
+      "PostedDate": "2014-02-26T03:03:38.19-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

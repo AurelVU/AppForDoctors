@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I tried to use the code from the example but I get this exception:\n\n>  'excelReader.Name' threw an exception of type 'System.ArgumentOutOfRangeException'\n\nso I can't create the dataset.\nmy filename is \"2.xls\".\nMy current code is:\n```\n  using (FileStream stream = File.Open(info.ToString(), FileMode.Open, FileAccess.Read)) \n                        using (IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream))\n                        {\n                            mExcelReader.IsFirstRowAsColumnNames = true;\n                            DataSet result1 = excelReader.AsDataSet();\n\n                        }\n```",
+    "LastUpdatedDate": "2013-05-14T03:50:26.647-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-04-18T01:32:02.537-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Name threw an exception of type 'System.ArgumentOutOfRangeException'",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 11714
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I had a similar problem but then noticed that original reference Excel.dll was automatically replaced by some different one with different size when my application starts. I didn't find out why that happens (Visual Studio is doing this maybe) but I just copied correct Excel.dll once again and set is as read-only. This helped.",
+      "PostedDate": "2013-04-21T23:35:27.143-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "If you are still having the issue then please upload an example spreadsheet that shows this issue. Or PM it.\r\n\r\nCheers\nIan",
+      "PostedDate": "2013-05-14T03:50:26.647-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

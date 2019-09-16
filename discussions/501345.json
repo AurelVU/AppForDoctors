@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1170145",
+    "ThreadId": "501345",
+    "Html": "I've grabbed the source of this project and modified it to remove the functionality related to SharpZipLib (SharpZipLib has a GPL license that is a legal problem for my product).\r<br />\n<br />\nIs there any way to create a fork of this project to track my version?  All I saw was a place to upload a patch.  I'm removing functionality, so I'm assuming that my &quot;patch&quot; would not be welcome.<br />\n",
+    "PostedDate": "2014-01-15T14:04:08.093-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1173827",
+    "ThreadId": "501345",
+    "Html": "This is the problem with codeplex. No way of forking I know of for this repository. I'd much rather have the whole thing on github. Maybe I should just move it there as I seem to be the only active developer anyway.<br />\n",
+    "PostedDate": "2014-01-17T06:22:10.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1173889",
+    "ThreadId": "501345",
+    "Html": "Do it.<br />\n",
+    "PostedDate": "2014-01-17T06:50:37.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

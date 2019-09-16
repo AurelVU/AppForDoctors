@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "622075",
+    "ThreadId": "259963",
+    "Html": "\r\n<p>It works perfectly fine when working on xls. When I tried reading xlsx file, I got this error below. It is a good file, 2007.</p>\r\n<p>&nbsp;</p>\r\n<p>Could not load file or assembly 'ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=</p>\r\n<p>1b03e6acf1164f73' or one of its dependencies. The system cannot find the file specified.</p>\r\n<p>&nbsp;</p>\r\n<pre><span style=\"color:blue\">Dim</span> stream <span style=\"color:blue\">As</span> FileStream = File.Open(filePath, FileMode.Open, FileAccess.Read)<br><br><span style=\"color:green\">'1. Reading from a binary Excel file ('97-2003 format; *.xls)</span><br><span style=\"color:blue\">'Dim</span> excelReader <span style=\"color:blue\">As</span> IExcelDataReader = ExcelReaderFactory.CreateBinaryReader(stream)<br><span style=\"color:green\">'...</span><br><span style=\"color:green\">'2. Reading from a OpenXml Excel file (2007 format; *.xlsx)</span><br><span style=\"color:#ff0000\">Dim excelReader As IExcelDataReader = ExcelReaderFactory.CreateOpenXmlReader(stream)</span>   &lt;&lt;&lt; error <br><span style=\"color:green\">'...</span><br><span style=\"color:green\">'3. DataSet - The result of each spreadsheet will be created in the result.Tables</span><br><span style=\"color:blue\">Dim</span> result <span style=\"color:blue\">As</span> DataSet = excelReader.AsDataSet()<br><span style=\"color:green\">'...</span><br><span style=\"color:green\">'4. DataSet - Create column names from first row</span><br>excelReader.IsFirstRowAsColumnNames = <span style=\"color:blue\">True</span><br><span style=\"color:blue\">Dim</span> result <span style=\"color:blue\">As</span> DataSet = excelReader.AsDataSet()<br><br><span style=\"color:green\">'5. Data Reader methods</span><br><span style=\"color:blue\">While</span> excelReader.Read()<br>&nbsp; &nbsp; <span style=\"color:green\">'excelReader.GetInt32(0);</span><br><span style=\"color:blue\">End</span> <span style=\"color:blue\">While</span><br><br><span style=\"color:green\">'6. Free resources (IExcelDataReader is IDisposable)</span><br>excelReader.Close()<br></pre>\r\n",
+    "PostedDate": "2011-06-02T10:51:16.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677390",
+    "ThreadId": "259963",
+    "Html": "<p>Hey there.</p>\r\n<p>&nbsp;</p>\r\n<p>the download distribution of this library includes a&nbsp;ICSharpCode.SharpZipLib.dll assembly. &nbsp;simply reference this and re-run your solution.</p>",
+    "PostedDate": "2011-09-27T14:17:58.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "957841",
+    "ThreadId": "259963",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>simonwilbert wrote:</strong><br>\r\n<p>Hey there.</p>\r\n<p>&nbsp;</p>\r\n<p>the download distribution of this library includes a&nbsp;ICSharpCode.SharpZipLib.dll assembly. &nbsp;simply reference this and re-run your solution.</p>\r\n</blockquote>\r\n<p>Hello,</p>\r\n<p>Same problem and I am including the&nbsp;<span>ICSharpCode.SharpZipLib.dll which is in the package and its version number is&nbsp;0.85.5.452 (which is what it should be from error message) but I still get the error message as written by above comment.</span></p>\r\n<p>I tried using ExcelData Reader version 2.0 for reading .xlsx file. However, it works just fine for reading .xls files.</p>\r\n<p>Can someone answer what is the issue here? codeforlife? simon wilbert?</p>\r\n",
+    "PostedDate": "2012-12-18T10:27:10.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "958200",
+    "ThreadId": "259963",
+    "Html": "\r\n<p>Did you reference ICSharpCode.SharpZipLib.dll from your project in VS?</p>\r\n",
+    "PostedDate": "2012-12-19T01:15:31.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1307218",
+    "ThreadId": "259963",
+    "Html": "I'm having the same problem.  Added reference to  ICSharpCode.SharpZipLib.dll, but get the &quot;Could not load file or assembly ...&quot; message anyway.<br />\n",
+    "PostedDate": "2014-09-22T19:53:40.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1307297",
+    "ThreadId": "259963",
+    "Html": "What platform are you using?\r<br />\n<br />\nThe nuget package should set up the references you need. Does some other project you are referencing also use SharpZipLib.\r<br />\n<br />\nYou might also try the new portable class library based version (not on nuget yet)\r<br />\n<a href=\"https://github.com/ExcelDataReader/ExcelDataReader/tree/f-portable\" rel=\"nofollow\">https://github.com/ExcelDataReader/ExcelDataReader/tree/f-portable</a> \r<br />\n<br />\nThis does not have a dependency on SharpZipLib.\r<br />\n<br />\nPlease send all future questions to github as we have moved there now \r<br />\n<a href=\"https://github.com/ExcelDataReader/ExcelDataReader/issues\" rel=\"nofollow\">https://github.com/ExcelDataReader/ExcelDataReader/issues</a><br />\n",
+    "PostedDate": "2014-09-23T02:05:54.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1307492",
+    "ThreadId": "259963",
+    "Html": "\r\n<div>\r\n<p>@Ian971 –</p>\r\n<p>I am running 64-bit Windows 7 with Visual Studio 2010. No other project that I reference uses SharpZipLib.\r\n</p>\r\n<p>I didn’t use any Nuget package. Just downloaded the zip file from Codeplex. It only consists of the two DLLs and a .pdb file.</p>\r\n<p>I added a reference to the DLLs in my project, which happens to by a SSIS script task.</p>\r\n</div>\r\n",
+    "PostedDate": "2014-09-23T10:05:10.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1307795",
+    "ThreadId": "259963",
+    "Html": "\r\n<p dir=\"ltr\">Are you able to use nuget to add the reference? It will then resolve the zip lib dependency\r\n<br>\r\n</p>\r\n<div></div>\r\n",
+    "PostedDate": "2014-09-24T08:46:59.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1307803",
+    "ThreadId": "259963",
+    "Html": "I took your suggestion and downloaded the portable version of the library. I just used Nuget to add the reference. (This is my first time using Nuget, but I think I got it right.) I was able to build my project, which is a script task in SSIS. I had added an object of type IExcelDataReader in the code. <br />\n<br />\nWhen I run my SSIS package, it hangs upon reaching the script task. Killing the package run and opening the task in VSTA, I can see a warning icon next to the reference to “Excel” in Solution Explorer. I had initially seen a message that ExcelDataReader couldn’t find SharpZipLib. I navigated to “ExcelDataReader-f-portable\\Silverlight\\Binaries\\SharpZipLib.dll”, which was among the unzipped files. I added a reference to that DLL the old-fashioned, non-Nuget way. <br />\n<br />\nThe package still hangs.  Insection of the project's references still shows the yellow triangle with exclamation point next to the “Excel” reference in Solution Explorer.  <br />\n",
+    "PostedDate": "2014-09-24T09:04:39.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

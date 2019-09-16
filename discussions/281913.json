@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "707856",
+    "ThreadId": "281913",
+    "Html": "\r\n<p>Datatables are returned from ExcelDataReader blank but with the right size of rows and columns but no data in them, when the excel file&nbsp;is created by access. If you open the file with excel 2010 and resave it the new file opens fine.</p>\r\n<p>If anyone can help with this issue it would be very much appreciated.</p>\r\n",
+    "PostedDate": "2011-12-05T17:15:24.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "760113",
+    "ThreadId": "281913",
+    "Html": "<p>We use Excel everyday. how much we know about excel, like your problem, how many people know the answer?</p>\r\n<p>i don't know.</p>\r\n<p>and how many people know we can add a barcode in Excel and how to add?</p>\r\n<p>here is the answer:</p>\r\n<p><a href=\"http://www.keepautomation.com/products/excel_barcode/barcodes/ean_13.html\">http://www.keepautomation.com/products/excel_barcode/barcodes/ean_13.html</a></p>",
+    "PostedDate": "2012-02-13T00:45:08.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

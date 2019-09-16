@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "428206",
+    "ThreadId": "208539",
+    "Html": "<p>Hi all,</p>\r\n<p>I have a problem using the ExcelDataReader on a Windows 2008 with binary reader.</p>\r\n<p>Simply the driver reports an empty result set. No exceptions, no errors.</p>\r\n<p>I used this code:&nbsp;</p>\r\n<p>private System.Data.DataSet GetExcelContent(string sourceFileName)<br>{<br>&nbsp;Excel.IExcelDataReader excelReader = null;<br>&nbsp;System.IO.FileStream stream = System.IO.File.Open(sourceFileName, System.IO.FileMode.Open, System.IO.FileAccess.Read);<br>&nbsp;if (sourceFileName.EndsWith(&quot;.xlsx&quot;))<br>&nbsp;{<br>&nbsp;&nbsp;excelReader = Excel.ExcelReaderFactory.CreateOpenXmlReader(stream);<br>&nbsp;}<br>&nbsp;else<br>&nbsp;{<br>&nbsp;&nbsp;excelReader = Excel.ExcelReaderFactory.CreateBinaryReader(stream);<br>&nbsp;}</p>\r\n<p>&nbsp;System.Data.DataSet result = excelReader.AsDataSet(false);<br>&nbsp;return result;<br>}</p>\r\n<p>What am I doing wrong?</p>",
+    "PostedDate": "2010-04-07T02:05:36.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428217",
+    "ThreadId": "208539",
+    "Html": "<p>Hi all,</p>\r\n<p>After some testing I discovered that the problem seems to be related to my Excel file.</p>\r\n<p>I has been produced by a commercial toll, so I do not have control on it.</p>\r\n<p>But copying and pasting data onto a new sheet, the driver works fine.</p>\r\n<p>I do not know what happens ... but seems to be related to offsets ...</p>\r\n<p>Thank you</p>",
+    "PostedDate": "2010-04-07T02:48:38.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

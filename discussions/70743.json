@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "241028",
+    "ThreadId": "70743",
+    "Html": "<p>First of all, I am incredibly impressed at how well your library works.</p>\r\n<p>Unfortunately, my attempts to use your library for reading binary Excel spreadsheets into a SQL Server database are coming to naught because the files I'm throwing at it are readable by Excel but not by your library. As near as I can tell, the breakage point is in the ReadWorksheet function, where your library can't seem to find the spreadsheet index:</p>\r\n<p>&nbsp;</p>\r\n<pre>private bool ReadWorksheet(XlsWorksheet sheet)<br>        {<br>            m_stream.Seek((int)sheet.DataOffset, SeekOrigin.Begin);<br>            XlsBiffBOF bof = m_stream.Read() as XlsBiffBOF;<br>            if (bof == null || bof.Type != BIFFTYPE.Worksheet)<br>                return false;<br>            <span style=\"color:#ff0000\">XlsBiffIndex idx = m_stream.Read() as XlsBiffIndex;<br></span>            bool isV8 = (m_version &gt;= 0x600);</pre>\r\n<p>&nbsp;</p>\r\n<p>Interestingly, Excel 2003 makes noticeable changes to these problem files just by opening them and then saving. Once the file has been saved in Excel, it becomes readable by your library. Needless to say, using this work-around defeats my goal in using your library: avoiding having to invoke Excel to read these files, so that the process can be run on a server without installing MS Office on a server.</p>\r\n<p>At this point, I'm totally stumped as to how Excel is deriving the worksheet index, much less where.</p>\r\n<p>Have you encountered this behavior before?</p>",
+    "PostedDate": "2009-10-01T12:25:32.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

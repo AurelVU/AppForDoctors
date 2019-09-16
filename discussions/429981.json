@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "988491",
+    "ThreadId": "429981",
+    "Html": "\r\n<p>There is a bug occur&nbsp; if open xls file with 1 sheet,</p>\r\n<p>but if there more then one sheet,</p>\r\n<p>it is working normally.</p>\r\n<p>&nbsp;</p>\r\n<p>Regard,</p>\r\n<p>Rudi_Nugroho</p>\r\n",
+    "PostedDate": "2013-01-17T19:49:47.027-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988532",
+    "ThreadId": "429981",
+    "Html": "\r\n<p>I'll take a look now, if you are able to share the exact Excel sheet that is causing this issue it would help a lot.</p>\r\n",
+    "PostedDate": "2013-01-17T23:29:02.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988541",
+    "ThreadId": "429981",
+    "Html": "\r\n<p>Having checked this it all seems to work, it might be a problem with your file in which case I'd really appreciate it if you could share it. If it is confidential, you can email me direct and I'll create a new test file with junk data after we figure the\r\n problem out.</p>\r\n<p>Also, it could be that you are opening the file with the wrong method, for example, opening a binary file (xls) with the open XML reader. Check the following code out;</p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        [TestMethod]\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> Issue_xxxx_single_sheet_in_workbook()\r\n        {\r\n            <span style=\"color:green\">// Use the appropriate method here to open the file.</span>\r\n            IExcelDataReader reader = ExcelReaderFactory.CreateOpenXmlReader(<span style=\"color:#a31515\">&quot;path_to_your_file.xlsx&quot;</span>);\r\n            <span style=\"color:green\">//IExcelDataReader reader = ExcelReaderFactory.CreateBinaryReader(&quot;path_to_your_file.xls&quot;);</span>\r\n\r\n            Assert.AreEqual(1, reader.ResultsCount);\r\n\r\n            DataSet dataset = reader.AsDataSet();\r\n\r\n            reader.Close();\r\n\r\n            Assert.IsTrue(dataset != <span style=\"color:blue\">null</span>);\r\n            Assert.AreEqual(1, dataset.Tables.Count);\r\n            Assert.AreEqual(11, dataset.Tables[<span style=\"color:#a31515\">&quot;Sheet1&quot;</span>].Rows.Count);\r\n            Assert.AreEqual(4, dataset.Tables[<span style=\"color:#a31515\">&quot;Sheet1&quot;</span>].Columns.Count);\r\n        }\r\n\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2013-01-17T23:43:32.923-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990449",
+    "ThreadId": "429981",
+    "Html": "\r\n<p>I have a workbook with the same problem:</p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"></p>\r\n<p>&nbsp;&nbsp;&nbsp; private void Test()<br>\r\n&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; using (FileStream streamIn = File.Open(@&quot;Z:\\SIW\\Pass1 Data\\dms_vendor.extract.xlsx&quot;, FileMode.Open, FileAccess.Read))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; using (IExcelDataReader execlReader = ExcelReaderFactory.CreateOpenXmlReader(streamIn))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int r = execlReader.ResultsCount;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int x = r;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DataSet dataset = execlReader.AsDataSet();</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (DataTable sheet in dataset.Tables)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var a = sheet;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var b = a;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp; }</p>\r\n</span></span></span></span></span></span>\r\n<p></p>\r\n<p>When I break at the foreach and view the dataset it says the Tables count is 0 although the xlsx file has 260 lines and columns out to AC.</p>\r\n",
+    "PostedDate": "2013-01-22T10:16:37.257-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990478",
+    "ThreadId": "429981",
+    "Html": "\r\n<p>Any chance of a copy of that spreadsheet so I can see it too? You can email me using r at ryanoneill dot com .</p>\r\n",
+    "PostedDate": "2013-01-22T11:11:03.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990837",
+    "ThreadId": "429981",
+    "Html": "This discussion has been copied to a work item. Click <a href=\"http://exceldatareader.codeplex.com/workitem/11516\">here</a> to go to the work item and continue the discussion.",
+    "PostedDate": "2013-01-23T03:42:27.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

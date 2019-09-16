@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1429769",
+    "ThreadId": "639733",
+    "Html": "Hi ,\r<br />\nUsing openxml i have downloaded macroenabled excel and just opened the downloaded file using spreadsheetdocument and close it with out doing any modifications.\r<br />\nWhen i pass this file to ExcelReader it is showing empty dataset.\r<br />\nBut if i manually open the downloaded file and save it with out doing any changes, then upload it\r<br />\nit is working fine.\r<br />\n<br />\nPlease help me out. Please<br />\n",
+    "PostedDate": "2015-06-09T10:32:05.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "576640",
+    "ThreadId": "248723",
+    "Html": "\r\n<p>As the title says, the function AsDataSet fails with excel 2010 files. When I save the file with a 2007 version it works perfectly. Even more so, the function does not return any error. It simply does not create any tables in the dataset.</p>\r\n<p>Please verify this is a bug and include it in the release plan.</p>\r\n",
+    "PostedDate": "2011-03-07T06:48:58.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576657",
+    "ThreadId": "248723",
+    "Html": "<p>hmm, after I copied the files content to a new worksheet, saved that, everything works fine. So it must be an issue with the file itself. The only problem now is that I have no idea what that would be. The reader does not throw an error and excel doesn't report anything. Also, I've noticed that the new file (where I copied all of my contents to) is about 2-3 times smaller in filesize. Where is all that overhead coming from?</p>",
+    "PostedDate": "2011-03-07T07:08:17.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

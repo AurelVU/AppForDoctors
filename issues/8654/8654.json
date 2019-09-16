@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Request for the permission of type 'System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089' failed.",
+    "LastUpdatedDate": "2013-08-28T12:16:03.09-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-04-14T12:04:38.297-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error using ExcelReaderFactory.CreateOpenXmlReader(stream)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 6,
+    "Id": 8654
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Can't recreate this.  It must be related to how you are hosting the dll. Is this in a web app?",
+      "PostedDate": "2012-12-17T03:58:52.807-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:39.41-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-04-18T05:17:44.84-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-08-28T12:12:20.39-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "It is a web site for me.",
+      "PostedDate": "2013-08-28T12:16:03.09-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

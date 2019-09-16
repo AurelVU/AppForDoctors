@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "the issue tends to happen when one column has a null/empty value\n \n using (var stream = new FileStream(fileName, FileMode.Open, FileAccess.Read))\n            {\n                using (var excelReader2007 = ExcelReaderFactory.CreateOpenXmlReader(stream))\n                {\n                    _dataSet = excelReader2007.AsDataSet();\n                    excelReader2007.Close();\n                }\n            }\n \n foreach(DataTable dataTable in _dataSet.Tables)\n            {\n                var dataRowsToRemove = new List<DataRow>();\n \n                foreach (DataRow dataRow in dataTable.Rows)\n                {\n                    bool hasValue = false;\n                    foreach(object value in dataRow.ItemArray)\n                    {\n                        \n                        if (String.IsNullOrWhiteSpace(Convert.ToString(value)) == false)\n                        {\n                            string valueS = value.ToString();\n                            Console.WriteLine(valueS);\n                            hasValue = true;\n                        }\n                        else\n                              Console.WriteLine(\"item value is null\");\n                    }\n \n                }\n \n            }\n \nnotice in the first row it doesn't pick up column L or R in the first row",
+    "LastUpdatedDate": "2013-02-21T17:47:33.423-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-06-10T05:07:50.103-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "I have an excel spreadsheet and the code fails to read columns that have actual values",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10876
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4093,
+      "FileName": "CreateOppOSP_SFDCTest.xlsx",
+      "DownloadUrl": ".\\4093"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Please give solution i m facing the same issue........",
+      "PostedDate": "2013-01-08T03:22:36.21-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi,\ni m facing the same issue. have u resolved the issue. If yes please share the solution.\r\n\r\nThanks,\nAnil ",
+      "PostedDate": "2013-01-08T03:52:30.35-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:33.423-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

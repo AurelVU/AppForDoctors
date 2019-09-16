@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When I use your code to convert EXCEL to DataSet, I found title row(first row) is not correct. The attahced is my sample excel file. Could you help to check it?",
+    "LastUpdatedDate": "2013-02-21T17:47:45.973-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-12-23T06:19:13.103-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Cannot show the correct title",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 4978
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1851,
+      "FileName": "MOE Import Template.xls",
+      "DownloadUrl": ".\\1851"
+    }
+  ],
+  "Comments": []
+}

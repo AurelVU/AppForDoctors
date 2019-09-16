@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1236798",
+    "ThreadId": "542990",
+    "Html": "I've used ExcelDataReader previously with great success on both .xls and .xlsx files. I am trying to use it on a new project, but am running into an issue where when I call AsDataSet and then iterate over rows in one of the DataTables, all of the cell values are either empty string or DBNull. What can cause this to occur? The file is an .xls that says its 97-2003 file format.\r<br />\n<br />\nThanks for the great library!<br />\n",
+    "PostedDate": "2014-04-22T14:40:39.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1236968",
+    "ThreadId": "542990",
+    "Html": "<ol>\n<li>Are you using the latest version from nuget?</li>\n<li>\nDownload the source code and try the TestApp project and point it at your file. If it is still coming out empty then that particular sheet probably has some oddity that needs debugging in the library. You could either, a) do this yourself, b) post an issue and a sample file that has the problem here and I will attempt to take a look at it.<br />\n</li>\n</ol>\nYour fastest route to a solution though is to try and debug it yourself, as I am maxed out at the moment. If you do debug it yourself and spot a bug in the library then  please post the fix, so I can try and incorporate it into the library when I have time.\r<br />\n<br />\nCheers\r<br />\nIan<br />\n",
+    "PostedDate": "2014-04-23T03:32:03.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

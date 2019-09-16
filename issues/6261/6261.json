@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "will be fixed in the next release",
+    "ClosedDate": "2010-09-12T03:55:37.12-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When sheets order are changed in Excel 2007, Excel Data reader reads sheets in an incorrect order.\nFor example if whe have two sheets : S1 and S2 then we invert the order using Excel, Excel Data reader will put S2 data in S1 datatable and S1 data in S2 datatable.\n \nTo fix the issue ExcelData reader must use the Worksheet'Path  Property already parsed correctly to have the right sheet xml  file.\n \nI did the following to fix the issue :\n1- I added a new function in the class ZipWorker \n \npublic Stream GetWorksheetStream(string sheetPath)\n{\n            return GetStream(Path.Combine(_xlPath, sheetPath ));\n}\n2- In the ExcelOpenXmlReader class, I changed the first line  of the ReadSheetGlobals  function \nfrom : \n_sheetStream = _zipWorker.GetWorksheetStream(sheet.Id);\nTo \n_sheetStream = _zipWorker.GetWorksheetStream(sheet.Path);",
+    "LastUpdatedDate": "2013-05-16T04:59:59.673-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-06-08T16:44:36.723-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Relationships are not used to get the right xml files",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6261
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

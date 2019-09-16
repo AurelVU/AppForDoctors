@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed in the next release",
+    "ClosedDate": "2010-09-12T04:06:31.697-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Excel Data Reader Issue\nIn sheet1.xml, each string is replaced with the index of the corresponding <si> in sharedStrings.xml.  When an <si> is changed, Excel removes the original entry and appends the new <si>.  All cells referencing any <si> after the original entry that was removed are updated to reference the new <si> index order.\n \nIn sharedStrings.xml, each <si> (string item tag) represents a single-cell’s string.  If there are multiple formats (such as color) in the cell’s string, then instead of storing a single <t> (string tag), there are multiple <t> for each format within the <si>. \n \nExcel indexes on <si> and Excel Data Reader indexes on <t>.  Any cell where the content or formatting is changed in Excel is moved to the end of sharedStrings.xml and are not read correctly, because of the Excel Data Reader index issue.  This throws off the count when formats are applied to only a part of the string within a cell.  The reader reads the wrong strings for that cell and any other cell modified after a format was applied to a partial string.  Strings in cells added or changed without a corresponding string item element in sharedStrings.xml after a style is applied to a part of a string in a cell no longer reference the correct string item index.\n \nExcel Data Reader Resolution\nXlsxWorkbook.cs\n \n                internal class XlsxWorkbook\n                {\n                                private const string N_sheet = \"sheet\";\n                                private const string N_si = \"si\";  // <si>\n                                private const string N_t = \"t\"; // <t>\n...\n                                private void ReadSharedStrings(Stream xmlFileStream)\n                                {\n                                                if (null == xmlFileStream) return;\n \n                                                _SST = new XlsxSST();\n \n                                                using (XmlReader reader = XmlReader.Create(xmlFileStream))\n                                                {\n                                                                // There are multiple <t> in a <si>.  Concatenate <t> within an <si>.\n                                                                bool bAddStringItem = false;\n                                                                string sStringItem = \"\";\n \n                                                                while (reader.Read())\n                                                                {\n                                                                                // There are multiple <t> in a <si>.  Concatenate <t> within an <si>.\n                                                                                if (reader.NodeType == XmlNodeType.Element && reader.Name == N_si)\n                                                                                {\n                                                                                                // Do not add the string item until the next string item is read.\n                                                                                                if (bAddStringItem)\n                                                                                                {\n                                                                                                                // Add the string item to XlsxSST.\n                                                                                                                _SST.Add(sStringItem);\n                                                                                                }\n                                                                                                else\n                                                                                                {\n                                                                                                                // Add the string items from here on.\n                                                                                                                bAddStringItem = true;\n                                                                                                }\n \n                                                                                                // Reset the string item.\n                                                                                                sStringItem = \"\";\n                                                                                }\n \n                                                                                if (reader.NodeType == XmlNodeType.Element && reader.Name == N_t)\n                                                                                {\n                                                                                                // Append to the string item.\n                                                                                                sStringItem += reader.ReadElementContentAsString();\n                                                                                }\n                                                                }\n \n                                                                // Do not add the last string item unless we have read previous string items.\n                                                                if (bAddStringItem)\n                                                                {\n                                                                                // Add the string item to XlsxSST.\n                                                                                _SST.Add(sStringItem);\n                                                                }\n \n                                                                xmlFileStream.Close();\n                                                }\n                                }\n...\n                }\n \n--Andrew",
+    "LastUpdatedDate": "2013-05-16T04:59:59.96-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-04-01T11:38:06.73-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Excel indexes on <si> and Excel Data Reader indexes on <t>",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 5842
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "added code to next release",
+      "PostedDate": "2010-09-12T04:06:19.2-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-12T04:06:31.697-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:44.21-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:59.96-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2009-05-13T13:11:44.833-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "My Input Excel has some columns as \"General\" type. It has URL with Hyperlinks in those. When i try to read the Excel, it throws invalid OleDate Format error. Input Excel Data cannot be changed (Removing Hyperlinks before reading it through Excel Data Reader). As i am using beta version of the dll, i am not able to debug. Any fix available for this?",
+    "LastUpdatedDate": "2013-05-16T05:00:04.543-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-05-11T12:23:52.6-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Excel with Hyperlinks",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 3021
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I've come to made a test with Hyperlinks and the result was positive. (using last release of the library)\r\nIf you still get the error, could you provide me the file?",
+      "PostedDate": "2009-05-12T10:06:37.73-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-05-12T10:07:28.257-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-05-12T10:07:53.723-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-05-13T13:11:44.833-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:50.813-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:04.543-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1252771",
+    "ThreadId": "547510",
+    "Html": "First and mosr important:\r<br />\nThis tool is superb. Most comprehansive and works perfect for me.\r<br />\n<br />\nStill - I have a problem with my files:\r<br />\nI get from a third party Excel 97-2003 xls files with bad signature (or header). I checked the signature, and indeed, it is bad.\r<br />\nThe starange thing is that MS Excel will open the files OK, while the ExcelBinaryReader will reject them as bad (Justifiedly).\r<br />\nI tried to find a way to override the signature checking, but it looks quite complex.\r<br />\nCan anyone help?\r<br />\n<br />\nHere is the file:\r<br />\n<br />\n<a href=\"https://drive.google.com/?usp=chrome_app#folders/0B-INd-LMMHaJMDNXSlV1Z2pFUzg\" rel=\"nofollow\">https://drive.google.com/?usp=chrome_app#folders/0B-INd-LMMHaJMDNXSlV1Z2pFUzg</a>\r<br />\nThanks \r<br />\nSam<br />\n",
+    "PostedDate": "2014-06-04T01:57:41.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1343315",
+    "ThreadId": "547510",
+    "Html": "Hi Sam,\r<br />\n<br />\nDid Yo got a Solution? I have a similar problem...\r<br />\nI would appreciate if You can share the solution.\r<br />\nThanks.\r<br />\nCésar F. V.<br />\n",
+    "PostedDate": "2015-01-19T10:35:28.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1436184",
+    "ThreadId": "547510",
+    "Html": "Hi All\r<br />\n<br />\nWell i had the same issue and i think i figured out a solution.\r<br />\n<br />\n1- Open the file in microsoft excel\r<br />\n2- File &gt; Export &gt; Change File Type\r<br />\n3- I picked Excel 92-2003 Workbook (*.xls)\r<br />\n<br />\nthen used the new exported file instead of the old one\r<br />\n<br />\nthis worked for me, and hope to be helpful for you<br />\n",
+    "PostedDate": "2015-07-27T12:09:56.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

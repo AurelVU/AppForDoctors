@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1045138",
+    "ThreadId": "444067",
+    "Html": "Hello,\r<br />\n<br />\nI am trying to do the home page example but the AsDataSet() does not exist for me in the following two lines.\r<br />\n<br />\nIExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(e.Result);\r<br />\nDataSet result = excelReader.AsDataSet();\r<br />\n<br />\nexcelreader has several other functions but not the one i need to be able to read the stream.\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2013-05-17T08:07:32.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1046928",
+    "ThreadId": "444067",
+    "Html": "That is a bit strange as it is a member of that interface. I am not familiar with silverlight development however.<br />\n",
+    "PostedDate": "2013-05-22T01:28:12.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1050031",
+    "ThreadId": "444067",
+    "Html": "In Silverlight you could use the IWorkBook  Interface instead:<br />\n<pre><code>IExcelDataReader excelReader = ...;\n...\nIWorkBook workBook = excelReader.AsWorkBook();\n\nforeach (IWorkSheet workSheetFromExcel in workBook.WorkSheets)\n{\n       ...workSheetFromExcel.Rows\n}\n</code></pre>\n\n",
+    "PostedDate": "2013-05-29T03:57:41.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

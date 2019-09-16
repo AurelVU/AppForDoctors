@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The code is simple.\n\nApp.cs\n```\nusing System;\n\nclass App\n{\n    static void Main()\n    {\n#if DebugConfig\n        Console.WriteLine(\"WE ARE IN THE DEBUG CONFIGURATION\");\n#endif\n\n        Console.WriteLine(\"Hello, world!\");\n\n\tIExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(\"~/Desktop/Sample.xlsx\");\n    }\n}\n\n```\n\nCEC.csproj\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Project DefaultTargets = \"Build\" \n\t xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\" ToolsVersion=\"4.0\">\n\n  <PropertyGroup>\n    <Configuration Condition=\" '$(Configuration)' == '' \">Debug</Configuration>\n    <Platform Condition=\" '$(Platform)' == '' \">AnyCPU</Platform>\n    <appname>cec</appname>\n    <outputpath>bin/</outputpath>\n    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>\n  </PropertyGroup>\n\n  <PropertyGroup Condition=\" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' \">\n    <DebugSymbols>true</DebugSymbols>\n    <DebugType>full</DebugType>\n    <Optimize>false</Optimize>\n    <OutputPath>bin\\Debug\\</OutputPath>\n    <DefineConstants>DEBUG;TRACE</DefineConstants>\n    <ErrorReport>prompt</ErrorReport>\n    <WarningLevel>4</WarningLevel>\n    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>\n  </PropertyGroup>\n\n  <ItemGroup>\n    <Compile Include = \"App.cs\"/>\n  </ItemGroup>\n\n  <ItemGroup>\n    <ProjectReference Include=\"ExcelDataReader/src/Excel/Excel.csproj\">\n      <Project>{4CB0690E-3E7A-497C-9116-D52024F63195}</Project>\n      <Name>Excel</Name>\n    </ProjectReference>\n  </ItemGroup>\n\n  <Import Project=\"$(MSBuildToolsPath)/Microsoft.CSharp.targets\" />\n\n</Project>\n```\n\nOutput (full output in attachment):\nxbuild CEC.csproj\n```\n        Target CoreCompile:\n                Tool /usr/bin/gmcs execution started with arguments: /noconfig /debug:full /debug+ /optimize- /out:obj/Debug/ App.cs /define:\"DEBUG;TRACE\" /reference:/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/bin/Debug//Excel.dll /reference:/usr/lib/mono/2.0/mscorlib.dll /reference:/usr/lib/mono/2.0/System.dll /reference:/usr/lib/mono/2.0/System.Data.dll /reference:/usr/lib/mono/2.0/System.Xml.dll /reference:/home/den/work/contactor/ceos1/ExcelDataReader/src/Excel/bin/Debug/ICSharpCode.SharpZipLib.dll /warn:4\n                Unhandled Exception: System.ArgumentException: assemblyName cannot have zero length.\n                  at System.Reflection.AssemblyName..ctor (System.String assemblyName) [0x00000] in <filename unknown>:0\n                  at Mono.CSharp.AssemblyDefinition.CreateAssemblyName () [0x00000] in <filename unknown>:0\n                  at Mono.CSharp.AssemblyDefinitionDynamic.Create (System.AppDomain domain, AssemblyBuilderAccess access) [0x00000] in <filename unknown>:0\n                  at Mono.CSharp.Driver.Compile () [0x00000] in <filename unknown>:0\n                  at Mono.CSharp.Driver.Main (System.String[] args) [0x00000] in <filename unknown>:0\n                [ERROR] FATAL UNHANDLED EXCEPTION: System.ArgumentException: assemblyName cannot have zero length.\n                  at System.Reflection.AssemblyName..ctor (System.String assemblyName) [0x00000] in <filename unknown>:0\n                  at Mono.CSharp.AssemblyDefinition.CreateAssemblyName () [0x00000] in <filename unknown>:0\n                  at Mono.CSharp.AssemblyDefinitionDynamic.Create (System.AppDomain domain, AssemblyBuilderAccess access) [0x00000] in <filename unknown>:0\n                  at Mono.CSharp.Driver.Compile () [0x00000] in <filename unknown>:0\n                  at Mono.CSharp.Driver.Main (System.String[] args) [0x00000] in <filename unknown>:0\n/usr/lib/mono/4.0/Microsoft.CSharp.targets: error : Compiler crashed with code: 1.\n        Task \"Csc\" execution -- FAILED \n```",
+    "LastUpdatedDate": "2013-11-15T02:09:06.143-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-11-15T02:09:00.783-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Usage problem under mono",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12459
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4753,
+      "FileName": "build-out.txt",
+      "DownloadUrl": ".\\4753"
+    }
+  ],
+  "Comments": []
+}

@@ -1,0 +1,91 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Resolved in new release",
+    "ClosedDate": "2009-05-12T09:59:05.8-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I was testing this with some dates and they come out as numeric strings. Attached is a test spreadsheet",
+    "LastUpdatedDate": "2013-05-16T05:00:05.103-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-01-29T12:20:18.637-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Dates represented as numeric values",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 1468
+  },
+  "FileAttachments": [
+    {
+      "FileId": 668,
+      "FileName": "dates.xls",
+      "DownloadUrl": ".\\668"
+    },
+    {
+      "FileId": 684,
+      "FileName": "ExcelDataReader.cs",
+      "DownloadUrl": ".\\684"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Indeed, the Excel binary file saves dates as double numbers. The library could only guess it´s a date by parsing the format info, but the original developers didn’t coded that. But if you know a certain cell will be a date, you can use the following code to get a DateTime:\r\n\r\ndouble serialDate = double.Parse(stringSerialDate, CultureInfo.InvariantCulture);\r\nDateTime dt = DateTime.FromOADate(serialDate);\r\n\r\nRemember to get and apply the patch #2279 that I uploaded, or see my comments on issue #1109.\r\n\r\nI´m trying to get in contact with the developers, but so far I had no responses.\r\n\r\nGood Luck!\r\n\r\nJP Negri\r\n\r\n",
+      "PostedDate": "2009-01-30T08:30:23.303-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "This can be fixed by intercepting the XFormat type (values 62,63,66,67,68,69,70) on BIFFRECORDTYPE.NUMBER_OLD, BIFFRECORDTYPE.RK, and BIFFRECORDTYPE.FORMULA_OLD case statements and set the row/cell to the converted datetime object, dt.Rows[cell.RowIndex][cell.ColumnIndex]=System.DateTime.FromOADate(....)",
+      "PostedDate": "2009-02-01T11:25:26.703-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-02-01T11:25:31.11-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi,\r\nI am also facing the same issue for date time values. Can you explain me in detail how to fix this.\r\nLike which file, line no and what code that i need to include to fix this date time issue\r\n\r\nThanks\r\nKathir\r\n",
+      "PostedDate": "2009-03-15T23:56:22.9-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-04-08T17:59:01.447-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-05-12T09:59:05.8-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:51.99-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:05.103-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

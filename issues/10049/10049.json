@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "There are problems with decimal place separator when Windows is in non-english culture. My work-around to pass the tests is to add \nSystem.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;\nto Factory methods.\nI believe IFormatProvider (not sure if InvariantCulture or CurrentCulture) parameter should be added to all decimal, double and float Parse() occurances in library and tests.\n \nAnother thing is there are files related to Binary12Format in directories which are not added to the project.\n \nThanks for this library and regards",
+    "LastUpdatedDate": "2013-10-23T09:29:34.843-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-12-25T09:44:07.467-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Culture problem and unlinked files",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 10049
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thanks! You solve a very big issue in my project.\nThis solve all other issues relating the decimal character as comma (because that was my problem).",
+      "PostedDate": "2013-07-15T08:06:57.267-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-08-12T06:29:32.137-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "In the class Excel.ExcelOpenXmlReader, line 202, change:\r\n\r\n```\nif (double.TryParse(o.ToString(),  out number))\n```\r\n\r\nto:\r\n\r\n```\nif (double.TryParse(o.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture,  out number))\n```\r\n\r\nto solve decimals problems.",
+      "PostedDate": "2013-10-23T09:29:34.843-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

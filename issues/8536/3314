@@ -1,0 +1,690 @@
+Index: Excel/Core/BinaryFormat/XlsBiffFormatString.cs
+===================================================================
+--- Excel/Core/BinaryFormat/XlsBiffFormatString.cs	(revision 0)
++++ Excel/Core/BinaryFormat/XlsBiffFormatString.cs	(revision 0)
+@@ -0,0 +1,102 @@
++using System.Text;
++
++namespace Excel.Core.BinaryFormat
++{
++	/// <summary>
++	/// Represents a string value of formula
++	/// </summary>
++	internal class XlsBiffFormatString : XlsBiffRecord
++	{
++
++        private Encoding m_UseEncoding =  Encoding.Default;
++		private string m_value = null;
++		
++
++		internal XlsBiffFormatString(byte[] bytes)
++			: this(bytes, 0)
++		{
++		}
++
++        internal XlsBiffFormatString(byte[] bytes, uint offset)
++			: base(bytes, offset)
++		{
++		}
++
++
++        /// <summary>
++        /// Encoding used to deal with strings
++        /// </summary>
++        public Encoding UseEncoding
++        {
++            get { return m_UseEncoding; }
++            set { m_UseEncoding = value; }
++        }
++
++		/// <summary>
++		/// Length of the string
++		/// </summary>
++		public ushort Length
++		{
++			get
++			{
++			     switch (ID)
++			     {
++			         case BIFFRECORDTYPE.FORMAT_V23:
++			             return base.ReadByte(0x0);
++			         default:
++			             return base.ReadUInt16(2);
++			     }
++			}
++		}
++
++		/// <summary>
++		/// String text
++		/// </summary>
++        public string Value
++        {
++            get
++            {
++                if (m_value == null)
++                {
++                    switch (ID)
++                    {
++                        case BIFFRECORDTYPE.FORMAT_V23:
++                            m_value = m_UseEncoding.GetString(m_bytes, m_readoffset + 1, Length);
++                            break;
++                        case BIFFRECORDTYPE.FORMAT:
++                            var offset = m_readoffset + 5;
++                            var flags = ReadByte(3);
++                            m_UseEncoding = (flags & 0x01) == 0x01 ? Encoding.Unicode : Encoding.Default;
++                            if ((flags & 0x04) == 0x01) // asian phonetic block size
++                                offset += 4;
++                            if ((flags & 0x08) == 0x01) // number of rtf blocks
++                                offset += 2;
++                            m_value = m_UseEncoding.IsSingleByte ? m_UseEncoding.GetString(m_bytes, offset, Length) : m_UseEncoding.GetString(m_bytes, offset, Length*2);
++
++                            break;
++
++
++                    }
++                   
++
++                }
++                return m_value;
++            }
++        }
++
++        public ushort Index
++        {
++            get
++            {
++                switch (ID)
++                {
++                    case BIFFRECORDTYPE.FORMAT_V23:
++                        return 0;
++                    default:
++                        return ReadUInt16(0);
++
++                }
++            }
++        }
++	}
++}
+\ No newline at end of file
+Index: Excel/Core/BinaryFormat/XlsBiffRecord.cs
+===================================================================
+--- Excel/Core/BinaryFormat/XlsBiffRecord.cs	(revision 64305)
++++ Excel/Core/BinaryFormat/XlsBiffRecord.cs	(working copy)
+@@ -97,6 +97,8 @@
+ 				case BIFFRECORDTYPE.DBCELL:
+ 					return new XlsBiffDbCell(bytes, offset);
+ 
++                case BIFFRECORDTYPE.BOOLERR:
++                case BIFFRECORDTYPE.BOOLERR_OLD:
+ 				case BIFFRECORDTYPE.BLANK:
+ 				case BIFFRECORDTYPE.BLANK_OLD:
+ 					return new XlsBiffBlankCell(bytes, offset);
+@@ -121,6 +123,9 @@
+ 				case BIFFRECORDTYPE.FORMULA:
+ 				case BIFFRECORDTYPE.FORMULA_OLD:
+ 					return new XlsBiffFormulaCell(bytes, offset);
++                case BIFFRECORDTYPE.FORMAT_V23:
++                case BIFFRECORDTYPE.FORMAT:
++                    return new XlsBiffFormatString(bytes, offset);
+ 				case BIFFRECORDTYPE.STRING:
+ 					return new XlsBiffFormulaString(bytes, offset);
+ 				case BIFFRECORDTYPE.CONTINUE:
+Index: Excel/Core/BinaryFormat/XlsWorkbookGlobals.cs
+===================================================================
+--- Excel/Core/BinaryFormat/XlsWorkbookGlobals.cs	(revision 64305)
++++ Excel/Core/BinaryFormat/XlsWorkbookGlobals.cs	(working copy)
+@@ -9,7 +9,7 @@
+ 	{
+ 		private readonly List<XlsBiffRecord> m_ExtendedFormats = new List<XlsBiffRecord>();
+ 		private readonly List<XlsBiffRecord> m_Fonts = new List<XlsBiffRecord>();
+-		private readonly List<XlsBiffRecord> m_Formats = new List<XlsBiffRecord>();
++        private readonly Dictionary<ushort, XlsBiffFormatString> m_Formats = new Dictionary<ushort, XlsBiffFormatString>();
+ 		private readonly List<XlsBiffBoundSheet> m_Sheets = new List<XlsBiffBoundSheet>();
+ 		private readonly List<XlsBiffRecord> m_Styles = new List<XlsBiffRecord>();
+ 		private XlsBiffSimpleValueRecord m_Backup;
+@@ -71,11 +71,13 @@
+ 			get { return m_Fonts; }
+ 		}
+ 
+-		public List<XlsBiffRecord> Formats
++        public Dictionary<ushort, XlsBiffFormatString> Formats
+ 		{
+ 			get { return m_Formats; }
+ 		}
+ 
++        
++
+ 		public List<XlsBiffRecord> ExtendedFormats
+ 		{
+ 			get { return m_ExtendedFormats; }
+Index: Excel/Core/Helpers.cs
+===================================================================
+--- Excel/Core/Helpers.cs	(revision 64305)
++++ Excel/Core/Helpers.cs	(working copy)
+@@ -1,5 +1,8 @@
+ using System;
+ using System.Collections.Generic;
++using System.Data;
++using System.Globalization;
++using System.Text.RegularExpressions;
+ using System.Text;
+ 
+ namespace Excel.Core
+@@ -42,5 +45,86 @@
+ 			return BitConverter.ToDouble(BitConverter.GetBytes(value), 0);
+ 		}
+ 
+-	}
++	    private static Regex re = new Regex("_x([0-9A-F]{4,4})_");
++
++        public static string ConvertEscapeChars(string input)
++        {
++            return re.Replace(input, m => (((char)UInt32.Parse(m.Groups[1].Value, NumberStyles.HexNumber))).ToString());
++        }
++
++	    public static object ConvertFromOATime(double value)
++	    {
++	        if ((value >= 0.0) && (value < 60.0))
++	        {
++	            value++;
++	        }
++	        //if (date1904)
++	        //{
++	        //    Value += 1462.0;
++	        //}
++	        return DateTime.FromOADate(value);
++	    }
++
++        internal static void FixDataTypes(DataSet dataset)
++        {
++            var tables = new List<DataTable>(dataset.Tables.Count);
++            bool convert = false;
++            foreach (DataTable table in dataset.Tables)
++            {
++               
++                if ( table.Rows.Count == 0)
++                {
++                    tables.Add(table);
++                    continue;
++                }
++                DataTable newTable = null;
++                for (int i = 0; i < table.Columns.Count; i++)
++                {
++                    Type type = null;
++                    foreach (DataRow row  in table.Rows)
++                    {
++                        if (row.IsNull(i))
++                            continue;
++                        var curType = row[i].GetType();
++                        if (curType != type)
++                        {
++                            if (type == null)
++                                type = curType;
++                            else
++                            {
++                                type = null;
++                                break;
++                            }
++                        }
++                    }
++                    if (type != null)
++                    {
++                        convert = true;
++                        if (newTable == null)
++                            newTable = table.Clone();
++                        newTable.Columns[i].DataType = type;
++
++                    }
++                }
++                if (newTable != null)
++                {
++                    newTable.BeginLoadData();
++                    foreach (DataRow row in table.Rows)
++                    {
++                        newTable.ImportRow(row);
++                    }
++
++                    newTable.EndLoadData();
++                    tables.Add(newTable);
++
++                }
++                else tables.Add(table);
++            }
++            if (convert)
++            {
++                dataset.Tables.Clear();
++                dataset.Tables.AddRange(tables.ToArray());
++            }
++        }
++    }
+ }
+\ No newline at end of file
+Index: Excel/Excel.csproj
+===================================================================
+--- Excel/Excel.csproj	(revision 64305)
++++ Excel/Excel.csproj	(working copy)
+@@ -126,6 +126,7 @@
+     <Reference Include="System.XML" />
+   </ItemGroup>
+   <ItemGroup>
++    <Compile Include="Core\BinaryFormat\XlsBiffFormatString.cs" />
+     <Compile Include="Core\BinaryFormat\Enums.cs" />
+     <Compile Include="Core\BinaryFormat\XlsBiffBlankCell.cs" />
+     <Compile Include="Core\BinaryFormat\XlsBiffBOF.cs" />
+Index: Excel/ExcelBinaryReader.cs
+===================================================================
+--- Excel/ExcelBinaryReader.cs	(revision 64305)
++++ Excel/ExcelBinaryReader.cs	(working copy)
+@@ -3,6 +3,7 @@
+ using System.Data;
+ using System.IO;
+ using System.Text;
++using Excel.Core;
+ using Excel.Core.BinaryFormat;
+ 
+ namespace Excel
+@@ -205,10 +206,19 @@
+ 					case BIFFRECORDTYPE.FONT_V34:
+ 						m_globals.Fonts.Add(rec);
+ 						break;
+-					case BIFFRECORDTYPE.FORMAT:
+-					case BIFFRECORDTYPE.FORMAT_V23:
+-						m_globals.Formats.Add(rec);
+-						break;
++                    case BIFFRECORDTYPE.FORMAT_V23:
++				        {
++				            var fmt = (XlsBiffFormatString) rec;
++				            fmt.UseEncoding = m_encoding;
++				            m_globals.Formats.Add((ushort) m_globals.Formats.Count, fmt);
++				        }
++                        break;
++                    case BIFFRECORDTYPE.FORMAT:
++				        {
++				            var fmt = (XlsBiffFormatString) rec;
++                            m_globals.Formats.Add(fmt.Index, fmt);
++				        }
++				        break;
+ 					case BIFFRECORDTYPE.XF:
+ 					case BIFFRECORDTYPE.XF_V4:
+ 					case BIFFRECORDTYPE.XF_V3:
+@@ -360,16 +370,16 @@
+ 						for (int i = 0; i < m_maxCol; i++)
+ 						{
+ 							if (m_cellsValues[i] != null && m_cellsValues[i].ToString().Length > 0)
+-								table.Columns.Add(m_cellsValues[i].ToString());
++								table.Columns.Add(m_cellsValues[i].ToString(), typeof(Object));
+ 							else
+-								table.Columns.Add(string.Concat(COLUMN, i));
++                                table.Columns.Add(string.Concat(COLUMN, i), typeof(Object));
+ 						}
+ 					}
+ 					else
+ 					{
+ 						for (int i = 0; i < m_maxCol; i++)
+ 						{
+-							table.Columns.Add();
++                            table.Columns.Add(null, typeof(Object));
+ 						}
+ 					}
+ 
+@@ -397,6 +407,14 @@
+ 
+ 			switch (cell.ID)
+ 			{
++                case BIFFRECORDTYPE.BOOLERR:
++                    if (cell.ReadByte(7) == 0)
++                        m_cellsValues[cell.ColumnIndex] = cell.ReadByte(6) != 0;
++                    break;
++                case BIFFRECORDTYPE.BOOLERR_OLD:
++                    if (cell.ReadByte(8) == 0)
++                        m_cellsValues[cell.ColumnIndex] = cell.ReadByte(7) != 0;
++                    break;
+ 				case BIFFRECORDTYPE.INTEGER:
+ 				case BIFFRECORDTYPE.INTEGER_OLD:
+ 					m_cellsValues[cell.ColumnIndex] = ((XlsBiffIntegerCell)cell).Value;
+@@ -432,7 +450,8 @@
+ 					XlsBiffMulRKCell _rkCell = (XlsBiffMulRKCell)cell;
+ 					for (ushort j = cell.ColumnIndex; j <= _rkCell.LastColumnIndex; j++)
+ 					{
+-						m_cellsValues[j] = _rkCell.GetValue(j);
++                        _dValue = _rkCell.GetValue(j);
++                        m_cellsValues[j] = !m_ConvertOADate ? _dValue : tryConvertOADateTime(_dValue, _rkCell.GetXF(j));
+ 					}
+ 
+ 					break;
+@@ -527,54 +546,115 @@
+ 			m_hdr = null;
+ 		}
+ 
+-		private static object tryConvertOADateTime(double value, ushort XFormat)
++		private  object tryConvertOADateTime(double value, ushort XFormat)
+ 		{
+-			switch (XFormat)
+-			{
+-				//Time format
+-				case 63:
+-				case 68:
+-					DateTime time = DateTime.FromOADate(value);
++		    ushort format = 0;
++            if (XFormat >= 0 && XFormat < m_globals.ExtendedFormats.Count)
++            {
++                var rec = m_globals.ExtendedFormats[XFormat];
++                switch (rec.ID)
++                {
++                    case BIFFRECORDTYPE.XF_V2:
++                        format = (ushort) (rec.ReadByte(2) & 0x3F);
++                        break;
++                    case BIFFRECORDTYPE.XF_V3:
++                          if ((rec.ReadByte(3) & 4) == 0)
++                            return value.ToString();
++                        format = rec.ReadByte(1);
++                        break;
++                    case BIFFRECORDTYPE.XF_V4:
++                        if ((rec.ReadByte(5) & 4) == 0)
++                            return value.ToString();
++                        format = rec.ReadByte(1);
++                        break;
++                    
++                    default:
++                        if ((rec.ReadByte(m_globals.Sheets[m_globals.Sheets.Count-1].IsV8 ? 9 : 7) & 4) == 0)
++                            return value.ToString();
++                        
++                        format = rec.ReadUInt16(2);
++                        break;
++                }
++            }
+ 
+-					return (time.Second == 0)
+-						? time.ToShortTimeString()
+-						: time.ToLongTimeString();
++           
++            switch (format)
++            {
++                // numeric built in formats
++                case 0: //"General";
++                case 1: //"0";
++                case 2: //"0.00";
++                case 3: //"#,##0";
++                case 4: //"#,##0.00";
++                case 5: //"\"$\"#,##0_);(\"$\"#,##0)";
++                case 6: //"\"$\"#,##0_);[Red](\"$\"#,##0)";
++                case 7: //"\"$\"#,##0.00_);(\"$\"#,##0.00)";
++                case 8: //"\"$\"#,##0.00_);[Red](\"$\"#,##0.00)";
++                case 9: //"0%";
++                case 10: //"0.00%";
++                case 11: //"0.00E+00";
++                case 12: //"# ?/?";
++                case 13: //"# ??/??";
++                case 0x30:// "##0.0E+0";
++               
++                case 0x25:// "_(#,##0_);(#,##0)";
++                case 0x26:// "_(#,##0_);[Red](#,##0)";
++                case 0x27:// "_(#,##0.00_);(#,##0.00)";
++                case 40:// "_(#,##0.00_);[Red](#,##0.00)";
++                case 0x29:// "_(\"$\"* #,##0_);_(\"$\"* (#,##0);_(\"$\"* \"-\"_);_(@_)";
++                case 0x2a:// "_(\"$\"* #,##0_);_(\"$\"* (#,##0);_(\"$\"* \"-\"_);_(@_)";
++                case 0x2b:// "_(\"$\"* #,##0.00_);_(\"$\"* (#,##0.00);_(\"$\"* \"-\"??_);_(@_)";
++                case 0x2c:// "_(* #,##0.00_);_(* (#,##0.00);_(* \"-\"??_);_(@_)";
++                    return value;
+ 
+-				//Date Format
+-				case 26:
+-				case 62:
+-				case 64:
+-				case 67:
+-				case 69:
+-				case 70:
+-				case 100: return DateTime.FromOADate(value).ToString(System.Globalization.CultureInfo.CurrentCulture);
+-				//case 100: return DateTime.FromOADate(value).ToString(System.Globalization.CultureInfo.InvariantCulture);
++                    // date formats
++                case 14: //this.GetDefaultDateFormat();
++                case 15: //"D-MM-YY";
++                case 0x10: // "D-MMM";
++                case 0x11: // "MMM-YY";
++                case 0x12: // "h:mm AM/PM";
++                case 0x13: // "h:mm:ss AM/PM";
++                case 20: // "h:mm";
++                case 0x15: // "h:mm:ss";
++                case 0x16: // string.Format("{0} {1}", this.GetDefaultDateFormat(), this.GetDefaultTimeFormat());
++                   
++                case 0x2d: // "mm:ss";
++                case 0x2e: // "[h]:mm:ss";
++                case 0x2f: // "mm:ss.0";
++                    return Helpers.ConvertFromOATime(value);
++                 case 0x31:// "@";
++                    return value.ToString();
+ 
+-				default:
+-					return value;
+-			}
+-		}
++                default:
++                    XlsBiffFormatString fmtString;
++                    if (m_globals.Formats.TryGetValue(format, out fmtString) )
++                    {
++                        var fmt = fmtString.Value.ToUpper();
++                        if ((((fmt.IndexOf("D") >= 0) || (fmt.IndexOf("M") >= 0)) || ((fmt.IndexOf("YY") >= 0) || (fmt.IndexOf("H") >= 0))) || (fmt.IndexOf("SS") >= 0))
++                            return Helpers.ConvertFromOATime(value); 
+ 
+-		private static object tryConvertOADateTime(object value, ushort XFormat)
+-		{
+-			double _dValue;
+-			object r;
++                    }
++                    return value;
+ 
+-			try
+-			{
+-				_dValue = double.Parse(value.ToString());
+ 
+-				r = tryConvertOADateTime(_dValue, XFormat);
+-			}
+-			catch (FormatException)
+-			{
+-				r = value;
+-			}
+ 
+-			return r;
++            }
++
++		    
+ 		}
+ 
+-		private bool isV8()
++	    private  object tryConvertOADateTime(object value, ushort XFormat)
++	    {
++	        double _dValue;
++
++
++	        if (double.TryParse(value.ToString(), out _dValue))
++	            return tryConvertOADateTime(_dValue, XFormat);
++	        return _dValue;
++
++	    }
++
++	    private bool isV8()
+ 		{
+ 			return m_version >= 0x600;
+ 		}
+@@ -603,6 +683,7 @@
+ 
+ 			m_ConvertOADate = convertOADateTime;
+ 			m_workbookData = new DataSet();
++            
+ 
+ 			for (int index = 0; index < ResultsCount; index++)
+ 			{
+@@ -614,6 +695,8 @@
+ 
+ 			m_file.Close();
+ 			m_isClosed = true;
++		    m_workbookData.AcceptChanges();
++		    Helpers.FixDataTypes(m_workbookData);
+ 
+ 			return m_workbookData;
+ 		}
+Index: Excel/ExcelOpenXmlReader.cs
+===================================================================
+--- Excel/ExcelOpenXmlReader.cs	(revision 64305)
++++ Excel/ExcelOpenXmlReader.cs	(working copy)
+@@ -65,7 +65,7 @@
+ 			foreach (XlsxNumFmt numFmt in list)
+ 			{
+ 				if (string.IsNullOrEmpty(numFmt.FormatCode)) continue;
+-				string fc = numFmt.FormatCode;
++				string fc = numFmt.FormatCode.ToLower();
+ 
+ 				int pos;
+ 				while ((pos = fc.IndexOf('"')) > 0)
+@@ -150,57 +150,62 @@
+ 				int col = 0;
+ 				int row = 0;
+ 
+- 				while (_xmlReader.Read())
+- 				{
+- 					if (_xmlReader.Depth == 2) break;
+- 
+-					if (_xmlReader.NodeType == XmlNodeType.Element)
+- 					{
+-						hasValue = false;
+- 
+-						if (_xmlReader.Name == XlsxWorksheet.N_c)
+-						{
+-							a_s = _xmlReader.GetAttribute(XlsxWorksheet.A_s);
+-							a_t = _xmlReader.GetAttribute(XlsxWorksheet.A_t);
+-							a_r = _xmlReader.GetAttribute(XlsxWorksheet.A_r);
+-							XlsxDimension.XlsxDim(a_r, out col, out row);
+-						}
+-						else if (_xmlReader.Name == XlsxWorksheet.N_v)
+-						{
+-							hasValue = true;
+-						}
+-					}
+- 
+-					if (_xmlReader.NodeType == XmlNodeType.Text && hasValue)
+-					{
+-						object o = _xmlReader.Value;
+- 
+- 						if (null != a_t && a_t == XlsxWorksheet.A_s)
+- 						{
+-							o = _workbook.SST[Convert.ToInt32(o)];
+-						}
+-						else if (null != a_s)
+-						{
+-							XlsxXf xf = _workbook.Styles.CellXfs[int.Parse(a_s)];
++                while (_xmlReader.Read())
++                {
++                    if (_xmlReader.Depth == 2) break;
+ 
+-							if (xf.ApplyNumberFormat && IsDateTimeStyle(xf.NumFmtId) && o != null && o.ToString() != string.Empty)
+-							{
+-								o = DateTime.FromOADate(Convert.ToDouble(o, CultureInfo.InvariantCulture));
+-							}
+-						}
++                    if (_xmlReader.NodeType == XmlNodeType.Element)
++                    {
++                        hasValue = false;
+ 
+-						if (col - 1 < _cellsValues.Length)
+-							_cellsValues[col - 1] = o;
+-					}
+-				}
++                        if (_xmlReader.Name == XlsxWorksheet.N_c)
++                        {
++                            a_s = _xmlReader.GetAttribute(XlsxWorksheet.A_s);
++                            a_t = _xmlReader.GetAttribute(XlsxWorksheet.A_t);
++                            a_r = _xmlReader.GetAttribute(XlsxWorksheet.A_r);
++                            XlsxDimension.XlsxDim(a_r, out col, out row);
++                        }
++                        else if (_xmlReader.Name == XlsxWorksheet.N_v)
++                        {
++                            hasValue = true;
++                        }
++                    }
+ 
++                    if (_xmlReader.NodeType == XmlNodeType.Text && hasValue)
++                    {
++                        double number;
++                        object o = _xmlReader.Value;
++                        if (double.TryParse(o.ToString(), out number))                        
++                            o = number;
++
++
++                        if (null != a_t && a_t == XlsxWorksheet.A_s)
++                        {
++                            o = Helpers.ConvertEscapeChars(_workbook.SST[(int)o]);
++                        }
++                        else if (null != a_s)
++                        {
++                            XlsxXf xf = _workbook.Styles.CellXfs[int.Parse(a_s)];
++                            if (xf.ApplyNumberFormat && o != null && o.ToString() != string.Empty && IsDateTimeStyle(xf.NumFmtId))
++                                o = Helpers.ConvertFromOATime(number);
++                            else if (xf.NumFmtId == 49)
++                                o = o.ToString();
++                        }
++                        else if (a_t == "b") //boolean
++                            o = _xmlReader.Value == "1";                          
++
++
++                        if (col - 1 < _cellsValues.Length)
++                            _cellsValues[col - 1] = o;
++                    }
++                }
++
+ 				if (_emptyRowCount > 0)
+ 				{
+ 					_savedCellsValues = _cellsValues;
+ 					return ReadSheetRow(sheet);
+ 				}
+-				else
+-					_depth++;
++				_depth++;
+ 
+ 				return true;
+ 			}
+@@ -267,6 +272,7 @@
+ 			for (_resultIndex = 0; _resultIndex < _workbook.Sheets.Count; _resultIndex++)
+ 			{
+ 				DataTable table = new DataTable(_workbook.Sheets[_resultIndex].Name);
++			  
+ 
+ 				ReadSheetGlobals(_workbook.Sheets[_resultIndex]);
+ 
+@@ -280,7 +286,7 @@
+ 				{
+ 					for (int i = 0; i < _workbook.Sheets[_resultIndex].ColumnsCount; i++)
+ 					{
+-						table.Columns.Add();
++                        table.Columns.Add(null, typeof(Object));
+ 					}
+ 				}
+ 				else if (ReadSheetRow(_workbook.Sheets[_resultIndex]))
+@@ -288,12 +294,14 @@
+ 					for (int index = 0; index < _cellsValues.Length; index++)
+ 					{
+ 						if (_cellsValues[index] != null && _cellsValues[index].ToString().Length > 0)
+-							table.Columns.Add(_cellsValues[index].ToString());
++                            table.Columns.Add(_cellsValues[index].ToString(), typeof(Object));
+ 						else
+-							table.Columns.Add(string.Concat(COLUMN, index));
++                            table.Columns.Add(string.Concat(COLUMN, index), typeof(Object));
+ 					}
+ 				}
+ 				else continue;
++                
++                table.BeginLoadData();
+ 
+ 				while (ReadSheetRow(_workbook.Sheets[_resultIndex]))
+ 				{
+@@ -302,8 +310,10 @@
+ 
+ 				if (table.Rows.Count > 0)
+ 					dataset.Tables.Add(table);
++                table.EndLoadData();
+ 			}
+-
++            dataset.AcceptChanges();
++		    Helpers.FixDataTypes(dataset);
+ 			return dataset;
+ 		}
+ 

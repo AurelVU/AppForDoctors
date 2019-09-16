@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am doing a project in C# and I have downloaded excel data reader from codeplex and added it to my project reference.  There is no error in namespace 'using excel;' but 'm getting error where I have written \n\n``IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);``\n\nThe errors are quoted below:\n> The type or namespace name 'ExcelDataReader' could not be found (are you missing a using directive or an assembly reference?)\n> The name 'ExcelReaderFactory' does not exist in the current context\n\nHow to deal with these errors?\nThank you in advance.",
+    "LastUpdatedDate": "2017-07-28T00:08:23.077-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2017-07-27T23:59:35.003-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error for Excel Data Reader",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 14122
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

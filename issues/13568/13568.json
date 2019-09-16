@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "How do I reference a field by it's (first) column name when not using a DataTable? \n\nwhile (excelReader.Read())\n                    {\n                        var branch = excelReader[\"Branch\"].ToString(); // <-- I get a __NotSupportedException__\n\nAlso, it seems the \"IsFirstRowAsColumnNames\" property is ignored if you're enumerating the reader? I checked a value by index and it was the header row.",
+    "LastUpdatedDate": "2015-08-12T10:15:02.883-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-04-27T19:18:39.39-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Can't reference column by name? (non-DataTable)",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13568
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Unusually, if you don't specify __IsFirstRowAsColumnNames = true;__ the data from the reader will be NULL. ",
+      "PostedDate": "2015-04-27T19:49:43.237-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have a similar issue in which if my column header has a trailing space, the ExcelDataReader will not be able to parse the column \r\n\r\nI can usually do this, row[\"ColumnName\"] but if when it has a trailing space, I can't event do this row[\"ColumnName \"] as I get the same exception.\r\n\r\nMy only choice is to either remove the trailing space from the spreadsheet, or reference the column by index.\r\n\r\nAnyone experience something similar?",
+      "PostedDate": "2015-08-12T10:15:02.883-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

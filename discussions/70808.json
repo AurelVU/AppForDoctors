@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "241245",
+    "ThreadId": "70808",
+    "Html": "<p>Great tool it has saving me a lot of time.</p>\r\n<p>I have one question. I'm using the 2007 access methods,</p>\r\n<p><span style=\"font-size:x-small\">\r\n<p style=\"padding-left:30px\"><span style=\"color:#0000ff\">stream = File.Open(excelFilePath &amp; FileUpload1.FileName, FileMode.Open, FileAccess.Read)</span></p>\r\n<p style=\"padding-left:30px\"><span style=\"color:#0000ff\">excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream) ........</span></p>\r\n<p>Is there a way to specify a specific sheet in the workbook using this method? If not it would be useful.</p>\r\n<p>Many thanks</p>\r\n<p>Tony</p>\r\n</span></p>",
+    "PostedDate": "2009-10-02T04:13:43.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1318971",
+    "ThreadId": "571256",
+    "Html": "Hi,\r<br />\n<br />\nI am new to ExcelDataReader class. Can we read xls file data in text format like one we have in OLEDB (Setting IMEX = 1).<br />\n\r<br />\nIn my xls there is column containing date and other column containing time. While reading the data it convert both column to double format. I have changed the value into datetime using OFromDate  function, it returns me date as 14-02-14 12:00:00 and time as 31-12-99 07:08:59. \r<br />\n<br />\nI wanna it should show same as it in xls file ie. date as 14-02-2014 and time as 07:08:59.<br />\n",
+    "PostedDate": "2014-11-04T05:00:08.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "984854",
+    "ThreadId": "429132",
+    "Html": "\r\n<p>Hi All,</p>\r\n<p>I found this library by chance and decided to try it out but I met an issue. The dataset loaded from excel reader is empty. I'm pretty sure the stream is loaded though.</p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Dim</span> stream <span style=\"color:blue\">As</span> FileStream = File.Open(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)\r\n\r\n<span style=\"color:blue\">Dim</span> excelReader <span style=\"color:blue\">As</span> IExcelDataReader = ExcelReaderFactory.CreateBinaryReader(stream)\r\n\r\n<span style=\"color:blue\">Dim</span> ds <span style=\"color:blue\">As</span> DataSet = excelReader.AsDataSet()\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>Can someone help me to solve this issue? Any help is appreciated.</p>\r\n",
+    "PostedDate": "2013-01-10T02:04:28.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "984880",
+    "ThreadId": "429132",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div style=\"\">Are you trying to read and xls or xlsx?</div>\r\nCan you try running some of the unit tests in the project? These should all run ok.\r\n<div><br>\r\n</div>\r\n<div style=\"\">Cheers</div>\r\n<div style=\"\">Ian</div>\r\n</div>\r\n<div><br>\r\n<br>\r\n<div>On Thu, Jan 10, 2013 at 10:04 AM, antonilim <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\" target=\"_blank\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: antonilim</p>\r\n<div>\r\n<p>Hi All,</p>\r\n<p>I found this library by chance and decided to try it out but I met an issue. The dataset loaded from excel reader is empty. I'm pretty sure the stream is loaded though.</p>\r\n<p></p>\r\n<p></p>\r\n<div style=\"\">\r\n<pre><span style=\"color:blue\">Dim</span> stream <span style=\"color:blue\">As</span> FileStream = File.Open(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)\r\n\r\n<span style=\"color:blue\">Dim</span> excelReader <span style=\"color:blue\">As</span> IExcelDataReader = ExcelReaderFactory.CreateBinaryReader(stream)\r\n\r\n<span style=\"color:blue\">Dim</span> ds <span style=\"color:blue\">As</span> DataSet = excelReader.AsDataSet()\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p></p>\r\n<p>Can someone help me to solve this issue? Any help is appreciated.</p>\r\n</div>\r\n<div>\r\n<p>Read the <a href=\"http://exceldatareader.codeplex.com/discussions/429132#post984854\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:ExcelDataReader@discussions.codeplex.com?subject=[ExcelDataReader:429132]\" target=\"_blank\">ExcelDataReader@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:ExcelDataReader@discussions.codeplex.com\" target=\"_blank\">\r\nExcelDataReader@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://exceldatareader.codeplex.com/subscriptions/thread/project/edit\" target=\"_blank\">\r\nunsubscribe or change your settings</a> on codePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at\r\n<a href=\"http://codeplex.com\" target=\"_blank\">codeplex.com</a></p>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2013-01-10T02:41:05.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "984908",
+    "ThreadId": "429132",
+    "Html": "\r\n<p>Alternatively, if unit tests work and you still can't read the document a unit test to show the failure and the file you are using would be very helpful in tracking it down.</p>\r\n",
+    "PostedDate": "2013-01-10T03:58:25.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985211",
+    "ThreadId": "429132",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>Ian1971 wrote:</strong></blockquote>\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<div dir=\"ltr\">\r\n<div>Are you trying to read and xls or xlsx?</div>\r\nCan you try running some of the unit tests in the project? These should all run ok.\r\n<div></div>\r\n<div>Cheers</div>\r\n<div>Ian</div>\r\n</div>\r\n<div><br>\r\n<br>\r\n<div>On Thu, Jan 10, 2013 at 10:04 AM, antonilim <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\" target=\"_blank\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: antonilim</p>\r\n<div>\r\n<p>.....</p>\r\n</div>\r\n<div></div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n</div>\r\n</blockquote>\r\n<p>I am trying to read from a xls file, I suppose CreateBinaryReader is the right method to use? The unit tests are working fine, the stream object is loaded but the dataset is empty. I tried using another file and the result is same.&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-10T17:30:18.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985382",
+    "ThreadId": "429132",
+    "Html": "\r\n<div dir=\"ltr\">Are you able to attach a file or a file exhibiting this behaviour?</div>\r\n<div><br>\r\n<br>\r\n<div>On Fri, Jan 11, 2013 at 1:30 AM, antonilim <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\" target=\"_blank\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: antonilim</p>\r\n<div>\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>Ian1971 wrote:</strong></blockquote>\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<div>\r\n<div dir=\"ltr\">\r\n<div>Are you trying to read and xls or xlsx?</div>\r\nCan you try running some of the unit tests in the project? These should all run ok.\r\n<div></div>\r\n<div>Cheers</div>\r\n<div>Ian</div>\r\n</div>\r\n</div>\r\n<div><br>\r\n<br>\r\n<div>\r\n<div>On Thu, Jan 10, 2013 at 10:04 AM, antonilim <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\" target=\"_blank\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n</div>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: antonilim</p>\r\n<div>\r\n<p>.....</p>\r\n</div>\r\n<div></div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n</div>\r\n</blockquote>\r\n<p>I am trying to read from a xls file, I suppose CreateBinaryReader is the right method to use? The unit tests are working fine, the stream object is loaded but the dataset is empty. I tried using another file and the result is same.\r\n</p>\r\n</div>\r\n<div>\r\n<div>\r\n<p>Read the <a href=\"http://exceldatareader.codeplex.com/discussions/429132#post985211\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:ExcelDataReader@discussions.codeplex.com?subject=[ExcelDataReader:429132]\" target=\"_blank\">ExcelDataReader@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:ExcelDataReader@discussions.codeplex.com\" target=\"_blank\">\r\nExcelDataReader@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://exceldatareader.codeplex.com/subscriptions/thread/project/edit\" target=\"_blank\">\r\nunsubscribe or change your settings</a> on codePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at\r\n<a href=\"http://codeplex.com\" target=\"_blank\">codeplex.com</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2013-01-11T04:17:14.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985710",
+    "ThreadId": "429132",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>What created the xls file? I have just suffered and solved a very similar problem. Everything appeared to have worked, but the dataset was empty. It turned out that it couldn't cope with an xls file created by OpenOffice. The same content transfered to a\r\n MS Excel created xls was fine. Why was I using OpenOffice ... because I don't want to pay for Excel. Why am I using this library ... because I don't want to pay for Excel which is a pre-rec for using the interop classes.</p>\r\n<p>OpenOffice xls files work fine in Excel and vice versa but are clearly not identical.</p>\r\n",
+    "PostedDate": "2013-01-11T15:19:41.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986335",
+    "ThreadId": "429132",
+    "Html": "\r\n<div dir=\"ltr\">Yes, I think there is an issue with xls files created by openoffice. I am looking into it, but it is a tricky one.</div>\r\n<div><br>\r\n<br>\r\n<div>On Fri, Jan 11, 2013 at 11:19 PM, NeilRB <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\" target=\"_blank\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: NeilRB</p>\r\n<div>\r\n<p></p>\r\n<p>What created the xls file? I have just suffered and solved a very similar problem. Everything appeared to have worked, but the dataset was empty. It turned out that it couldn't cope with an xls file created by OpenOffice. The same content transfered to a\r\n MS Excel created xls was fine. Why was I using OpenOffice ... because I don't want to pay for Excel. Why am I using this library ... because I don't want to pay for Excel which is a pre-rec for using the interop classes.</p>\r\n<p>OpenOffice xls files work fine in Excel and vice versa but are clearly not identical.</p>\r\n</div>\r\n<div>\r\n<div>\r\n<p>Read the <a href=\"http://exceldatareader.codeplex.com/discussions/429132#post985710\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:ExcelDataReader@discussions.codeplex.com?subject=[ExcelDataReader:429132]\" target=\"_blank\">ExcelDataReader@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:ExcelDataReader@discussions.codeplex.com\" target=\"_blank\">\r\nExcelDataReader@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://exceldatareader.codeplex.com/subscriptions/thread/project/edit\" target=\"_blank\">\r\nunsubscribe or change your settings</a> on codePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at\r\n<a href=\"http://codeplex.com\" target=\"_blank\">codeplex.com</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2013-01-14T02:00:54.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988071",
+    "ThreadId": "429132",
+    "Html": "\r\n<p>I have just checked in a change that enables reading of open office generated xls files. In particular exceldatareader was not properly supporting short streams using miniFAT (aka SSAT) in the compound document format. Once that hurdle was over it then turned\r\n out that the open office documents did't always have an INDEX record so I had to adjust exceldatareader to take account of documents that have no INDEX record.</p>\r\n",
+    "PostedDate": "2013-01-17T04:27:02.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992260",
+    "ThreadId": "429132",
+    "Html": "\r\n<p>I used the latest code. I am still unable to read an xls file with no INDEX record. Although now it does return a datatable, but all the values are empty. Please provide a fix/solution for this.</p>\r\n",
+    "PostedDate": "2013-01-25T15:10:28.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

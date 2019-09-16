@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1024220",
+    "ThreadId": "438785",
+    "Html": "I don't get how to use it, is there any documentation ? \r<br />\nIf not, how to create a new excel document and copy a sheet into it ?\r<br />\nAnd how to read and write into a document ?<br />\n",
+    "PostedDate": "2013-04-02T05:39:35.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025291",
+    "ThreadId": "438785",
+    "Html": "There is not much documentation, it is pretty easy to use. See the home page <a href=\"http://exceldatareader.codeplex.com/\" rel=\"nofollow\">http://exceldatareader.codeplex.com/</a>\r<br />\n<br />\nWould be happy if you wanted to write some, but none of the devs have much time.<br />\n",
+    "PostedDate": "2013-04-04T02:54:05.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025344",
+    "ThreadId": "438785",
+    "Html": "Thank you, I misunderstood the use of this reader, i didn't understand that it was for read only, so I can't use it.<br />\n",
+    "PostedDate": "2013-04-04T05:20:29.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

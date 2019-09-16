@@ -1,0 +1,66 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "migrated to github",
+    "ClosedDate": "2014-08-05T02:07:25.28-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have a .xlsx file where only some of the columns in row 1 has names. The columns with no name is automatically named 'Column?' (This is both Caption and ColumnName).\nI have previously used Excel by opening as a database via oledb and where these columns were automatically named 'F?'. No I have a backward compatibility problem because of this.\nThis is giving me problems as I do not feel I can just rename Column? to F? because I cannot seem to differentiate between a column actually named Column2 and one which was internally named Column2 because no name is specified in the spreadsheet.\n\nSo basically I have two questions;\n1. Is is possible to change the default behavior of this auto naming of columns with no name? Basically exchange 'Column' with 'F'\n2. Or is possible to tell if column didn't actually have a name (was blank). Then I can write the logic myself.\n\nThanks in advance :)\n\nOk, after reading the documentation I created a patch with the id; 16126. Hopefully it will accepted as my issue is now resolved by it.\n\nREVIEW patch and apply if appropriate",
+    "LastUpdatedDate": "2014-08-05T02:07:25.28-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-03-31T03:42:44.843-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Default name for columns with no name",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12857
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4956,
+      "FileName": "DefaultColumnName-rev2.patch",
+      "DownloadUrl": ".\\4956"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "It turns out that this patch is not enough to get the correct behavior.\r\n\r\nThe column index starts at 0 and I need it to start at 1.\r\n\r\nI've found 3 places in the code where the column name is handled;\r\n\r\nHelpers.AddColumnHandleDuplicate(table, string.Concat(COLUMN, i));\r\n\r\nI've added a backward compatible bool setting for changing this index behavior. Attached is rev. 2 of the patch.",
+      "PostedDate": "2014-04-04T02:23:16.713-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks for this. I'll take a look at in in due course. Funnily enough I have a need for this coming up in next few months so timing is good.",
+      "PostedDate": "2014-04-09T01:46:02.647-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-04-23T03:40:07.84-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-08-05T02:07:25.28-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

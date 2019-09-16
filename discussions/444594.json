@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1047117",
+    "ThreadId": "444594",
+    "Html": "Hi,\r<br />\n<br />\nI get all the empty lines below my user data, any who know how to do it.<br />\n<pre><code>        int count = 0;\n\n        FileStream stream = File.Open(FilePath, FileMode.Open, FileAccess.Read);\n\n        IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n        excelReader.IsFirstRowAsColumnNames = true;\n\n        DataSet ds = excelReader.AsDataSet();\n        DataTable dt = new DataTable();\n\n        dt = ds.Tables[Sheet];\n\n        foreach (DataRow dr in dt.Rows)\n        {\n            Console.WriteLine(&quot;{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}&quot;, count, dr[&quot;ServerName&quot;].ToString(), dr[&quot;IP Address&quot;].ToString(), dr[&quot;DataCenter&quot;].ToString(), dr[&quot;Net Zone&quot;].ToString(), dr[&quot;Os&quot;].ToString(), dr[&quot;Tasks&quot;].ToString(), dr[&quot;Software&quot;].ToString(), dr[&quot;Other&quot;].ToString(), dr[&quot;Responsible OS/system&quot;].ToString(), dr[&quot;Contact Applications&quot;].ToString());\n            count++;\n        }\n\n        excelReader.Close(); </code></pre>\n\n",
+    "PostedDate": "2013-05-22T07:05:39.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "created on github\nhttps://github.com/ExcelDataReader/ExcelDataReader/issues/17",
+    "ClosedDate": "2014-08-27T01:34:39.853-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am using a shell that calls a program that decrypts a file to StandardOutput.\n\nProcess process = new Process();\n     //... setup to run decrypter\nprocess.Start();\nIExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(process.StandardOutput.BaseStream);\n\nCan there be a constructor that will handle non-seekable (StreamReader) Streams as well?\n\nMy constraints...\nI don't want to write the sensitive data to file and the solution must handle large files (reading to memory first will not work).",
+    "LastUpdatedDate": "2014-08-27T01:34:39.853-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-08-02T10:29:46.057-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "\"Stream does not support seeking.\"",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 11988
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

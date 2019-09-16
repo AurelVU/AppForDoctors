@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1278093",
+    "ThreadId": "554310",
+    "Html": "I use the .NET 2.0 DLL to extract Data from several Excel Data Sheet. Everything is working on my development machine. After deploying the code to a local test server, it's not working anymore. I installed for a test excel on the server et voila, everything is working again.\r<br />\n<br />\nDo I really need excel installed, or am I missing something?<br />\n",
+    "PostedDate": "2014-07-26T23:42:11.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1278278",
+    "ThreadId": "554310",
+    "Html": "\r\n<p dir=\"ltr\">You definitely don't need excel installed. </p>\r\n<div></div>\r\n",
+    "PostedDate": "2014-07-27T22:49:07.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

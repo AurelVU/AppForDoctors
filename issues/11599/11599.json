@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-03-11T03:31:22.04-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The ExcelBinaryReader is capable of converting Excel  / OADates to DateTime values while reading, however:\n* this only occurs when using the AsDataSet method of the reader and passing a true value for the conversion flag.\n\n* OADate conversions also happen when calling the GetDateTime(...) method on the reader, but not when using GetValue(...).\n\nWe would like to make use of this feature, but for it to work on GetValue operations...  (prefer not to expose the concept of OADates to the code that makes use of the reader because our solution optionally uses other reader types as well) .  There is a private flag used by the reader to control this behaviour (m_ConvertOADate) however this is not exposed.\n\nA patch will be submitted shortly with a suggested change for this issue.",
+    "LastUpdatedDate": "2017-11-27T20:47:30.307-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-02-26T01:32:07.333-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ExcelBinaryReader - need to optionally convert OADates without explicit AsDataSet or GetDateTime calls",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11599
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Funnily enough I did just add an additional factory method for this.",
+      "PostedDate": "2013-02-26T04:26:22.337-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks for that..  the change you mentioned resolves this nicely...",
+      "PostedDate": "2013-02-26T18:01:27.59-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-11T03:30:22.493-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-11T03:31:22.04-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:55.993-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:30.307-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1248979",
+    "ThreadId": "546395",
+    "Html": "Have you considered (or is it possible) to work with a header row passed into the method?\r<br />\n<br />\nI need to work with templated workbooks where the various templates place the header row at anything from row 3 to row 10. I could build a method that deletes the rows above the header and saves a copy of the file but that would represent significant overhead with large files (some I deal with have thousands of rows). Worse, there are several generations of templates in use so the only way to find the header row for the various versions of the same workbook would be to search for the range value. Right now the user looks at the file and identifies the header row.\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2014-05-23T09:38:02.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

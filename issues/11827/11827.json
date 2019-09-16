@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "migrated issue to github",
+    "ClosedDate": "2014-08-05T02:01:13.623-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "This is based on source code downloaded on 27th May 2013. I had a file with +100000 records in it and this file doesn't have index. So it took ~ 3 hours to complete reading that file. I debugged source code and found out that ExcelBinaryReader.moveToNextRecordNoIndex method skips all 100000 records (with ID = ROW) each time it reads 1 record! So perfomance degrades even worse when file size become bigger. According to my file's structure first come all blocks with ID = ROW and then all blocks with ID related to cell. I don't know whether this is correct structure for all files which do not have index. But I modified code and skipped all rows on sheet initialization and then just reading cells it took 40 seconds to complete large file.",
+    "LastUpdatedDate": "2014-08-05T02:01:13.623-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-05-31T04:43:43.663-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Poor performance when reading non indexed XLS file.",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11827
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "That sounds like a bug. Can you post the the fix you made?",
+      "PostedDate": "2013-06-14T01:27:42.823-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "OK, I will submit patch in the next week.",
+      "PostedDate": "2013-06-15T01:26:42.013-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks for the patch I will try and take a look at it when I get some free time in a few weeks.",
+      "PostedDate": "2013-06-27T14:03:03.533-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have this patch, but I have not uploaded it yet. I will check it once again as my customers are reporting issues and if everything OK I will upload it.",
+      "PostedDate": "2013-06-28T01:26:48.727-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I uploaded patch.",
+      "PostedDate": "2013-07-17T06:12:51.397-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-08-05T02:01:13.623-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

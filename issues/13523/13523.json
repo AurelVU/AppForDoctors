@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi, \n\n   I have generated an xls file by using nuget closedxml class, \nhere is the code,\n     using (MemoryStream ms = new MemoryStream())\n            {\n                using (ClosedXML.Excel.XLWorkbook wb = new ClosedXML.Excel.XLWorkbook())\n                {\n                    wb.AddWorksheet(table);\n                    wb.Style = null;\n                    wb.SaveAs(ms);\n                    response.ExportObject = ms.ToArray();\n                }\n            }\n\nthe xls file was downloaded with some data. and I am uploading the same file again after updating some data in that xls file and excel reader is not converts to datatable.\nhere is the code for read from stream.\n\n                byte[] fileObject;\n                using (var binaryReader = new BinaryReader(file.InputStream, System.Text.Encoding.UTF8))\n                {\n                    fileObject = binaryReader.ReadBytes(file.ContentLength);\n                }\n\n                using (var stream = new MemoryStream(fileObject))\n                {\n                    IExcelDataReader excelReader = (fileType == FileType.XLS) ? ExcelReaderFactory.CreateBinaryReader(stream) : ExcelReaderFactory.CreateOpenXmlReader(stream);\n                    excelReader.IsFirstRowAsColumnNames = true;\n                    dataSet = excelReader.AsDataSet();\n                    excelReader.Close();                    \n\n                }\n\nfile.InputStream is uploaded file [HttpPostedFileBase]\n\nThanks in advance",
+    "LastUpdatedDate": "2015-03-25T05:48:48.193-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-03-25T05:47:42.18-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Excel DataReader is not reading the data from xls file",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13523
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

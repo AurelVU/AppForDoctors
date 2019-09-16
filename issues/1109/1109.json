@@ -1,0 +1,81 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Resolved in new release",
+    "ClosedDate": "2009-05-12T09:59:04.69-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Excel Data Reader loses precision when reading certain numeric fields with more than 2 decimal places.\nFor example, 3.14159.\nThe value in the resulting DataTable will be truncated, in this case, to 3.14.\n \nTry the following code with the attached Excel file.\n \nstring filePath = @\"c:\\decimal-test.xls\";\nExcelFileUtility.ExcelDataReader edr = new ExcelFileUtility.ExcelDataReader(new FileStream(filePath, FileMode.Open));\nDataTable dt = edr.WorkbookData.Tables[0];\ndecimal myValue = Convert.ToDecimal(dt.Rows[0][0]);",
+    "LastUpdatedDate": "2013-05-16T05:00:05.347-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2008-12-03T13:22:11.907-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Precision lost when reading decimal field",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 1109
+  },
+  "FileAttachments": [
+    {
+      "FileId": 579,
+      "FileName": "decimal-test.xls",
+      "DownloadUrl": ".\\579"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "It was (I don´t know why) the original intention of the developers. To solve change de method FormatNumber, in ExcelDataReader class to\r\n\r\nprivate string FormatNumber(double x) { return x.ToString(\"r\"); }\r\n\r\nthis way the returned string will be fully reversible, via Double.TryParse, to the original Excel value.\r\n\r\nI think rounding should not be the library concern.",
+      "PostedDate": "2008-12-19T13:33:30.327-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2008-12-19T13:47:31.39-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "We solved this on changeset #10542. A release is on the way!",
+      "PostedDate": "2009-02-05T13:17:30.82-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-04-08T17:59:40.243-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-05-12T09:59:04.69-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:52.19-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:05.347-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

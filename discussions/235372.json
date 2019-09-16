@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "524523",
+    "ThreadId": "235372",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>In the source I have the line in ExcelOpenXmlReader.AsDataSet(bool convertOADateTime) is:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">if</span>(table.Rows.Count &gt; 0) dataset.Tables.Add(table);\r\n</pre>\r\n</div>\r\n<p>However this ignores situations in which _isFirstRowAsColumnNames == true but no further rows follow (an XLSX with headers only) and returns a null DataSet.</p>\r\n<p>You might consider changing the line to:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">if</span>(table.Rows.Count &gt; 0 || table.Columns.Count &gt; 0) dataset.Tables.Add(table);</pre>\r\n</div>\r\n<p>Thanks and EXCELLENT work on this!</p>\r\n<p>Nicholas</p>\r\n",
+    "PostedDate": "2010-11-19T13:12:26.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

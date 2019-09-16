@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1007629",
+    "ThreadId": "434702",
+    "Html": "Where would I find a list of options, such as how to surpress inclusion of the path in the zip file?<br />\n",
+    "PostedDate": "2013-02-27T07:07:58.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007632",
+    "ThreadId": "434702",
+    "Html": "Sorry, I don't understand. You'll have to be more specific.<br />\n",
+    "PostedDate": "2013-02-27T07:10:19.043-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007638",
+    "ThreadId": "434702",
+    "Html": "My post was not very clear.  I want to supply a path to the file to be included in the zip, but I don't want the path included in the zip included, just the file name.\r<br />\n<br />\nExample:  I want to include file c:\\temp\\test.txt in the zip file output.zip .  When I zip this file and view the zip I see the directory Temp and I must go into temp to see the file test.txt.\r<br />\n<br />\nIs there a way to provide the path\\filename without the path being included?<br />\n",
+    "PostedDate": "2013-02-27T07:21:11.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007639",
+    "ThreadId": "434702",
+    "Html": "If I add the file &quot;c:\\temp\\test.txt&quot; to test.zip and view the test.zip the file is in a subdirectory named Temp.  I would like to provide the full path but exclude the path info in the zip file.<br />\n",
+    "PostedDate": "2013-02-27T07:23:00.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007641",
+    "ThreadId": "434702",
+    "Html": "Sorry for the double post.  I recieved an error message that the first post did not succeed, to try later.<br />\n",
+    "PostedDate": "2013-02-27T07:23:50.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007644",
+    "ThreadId": "434702",
+    "Html": "Not sure we are talking about the same thing here. This project is for an Excel file reader. It does read packaged XLSX files which are effectively zips but does not write them.\r<br />\n<br />\nDid you mean to post to another project such as sharpZip or am I missing something?<br />\n",
+    "PostedDate": "2013-02-27T07:27:05.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007654",
+    "ThreadId": "434702",
+    "Html": "GAHHH.  I'm in the wrong forum!!!  Please excuse my blundering and, if possible, erase this whole thread.\r<br />\n<br />\nGreat code by the way.\r<br />\n<br />\nThanks.<br />\n",
+    "PostedDate": "2013-02-27T07:36:33.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007655",
+    "ThreadId": "434702",
+    "Html": "Excellent, I love solving problems! :)<br />\n",
+    "PostedDate": "2013-02-27T07:37:25.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

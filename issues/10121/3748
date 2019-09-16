@@ -1,0 +1,47 @@
+commit c5b79e554d7d7dbdfb500b314e22e2fb55dc3f7b
+Author: Konstantin Khomoutov <flatworm@users.sourceforge.net>
+Date:   Mon Jan 9 19:42:04 2012 +0400
+
+    Get number of max rows from dimensions, if possible
+    
+    It seems that the "last existing row" number found in
+    the worksheet "index" record of certain BIFF8 XLS documents
+    is less than the number of rows found in the worksheet
+    "dimensions" record.  Native software from Microsoft
+    show all the rows (according to the "dimensions" record)
+    for such documents, as do OpenOffice/LibreOffice.
+    Hence, while such documents might be deemed to be broken
+    from the point of view of (the non-existent) specification,
+    it seems that we should use the "dimensions" record, if
+    available, to get the number of available rows.
+
+diff --git a/Excel/ExcelBinaryReader.cs b/Excel/ExcelBinaryReader.cs
+index b1b2ed8..45719a4 100644
+--- a/Excel/ExcelBinaryReader.cs
++++ b/Excel/ExcelBinaryReader.cs
+@@ -287,16 +287,15 @@ namespace Excel
+ 
+ 			} while (trec != null && trec.ID != BIFFRECORDTYPE.ROW);
+ 
+-			m_maxCol = 256;
+-
+-			if (dims != null)
+-			{
+-				dims.IsV8 = isV8();
+-				m_maxCol = dims.LastColumn - 1;
+-				sheet.Dimensions = dims;
+-			}
+-
+-			m_maxRow = (int)idx.LastExistingRow;
++            if (dims != null) {
++                dims.IsV8 = isV8();
++                m_maxCol = dims.LastColumn - 1;
++                m_maxRow = (int)dims.LastRow - 1;
++                sheet.Dimensions = dims;
++            } else {
++                m_maxCol = 256;
++                m_maxRow = (int)idx.LastExistingRow;
++            }
+ 
+ 			if (idx.LastExistingRow <= idx.FirstExistingRow)
+ 			{

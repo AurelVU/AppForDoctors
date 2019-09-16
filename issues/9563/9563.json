@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am trying to use this dll however, I get this error:\n\"Index was out of range. Must be non-negative and less than the size of the collection. Parameter name: index\"\nwhen I do this:\n \nDim stream As FileStream = File.Open(\"C:\\DRDP.xlsx\", FileMode.Open, FileAccess.Read)\n \nexcelReader = ExcelReaderFactory.CreateOpenXmlReader(stream)\n \nexcelReader.IsFirstRowAsColumnNames = False '(False or True does not work)\n \nexcelWBook = excelReader.AsDataSet()\n \nWhile excelReader.Read()      << ERROR OCCURS ON FIRST READ????\n   'excelReader.GetInt32(0);\nEnd While\n \nThis would be the perfect solution to read from MemoryStream but even the above direct file.open does not work.\nI need this to work for my ASP.NET 4.0 Framework (VB.NET) web app. It does not seem to matter how many columns are in the excel file.\n \nThis is for non-profit Univ of California project\nCan you help?\n \nThanks,",
+    "LastUpdatedDate": "2013-02-21T17:47:37.5-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-09-28T14:59:27.85-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "XLSX not working in .NET Framework 4.0",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 9563
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3539,
+      "FileName": "DRDP.xlsx",
+      "DownloadUrl": ".\\3539"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I'm having the same problem as well. \r\nUsing 4.0, and getting the exact same error. It's a straight copy of the code on the home page, and it's breaking. \r\n",
+      "PostedDate": "2012-03-06T11:34:33.507-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I am also running into this same error message loading an Excel file. Only it's an Excel '97 (.xls) file that was created in Excel 2007 (we're trying to integrate data from some older vendor systems, and unfortunately don't have the luxury of using xlsx files). Even with the IsFirstRowAsColumnNames attribute set to true it fails to load the column names, and instead assigns them as \"Column1\", \"Column2\", etc. But this is probably a symptom of the broader error that's occurring.\r\n\r\nFiles created in older version of Excel - or using a third party system (e.g. Crystal Reports) - load just fine. I've recreated the older files in Excel 2007 with the same data, formatting, layout, etc. It looks like there's a difference between the 2 files - the one created in Excel 2007 is missing some header info when I view the file in a plain text editor.\r\n",
+      "PostedDate": "2012-03-14T17:16:19.31-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:37.5-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

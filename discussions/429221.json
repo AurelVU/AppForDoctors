@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "985185",
+    "ThreadId": "429221",
+    "Html": "\r\n<p>I'm not sure if this code is still being updated and supported, I re-wrote a lot of it to support no files being written to server, everything stays in memory on the server.</p>\r\n<p>Another enhancement was if you save a file from access the zip class can't unencrypt it(access saves an image with the data that can't be unecrypted), we now have a way to determine if this is the case and throw an error back to user that this is the problem.</p>\r\n<p>I'll be happy to share if anyone is interested.</p>\r\n",
+    "PostedDate": "2013-01-10T14:56:10.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985465",
+    "ThreadId": "429221",
+    "Html": "\r\n<p>That sounds useful. Yes, the project is still being updated, but slowly.</p>\r\n<p>&nbsp;</p>\r\n<p>Are you able to integrate your changes into the main codebase? If so, do they contain unit tests?</p>\r\n",
+    "PostedDate": "2013-01-11T07:08:02.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

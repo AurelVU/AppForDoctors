@@ -1,0 +1,81 @@
+Index: Excel.Tests/ExcelBinaryReaderTest.cs
+===================================================================
+--- Excel.Tests/ExcelBinaryReaderTest.cs	(revision 88712)
++++ Excel.Tests/ExcelBinaryReaderTest.cs	(working copy)
+@@ -1013,6 +1013,17 @@
+ 
+             excelReader.Close();
+ 		}
++
++        [TestMethod]
++        public void Test_DimensionColumnsOneTooFew()
++        {
++            IExcelDataReader excelReader =
++                ExcelReaderFactory.CreateBinaryReader(Helper.GetTestWorkbook("Test_DimensionColumnsOneTooFew"), ReadOption.Loose);
++            excelReader.IsFirstRowAsColumnNames = true;
++            var dataset = excelReader.AsDataSet();
++            Assert.AreEqual(16, dataset.Tables[0].Columns.Count);
++            excelReader.Close();
++        }
+         
+     }
+ }
+\ No newline at end of file
+Index: Excel.Tests/App.config
+===================================================================
+--- Excel.Tests/App.config	(revision 88712)
++++ Excel.Tests/App.config	(working copy)
+@@ -81,6 +81,7 @@
+     <add key="bTest10x10" value="Test10x10.xlsb" />
+     <add key="xTest_googlesourced" value="Test_googlesourced.xlsx" />
+     <add key="xTest_Issue_12667_GoogleExport_MissingColumns" value="Test_Issue_12667_GoogleExport_MissingColumns.xlsx" />
++    <add key="Test_DimensionColumnsOneTooFew" value="Test_DimensionColumnsOneTooFew.xls" />
+     <!-- To test some unicode conversion -->
+     <add key="TestUnicodePos2x1" value="éЗ" />
+     <!-- log4net debugging -->
+Index: Excel.Tests/Excel.Tests.csproj
+===================================================================
+--- Excel.Tests/Excel.Tests.csproj	(revision 88712)
++++ Excel.Tests/Excel.Tests.csproj	(working copy)
+@@ -378,6 +378,10 @@
+       <Link>Resources\Uncalculated.xls</Link>
+       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+     </Content>
++    <Content Include="..\Excel.Tests.4.5\Resources\Test_DimensionColumnsOneTooFew.xls">
++      <Link>Resources\Test_DimensionColumnsOneTooFew.xls</Link>
++      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
++    </Content>
+     <None Include="App.config">
+       <SubType>Designer</SubType>
+     </None>
+Index: Excel.Tests.4.5/Excel.Tests.4.5.csproj
+===================================================================
+--- Excel.Tests.4.5/Excel.Tests.4.5.csproj	(revision 88712)
++++ Excel.Tests.4.5/Excel.Tests.4.5.csproj	(working copy)
+@@ -302,6 +302,9 @@
+     <Content Include="Resources\Uncalculated.xls">
+       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+     </Content>
++	<Content Include="Resources\Test_DimensionColumnsOneTooFew.xls">
++      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
++    </Content>
+   </ItemGroup>
+   <ItemGroup />
+   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+Index: Excel/ExcelBinaryReader.cs
+===================================================================
+--- Excel/ExcelBinaryReader.cs	(revision 88712)
++++ Excel/ExcelBinaryReader.cs	(working copy)
+@@ -361,7 +361,11 @@
+ 				{
+ 					m_maxCol = rowRecord.LastDefinedColumn;
+ 				}
+-				
++				else if (rowRecord != null && m_maxCol < rowRecord.LastDefinedColumn + 1)
++				{
++					m_maxCol = rowRecord.LastDefinedColumn;
++				}
++
+                 m_maxRow = (int)dims.LastRow;
+                 sheet.Dimensions = dims;
+             } else {

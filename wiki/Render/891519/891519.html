@@ -1,0 +1,54 @@
+<div class="wikidoc"><h1>Project Description</h1>Lightweight and fast library written in C&#35; for reading Microsoft Excel files &#40;&#39;97-2007&#41;.<br />Cross-platform&#58;<br />- Windows with .Net Framework 2<br />- Windows Mobile with Compact Framework<br />- Linux, OS X, BSD with Mono 2&#43;<br />
+<h1>This project is migrating to Github and can be found at <a href="https://github.com/ExcelDataReader/ExcelDataReader">https://github.com/ExcelDataReader/ExcelDataReader</a></h1><h1>Note</h1>Please try the latest source from the repo before reporting issues as there have been recent changes.<br />Also, if you are reporting an issue it is really useful if you can supply an example excel file as this makes debugging much easier and without it we may not be able to resolve any problems.<br />
+<h1>How to use</h1><b>C# code :</b><br /><div style="color:Black;background-color:White;"><pre>
+FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
+
+<span style="color:Green;">//1. Reading from a binary Excel file (&#39;97-2003 format; *.xls)</span>
+IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
+<span style="color:Green;">//...</span>
+<span style="color:Green;">//2. Reading from a OpenXml Excel file (2007 format; *.xlsx)</span>
+IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+<span style="color:Green;">//...</span>
+<span style="color:Green;">//3. DataSet - The result of each spreadsheet will be created in the result.Tables</span>
+DataSet result = excelReader.AsDataSet();
+<span style="color:Green;">//...</span>
+<span style="color:Green;">//4. DataSet - Create column names from first row</span>
+excelReader.IsFirstRowAsColumnNames = <span style="color:Blue;">true</span>;
+DataSet result = excelReader.AsDataSet();
+
+<span style="color:Green;">//5. Data Reader methods</span>
+<span style="color:Blue;">while</span> (excelReader.Read())
+{
+	<span style="color:Green;">//excelReader.GetInt32(0);</span>
+}
+
+<span style="color:Green;">//6. Free resources (IExcelDataReader is IDisposable)</span>
+excelReader.Close();
+</pre></div><b>VB.NET Code:</b><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">Dim</span> stream <span style="color:Blue;">As</span> FileStream = File.Open(filePath, FileMode.Open, FileAccess.Read)
+
+<span style="color:Green;">&#39;1. Reading from a binary Excel file (&#39;97-2003 format; *.xls)</span>
+<span style="color:Blue;">Dim</span> excelReader <span style="color:Blue;">As</span> IExcelDataReader = ExcelReaderFactory.CreateBinaryReader(stream)
+<span style="color:Green;">&#39;...</span>
+<span style="color:Green;">&#39;2. Reading from a OpenXml Excel file (2007 format; *.xlsx)</span>
+<span style="color:Blue;">Dim</span> excelReader <span style="color:Blue;">As</span> IExcelDataReader = ExcelReaderFactory.CreateOpenXmlReader(stream)
+<span style="color:Green;">&#39;...</span>
+<span style="color:Green;">&#39;3. DataSet - The result of each spreadsheet will be created in the result.Tables</span>
+<span style="color:Blue;">Dim</span> result <span style="color:Blue;">As</span> DataSet = excelReader.AsDataSet()
+<span style="color:Green;">&#39;...</span>
+<span style="color:Green;">&#39;4. DataSet - Create column names from first row</span>
+excelReader.IsFirstRowAsColumnNames = <span style="color:Blue;">True</span>
+<span style="color:Blue;">Dim</span> result <span style="color:Blue;">As</span> DataSet = excelReader.AsDataSet()
+
+<span style="color:Green;">&#39;5. Data Reader methods</span>
+<span style="color:Blue;">While</span> excelReader.Read()
+&#160; &#160; <span style="color:Green;">&#39;excelReader.GetInt32(0);</span>
+<span style="color:Blue;">End</span> <span style="color:Blue;">While</span>
+
+<span style="color:Green;">&#39;6. Free resources (IExcelDataReader is IDisposable)</span>
+excelReader.Close()
+</pre></div>
+<h1>Tips</h1><ul><li>SQL reporting services. Set ReadOption.Loose in the CreateBinaryReader factory method to skip some bounds checking which was causing SSRS generated xls to fail. (Only on changeset &gt;= 82970)</li></ul>
+
+<h1>Road Map</h1><ul><li>Excel 2007 Binary files support</li></ul>
+<table><tr><td> <img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=ExcelDataReader&DownloadId=65221" alt="net_ready.png" title="net_ready.png" />  </td><td>  <img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=ExcelDataReader&DownloadId=65222" alt="cf_ready.png" title="cf_ready.png" />  </td><td>  <img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=ExcelDataReader&DownloadId=65223" alt="mono_ready.png" title="mono_ready.png" /></td></tr></table><br /><br /><b>Download</b> the last release version from <a href="http://www.codeplex.com/ExcelDataReader/Release/ProjectReleases.aspx">here</a></div><div class="ClearBoth"></div>

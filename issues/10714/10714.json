@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I've got a fix and a test, will attempt to submit a patch soon.\n \nProblem occurs when the attached XLSX file is read using the current release. The issue is that the data starts at B2 (which is identified by the code correctly) but when the data is read into a datatable, the original offset is not taken in to account and the code;\n \n\t\t\t\t\t\tif (col - 1 < _cellsValues.Length)\n\t\t\t\t\t\t\t_cellsValues[col - 1] = o;\n \nin ReadSheetRow kicks in to stop the data being stored as it is outside the bounds of the array.\n \nTherefore, the col and row need to be normalised when they are read in for the cell by adjusting them against the original sheet dimensions.\n \nChanging;\n \n \n\t\t\t\t\t\tif (_xmlReader.Name == XlsxWorksheet.N_c)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\ta_s = _xmlReader.GetAttribute(XlsxWorksheet.A_s);\n\t\t\t\t\t\t\ta_t = _xmlReader.GetAttribute(XlsxWorksheet.A_t);\n\t\t\t\t\t\t\ta_r = _xmlReader.GetAttribute(XlsxWorksheet.A_r);\n\t\t\t\t\t\t\tXlsxDimension.XlsxDim(a_r, out col, out row);\n                        }\n\t\t\t\t\t\telse if (_xmlReader.Name == XlsxWorksheet.N_v)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\thasValue = true;\n\t\t\t\t\t\t}\n \nto\n \n \n\t\t\t\t\t\tif (_xmlReader.Name == XlsxWorksheet.N_c)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\ta_s = _xmlReader.GetAttribute(XlsxWorksheet.A_s);\n\t\t\t\t\t\t\ta_t = _xmlReader.GetAttribute(XlsxWorksheet.A_t);\n\t\t\t\t\t\t\ta_r = _xmlReader.GetAttribute(XlsxWorksheet.A_r);\n\t\t\t\t\t\t\tXlsxDimension.XlsxDim(a_r, out col, out row);\n                            col = col - sheet.Dimension.FirstCol + 1;\n                            row = row - sheet.Dimension.FirstRow + 1;\n                        }\n\t\t\t\t\t\telse if (_xmlReader.Name == XlsxWorksheet.N_v)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\thasValue = true;\n\t\t\t\t\t\t}\n \nfixes this.\n \nHope that helps,\n \nRyan",
+    "LastUpdatedDate": "2013-02-21T17:47:34.18-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-04-29T09:58:32.07-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Will not import a single column of data when not starting at A1",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10714
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4027,
+      "FileName": "TestFirstColBlank.xlsx",
+      "DownloadUrl": ".\\4027"
+    }
+  ],
+  "Comments": []
+}

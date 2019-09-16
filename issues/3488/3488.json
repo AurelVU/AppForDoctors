@@ -1,0 +1,151 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-01-17T03:54:32.38-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "My attached file are export from DevExpress.XtraGrid control\nWhen read this file via  Excel Data Reader  it's raise error at \\ExcelDatareader\\Excel\\Core\\BinaryFormat\\XlsBiffStream.cs\nfunction:\npublic XlsBiffStream(XlsHeader hdr, uint streamStart)\n\t\t\t: base(hdr, streamStart)\n\t\t{\n\t\t\tbytes = base.ReadStream(); //<-- erorr here\n\t\t\tm_size = bytes.Length;\n\t\t\tm_offset = 0;\n\t\t}\nand exception message is: Error reading stream from FAT area.",
+    "LastUpdatedDate": "2017-11-27T20:47:26.467-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-07-10T04:17:55.05-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error reading stream from FAT area.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 3488
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1259,
+      "FileName": "Customer1.xls",
+      "DownloadUrl": ".\\1259"
+    },
+    {
+      "FileId": 4394,
+      "FileName": "Book1-Original.xlsx",
+      "DownloadUrl": ".\\4394"
+    },
+    {
+      "FileId": 4395,
+      "FileName": "Book1-Modified By OpenOffice.xls",
+      "DownloadUrl": ".\\4395"
+    },
+    {
+      "FileId": 4399,
+      "FileName": "OpenOffice Book 1.xls",
+      "DownloadUrl": ".\\4399"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Indeed is a problem.\r\nThe cause for this can be from DevExpress.XtraGrid control because when I've opened the file with Ms Excel App and save-it the test passed.",
+      "PostedDate": "2009-08-24T12:22:18.553-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-06-10T12:15:23.71-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-07-20T14:40:18.667-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-21T02:06:33.943-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "i am also having the same problem after the file is edited with OpenOffice 3.3.0\r\n\r\ni need a way to overcome this. Please help.\nAs i have the requirement that people will edit the file and upload.",
+      "PostedDate": "2012-12-21T02:10:37.64-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@sudhAnsu63 are you able to attach a file exhibiting this problem?",
+      "PostedDate": "2012-12-21T07:20:29.37-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-22T09:11:34.253-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Original File  was created in MS Office 2007.  --Book1.xlsx\r\n\r\nModified by OpenOffice and Saved as Book1.xls as Save as  .xlsx  this format is not available in OpenOffice.\nI Guess thats why i get this error.",
+      "PostedDate": "2012-12-22T09:12:45.983-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-22T09:15:25.59-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Modified by OpenOffice  3.3.0 ",
+      "PostedDate": "2012-12-22T09:15:26.713-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-24T01:47:05.347-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Any xls File Created by OpenOffice 3.3.0 are not readable and i get  \"Error reading stream from FAT area.\"\nCheck the Attached file   OpenOffice Book 1.xls\nFile is created by OpenOffice.",
+      "PostedDate": "2012-12-24T01:47:08.537-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-01-15T07:58:23.267-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 82317: Should now read open office 3 excel binary files.",
+      "PostedDate": "2013-01-17T03:54:32.38-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:48.95-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:03.153-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi, I am also getting same problem for OpenOffice 3.3.0 files. how can i solve this error?",
+      "PostedDate": "2014-10-02T23:29:59.073-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:26.467-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

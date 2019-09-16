@@ -1,0 +1,80 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed in the next release",
+    "ClosedDate": "2010-09-12T03:57:31.983-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "ZipWorker class tries to access local file system which is considered security critical code in Silverlight. This results in crash during extraction of contents of OpenXML zip package.\nShould probably use Isolated Storage facilities or memory streams as Isolated Storage is very limiting.",
+    "LastUpdatedDate": "2013-05-16T05:00:00.117-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-03-15T03:15:33.273-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Silverlight version cannot read OpenXML files",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 5672
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This is true, the silverlight xlsx reader is pointless as it will never work. Probably the best way to fix this would be to use memory streams. I've tried to get it working but the lack of comments in the code mean trying to decipher what is going on is next to impossible...",
+      "PostedDate": "2010-09-08T08:39:37.147-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-08T08:39:53.38-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-12T03:57:07.17-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "fixed in the next release\r\n\r\n\n\n** Closed by robalexclark 12/09/2010 03:57",
+      "PostedDate": "2010-09-12T03:57:08.927-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "fixed in the next release",
+      "PostedDate": "2010-09-12T03:57:19.123-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-12T03:57:31.983-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:44.38-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:00.117-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

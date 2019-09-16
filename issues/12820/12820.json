@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am getting error \"Object reference not set to an instance of an object\" while try to read attached file.\n Everything works fine after I open in excel and save. Just in case, I am getting  this file in email attachment.\n\n  FileStream stream = File.Open(@\"C:\\1.xls\", FileMode.Open, FileAccess.Read);\n                IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n                excelReader.IsFirstRowAsColumnNames = true;\n                DataSet result = excelReader.AsDataSet();\n                excelReader.Close();",
+    "LastUpdatedDate": "2014-03-13T08:32:15.597-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-03-13T08:32:14.37-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "XLS file issue: Object reference not set to an instance of an object",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12820
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4939,
+      "FileName": "1.xls",
+      "DownloadUrl": ".\\4939"
+    }
+  ],
+  "Comments": []
+}

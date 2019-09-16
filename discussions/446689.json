@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1055424",
+    "ThreadId": "446689",
+    "Html": "<pre><code>public ActionResult Index()\n        {\n            List&lt;AirportModel&gt; airports = new List&lt;AirportModel&gt;();\n            var dataTable = new DataTable();\n            FileStream stream = System.IO.File.Open(&quot;C:/Users/jordan.bostrom/Documents/goog.xlsx&quot;, FileMode.Open, FileAccess.Read);\n            using (IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream))\n            {          \n                excelReader.IsFirstRowAsColumnNames = true;\n                DataSet result = excelReader.AsDataSet();\n\n                dataTable = result.Tables[0];\n            }                      \n\n                        \n            using (SqlConnection connSql = new SqlConnection(ConfigurationManager.ConnectionStrings[&quot;Testing&quot;].ConnectionString))\n            {\n                connSql.Open();\n                using (SqlCommand cmdSql = new SqlCommand(&quot;[dbo].[Do_Stuff]&quot;, connSql))\n                {\n                    cmdSql.CommandType = CommandType.StoredProcedure;\n                    cmdSql.Parameters.AddWithValue(&quot;@TableInput&quot;, dataTable);\n                    using (SqlDataReader reader = cmdSql.ExecuteReader())\n                    {\n                        while (reader.Read())\n                        {\n                            AirportModel airport = new AirportModel();\n                            airport.IATA = reader.GetString(0);\n                            airport.AirportName = reader.GetString(1);\n                            airport.AirportCity = reader.GetString(2);\n                            airport.Country = reader.GetString(3);\n                            airports.Add(airport);\n                        }\n                    }\n                }\n                \n            }\n            return View(airports);\n        }</code></pre>\n\nXLS and XLSX files from MS Office and LibreOffice are being read perfectly using this method, but the Google Docs format fails for some reason. I'm looking into the issue and will report back if I find anything. Is this a known issue? The error says that no table (dataTable = result.Tables[0];) has been found.<br />\n",
+    "PostedDate": "2013-06-11T07:56:13.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055514",
+    "ThreadId": "446689",
+    "Html": "I've not heard of it before. With the complexity and ambiguity of these specifications I'd imagine Google are doing the right thing and there is something subtle different.\r<br />\n<br />\nSo any test cases you can muster would be very handy.<br />\n",
+    "PostedDate": "2013-06-11T11:01:17.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

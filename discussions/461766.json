@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "1105960",
+    "ThreadId": "461766",
+    "Html": "I'm getting this error trying to open some xls files using the Excel.ExcelReaderFactory \r<br />\n<br />\nError: Neither stream 'Workbook' nor 'Book' was found in file\r<br />\n<br />\nSome work 100%, but others give this exception. Does anyone have any ideas?\r<br />\n<br />\nAfter doing a compare between the files that work and the ones that don't I came across this right at the bottom of the ones that don't work:\r<br />\n<br />\nCrystal Decisions Powered by Crystal\r<br />\n<br />\nHave a look at <a href=\"http://stackoverflow.com/questions/19295515/excel-excelreaderfactory-cannot-open-some-files\" rel=\"nofollow\">http://stackoverflow.com/questions/19295515/excel-excelreaderfactory-cannot-open-some-files</a> for the same question on Stack Overflow<br />\n",
+    "PostedDate": "2013-10-10T05:24:58.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113133",
+    "ThreadId": "461766",
+    "Html": "Same problem, same exception with crystal report xls file.\r<br />\nThis because 'Excel Data Reader' defines block strings as  &quot;Workbook&quot; and  &quot;Book&quot;, instead Crystal Report as &quot;WORKBOOK&quot;:  you have to do a case insensitive comparison!\r<br />\n<br />\nopen &quot;Excel\\Core\\BinaryFormat\\XlsRootDirectory.cs&quot; and replace line 75<br />\n<pre><code>if (e.EntryName == EntryName)</code></pre>\n\nwith<br />\n<pre><code>if (string.Equals(e.EntryName, EntryName, StringComparison.CurrentCultureIgnoreCase))</code></pre>\n\nfor me it solved.\r<br />\n<br />\nhave a nice day,\r<br />\nmarco<br />\n",
+    "PostedDate": "2013-10-28T08:40:28.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1116400",
+    "ThreadId": "461766",
+    "Html": "Thanks - solved my problem after changing the ReadOption to loose\r<br />\n<br />\nSee <a href=\"http://stackoverflow.com/questions/19295515/excel-excelreaderfactory-cannot-open-some-files\" rel=\"nofollow\">http://stackoverflow.com/questions/19295515/excel-excelreaderfactory-cannot-open-some-files</a> for a few more details\r<br />\n<br />\nPete<br />\n",
+    "PostedDate": "2013-10-31T21:01:54.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1143825",
+    "ThreadId": "461766",
+    "Html": "Hi, \r<br />\n<br />\nI am having the same problem, runs OK with xlsx, fails occasionally with xls , but I could not solve it with either solution:<br />\n<ol>\n<li>(mmleoni): Did not make a difference</li>\n<li>\n(petemunnings):  The ExcelReaderFactory.CreateBinaryReader(stream, ReadOption.Loose);<br />\n does not accept any second parameter (ReadOption or other).<br />\nHow did you get it to accept the new parameter?<br />\n</li>\n</ol>\nAny idea?\r<br />\nThanks.<br />\n",
+    "PostedDate": "2013-12-30T00:36:31.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1144566",
+    "ThreadId": "461766",
+    "Html": "Its an overload on that Method.  Do you have the latest version?<br />\n<pre><code>public static IExcelDataReader CreateBinaryReader(Stream fileStream)\n{\n  IExcelDataReader excelDataReader = (IExcelDataReader) new ExcelBinaryReader();\n  excelDataReader.Initialize(fileStream);\n  return excelDataReader;\n}\n\npublic static IExcelDataReader CreateBinaryReader(Stream fileStream, ReadOption option)\n{\n  IExcelDataReader excelDataReader = (IExcelDataReader) new ExcelBinaryReader(option);\n  excelDataReader.Initialize(fileStream);\n  return excelDataReader;\n}</code></pre>\n\n",
+    "PostedDate": "2014-01-02T03:54:15.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1144580",
+    "ThreadId": "461766",
+    "Html": "Hi, \r<br />\nThanks petemunnings.\r<br />\nYes, I understand it is an overload on the CreateBinaryReader method, but I do not seem to have that overload.\r<br />\nI downloaded the (said-to-be) latest version from the Download, which is 2.1 dated January 2013.\r<br />\nIs there a newer version I can download that has that overload, or is there a workaround to the ReadOption.Lose ? \r<br />\n(My original problem was errors opening the xls binaries)\r<br />\n<br />\nsamtal<br />\n",
+    "PostedDate": "2014-01-02T04:48:42.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1144591",
+    "ThreadId": "461766",
+    "Html": "You can download the source code and create the overload yourself.  I think that's what I did<br />\n",
+    "PostedDate": "2014-01-02T05:12:41.17-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1198202",
+    "ThreadId": "461766",
+    "Html": "You're kidding. Why isn't the ReadOption included in the latest version? \r<br />\n<br />\n@ petemunnings:  the above Method does not work. I get compile error: <br />\n<pre><code>   The type or namespace name 'ReadOption' could not be found (are you missing a using directive or an assembly reference?)</code></pre>\n\n",
+    "PostedDate": "2014-01-26T10:28:22.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1198816",
+    "ThreadId": "461766",
+    "Html": "ReadOption is an enum at the end of ExcelBinaryReader.cs . It should be in the latest source from the repository.<br />\n",
+    "PostedDate": "2014-01-27T01:16:10.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1199278",
+    "ThreadId": "461766",
+    "Html": "Ian, thank you for your reply. I downloaded the latest source code and, unfortunately, ReadOption.Loose did not fix the problem. I'm still getting &quot;Neither stream 'Workbook' nor 'Book' was found in file&quot;.\r<br />\n<br />\nThe fix from mmleoni, however, solved the problem.<br />\n",
+    "PostedDate": "2014-01-27T17:24:04.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1200463",
+    "ThreadId": "461766",
+    "Html": "\r\n<div dir=\"ltr\">Thanks. I'll add that code into the library</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-01-29T06:16:05.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

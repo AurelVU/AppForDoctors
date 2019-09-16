@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1009304",
+    "ThreadId": "435135",
+    "Html": "I have a case where I'm extracting data from an Excel 2010 spreadsheet and I'm getting records that used to be in the spreadsheet but were &quot;supposedly&quot; deleted.  Can't see them when I look at and search the spreadsheet and if I copy that tab into a new sheet and extract from that they aren't there.\r<br />\n<br />\nI do have a sheet I can send.<br />\n",
+    "PostedDate": "2013-03-02T12:17:47.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1009722",
+    "ThreadId": "435135",
+    "Html": "Please send, plus any code for showing the error.\r<br />\n<br />\nI didn't know Excel did that, will be interesting to look at.<br />\n",
+    "PostedDate": "2013-03-03T23:31:37.023-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1009997",
+    "ThreadId": "435135",
+    "Html": "Can I email the file directly to this address?  I need to make sure this file is treated as confidential.<br />\n",
+    "PostedDate": "2013-03-04T07:39:20.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1009998",
+    "ThreadId": "435135",
+    "Html": "...<br />\n",
+    "PostedDate": "2013-03-04T07:40:25.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1010005",
+    "ThreadId": "435135",
+    "Html": "I have a work around. The problem child is the Inventory_Rental tab and, I don’t believe, anything above line 2140 shows up in the spreadsheet. This is what I see at line 2140:   That’s a new header in 2141&gt; <br />\n",
+    "PostedDate": "2013-03-04T07:46:43.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1010914",
+    "ThreadId": "435135",
+    "Html": "Found it.  Programmer headspace.  I wasn't clearing my write buffer between tabs. \r<br />\n<br />\nThanks for the help.  This is GREAT code.<br />\n",
+    "PostedDate": "2013-03-05T15:40:47.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

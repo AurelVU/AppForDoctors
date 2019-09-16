@@ -1,0 +1,81 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "FileStream stream = File.Open(excelFilePath, FileMode.Open, FileAccess.Read);\nexcelReader = Excel.ExcelReaderFactory.CreateOpenXmlReader(stream);\n   DataSet result = excelReader.AsDataSet();\n\nresult is null for the attached file.",
+    "LastUpdatedDate": "2016-09-02T07:49:08.43-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-11-13T15:23:26.53-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Example of excel file returning no datasets - OpenXmlReader",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 3,
+    "Id": 12455
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4750,
+      "FileName": "Fluent1.xlsx",
+      "DownloadUrl": ".\\4750"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Any developers taken a look at this?\nThis is a completely legit excel file that is not being read properly. I have about 5% of excel files in my product throwing this error. It will be great if this bug can be fixed!",
+      "PostedDate": "2013-11-21T15:18:34.723-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I suppose that this file was created with Excel 2007 (saved as Excel Workbook). I have the same problem. When i Opened this file in 2010 and saved it, everything passed. Any new on this one?",
+      "PostedDate": "2014-04-24T02:33:03.577-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "This particular file fails in ICSharpCode.SharpZipLib with this error\n\"Size mismatch between central header(587) and local header(0)\" so I'm not sure whether it is a problem with the file itself or SharpZipLib. I don't have time to do any further investigation right now, but if you wanted to raise it with developers in the zip library that would be much appreciated.",
+      "PostedDate": "2014-04-24T04:30:37.77-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Yes I've got the same problem it was zip library ICSharpCode.SharpZiplib. I will move this one there if it is OK with Maxplod...?",
+      "PostedDate": "2014-04-24T05:08:05.667-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have same problem. can anyone have found solution ?",
+      "PostedDate": "2015-08-10T22:38:49.587-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2015-08-10T22:39:02.493-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2016-09-02T07:49:08.43-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "• We are using dll called 'Excel.dll(2.0.1.0)' (Specifically excelReader.AsDataSet()) method to read the data from .xlsx file. • Its observed that, whenever data is not given in the first cell, its not recognizing data from second cell too.• In the attached file, first cell of second row doesn't contain any value hence dll is not reading data given data (i.e Choice).• So, please ananlyze this issue and provide the needful resolution.",
+    "LastUpdatedDate": "2017-11-27T20:48:00.413-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-11-14T07:22:26.973-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Its observed that, whenever data given in the first cell, its not recognizing data from second cell too",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 9820
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3622,
+      "FileName": "war6.xlsx",
+      "DownloadUrl": ".\\3622"
+    },
+    {
+      "FileId": 4338,
+      "FileName": "contenedores.xlsx",
+      "DownloadUrl": ".\\4338"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hello,\ni could detect the same issue, even if the empty cell is the first one or in the middle,\r\n\r\nif a cell is empty ( C1 ), the next cell (D1) returns empty too...\nand the next cells ( E1, F1, G1... ) already returns the excel value correctly\r\n\r\ni am using next code:\r\n\r\n\nFileStream stream = File.Open(MapPath(\"~/zAttachments/\" + sFileName), FileMode.Open, FileAccess.Read);\r\n\r\n//Step-1: Include the connection string for the EXCEL file containing the filename and Provider settings\nif (sExt.ToLower() == \"xls\")\n{\n    //1. Reading from a binary Excel file ('97-2003 format; *.xls)\n    excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n}\nelse if (sExt.ToLower() == \"xlsx\")\n{\n    //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)\n    excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n}\n                \r\n\r\n//3. DataSet - The result of each spreadsheet will be created in the result.Tables\n//4. DataSet - Create column names from first row\nexcelReader.IsFirstRowAsColumnNames = true;\ndtResult = excelReader.AsDataSet().Tables[0];\r\n\r\nfor(int iRow = 0;  iRow < dtResult.Rows.Count; iRow++)\n{\n      sCellInfo= dtResult.Rows[iRow][0].ToString().Trim().ToUpper();\n}\r\n\r\n\ntell me if there is a solution about it...\r\n\r\nthanks",
+      "PostedDate": "2012-12-06T10:14:27.607-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-06T10:15:01.86-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-12T08:12:45.367-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:36.663-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:48:00.413-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

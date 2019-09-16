@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "i am using Excel 2007(.xlsx) and converting data to dataset using \"Excel.ExcelReaderFactory.CreateOpenXmlReader(stream)\" and \"excelReader.AsDataSet()\" which returns me Dataset but  the  decimal values from Excel sheet say 0.07 0r 0.02  are converted to Exponential values in Dataset(7.000e-2). Please provide me a solution.",
+    "LastUpdatedDate": "2013-02-21T17:47:39.583-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-04-11T21:39:24.52-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Dataset Showing decimals as Exponential values",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 8635
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Not sure if this will help you If you apply patch in Issue Id #8536 to preserve datatypes, the result will be a double and not a string (or an object with the correct type if cells in column have inconsistent types).",
+      "PostedDate": "2011-04-27T08:15:43.69-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:39.583-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "848633",
+    "ThreadId": "359507",
+    "Html": "\r\n<p>So here it is .. I&nbsp;have&nbsp;been looking through&nbsp;the&nbsp;code to find out why and I am stuck.</p>\r\n<p>I have tried this BOTH in the .NET and Silverlight versions.</p>\r\n<p>I have a '03 format xls file. &nbsp;Read it in using:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>      <span style=\"color:blue\">Dim</span> excelReader <span style=\"color:blue\">As</span> IExcelDataReader = <span style=\"color:blue\">Nothing</span>\n            Debug.WriteLine(<span style=\"color:#a31515\">&quot;Stream health {0} &quot;</span>, sr.CanRead)\n            excelReader = ExcelReaderFactory.CreateBinaryReader(sr)\n\n            excelReader.WorkBookFactory = <span style=\"color:blue\">New</span> ExcelDataReader.Silverlight.Data.Example.WorkBookFactory\n\n            <span style=\"color:blue\">Dim</span> workbook = excelReader.AsWorkBook(<span style=\"color:blue\">True</span>)\n            <span style=\"color:blue\">Dim</span> sheets = workbook.WorkSheets\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>and in an Excel file with 2 workbooks, they are not cast (internally garbled) and do not return.</p>\r\n<p>When I read the file into Excel '07 and write it as an xls file, it works a-ok.</p>\r\n<p>&nbsp;</p>\r\n<p>Any clues as to where to look? &nbsp;the original file was 266 kb, the saved: 234kb -- smaller?! Hmmm.....</p>\r\n",
+    "PostedDate": "2012-06-13T13:48:23.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

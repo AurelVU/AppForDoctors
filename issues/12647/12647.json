@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "when reading a .xls (binary) file, the first row is missing in the returned datatables, even if IsFirstRowAsColumnNames=false\n\n__reason__ :\nin method 'readWholeWorkSheetNoIndex', line : justAddedColumns = true; is not at the right place\n\n__Patch__ :\n```\nif (triggerCreateColumns)\n{\n  if (_isFirstRowAsColumnNames || (_isFirstRowAsColumnNames && m_maxRow == 1))\n  {\n   for () {...}\n   justAddedColumns = true; // added by jerome.raffalli \n  }\n  else {...}\n  triggerCreateColumns = false;\n  // justAddedColumns = true;  // removed by jerome.raffalli \n  table.BeginLoadData();\n}\n\n```",
+    "LastUpdatedDate": "2014-04-25T10:58:15.22-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-01-08T14:19:33.367-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "First row always skipped (CreateBinaryReader, AsDataSet)",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12647
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thanks jerome raffalli. I got this bug when saving the file with open office.",
+      "PostedDate": "2014-04-24T05:28:27.46-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-04-25T10:58:15.22-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

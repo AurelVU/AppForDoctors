@@ -1,0 +1,126 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2012-12-17T03:14:31.04-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have a need to read in ALL columns of a spread sheet - but if I have leading blank columns e.g. blank column A, then I will lose that amount of columns off of the end.Example: Column A is blank, but B,C,D are filled.   XLSX is read in but because A is blank, then D is missing. (3 columns identified as having data - so reads first 3)Example2 : Columns A and B are blank, but C and D are filled.  XLSX is read in and then C an D would not be read in - thus no data. (2 cols identified as having data - so reads first 2) (Rows are not affected in the same way from what I can tell.) Problem lies in XlsxWorksheet.cs : approx Line 30 I am simply returning _dimension.LastCol; As a one line fix (without rigourous testing) this works for me.",
+    "LastUpdatedDate": "2017-11-27T20:47:26.76-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-09-21T08:09:17.907-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Blank column problem (xlsx only)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 6,
+    "Id": 4031
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1700,
+      "FileName": "ExcelOpenXmlReader.ReadSheetRow.txt",
+      "DownloadUrl": ".\\1700"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I ran into what I believe is the same problem.  We are reading data from an Excel 2007 worksheet but some of values in the worksheet are blank.\r\nWe found that when a given column is blank but the column following it is not blank, the value of the column following the blank column is not\r\nread properly by the Excel Data Reader and a null value is the result for that particular column.  Example: If column A and C contain data, but\r\ncolumn B does not, the worksheet reader will read column A and B correctly (an empty string will be returned for column B), but a null value\r\nwill be returned for column C, which is incorrect since column C contains data.\r\n\r\nI traced the problem to the ReadSheetRow() method in ExcelOpenXmlReader.cs.  The algorithm seems to assume that all \"c\" elements in the xml file\r\n(which corresponds to cells in the worksheet) will contain a \"v\" child element, which isn't true.  Inspection of the xml files within .xlsx\r\nfiles reveals that empty cells within Excel sometimes result in an empty \"c\" element corresponding to that cell within the xml file (other times\r\nthe \"c\" element is non-existant all together).  These empty \"c\" element cause the algorithm to skip the \"c\" elements that follows them.\r\n\r\nHere are the algorithm changes that I made to get around the problem, I have tested these changes and they have worked for me:\r\n\r\nprivate bool ReadSheetRow(XlsxWorksheet sheet)\r\n{\r\n   if (null == _xmlReader) return false;\r\n\r\n   if (_emptyRowCount != 0)\r\n   {\r\n      _cellsValues = new object[sheet.ColumnsCount];\r\n      _emptyRowCount--;\r\n      _depth++;\r\n\r\n      return true;\r\n   }\r\n\r\n   if (_savedCellsValues != null)\r\n   {\r\n      _cellsValues = _savedCellsValues;\r\n      _savedCellsValues = null;\r\n      _depth++;\r\n\r\n      return true;\r\n   }\r\n\r\n   if ((_xmlReader.NodeType == XmlNodeType.Element && _xmlReader.Name == XlsxWorksheet.N_row) ||\r\n        _xmlReader.ReadToFollowing(XlsxWorksheet.N_row))\r\n   {\r\n      _cellsValues = new object[sheet.ColumnsCount];\r\n\r\n\r\n      int rowIndex = int.Parse(_xmlReader.GetAttribute(XlsxWorksheet.A_r));\r\n      if (rowIndex != (_depth + 1))\r\n      {\r\n         _emptyRowCount = rowIndex - _depth - 1;\r\n      }\r\n\r\n      while (_xmlReader.Read())\r\n      {\r\n\r\n         if (_xmlReader.Depth == 2) break;\r\n\r\n         if (_xmlReader.NodeType == XmlNodeType.Element && _xmlReader.Name == XlsxWorksheet.N_c)\r\n         {\r\n            string a_s = _xmlReader.GetAttribute(XlsxWorksheet.A_s);\r\n            string a_t = _xmlReader.GetAttribute(XlsxWorksheet.A_t);\r\n            string a_r = _xmlReader.GetAttribute(XlsxWorksheet.A_r);\r\n\r\n            int col, row;\r\n            XlsxDimension.XlsxDim(a_r, out col, out row);\r\n\r\n            _xmlReader.ReadToDescendant(XlsxWorksheet.N_v);\r\n            object o;                                                             //\r\n                                                                                      // This section replaces\r\n            if (!_xmlReader.IsEmptyElement)                            // line 173 in original\r\n            {                                                                         // code.\r\n               o = _xmlReader.ReadElementContentAsObject(); //\r\n\r\n               if (null != a_t && a_t == XlsxWorksheet.A_s)\r\n               {\r\n                  o = _workbook.SST[Convert.ToInt32(o)];\r\n               }\r\n               else if (null != a_s)\r\n               {\r\n                  XlsxXf xf = _workbook.Styles.CellXfs[int.Parse(a_s)];\r\n\r\n                  if (xf.ApplyNumberFormat && IsDateTimeStyle(xf.NumFmtId) && o != null && o.ToString() != string.Empty)\r\n                  {\r\n                     o = DateTime.FromOADate(Convert.ToDouble(o, CultureInfo.InvariantCulture));\r\n                  }\r\n               }\r\n            }\r\n            else                                    // Added\r\n            {                                         // Added\r\n               o = (object)String.Empty;   // Added\r\n            }                                         // Added\r\n\r\n            if (col - 1 < _cellsValues.Length)\r\n               _cellsValues[col - 1] = o;\r\n         }\r\n      }\r\n\r\n      if (_emptyRowCount > 0)\r\n      {\r\n         _savedCellsValues = _cellsValues;\r\n         return ReadSheetRow(sheet);\r\n      }\r\n      else\r\n         _depth++;\r\n\r\n      return true;\r\n   }\r\n\r\n   _xmlReader.Close();\r\n   if (_sheetStream != null) _sheetStream.Close();\r\n\r\n   return false;\r\n}",
+      "PostedDate": "2009-11-11T10:08:38.32-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Since the code snippet that I tried to post did not display the way that I had hoped, I am attaching it to this post in a text file.",
+      "PostedDate": "2009-11-11T10:13:15.623-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-11-11T10:13:17.013-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-02-09T02:16:52.33-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi, I had the same problem, and your fixed solved it.\r\n\r\nSome times, after read an empty cell, the next cell is read as System.DBNull\r\n\r\nThanks a lot.\r\n\r\nRegards,\r\nJose",
+      "PostedDate": "2010-02-09T02:18:50.86-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-02-10T21:44:29.26-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-08-09T10:24:26.713-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2011-01-05T10:21:55.31-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "hiiii ! I used your code and i have added in your code: \r\n         if (col - sheet.Dimension.FirstCol < _cellsValues.Length)\r\n               _cellsValues[col - sheet.Dimension.FirstCol] = o;\r\n (this is from the user Ozolsk) And it is great !!!!\r\nThank you !",
+      "PostedDate": "2011-07-12T06:13:18.057-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-05-23T04:27:26.623-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-12T08:13:22.43-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 81852.",
+      "PostedDate": "2012-12-17T03:14:31.04-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:47.363-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:01.82-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "It seems to be broken again in 2.0.1.0 and latest 2.1 build!",
+      "PostedDate": "2013-08-29T10:00:06.183-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:26.76-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

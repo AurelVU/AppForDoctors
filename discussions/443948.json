@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1044660",
+    "ThreadId": "443948",
+    "Html": "Hello,\r<br />\n<br />\nI can see silverlight files in the source code so I am baffled as to why the DLL gives me the error that it was not built against the silverlight runtime error message when I try to use it.\r<br />\n<br />\nAnyone have any ideas on how to fix this problem?\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2013-05-16T11:15:55.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044685",
+    "ThreadId": "443948",
+    "Html": "To be honest I have never tried silverlight so can't easily answer. Where did you get the library from, here, source, or nuget?<br />\n",
+    "PostedDate": "2013-05-16T12:11:06.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044697",
+    "ThreadId": "443948",
+    "Html": "I ended up downloading the source and grabbing the dlls from the ExcelDataReader.Silverlight Project file and it worked.  <br />\n",
+    "PostedDate": "2013-05-16T12:30:33.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044698",
+    "ThreadId": "443948",
+    "Html": "I grabbed the files from here and thanks for the speedy response!<br />\n",
+    "PostedDate": "2013-05-16T12:31:23.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

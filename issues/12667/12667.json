@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-01-17T07:48:50.75-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I've noticed on some files exported from google drive that columns are missing when read in ExcelDataReader",
+    "LastUpdatedDate": "2017-11-27T20:47:32.857-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-01-17T06:26:28.19-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Google drive exported xlsx is missing columns",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12667
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 87076: Added test app to make it easier to quickly try out a spreadsheet",
+      "PostedDate": "2014-01-17T07:48:50.75-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:32.857-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

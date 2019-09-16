@@ -1,0 +1,106 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi\n\nwhen trying to read attached file, the reader is incorrectly reading the first column's values (from row 4 down) as double. Instead it should be either string or datetime. \n\nAny fix/workaround for this? We really like this tool but can't use without fixing this.\n\nThanks,\nStevo",
+    "LastUpdatedDate": "2014-01-29T08:29:08.29-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-06-04T08:55:46.833-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Date incorrectly read as Double",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 11860
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4576,
+      "FileName": "energy_spot_historie_2013.xls",
+      "DownloadUrl": ".\\4576"
+    },
+    {
+      "FileId": 4860,
+      "FileName": "Test.xlsx",
+      "DownloadUrl": ".\\4860"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Nevermind, need to use the DateTime.FromOADate(...) to get the date, works fine.\r\n\r\nSorry for the confusion.",
+      "PostedDate": "2013-06-04T09:01:42.89-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-01-17T07:11:51.5-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I get the same error but I am NOT able to do a workaround with my Excel flies.\nI am using version 2.1 and only get the date as string and it is ALWAYS 1899-12-31.\nExtremely confusing.\nI try to format column in Excel but the result is the same.\r\n\r\nPlease come with a solution!!!\nThis component works perfect for my usage except for this bug.\nWith a failure on all dates the component is not really a valid option.",
+      "PostedDate": "2014-01-17T07:19:10.273-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@jaklithn are you able to provide a file with this issue?",
+      "PostedDate": "2014-01-20T01:20:48.693-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-01-20T02:04:20.64-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks for quick answer!\nExcel file is enclosed. Second column holds dates having the value 2014-01-16 16:00:00\nI use the following code:\r\n\r\npublic static void GetValues(TableItem table, string path, string sheetName, bool firstRowHoldsColumnNames = true)\n{\n\tusing (var stream = File.Open(path, FileMode.Open, FileAccess.Read))\n\t{\n\t\tusing (var excelReader = GetExcelDataReader(path, stream))\n\t\t{\n\t\t\texcelReader.IsFirstRowAsColumnNames = firstRowHoldsColumnNames;\n\t\t\tvar dataset = excelReader.AsDataSet();\n\t\t\tforeach (DataRow row in dataset.Tables[sheetName].Rows)\n\t\t\t{\n\t\t\t\tvar rowItem = new RowItem();\n\t\t\t\tforeach (var value in row.ItemArray)\n\t\t\t\t{\n\t\t\t\t\trowItem.Values.Add(value);\n\t\t\t\t}\n\t\t\t\ttable.Rows.Add(rowItem);\n\t\t\t}\n\t\t}\n\t}\n}\r\n\r\nprivate static IExcelDataReader GetExcelDataReader(string path, Stream stream)\n{\n\tvar extension = GetExtension(path);\n\tswitch (extension)\n\t{\n\t\tcase \"xls\":\n\t\t\treturn ExcelReaderFactory.CreateBinaryReader(stream);\n\t\tcase \"xlsx\":\n\t\t\treturn ExcelReaderFactory.CreateOpenXmlReader(stream);\n\t\tdefault:\n\t\t\tthrow new Exception(string.Format(\"Extension='{0}' is not handled\", extension));\n\t}\n}\r\n\r\nprivate static string GetExtension(string path)\n{\n\tvar extension = Path.GetExtension(path);\n\treturn extension == null ? null : extension.ToLower().Substring(1);\n}",
+      "PostedDate": "2014-01-20T02:04:21.54-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I tried with your spreadsheet and I got the value interpreted correctly as a date.\r\n\r\nI hacked your code to be\n```\n        public static void GetValues(DataSet dataset, string sheetName)\n        {\n            foreach (DataRow row in dataset.Tables[sheetName].Rows)\n            {\r\n\r\n                foreach (var value in row.ItemArray)\n                {\n                    Console.WriteLine(\"{0}, {1}\", value, value.GetType());\n                }\r\n\r\n            }\r\n\r\n        } \n```\r\n\r\nAnd I get the output \nfbe83377-8474-4b3e-93ed-1c9ddafb5dcc, System.String\n16/01/2014 16:00:00, System.DateTime\nÖvrigTjänstepension, System.String\netc\r\n\r\nSo, not sure what is going, unless it is something to with your locale.",
+      "PostedDate": "2014-01-22T06:48:30.07-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks for trying!\r\n\r\nYou are probably right in your assumption that the locale is the difference.\nWhen I run the same code I get the following result:\nfbe83377-8474-4b3e-93ed-1c9ddafb5dcc, System.String\n1899-12-31 00:00:00, System.DateTime\nÖvrigTjänstepension, System.String\r\n\r\nMy Windows 7 is set to use Swedish Locale and Swedish Format and I use Excel 2013.\nDoes this mean ExcelDatareader can not be used in non-english environment?\r\n\r\nI tried another wellknown .Net OpenSource Lib called Koogra found on http://koogra.sourceforge.net\nI really wanted to use ExcelDatareader as it seems to be a more active project but on this matter I actually found Koogra to be more stable as it handles date columns without problem.\n",
+      "PostedDate": "2014-01-22T23:29:38.167-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "ExcelDataReader should work in a non-english environment.\nI tried changing my Windows to Swedish but it still worked ok. \r\n\r\nIf you have any spare time it would be great if you could download the latest source from the repository and run the test app. Then point it at your file. If it still shows the wrong date, then if you put a break point on ExcelOpenXmlReader.cs line 276 we should be able to see what is going on.\r\n\r\nCheers\nIan",
+      "PostedDate": "2014-01-27T01:47:14.23-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks for your attention.\r\n\r\nI tried your 2.1 source demo with Excel.4.5.dll and it parsed the Excel file OK.\nI switched to Excel.dll and the demo app still parsed it OK.\nI ran my application with the previously downloaded Excel.dll 2.1 and confirmed it still was wrong.\nI then exchanged the Excel.dll 2.1 in my own application with the one generated by the source code and then my application also works!\nMy conclusion is that you have changed something related to the parsing without upgrading the version?\r\n\r\nBy the way: Why do provide different versions for Framework 2.0 and 4.5? Is there an advantage of using the Excel.4.5?",
+      "PostedDate": "2014-01-29T00:19:44.65-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Correct, the nuget version is not the latest version of the code.\r\n\r\nI don't have access to update the nuget package, and I don't really know much about updating nuget either (or have the time to find out).",
+      "PostedDate": "2014-01-29T08:29:08.29-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

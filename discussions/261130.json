@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "626674",
+    "ThreadId": "261130",
+    "Html": "\r\n<p>Hi All,</p>\r\n<p>I am having hard time to set the column names in a DataTable. I am following the example given in the homepage and setting &quot;IsFirstRowAsColumnNames&quot; property to true, but still I am getting column names as Column0, Column1 etc.</p>\r\n<p>I am not sure how to fix this. Currently I am using ExcelReaderFactory.CreateBinaryReader(stream) to create reader.</p>\r\n<p>Any pointers would greatly help.</p>\r\n<p>Thanks,</p>\r\n<p>--A</p>\r\n",
+    "PostedDate": "2011-06-12T16:25:06.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626703",
+    "ThreadId": "261130",
+    "Html": "<p>Well.. looks like the problem with the excel file itself. File I was using was created using the previous version of excel. I created a new file using excel 2007 and everything works great.</p>\r\n<p>Thanks,</p>\r\n<p>--A</p>",
+    "PostedDate": "2011-06-12T20:01:41.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806324",
+    "ThreadId": "261130",
+    "Html": "<p>Posting this in case it helps someone else...</p>\r\n<p>I ran into this issue recently. But the file that was failing had been created in Excel 2007. The xls file created in 2007 was very simple, and in the code I had the  IsFirstRowAsColumnNames property set to true. I got it to work by  copying and repopulating a file created using Crystal Reports. But this  was a major annoyance. I have to use the XLS format because I already found the XLSX reader in this library to be buggy (it was randomly ignoring some columns).</p>\r\n<p>I tried recreating the file that worked in Excel 2007, making it match *exactly* to the good file (same data, same formats, etc.). But it still wouldn't work. The file sizes didn't match though, which indicated they still weren't an exact match. Looking at the files in plain text editors indicates that there are additional headers present in the good file. Maybe this was the cause of the problem.</p>",
+    "PostedDate": "2012-03-06T09:41:52.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

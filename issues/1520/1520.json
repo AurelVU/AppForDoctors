@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Resolved in new release",
+    "ClosedDate": "2009-05-12T09:59:06.693-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When retrieving values (strings) from a spread sheet, eg cell value:  =\"Some Text\", junk text is returned as the datareader is treating all text as UTF16.  Whereas the text is really UTF8.",
+    "LastUpdatedDate": "2013-05-16T05:00:04.78-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-02-01T11:31:57.37-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Forumular strings returned as junk text",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 1520
+  },
+  "FileAttachments": [
+    {
+      "FileId": 686,
+      "FileName": "book2.xls",
+      "DownloadUrl": ".\\686"
+    }
+  ],
+  "Comments": []
+}

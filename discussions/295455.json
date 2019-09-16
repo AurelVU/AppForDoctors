@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "742845",
+    "ThreadId": "295455",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>How to read data from .xls files if it contains some hidden&nbsp;rows or columns?</p>\r\n<p>ExcelReaderFactory.CreateBinaryReader returns no data from .xls file if column and rows are hidden. It works fine with .xlsx file.</p>\r\n",
+    "PostedDate": "2012-02-06T03:24:52.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

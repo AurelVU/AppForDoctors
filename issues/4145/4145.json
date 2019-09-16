@@ -1,0 +1,91 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2012-12-17T03:55:46.51-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I tried the sample code that is posted under \"how to use\"my xslx file had 3 sheets, the last one of them is empty. i removed that third sheet, but this didn't fix the issuei attached the file for you to test on. thanks i had an exceptionin in ExcelOpenXmlReader.cs, private bool InitializeSheetRead() i am doubting that __resultIndex  is left with an out of range value in public System.Data.DataSet AsDataSet(bool convertOADateTime)  System.ArgumentOutOfRangeException was unhandled  Message=\"Index was out of range. Must be non-negative and less than the size of the collection.\\r\\nParameter name: index\"  Source=\"mscorlib\"  ParamName=\"index\"  StackTrace:       at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)       at System.ThrowHelper.ThrowArgumentOutOfRangeException()       at System.Collections.Generic.List`1.get_Item(Int32 index)       at Excel.ExcelOpenXmlReader.InitializeSheetRead() in E:\\Projects\\Tracer4-TM\\TFS\\Tracer4-TM\\Excel\\ExcelOpenXmlReader.cs:line 204       at Excel.ExcelOpenXmlReader.Read() in E:\\Projects\\Tracer4-TM\\TFS\\Tracer4-TM\\Excel\\ExcelOpenXmlReader.cs:line 369       at ExcelGenerator.Program.GenerateCSV() in E:\\Projects\\Tracer4-TM\\TFS\\Tracer4-TM\\ExcelGenerator\\Program.cs:line 63       at ExcelGenerator.Program.Main(String[] args) in E:\\Projects\\Tracer4-TM\\TFS\\Tracer4-TM\\ExcelGenerator\\Program.cs:line 26       at System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)       at System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)       at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()       at System.Threading.ThreadHelper.ThreadStart_Context(Object state)       at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)       at System.Threading.ThreadHelper.ThreadStart()  InnerException:",
+    "LastUpdatedDate": "2017-11-27T20:47:27.13-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-09-29T08:48:35.93-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "index out of range exception",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 4145
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1524,
+      "FileName": "test Sheet.xlsx",
+      "DownloadUrl": ".\\1524"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "There is a patch (ID = 10871) to fix this issue http://exceldatareader.codeplex.com/SourceControl/list/patches.\r\n\r\nOr you can use next workaround. Before first read (any reader.Read(), where reader is ExcelOpenXmlReader) put this code:\r\nif (reader is ExcelOpenXmlReader)\r\n {\r\n   var fieldInfo = reader.GetType().GetField(\"_resultIndex\", System.Reflection.BindingFlags.Instance |\r\n                                                                                  System.Reflection.BindingFlags.NonPublic);\r\n   if (fieldInfo != null)\r\n   {\r\n      fieldInfo.SetValue(reader, 0);\r\n    }\r\n}",
+      "PostedDate": "2011-11-19T02:43:44.827-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-02-05T10:26:42.44-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-17T03:47:15.933-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 81854.",
+      "PostedDate": "2012-12-17T03:55:46.51-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I'm having the same problem using the latest version -- 2.0.1.0 -- and resolving it using mogikanin's workaround.",
+      "PostedDate": "2013-01-13T09:34:10.847-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Try it with the latest source code rather than the 2.0.1.0 release. There are a lot of fixes since 2.0.1.0.",
+      "PostedDate": "2013-01-14T02:03:16.277-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:47.173-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:00.95-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:27.13-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

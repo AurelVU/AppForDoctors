@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-01-17T03:54:33.993-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Files saved using Microsoft Office 97 - 2003 format in OpenOffice do not work. They are loaded, but the call to AsDataSet results in 0 rows in the DataReader.",
+    "LastUpdatedDate": "2017-11-27T20:47:27.693-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-03-15T13:57:23.913-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Does not work with OpenOffice XLS files",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 8524
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I can reconfirm this. Any file saved using OpenOffice or MS Excel 2003 is not read by the component / library.\r\n\r\nThis is important as we cant use this lib with Open Office Edited (.xls -> .xls) files",
+      "PostedDate": "2012-06-04T02:15:31.937-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-01-17T03:51:48.633-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 82317: Should now read open office 3 excel binary files.",
+      "PostedDate": "2013-01-17T03:54:33.993-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:41.447-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:59.383-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:27.693-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

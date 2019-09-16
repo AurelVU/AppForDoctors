@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "659571",
+    "ThreadId": "269452",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I am trying to read a sheet that uses custom formats in some cells. For example, a cell with format 00&quot;/08&quot;, containing value 16. It appears in the sheet as 16/08 but is read as 16. Is it possible to either import the formatted text, 16/08, or get access\r\n to the custom format string?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>Geoff</p>\r\n",
+    "PostedDate": "2011-08-17T11:57:02.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

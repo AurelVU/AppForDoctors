@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n\nI am using excel data reader for reading excel files simultaneously using some queueing mechnism.\nI am facing below mentioned issue when two excel files have same data. I have tried to dig into code of excel data reader and may be the problem is at logger level. I tried to put lock before ExcelReaderFactory.CreateOpenXmlReader and it resolved below issue but then it does not allow to read \nexcel files simultaneously as it locks one file and starts to read new only when first is done. (as ExcelReaderFactory is a static class)\n\n--------------Below is error details  ----------------------------\n\nArgumentException\n   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)\n   at Excel.Log.LogManager.Log(String objectName) in LogManager.cs: line 48\n   at Excel.Core.ZipWorker.NewTempPath() in c:\\development\\ExcelDataReader\\Excel\\Core\\ZipWorker.cs: line 250\n   at Excel.Core.ZipWorker.Extract(Stream fileStream) in c:\\development\\ExcelDataReader\\Excel\\Core\\ZipWorker.cs: line 86\n   at Excel.ExcelOpenXmlReader.Initialize(Stream fileStream) in c:\\development\\ExcelDataReader\\Excel\\ExcelOpenXmlReader.cs: line 335\n   at Excel.ExcelReaderFactory.CreateOpenXmlReader(Stream fileStream) in c:\\development\\ExcelDataReader\\Excel\\ExcelReaderFactory.cs: line 76\n   at Elastic.Infrastructure.Data.File.Parsers.ExcelOpenXmlStreamReader`2.<Read>d__0.MoveNext() in ExcelOpenXmlStreamReader.cs: line 34\n   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)\n   at System.Linq.Enumerable.ToList(IEnumerable`1 source)\n   at Elastic.Infrastructure.Data.File.Tests.ExcelOpenXmlStreamReaderTests.<>c__DisplayClass2.<CanIterateThrough2XlsFilesInParallel>b__0() in ExcelOpenXmlStreamReaderTests.cs: line 42\n at System.Threading.Tasks.Task.Execute()\n\n--------------------------------------------------------------------------------------------\nPlease do the needful asap.\n\nThanks & Regards,\nVibhuti",
+    "LastUpdatedDate": "2015-08-23T17:08:49.733-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-08-23T17:08:49.733-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "excel data reader does not allow to read excel file simultaneously",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13692
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "692529",
+    "ThreadId": "277995",
+    "Html": "\r\n<p>Hi All</p>\r\n<p>I have used excel reader in my application and when i try to read the file the values supplied are getting changed.Initial investigation from me shows this is happening with only these 2 values...5.1 and 4.9</p>\r\n<p>Does anybody have an idea why this is happening..? Below is the way i am getting the data..</p>\r\n<p>&nbsp;&nbsp; else if (Path.GetExtension(FilePath).ToUpper() == &quot;.XLSX&quot;)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; excelReader.IsFirstRowAsColumnNames = true;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ds = excelReader.AsDataSet();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; excelReader.Close();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>Please provide a solution to this problem.</p>\r\n<p>I sincerely appreciate any help in this regard.This is crucial to my application and is an emergency.....</p>\r\n",
+    "PostedDate": "2011-11-01T22:48:22.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803529",
+    "ThreadId": "277995",
+    "Html": "<p>While reading xlsx file if the decimal position is more than 2 places it shows a big number?</p>\r\n<p>Any help?</p>",
+    "PostedDate": "2012-02-29T19:11:20.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809440",
+    "ThreadId": "277995",
+    "Html": "<p>late but a temporary fix would be to round your numbers to the nearest tenths decimal place.</p>",
+    "PostedDate": "2012-03-13T00:06:59.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

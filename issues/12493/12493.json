@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have recently downloaded the latest dll's of Excel Data Reader and published in the server. When I try to read the data I am getting the below exception. Please get me out of this error asap\n\n____Could not load file or assembly 'Excel, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. ____",
+    "LastUpdatedDate": "2013-11-22T01:44:32.697-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-11-22T01:44:32.697-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Could not load file or assembly 'Excel, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies.",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12493
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

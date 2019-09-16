@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1256988",
+    "ThreadId": "548882",
+    "Html": "I need to get information from sheet1 &quot;your details&quot; and then sheet2 &quot;your sites&quot;<br />\n<pre><code>foreach (DataTable dt in result.Tables)\n            {\n                if (dt.TableName.ToLower().Contains(&quot;your details&quot;))\n                {\n                    excelReader.Read();\n                    ... do stuff\n                 }\n                 else if(dt.TableName.ToLower().Contains(&quot;your sites&quot;))\n                {\n                    excelReader.Read();\n                    ... This is the problem,  I'm still reading from sheet &quot;your details&quot;\n                }</code></pre>\n\nBut when the code finds the sheet &quot;your sites&quot; and I call [excelReader.Read();] it is still reading from the first sheet... \r<br />\nCan anyone help ?<br />\n",
+    "PostedDate": "2014-06-17T04:35:05.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1257577",
+    "ThreadId": "548882",
+    "Html": "\r\n<p dir=\"ltr\">It looks like you are using a mixture of dataset and idatareader. Just use one method.\r\n</p>\r\n<div></div>\r\n",
+    "PostedDate": "2014-06-18T10:38:59.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1257807",
+    "ThreadId": "548882",
+    "Html": "Thanks, I got it in the end... In casse anyone else lands here with the same problem - I found it easier to stick to datasets (easier to navigate &amp; manipulate)<br />\n<pre><code>DataSet result = excelReader.AsDataSet();\n            excelReader.IsFirstRowAsColumnNames = true;\n\n            foreach (DataTable dt in result.Tables)\n            {\n                if(dt.TableName.ToLower().Contains(&quot;your sites&quot;))\n                {\n\n                    DataSet ds = dt.DataSet;\n                    DataTable Dt = ds.Tables[&quot;Your Sites&quot;];\n\n                    foreach (DataRow dr in Dt.Rows)\n                    {\n                        strSiteURL = (dr[1].ToString());\n                        strCategory1 = (dr[2].ToString());\n                        ....\n                        ...\n                    }\n              }</code></pre>\n\n",
+    "PostedDate": "2014-06-19T02:48:20.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

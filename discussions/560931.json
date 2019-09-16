@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1289156",
+    "ThreadId": "560931",
+    "Html": "Hello everyone! I have been reading a lot around my issue but I am still struggling to get an idea how to go around it. Any help would be appreciated!\r<br />\n<br />\nI am reading an Excel spreadsheet that can contain wrongly formatted data, e.g. a cell could be formatted as a date but in Excel appears normally- as a string as it contains a string. When I read it with the Excel data reader it appears as 31/12/1899. How can I just get the value of the string as displayed in Excel? \r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2014-08-12T01:38:40.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293834",
+    "ThreadId": "560931",
+    "Html": "I've created this issue for discussion over on github \r<br />\n<a href=\"https://github.com/ExcelDataReader/ExcelDataReader/issues/15\" rel=\"nofollow\">https://github.com/ExcelDataReader/ExcelDataReader/issues/15</a><br />\n",
+    "PostedDate": "2014-08-27T01:20:14.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

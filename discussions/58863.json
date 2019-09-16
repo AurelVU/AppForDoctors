@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "199374",
+    "ThreadId": "58863",
+    "Html": "<p>With the new release of ExcelDataReader, how can i set the excel first row as datatable column names?</p>\r\n<p>PS: Excel column names and format is not consistent. With older release while calling data excel reader i can specify that.</p>\r\n<p>Thanks in advance.</p>\r\n<p>Gnan</p>",
+    "PostedDate": "2009-06-09T00:12:16.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201803",
+    "ThreadId": "58863",
+    "Html": "<p>I'm having a similar issue.&nbsp; Even when I attempt to include the ColumnNames into the DataSet manually, I get empty strings from the first rows.</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>Stream fs = <span style=\"color:Blue\">new</span> FileStream(Path, FileMode.Open,FileAccess.Read, FileShare.ReadWrite);           \r\nIExcelDataReader rd = Excel.Factory.CreateReader(fs, ExcelFileType.Binary);\r\n\r\n<span style=\"color:Blue\">foreach</span> (DataTable table <span style=\"color:Blue\">in</span> rd.AsDataSet(<span style=\"color:Blue\">true</span>).Tables)\r\n{\r\n   <span style=\"color:Blue\">foreach</span> (DataColumn dc <span style=\"color:Blue\">in</span> Table.Columns)\r\n   {\r\n      <span style=\"color:Blue\">string</span> colName = Table.Rows[0][dc.Ordinal].ToString().Trim();\r\n      <span style=\"color:Blue\">if</span> (<span style=\"color:Blue\">string</span>.IsNullOrEmpty(colName) &amp;&amp; !Table.Columns.Contains(colName)) { Table.Columns[dc.Ordinal].ColumnName = colName; }\r\n   }\r\n}\r\n           \r\nfs.Close();\r\n</pre>\r\n</div>\r\n</p>\r\n<p>The only change I had to make from the old version was <em>rd.WorksheetData.Tables</em> to<em> rd.AsDataSet(true)</em> .</p>\r\n<p>Also, the formula <em>tryConvertOADateTime(_oValue, cell.XFormat)</em> throws and exception when _oValue is null.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-15T16:47:41.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "210334",
+    "ThreadId": "58863",
+    "Html": "<pre>               DataSet result= rd.AsDataSet()<pre><span style=\"color:blue\">            foreach</span> (DataTable table <span style=\"color:blue\">in</span> result.Tables)</pre>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong> if (table.Rows.Count == 0) continue;</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (DataColumn dc in table.Columns)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string colName = table.Rows[0][dc.Ordinal].ToString().Trim();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if <strong>(!string.IsNullOrEmpty(colName) </strong>&amp;&amp; !table.Columns.Contains(colName))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; table.Columns[dc.Ordinal].ColumnName = colName;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp; table.Rows[0].Delete();</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp; result.AcceptChanges();</strong></pre>",
+    "PostedDate": "2009-07-09T02:40:36.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "210374",
+    "ThreadId": "58863",
+    "Html": "<p>hoangchau,<br> <br> It appears that I was missing the call to the AcceptChanges method. I also appreciate the other suggested changes.<br> <br> Thanks,<br> mindcore</p>",
+    "PostedDate": "2009-07-09T05:41:31.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

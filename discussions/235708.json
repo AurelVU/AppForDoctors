@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "525786",
+    "ThreadId": "235708",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>i am using&nbsp; excelReader.AsDataSet() which returns me Dataset but&nbsp; the&nbsp; decimal values from Excel sheet&nbsp;&nbsp; are converted to Exponential values in Dataset. I need&nbsp; all Sheet&nbsp; Data as it is in Dataset. In my Excel sheet any\r\n Column can have Decimal value.</p>\r\n<p>How to solve this problem..</p>\r\n<p>Thanks in advance.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-23T04:35:54.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

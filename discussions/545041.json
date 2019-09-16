@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1244207",
+    "ThreadId": "545041",
+    "Html": "Is there a way to read the cell formula instead of the cell value? <br />\n",
+    "PostedDate": "2014-05-11T23:58:20.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244248",
+    "ThreadId": "545041",
+    "Html": "Not currently. You could probably get at the formula if you dig into the library, but there is a bit of a learning curve figuring out the excel format.<br />\n",
+    "PostedDate": "2014-05-12T01:42:14.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244250",
+    "ThreadId": "545041",
+    "Html": "Thanks for the reply - it would be a handy feature to have.\r<br />\n<br />\nIn my case I can infer the formula by comparing the source and destination values to get the multiplier value (e.g. 125%).<br />\n",
+    "PostedDate": "2014-05-12T01:45:12.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

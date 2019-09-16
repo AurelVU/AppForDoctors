@@ -1,0 +1,90 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2012-12-10T02:12:08.46-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Here's the stack trace:    at System.IO.Directory.DeleteHelper(String fullPath, String userPath, Boolean recursive)   at System.IO.Directory.Delete(String fullPath, String userPath, Boolean recursive)   at Excel.Core.ZipWorker.CleanFromTemp()   at Excel.Core.ZipWorker.Dispose(Boolean disposing)   at Excel.Core.ZipWorker.Dispose()   at Excel.ExcelOpenXmlReader.Dispose(Boolean disposing)   at Excel.ExcelOpenXmlReader.Dispose()",
+    "LastUpdatedDate": "2017-11-27T20:47:27.31-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-01-25T14:15:13.05-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "The process cannot access the file 'sheet1.xml' because it is being used by another process.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 5161
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "When you open the file stream instead of:\r\n      FileStream stream = File.Open(fiLoadFile.FullName, FileMode.Open, FileAccess.Read);\r\ntry using:\r\n      FileStream stream = File.Open(fiLoadFile.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);\r\n",
+      "PostedDate": "2010-02-21T00:14:29.677-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-03-11T14:12:12.48-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-11-03T17:18:09.36-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I don't believe this is related to the mode of the input stream. \r\n\r\nTo me, it looks like the ExcelOpenXmlReader is trying to dispose of the ZipWorker while it still has filehandles open. Maybe this is as simple as reversing the order of the cleanup code in Dispose(bool) so the zipworker is disposed AFTER the sheetStream. However, I am concerned that it looks like ExcelOpenXmlReader will lose track of filehandles (and hence won't be able to close them) if ReadSheetGlobals() is called multiple times. \r\n\r\nAs a workaround to the above exception, it appears that you can call ExcelOpenXmlReader.Close() before ExcelOpenXmlReader.Dispose(). The Close() method implements the cleanup in a different order to Dispose().",
+      "PostedDate": "2010-11-03T17:27:55.097-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-10-20T10:12:25.087-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-07T08:03:25.56-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 81744.",
+      "PostedDate": "2012-12-10T02:12:08.46-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:45.57-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:00.447-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:27.31-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

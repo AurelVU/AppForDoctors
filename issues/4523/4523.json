@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I had an issue reading the last row in a binary file format.\nThe code looked like this in the readWorksheetRow() method\nreturn m_depth < m_maxRow;\n \nThen in the moveToNextRecord() method it tries to compensate by this code\n//read last row\nif (!m_canRead && m_depth > 0) m_canRead = true;\n \n \nI changed  readWorksheetRow() to the following and it solved my problem\nreturn m_depth <= m_maxRow;",
+    "LastUpdatedDate": "2013-02-21T17:47:46.987-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-10-28T08:31:15.763-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Reading the last row",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 4523
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

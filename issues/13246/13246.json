@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The latest code uses the var type, which is only supported on framework 3.0+. The batch files for the compact framework is still linking to version 2.0, which will not build. I have already updated my own local copy, but just wanted to point it out so it can be updated in the source. Thanks!",
+    "LastUpdatedDate": "2015-04-27T08:37:07.633-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-09-12T07:55:43.38-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Build scripts for compact framework is out of date",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 13246
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\nI have tryed to get the latest version on Master branch and Develop Branch + some previous commits and i have always the same issue while trying to compile in compact framework... Can you please upgrade the source or specify at least witch version should we user for compact framework?",
+      "PostedDate": "2015-04-27T08:37:07.633-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

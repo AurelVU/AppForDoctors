@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "555887",
+    "ThreadId": "243437",
+    "Html": "\r\n<p>Hi All,</p>\r\n<p>I've submitted patch 8212 with some improvements to the test harness and a fix to a failing test.</p>\r\n<p>However, I can see on the Patches page that there are patches that have been pending since June 2009.</p>\r\n<p>Are patches being accepted for this project? &nbsp;I get the feeling that the project is still alive (last checkin was only a few weeks ago) but the patches seem to be ignored :-(</p>\r\n<p>Yours,<br>\r\nDuncan Bayne&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-26T13:53:15.497-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "596112",
+    "ThreadId": "243437",
+    "Html": "<p>Certainly doesn't seem to be very actively maintained. &nbsp;</p>\r\n<p>Too bad - seems to be a fair number of bugs/fixes pending for extended periods of time.</p>\r\n<p>It's a useful project but definitely needs some attention.</p>",
+    "PostedDate": "2011-04-12T11:59:57.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

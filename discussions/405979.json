@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "952999",
+    "ThreadId": "405979",
+    "Html": "\r\n<p>Should we add logging into the library? e.g. log4net</p>\r\n<p>I've found to debug some issues logging has been really useful, but then I've removed it all before committing.&nbsp;</p>\r\n<p>We could toggle logging on off via a compiler switch (DEBUG?) maybe so as not affect performance at all in release.</p>\r\n<p>Thoughts?</p>\r\n",
+    "PostedDate": "2012-12-07T08:10:51.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "958346",
+    "ThreadId": "405979",
+    "Html": "\r\n<p>I'm good with that, seeing as we are the only two active developers.</p>\r\n<p>This seems like an interesting, low cost approach.</p>\r\n<p>http://devlicio.us/blogs/rob_reynolds/archive/2012/12/15/introducing-this-log.aspx</p>\r\n",
+    "PostedDate": "2012-12-19T04:50:55.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "958401",
+    "ThreadId": "405979",
+    "Html": "\r\n<div dir=\"ltr\">That looks pretty cool. I'd prefer log4net as the underlying logger (which is what he show in his gist anyway). Do you fancy doing it? Or I am happy to.<br>\r\n</div>\r\n<div><br>\r\n<br>\r\n<div>On Wed, Dec 19, 2012 at 12:51 PM, RyanONeill1970 <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\" target=\"_blank\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: RyanONeill1970</p>\r\n<div>\r\n<p>I'm good with that, seeing as we are the only two active developers.</p>\r\n<p>This seems like an interesting, low cost approach.</p>\r\n<p><a href=\"http://devlicio.us/blogs/rob_reynolds/archive/2012/12/15/introducing-this-log.aspx\" target=\"_blank\">http://devlicio.us/blogs/rob_reynolds/archive/2012/12/15/introducing-this-log.aspx</a></p>\r\n</div>\r\n<div>\r\n<p>Read the <a href=\"http://exceldatareader.codeplex.com/discussions/405979#post958346\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:ExcelDataReader@discussions.codeplex.com?subject=[ExcelDataReader:405979]\" target=\"_blank\">ExcelDataReader@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:ExcelDataReader@discussions.codeplex.com\" target=\"_blank\">\r\nExcelDataReader@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://exceldatareader.codeplex.com/subscriptions/thread/project/edit\" target=\"_blank\">\r\nunsubscribe or change your settings</a> on codePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at\r\n<a href=\"http://codeplex.com\" target=\"_blank\">codeplex.com</a></p>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2012-12-19T06:02:47.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "958419",
+    "ThreadId": "405979",
+    "Html": "Happy for you to.   On 19 December 2012 14:02, Ian1971 &lt;<a href=\"mailto:&lt;notifications@codeplex.com&gt;\" rel=\"nofollow\">&lt;notifications@codeplex.com&gt;</a> wrote:   From: Ian1971  That looks pretty cool. I'd prefer log4net as the underlying logger (which is what he show in his gist anyway). Do you fancy doing it? Or I am happy to.    On Wed, Dec 19, 2012 at 12:51 PM, RyanONeill1970 &lt;<a href=\"mailto:&lt;notifications@codeplex.com&gt;\" rel=\"nofollow\">&lt;notifications@codeplex.com&gt;</a> wrote:   From: RyanONeill1970  I'm good with that, seeing as we are the only two active developers. This seems like an interesting, low cost approach. <a href=\"http://devlicio.us/blogs/rob_reynolds/archive/2012/12/15/introducing-this-log.aspx\" rel=\"nofollow\">http://devlicio.us/blogs/rob_reynolds/archive/2012/12/15/introducing-this-log.aspx</a>   Read the  full discussion online. To add a post to this discussion, reply to this email <a href=\"mailto:(ExcelDataReader@discussions.codeplex.com)\" rel=\"nofollow\">(ExcelDataReader@discussions.codeplex.com)</a> To start a new discussion for this project, email  <a href=\"mailto:ExcelDataReader@discussions.codeplex.com\" rel=\"nofollow\">ExcelDataReader@discussions.codeplex.com</a> You are receiving this email because you subscribed to this discussion on CodePlex. You can  unsubscribe or change your settings on codePlex.com. Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at codeplex.com         Read the  full discussion online. To add a post to this discussion, reply to this email <a href=\"mailto:(ExcelDataReader@discussions.codeplex.com)\" rel=\"nofollow\">(ExcelDataReader@discussions.codeplex.com)</a> To start a new discussion for this project, email  <a href=\"mailto:ExcelDataReader@discussions.codeplex.com\" rel=\"nofollow\">ExcelDataReader@discussions.codeplex.com</a> You are receiving this email because you subscribed to this discussion on CodePlex. You can  unsubscribe or change your settings on codePlex.com. Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at codeplex.com         --  __________________________________________________________________________ <br />\n",
+    "PostedDate": "2012-12-19T06:20:18.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

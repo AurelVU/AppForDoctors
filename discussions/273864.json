@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "676748",
+    "ThreadId": "273864",
+    "Html": "\r\n<p><span style=\"color:black\">Greetings!</span></p>\r\n<p><span style=\"color:black\">I wonder if you have any sample code of how I can access the &quot;<strong>date1904</strong>&quot; property of the WORKBOOK for both\r\n<strong>(.xls and .xlsx</strong>) .... </span></p>\r\n<p><span style=\"color:black\">from ExcelDataReader ... to tell me if a given Excel file was set to date1904 ( true or false ).</span></p>\r\n<p><span style=\"color:black\">Your kind help is very much appreciated.&nbsp; </span>\r\n<span style=\"color:black\">Thanks.</span></p>\r\n<p><span style=\"color:black\">&nbsp;</span></p>\r\n<p><span style=\"color:black\">trifee</span></p>\r\n",
+    "PostedDate": "2011-09-26T08:52:16.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

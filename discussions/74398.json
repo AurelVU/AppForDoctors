@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "254473",
+    "ThreadId": "74398",
+    "Html": "<p>Passing my file into the binaryreader gives me the error:</p>\r\n<p>{&quot;No data is available for encoding 55636.&quot;}</p>\r\n<p>at System.Text.Encoding.GetEncodingRare(Int32 codepage)<br>&nbsp;&nbsp; at System.Text.Encoding.GetEncoding(Int32 codepage)<br>&nbsp;&nbsp; at Excel.ExcelBinaryReader.readWorkBookGlobals()<br>&nbsp;&nbsp; at Excel.ExcelBinaryReader.Initialize(Stream fileStream)<br>&nbsp;&nbsp; at Excel.ExcelReaderFactory.CreateBinaryReader(Stream fileStream)</p>\r\n<p>I can't find any reference to this error / code anywhere. Ideas? This is a real block for me.</p>",
+    "PostedDate": "2009-11-07T00:12:53.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

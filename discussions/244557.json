@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "560360",
+    "ThreadId": "244557",
+    "Html": "\r\n<p>I have a web app that let's users import spreadsheets of information and one of the cells contains a date formatted as such: &quot;1/31/2011&quot; which is being converted to the integer result of 40209 instead of the date. Is there a way in which I can correct this\r\n in my reading code?</p>\r\n",
+    "PostedDate": "2011-02-03T12:41:31.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592026",
+    "ThreadId": "244557",
+    "Html": "<p>Jimmy,</p>\r\n<p>&nbsp;</p>\r\n<p>You can use the Datetime.<a href=\"http://msdn.microsoft.com/en-us/library/system.datetime.fromoadate.aspx\">FromOADate</a>() method to convert it.</p>",
+    "PostedDate": "2011-04-05T07:06:51.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "616884",
+    "ThreadId": "244557",
+    "Html": "<p>I have a similar issue, but cannot know which column must be converted since the user can use anything as header and the column order may change.</p>\r\n<p>The dll has this method: public DataSet AsDataSet(bool convertOADateTime)</p>\r\n<p>and i'm using it as expected, but still cannot get the correct data type for date columns... I wrote to the developer, but no feedback yet.</p>\r\n<p>Any suggestion?</p>",
+    "PostedDate": "2011-05-23T10:36:02.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "618090",
+    "ThreadId": "244557",
+    "Html": "<p>Check out the patches section. I posted a patch to fix this and other issues here:</p>\r\n<p>http://www.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=exceldatareader&amp;DownloadId=231375</p>\r\n<p><span style=\"white-space: nowrap;\"> <a id=\"AuthorLink1\" title=\"Uploaded by rudddenko\" href=\"http://www.codeplex.com/site/users/view/rudddenko\">rudddenko</a> posted a patch as well<br /></span></p>\r\n<p>http://www.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=exceldatareader&amp;DownloadId=231187</p>",
+    "PostedDate": "2011-05-25T08:22:00.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "708365",
+    "ThreadId": "244557",
+    "Html": "<p><br />We tried the above advice to fix the problem. We applied the patch to the original version and we generated new dll's and added to our project. But still the dates are converted as integers. Can anyone advice us on what might be wrong?</p>",
+    "PostedDate": "2011-12-06T12:26:21.733-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803476",
+    "ThreadId": "244557",
+    "Html": "<p>How to apply the patch?</p>",
+    "PostedDate": "2012-02-29T16:32:06.803-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803477",
+    "ThreadId": "244557",
+    "Html": "<p>How to apply the patch?</p>",
+    "PostedDate": "2012-02-29T16:32:37.707-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843981",
+    "ThreadId": "244557",
+    "Html": "<p>I am facing the same issue with .xls files,, pls help someone and write detailed steps for fixing this issue</p>",
+    "PostedDate": "2012-06-02T22:52:53.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843982",
+    "ThreadId": "244557",
+    "Html": "<p>I am facing the same issue with .xls files,, pls help someone and write detailed steps for fixing this issue</p>",
+    "PostedDate": "2012-06-02T22:53:03.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "881219",
+    "ThreadId": "244557",
+    "Html": "<p>Please help I'm using Silverlight Excel Reader and need patch for DateTime,&nbsp;<a class=\"UserProfileLink\" href=\"http://www.codeplex.com/site/users/view/kfriesen\">kfriesen</a>&nbsp;please is there patches for Silverlight version</p>",
+    "PostedDate": "2012-07-20T15:54:01.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "982303",
+    "ThreadId": "244557",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p><span>Hi, How to apply the patch?</span><br>\r\n<br>\r\n<span>http://exceldatareader.codeplex.com/workitem/8536</span><br>\r\n<br>\r\n<br>\r\n<span>Thanks in advance!</span></p>\r\n",
+    "PostedDate": "2013-01-02T06:02:29.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "982321",
+    "ThreadId": "244557",
+    "Html": "\r\n<p>Please use DateTime.FromOADate function.</p>\r\n<p>Like this:</p>\r\n<p>string date1 = DateTime.FromOADate(Convert.ToDouble(dr.ItemArray[0]ToString())).ToString();</p>\r\n<p>, Then did a Replace (&quot;0:00:00&quot;, &quot;&quot;) that needed that was only date1 date format dd-mm-yy.</p>\r\n<p><br>\r\nHope it will help, Greetings!</p>\r\n",
+    "PostedDate": "2013-01-02T06:55:34-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983662",
+    "ThreadId": "244557",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>FabricioPasten wrote:</strong><br>\r\n<p>&nbsp;</p>\r\n<p><span>Hi, How to apply the patch?</span><br>\r\n<br>\r\n<span>http://exceldatareader.codeplex.com/workitem/8536</span><br>\r\n<br>\r\n<br>\r\n<span>Thanks in advance!</span></p>\r\n</blockquote>\r\n<p>The patch has been incorporated into the latest code, so getting latest code should do it.</p>\r\n",
+    "PostedDate": "2013-01-07T02:15:08.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

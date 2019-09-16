@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I had an issue where I was receiving this exception:\n    \"The process cannot access the file 'sheet2.xml' because it is being used by another process\"\n \nDebugging the source code, I found my sheet2.xml extracted from the excel document had the following XML node.\n \n      <c r=\"B3\" s=\"68\" t=\"str\">\n        <f>'EnterData'!$B$9</f>\n        <v>L-30</v>\n      </c>\n \nThe ReadSheetRow method of the ExcelOpenXmlReader.cs code is where the error was being thrown:\n       \n        if (null != a_t && a_t == XlsxWorksheet.A_s)\n\t{\n\t    o = _workbook.SST[Convert.ToInt32(o)];\n\t}\n\telse if (null != a_s)\n\t{\n\t\tXlsxXf xf = _workbook.Styles.CellXfs[int.Parse(a_s)];\n \n\t\tif (xf.ApplyNumberFormat && IsDateTimeStyle(xf.NumFmtId) && o != null && o.ToString() != string.Empty)\n\t\t{\n\t\t\to = DateTime.FromOADate(Convert.ToDouble(o, CultureInfo.InvariantCulture));\n\t\t}\n\t}\n \nThe problem was that a_t == \"str\" and the a_s value was marked as a date type causing the program to attempt converting \"L-30\" to a DateTime.\n \nI changed the code to look like this:  \n \n    if (null != a_t)\n    {\n         if (a_t == \"s\")\n             o = _workbook.SST[Convert.ToInt32(o)];\n         else if (a_t == \"str\")\n              o = o.ToString();\n         else\n              throw new ApplicationException(\"Excel Reader unknown type\");\n    }\n \n    else if (null != a_s)\n    {\n             XlsxXf xf = _workbook.Styles.CellXfs[int.Parse(a_s)];\n \n              if (xf.ApplyNumberFormat && IsDateTimeStyle(xf.NumFmtId) && o != null && o.ToString() != string.Empty)\n              {\n                     o = DateTime.FromOADate(Convert.ToDouble(o, CultureInfo.InvariantCulture));\n               }\n     }\n \n \nThe exception \"The process cannot access the file\" was caused when the DateTime.FromOADate threw its exception.\n \nSince I was using \"using (var excelReader = ExcelReaderFactory.CreateOpenXmlReader(fileStream))\" to automatically close the excelReader, I found that inside the Dispose method, the system was attempting to dispose of the _zipWorker object before the _xmlReader and _sheetStream were closed.  When the _zipWorker object disposes, it attempts to delete the temp directory, but the sheet is still opened by the _xmlReader and_sheetStream objects.\n \nHere is the original:\n \n                private void Dispose(bool disposing)\n\t\t{\n\t\t\t// Check to see if Dispose has already been called.\n\t\t\tif (!this.disposed)\n\t\t\t{\n\t\t\t\tif (disposing)\n\t\t\t\t{\n\t\t\t\t\tif (_zipWorker != null) _zipWorker.Dispose();\n\t\t\t\t\tif (_xmlReader != null) _xmlReader.Close();\n\t\t\t\t\tif (_sheetStream != null) _sheetStream.Close();\n                                . . . .\n \nAnd this is the fix:\n                               if (disposing)\n\t\t\t\t{\n\t\t\t\t\tif (_xmlReader != null) _xmlReader.Close();\n\t\t\t\t\tif (_sheetStream != null) _sheetStream.Close();\n                                       if (_zipWorker != null) _zipWorker.Dispose();\n\t\t\t\t}",
+    "LastUpdatedDate": "2013-02-21T17:47:44.027-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-04-14T12:06:57.387-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Does not handle non-shared strings / The process cannot access the file",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 5910
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I just tried to incorporate the fix fix that you suggested and it seems to cause more problems than it solves?? At least, when I ran the tests with the fix in I got quite a few errors whereas before the tests ran perfectly.",
+      "PostedDate": "2010-09-12T02:49:14.233-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:44.027-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi!\n\nCould you please add a dependency to the ICSharpCode.SharpZipLib library to the nuget package? Either include the file itself (using [files](http://docs.nuget.org/docs/reference/nuspec-reference#File_Element_Examples)) or add a NuGet package dependency (using [dependencies](http://docs.nuget.org/docs/reference/nuspec-reference#Specifying_Dependencies_in_version_2.0_and_above)). It is very inconvenient to having to include this myself and even if I do, it will complain the exact required version mismatches.",
+    "LastUpdatedDate": "2013-06-04T07:22:23.793-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-01-18T07:06:05.76-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Please add ICSharpCode.SharpZipLib dependency to NuGet package",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 8,
+    "Id": 11508
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi, \r\n\r\nJust wondering if this item is making it into an update any time soon, it is the highest voted issue after all.\r\n\r\nIf it's not scheduled, then perhaps write here and someone from the community can update it.\r\n\r\nI will offer, but I have zero idea about nuget packages, although the challenge would be interesting if someone would support or review the code.\r\n\r\nCheers,\nAaron",
+      "PostedDate": "2013-04-18T13:33:01.323-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "You probably know about as much about nuget packages as me then ;-)\r\n\r\nI'd be happy for you to look into it.\r\n\r\nCheers\nIan",
+      "PostedDate": "2013-04-19T07:55:46.8-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "It's no rocket science; I provided 2 links in the \"issue\" already to all the relevant information. My problem is the author hasn't checked in the .nuspec file which he/she used to create the NuGet package in the first place. \r\n\r\n__However__: the .nupkg file (the package that gets downloaded by NuGet) contains the original .nuspec file as well (just rename the .nupkg file to .zip and open the zipfile) to discover the original .nuspec file:\r\n\r\n```\n<?xml version=\"1.0\"?>\n<package xmlns=\"http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd\">\n  <metadata>\n    <id>ExcelDataReader</id>\n    <version>2.1</version>\n    <authors>iciobanu</authors>\n    <owners>iciobanu</owners>\n    <projectUrl>http://exceldatareader.codeplex.com/</projectUrl>\n    <requireLicenseAcceptance>false</requireLicenseAcceptance>\n    <description>Lightweight and fast library written in C# for reading Microsoft Excel files ('97-2007).</description>\n    <tags>Excel</tags>\n  </metadata>\n</package>\n```\r\n\r\nThere's your content. Now go check out both links I've provided, edit the .nuspec file (don't forget to up the version!) and then execute a:\n```\nnuget.exe pack ExcelDataReader.nuspec\n```\nYou should have a new .nupkg file. [Upload it](https://www.nuget.org/packages/upload) to nuget.org and you're done.",
+      "PostedDate": "2013-04-19T08:27:22.823-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Oh, and note that the uploading should probably be done by [shaoken](https://www.nuget.org/profiles/shaoken/).",
+      "PostedDate": "2013-04-19T08:30:07.47-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Cool. \r\n\r\nDownloading the project now and see what I can do, might be tomorrow when I get around to this but looking forward to figuring out how nuget projects work.\r\n\r\nThanks RobIII for the help,\nAaron",
+      "PostedDate": "2013-04-19T08:51:36.47-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-21T09:09:59.543-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Did you manage to take a look at this?",
+      "PostedDate": "2013-05-22T01:37:56.063-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-06-04T07:22:23.793-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

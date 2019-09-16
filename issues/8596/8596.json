@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I try read sample excel file (in Attach file)\t\t\nrec <> XlsBiffIndex (or XlsBiffUncalced)\nHOW TO FIX THIS BUG... thank\n \nprivate bool readWorkSheetGlobals(XlsWorksheet sheet, out XlsBiffIndex idx)\n\t\t{\n\t\t\tidx = null;\n\t\t\t\n\t\t\tm_stream.Seek((int)sheet.DataOffset, SeekOrigin.Begin);\n \n\t\t\tXlsBiffBOF bof = m_stream.Read() as XlsBiffBOF;\n\t\t\tif (bof == null || bof.Type != BIFFTYPE.Worksheet) return false;\n \n\t\t\tXlsBiffRecord rec = m_stream.Read();\n\t\t\tif (rec == null) return false;\n\t\t\tif (rec is XlsBiffIndex)\n\t\t\t{\n\t\t\t\tidx = rec as XlsBiffIndex;\n\t\t\t}\n\t\t\telse if (rec is XlsBiffUncalced)\n\t\t\t{\n\t\t\t\t// Sometimes this come before the index...\n\t\t\t\tidx = m_stream.Read() as XlsBiffIndex;\n                        }\n.................................",
+    "LastUpdatedDate": "2013-02-21T17:47:40.55-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-04-04T09:06:39.883-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "rec is XlsBiffSimpleValueRecord -> can't not read",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 8596
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3276,
+      "FileName": "SoLieu.xls",
+      "DownloadUrl": ".\\3276"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Buzz",
+      "PostedDate": "2011-04-09T08:29:14.76-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:40.55-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

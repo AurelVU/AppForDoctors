@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "If you are using the Excel Data Reader in a multi-threaded environment, the NewTempPath() method in the ZipWorker class can generate identical _tempPath values if it is called concurrently by two or more threads (since the DateTime will be the same).\n \nThe following line in ZipWorker.NewTempPath():\n \n_tempPath = Path.Combine(_tempEnv, TMP + DateTime.Now.ToFileTimeUtc().ToString());\n \nShould be replaced with:\n \n_tempPath = Path.Combine(_tempEnv, TMP + Path.GetRandomFileName());\n \nSee the following URL for Microsoft's Path.GetRandomFileName() documentation:\n \nhttp://msdn.microsoft.com/en-us/library/system.io.path.getrandomfilename.aspx",
+    "LastUpdatedDate": "2013-02-21T17:47:36.9-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-10-18T12:16:39.723-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ZipWorker.NewTempPath() Multithreading Issue & Fix",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 9667
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

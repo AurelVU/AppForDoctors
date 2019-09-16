@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1041089",
+    "ThreadId": "443020",
+    "Html": "Hi, I want to know how can I determine if I am working on a hidden sheet or no?\r<br />\nI have some Excel files that I work with and I just need the data from the visible sheets not hidden. \r<br />\nPlease give me some advice.\r<br />\n<br />\nRegards,<br />\n",
+    "PostedDate": "2013-05-08T14:48:08.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044347",
+    "ThreadId": "443020",
+    "Html": "I've not had any experience of this so I would need to look at the code base again but I'm way too busy too investigate this and I think the other devs are too. It'll be some time before I can look at a sample.<br />\n",
+    "PostedDate": "2013-05-16T01:55:06.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

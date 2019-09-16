@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I'm reading an XLSX (Microsoft Excel XML file) using the Excel Data Reader and am having a problem with missing data. Data which is in the source Excel spreadsheet is missing from the data set returned by the library.\n \nHere's a bit more detail of what I'm doing:\n \n1. Created a simple test spreadsheet in Excel with one sheet, a header row and two data rows. Save and close Excel.\n2. Open the file and pass the stream into the CreateOpenXmlReader() method and get back an IExcelDataReader.\n3. Call the AsDataSet() method on the IExcelDataReader and get back a DataSet.\n4. Get the ItemArray from row 1 of table 0.\n5. Loop through the ItemArray. Discovered there is data missing (i.e. there are System.DBNull members where I expected System.string members).\n \nHere's a bit more analysis...\n \nI debugged the code and looked inside the ExcelDataReader object model. Found a non-public string array called \"SST\" which appears to contain the data from the spreadsheet as a single linear (one-dimensional) array.\n \nOn closer inspection, I found that the data I was looking for was also missing from this array. In this raw data, the member does not exist at all.\n \nMy guess is that for some reason the parser is not picking up the data from the OOXML and concluding that the cell is empty. Looking at the OOXML itself, the data seems to be split across the sharedStrings.xml and sheet1.xml files, so perhaps the parser is having a tough time putting all this together.\n \nSaving the file in binary format (Excel 97 to 2003) and reading that in solves the problem so on the surface that seems to confirm my suspicion is with reading the OOXML format.",
+    "LastUpdatedDate": "2013-02-21T17:47:38.763-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-05-12T19:02:53.197-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Unexpected null members when reading XLSX with Excel Data Reader",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 8808
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This is causing issue a production system.  Please fix ASAP!",
+      "PostedDate": "2011-06-10T13:36:25.347-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "FYI... I got it working.  :)\r\n\r\nI downloaded the source, added the project to my solution, removed the old reference / dll, make a project reference, and then recompiled.  Now I'm not seeing the issue anymore.  Compiled with .NET framework 4.0  ",
+      "PostedDate": "2011-06-10T15:05:45.867-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "See ID 8969",
+      "PostedDate": "2011-06-17T07:18:12.207-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I downloaded the source 59893 and build against .NET 2\r\nThis seems to have resolved the issue for me.",
+      "PostedDate": "2011-06-21T04:54:41.21-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2011-09-29T04:12:21.94-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:38.763-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

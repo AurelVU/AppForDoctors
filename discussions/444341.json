@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1046207",
+    "ThreadId": "444341",
+    "Html": "When I try to do this:<br />\n<pre><code>            object[] values = new object[excelReader.FieldCount];\n            excelReader.GetValues(values);\n</code></pre>\n\nI get this exception:<br />\n<blockquote>\nSystem.NotSupportedException was unhandled<br />\nMessage=&quot;O método especificado não é suportado.&quot;<br />\nSource=&quot;Excel&quot;<br />\nStackTrace:<br />\n</blockquote>\n<pre><code>   em Excel.ExcelOpenXmlReader.GetValues(Object[] values) em c:\\development\\eapidemo\\third-party\\ExcelDataReader\\ExcelDataReader\\Excel\\ExcelOpenXmlReader.cs:line 628\n   em WindowsFormsApplication1.Form1.button1_Click(Object sender, EventArgs e) em C:\\Users\\Daniel\\Documents\\Visual Studio 2008\\Projects\\WindowsFormsApplication1\\WindowsFormsApplication1\\Form1.cs:line 37\n   em System.Windows.Forms.Control.OnClick(EventArgs e)\n   em System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)\n   em System.Windows.Forms.Control.WmMouseUp(Message&amp; m, MouseButtons button, Int32 clicks)\n   em System.Windows.Forms.Control.WndProc(Message&amp; m)\n   em System.Windows.Forms.ButtonBase.WndProc(Message&amp; m)\n   em System.Windows.Forms.Button.WndProc(Message&amp; m)\n   em System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)\n   em System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\n   em System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG&amp; msg)\n   em System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)\n   em System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)\n   em System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)\n   em WindowsFormsApplication1.Program.Main() em C:\\Users\\Daniel\\Documents\\Visual Studio 2008\\Projects\\WindowsFormsApplication1\\WindowsFormsApplication1\\Program.cs:line 18\n   em System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)\n   em Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()\n   em System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)\n   em System.Threading.ThreadHelper.ThreadStart()</code></pre>\n\nInnerException: <br />\n",
+    "PostedDate": "2013-05-20T14:30:24.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1046924",
+    "ThreadId": "444341",
+    "Html": "this particular method of IDataReader is not currently supported by ExcelDataReader<br />\n",
+    "PostedDate": "2013-05-22T01:24:02.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

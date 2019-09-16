@@ -1,0 +1,126 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-02-19T01:50:39.69-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Report below confirmed in dev.\n\nSeems to be related to binary FAT structure corrupt or missing.\n\nHi all,\n\nI just updated to the latest version (2.1.0.0) and now I'm getting an exception when trying to read a XLS file. I was using version 2.0.1.0 before without any problems.\n\nI pass a MemoryStream to the CreateBinaryReader function and get an out-of-range exception (I've checked the stream and it's filled properly):\n\nSystem.ArgumentOutOfRangeException : MemoryStream length must be non-negative and less than 2^31 - 1 - origin.\nParameter name: offset\n   at System.IO.MemoryStream.Seek(Int64 offset, SeekOrigin loc)\n   at Excel.Core.BinaryFormat.XlsFat..ctor(XlsHeader hdr, List`1 sectors, Int32 sizeOfSector, Boolean isMini, XlsRootDirectory rootDir)\n   at Excel.Core.BinaryFormat.XlsHeader.GetMiniFAT(XlsRootDirectory rootDir)\n   at Excel.Core.BinaryFormat.XlsStream.CalculateMiniFat(XlsRootDirectory rootDir)\n   at Excel.Core.BinaryFormat.XlsStream..ctor(XlsHeader hdr, UInt32 startSector, Boolean isMini, XlsRootDirectory rootDir)\n   at Excel.Core.BinaryFormat.XlsRootDirectory..ctor(XlsHeader hdr)\n   at Excel.ExcelBinaryReader.readWorkBookGlobals()\n   at Excel.ExcelBinaryReader.Initialize(Stream fileStream)\n   at Excel.ExcelReaderFactory.CreateBinaryReader(Stream fileStream)\n\n\nCan anybody help me with this issue?\n\n\nThanks,\n\nMarkus",
+    "LastUpdatedDate": "2013-05-16T04:59:56.77-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-02-04T11:52:25.21-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "File with corrupt or missing internal FAT structure cannot be opened",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 11553
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4439,
+      "FileName": "sample.xls",
+      "DownloadUrl": ".\\4439"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Checking this it seems to be caused by a recent change to accept OpenOffice binaries. I'll ask Ian if he has any ideas.",
+      "PostedDate": "2013-02-05T02:50:10.713-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I'm having the same problem after updating from 2.0.1.0 stable to 2.1.0.0 beta, but with the InputStream property of a HttpPostedFile.\r\n\r\nThe following code works perfectly in 2.0.1.0 stable, but generates an \"offset\" error on the first line in 2.1.0.0 beta:\r\n\r\n```\nDim excelReader As IExcelDataReader = ExcelReaderFactory.CreateBinaryReader(objFile.InputStream)\nexcelReader.IsFirstRowAsColumnNames = True\r\n\r\nDim myDataset As DataSet = excelReader.AsDataSet()\r\n\r\nexcelReader.Close()\r\n\r\nReturn myDataset.Tables(0).DefaultView\n```\r\n\r\nIf I save the HttpPostedFile to disk first, and then create a FileStream from the file on disk, then no error is thrown. But I don't want to write the file to disk first, that's just a waste of resources.",
+      "PostedDate": "2013-02-07T06:49:07.2-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks for this if RiptoR, that should help narrow it down. ",
+      "PostedDate": "2013-02-07T07:52:29.25-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Glad to be of help. If you need any more information about the error, or wants me to run some test, I'll gladly be of assistance.",
+      "PostedDate": "2013-02-07T08:40:02.71-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-12T12:53:11.21-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Ryan - I'm going to assign this to myself as I will look at it tonight.\r\n\r\nCheers",
+      "PostedDate": "2013-02-13T12:02:48.237-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-13T14:19:26.65-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Associated with changeset 82642: Now it checks there actually is a minifat before calculating it ;-)",
+      "PostedDate": "2013-02-13T14:34:29.143-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've just checked in a fix for this. Can you check it works?",
+      "PostedDate": "2013-02-13T14:38:19.38-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-13T14:41:13.013-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Just tested the fix, and it seems to work perfectly in the projects I'm using it in.",
+      "PostedDate": "2013-02-18T07:13:51.7-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I tested with the current source code and it worked",
+      "PostedDate": "2013-02-18T11:36:39.163-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-19T01:50:39.69-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Ok, good. I am going to close this issue.",
+      "PostedDate": "2013-02-19T01:50:51.107-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:28.973-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:56.77-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

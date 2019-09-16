@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "424600",
+    "ThreadId": "207550",
+    "Html": "<p>Hi,</p>\r\n<p>I've tried to use the dll wirth .net web applicaions but fail i think the problem occurs at this line</p>\r\n<p><span style=\"color:#008080\">&quot; IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);&quot;</span></p>\r\n<p>is it any possible to make the dll works with web applications please help ,</p>\r\n<p>&nbsp;</p>\r\n<p>regards&nbsp;</p>\r\n<p>xmind ,</p>",
+    "PostedDate": "2010-03-28T04:51:12.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

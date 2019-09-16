@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.IO;
+using Excel;
+using Symplus.Core;
+
+namespace ConTest
+{
+    internal sealed class ExcelDataReaderInstantiator
+    {
+        public string FileName { get; private set; }
+        public IExcelDataReader ExcelReader { get; private set; }
+        public FileStream FileStream { get; private set; }
+        public ExcelDataReaderInstantiator(string fileName)
+        {
+            FileName = fileName;
+            InstantiateWithThread();
+        }
+        public void InstantiateWithThread()
+        {
+            var thread = new Thread(this.Instantiate);
+            thread.Start();
+
+            if (!thread.Join(TimeSpan.FromSeconds(1)))
+            {
+                thread.Abort();
+
+                //if possible try to close the opened stream
+                try
+                {
+                    FileStream.Close();
+                    FileStream.Dispose();
+                }
+                catch { }
+
+                throw new Exception(string.Format("The file {0} was corrupt and ignored!", Path.GetFileName(FileName)));
+            }
+        }
+
+
+        private void Instantiate()
+        {
+            try
+            {
+                FileStream = File.Open(FileName, FileMode.Open, FileAccess.Read);
+                ExcelReader = ExcelReaderFactory.CreateBinaryReader(FileStream);
+            }
+            catch { }
+        }
+    }
+}

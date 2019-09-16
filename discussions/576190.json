@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1336960",
+    "ThreadId": "576190",
+    "Html": "I installed excel data reader via nuget packet intaller and I am using VS2012 now the problem is when i try to run the example code it says ExcelReaderFactory.cs not found what am I doing wrong<br />\n",
+    "PostedDate": "2014-12-24T02:03:27.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

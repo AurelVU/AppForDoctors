@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "430506",
+    "ThreadId": "209198",
+    "Html": "<p>When I view my .xls file in Excel, the numeric values of my cells are rounded to the nearest whole number (ie 35).&nbsp; But when I use the Excel Data Reader to read the file, the values have the decimal places (ie. 34.666666667).&nbsp; I assume this is a formatting issue?&nbsp; Is there any way to have the Excel Data Reader values match what would be should within Excel?</p>\r\n<p>I'm using excelReader.GetString(i) and excelReader.GetValue(i)</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2010-04-13T08:30:59.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434364",
+    "ThreadId": "209198",
+    "Html": "<p>The DataReader is reading the raw data, without any special formatting applied by the Excel client itself.&nbsp; As such, the Excel file is truly storing the number 34.666...., with the rounding being purely cosmetic.</p>\r\n<p>Your best approach is to read the data, then apply your own rounding logic to the value after converting.</p>\r\n<p>decimal tempDecimal;<br>var decimalString = excelReader.GetString(i);<br><br>if ( decimal.TryParse( decimalString, out tempDecimal ) )<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp; var myDecimal = Math.Round( tempDecimal );<br>&nbsp;&nbsp;&nbsp;&nbsp; // do something with your decimal;<br>}<br>else<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp; throw new InvalidOperationException(&quot;Input string was not in the correct format.&quot;);<br>}</p>",
+    "PostedDate": "2010-04-22T14:50:53.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

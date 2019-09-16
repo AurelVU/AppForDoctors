@@ -1,0 +1,76 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-03-18T03:23:17.83-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\n\nTry load an attached file. The values from column B (B30, B37, B54..) are not being loaded (DBNull).\nTested with changeset 82902.\n\nIt is very urgent for me.\n\nThanks.",
+    "LastUpdatedDate": "2013-05-16T04:59:55.053-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-03-15T04:05:26.037-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Values are not loaded v2",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11642
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4480,
+      "FileName": "Strzyzow_291651D.xls",
+      "DownloadUrl": ".\\4480"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Associated with changeset 82938: added test for issue 11642 - passes",
+      "PostedDate": "2013-03-15T07:16:54.62-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've just tries the attached spreadsheet and it worked ok. I just committed a unit test for it. Code looks like this and passes:\r\n\r\n```\n\t\t[TestMethod]\n\t\tpublic void Issue_11642_ValuesNotLoaded()\n\t\t{\n\t\t\t//Excel.Log.Log.InitializeWith<Log4NetLog>();\r\n\r\n\t\t\tIExcelDataReader excelReader =\n\t\t\t\tExcelReaderFactory.CreateBinaryReader(Helper.GetTestWorkbook(\"Test_Issue_11642_ValuesNotLoaded\"));\n\t\t\texcelReader.IsFirstRowAsColumnNames = false;\n\t\t\tvar dataset = excelReader.AsDataSet();\r\n\r\n\t\t\tAssert.AreEqual(\"431113*\", dataset.Tables[2].Rows[29][1].ToString());\n\t\t\tAssert.AreEqual(\"024807\", dataset.Tables[2].Rows[36][1].ToString());\n\t\t\tAssert.AreEqual(\"160019\", dataset.Tables[2].Rows[53][1].ToString());\r\n\r\n\t\t\texcelReader.Close();\n\t\t}\n```",
+      "PostedDate": "2013-03-15T07:20:05.2-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thank You for investigation.\nMy apology, it was my mistake in reading tabs.\n",
+      "PostedDate": "2013-03-15T07:40:23.99-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-18T03:23:00.76-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-18T03:23:17.83-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:55.053-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

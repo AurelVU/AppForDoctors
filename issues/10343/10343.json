@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Can someone please tell me why this file that has clearly 5 cells in Column A it will not get into the While(excelReader.Read) and not reading the XML into it?  If I delete the sheet and create a new one and type anything into it the file no matter what is not reading into the reader at all.  I tried everything but this specific file won't read.  Attached file",
+    "LastUpdatedDate": "2013-02-21T17:47:35.62-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-02-09T11:42:14.073-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Some xlsx files do not work and show 0 records?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 10343
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3871,
+      "FileName": "oph2.xlsx",
+      "DownloadUrl": ".\\3871"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "This file loaded and parsed fine for me. Note that I downloaded the source code, replaced the ICSharpCode.SharpZipLib.dll with the latest one and recompiled the Excell.dll file. I had other simular  issues with some of my XLSX until I did this.\r\n\r\nI found the latest version of sharp lib from http://www.icsharpcode.net/OpenSource/SharpZipLib/Download.aspx ",
+      "PostedDate": "2012-03-06T10:02:51.893-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:35.62-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

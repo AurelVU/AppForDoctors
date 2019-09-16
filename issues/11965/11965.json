@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am using the last stable release of this version.  It was working just fine until a few weeks ago.  Now I am constantly getting the error \"Cannot find central directory\".  The error is being thrown at the line :\n\nzipFile = new ZipFile(fileStream);\n\nMethod : public bool Extract(Stream fileStream)\nFile : ZipWorker.cs\n\nIt used to read both excel 2010 and excel 2003.  Now it reads neither.  throws different errors, but with excel 2003 (xls files), it throws the error as above.  with excel 2010 (xlsx) it doesnt even get this far.\n\nI have enclosed the file that I am working with.\n\nWhat could be the problem on this ?",
+    "LastUpdatedDate": "2013-12-20T22:53:21.403-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-07-22T04:38:09.703-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Cannot find central directory",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11965
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4609,
+      "FileName": "sampleuploadfile.xls",
+      "DownloadUrl": ".\\4609"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\r\n\r\nI am also facing same issue when try to read xls .ExcelReaderFactory.CreateOpenXmlReader(excelStream)\n__Exception__ : Cannot find central directory.\r\n\r\nRegards,\nShowkath.\n",
+      "PostedDate": "2013-12-20T22:53:21.403-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

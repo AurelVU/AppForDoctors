@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1247551",
+    "ThreadId": "546002",
+    "Html": "Even though it might be something really trivial, I would suggest to change the namespace of this library to follow the guidelines mentioned in the <a href=\"http://msdn.microsoft.com/en-us/library/vstudio/ms229026.aspx\" rel=\"nofollow\">Names of Namespaces</a> page. It doesn't change the quality of the product, and yet it just looks better! :-)<br />\n",
+    "PostedDate": "2014-05-20T11:19:44.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1247928",
+    "ThreadId": "546002",
+    "Html": "It's a good idea, but would be a breaking change.\r<br />\n<br />\nWhat namespace do you suggest?<br />\n",
+    "PostedDate": "2014-05-21T06:31:43.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1247934",
+    "ThreadId": "546002",
+    "Html": "The name of the dll, excel.dll, has also caused problem for us.  We have had to rebuild the Excel Data Reader under a new name (ExcelDataReader.dll) in order to avoid conflicts with another excel.dll from another third-party provider.\r<br />\n<br />\nI think that ExcelDataReader would be a good name for both the namespace and the dll.<br />\n",
+    "PostedDate": "2014-05-21T06:47:39.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1247939",
+    "ThreadId": "546002",
+    "Html": "I see in your profile that you're CTO of Release Mobile. If you developed that working there, you could use that as a Prefix. In my case, most projects I ever do are not linked to my employer so I use the name of a fake company I one day want to register. So in your case, for this product, I would go with\r<br />\n[YourFictiveCompanyName].ExcelDataReader (under which there would be .core, .Exceptions and .Log)\r<br />\n<br />\nYes, it is indeed a breaking change, but you could suggest people to :<br />\n<ul>\n<li>If they had a using statement replace any &quot;using Excel;&quot; with &quot;using Excel = YourFictiveCompanyName.ExcelDataReader;&quot;</li>\n<li>\nIf they did't have a using statement (and used Excel.[One of your classes]) to add &quot;using Excel = YourFictiveCompanyName.ExcelDataReader;&quot;<br />\n</li>\n</ul>\nHowever, with all that said, wether or not you do it is not a big deal, it doesn't change the fact that I like your library :-P<br />\n",
+    "PostedDate": "2014-05-21T06:53:06.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1247942",
+    "ThreadId": "546002",
+    "Html": "<strong>DanielRousseau wrote:</strong><br />\n<blockquote>\nI think that ExcelDataReader would be a good name for both the namespace and the dll.<br />\n</blockquote>\nThe namespace should contain a prefix before the product itself. I found this library when I was about to develop something I would have called [MyEmployer].ExcelFileReader, but without the prefix, a clash might happen too easily, imo.<br />\n",
+    "PostedDate": "2014-05-21T06:56:03.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1247949",
+    "ThreadId": "546002",
+    "Html": "That all makes sense.\r<br />\nIt wouldn't be right to use my company name because I didn't create the library, just taken over supporting it. I guess something like ExcelTools.ExcelDataReader would do.<br />\n",
+    "PostedDate": "2014-05-21T06:59:17.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

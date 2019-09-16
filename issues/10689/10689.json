@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "This is the correct ending of the method \"Excel.ExcelBinaryReader.readWorkSheetRow()\":\n\t\tpushCellValue(cell);\n\t}\n    return m_depth++ < m_maxRow;\n}\n \nAnd this is the version of \"Excel.ExcelBinaryReader.moveToNextRecord()\" that actually works with m_canRead instead of forcing it to true:\nprivate bool moveToNextRecord()\n\t\t{\n\t\t\tif (null == m_dbCellAddrs ||\n\t\t\t\tm_dbCellAddrsIndex == m_dbCellAddrs.Length ||\n\t\t\t\tm_depth == m_maxRow) return false;\n \n\t\t\tm_canRead = readWorkSheetRow();\n \n\t\t\tif (!m_canRead && m_dbCellAddrsIndex < (m_dbCellAddrs.Length - 1))\n\t\t\t{\n\t\t\t\tm_dbCellAddrsIndex++;\n\t\t\t\tm_cellOffset = findFirstDataCellOffset((int)m_dbCellAddrs[m_dbCellAddrsIndex]);\n \n\t\t\t\tm_canRead = readWorkSheetRow();\n\t\t\t}\n \n\t\t\treturn m_canRead;\n\t\t}",
+    "LastUpdatedDate": "2013-02-21T17:47:34.35-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2012-04-23T23:35:03.967-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "\"Excel.ExcelBinaryReader.moveToNextRecord\" forces the m_canRead to true",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10689
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

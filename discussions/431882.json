@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "996082",
+    "ThreadId": "431882",
+    "Html": "Hi all,\r<br />\n<br />\nI just updated to the latest version (2.1.0.0) and now I'm getting an exception when trying to read a XLS file. I was using version 2.0.1.0 before without any problems.\r<br />\n<br />\nI pass a MemoryStream to the CreateBinaryReader function and get an out-of-range exception (I've checked the stream and it's filled properly):\r<br />\n<br />\nSystem.ArgumentOutOfRangeException : MemoryStream length must be non-negative and less than 2^31 - 1 - origin.\r<br />\nParameter name: offset\r<br />\n   at System.IO.MemoryStream.Seek(Int64 offset, SeekOrigin loc)\r<br />\n   at Excel.Core.BinaryFormat.XlsFat..ctor(XlsHeader hdr, List`1 sectors, Int32 sizeOfSector, Boolean isMini, XlsRootDirectory rootDir)\r<br />\n   at Excel.Core.BinaryFormat.XlsHeader.GetMiniFAT(XlsRootDirectory rootDir)\r<br />\n   at Excel.Core.BinaryFormat.XlsStream.CalculateMiniFat(XlsRootDirectory rootDir)\r<br />\n   at Excel.Core.BinaryFormat.XlsStream..ctor(XlsHeader hdr, UInt32 startSector, Boolean isMini, XlsRootDirectory rootDir)\r<br />\n   at Excel.Core.BinaryFormat.XlsRootDirectory..ctor(XlsHeader hdr)\r<br />\n   at Excel.ExcelBinaryReader.readWorkBookGlobals()\r<br />\n   at Excel.ExcelBinaryReader.Initialize(Stream fileStream)\r<br />\n   at Excel.ExcelReaderFactory.CreateBinaryReader(Stream fileStream)\r<br />\n<br />\n<br />\nCan anybody help me with this issue?\r<br />\n<br />\n<br />\nThanks,\r<br />\n<br />\nMarkus<br />\n",
+    "PostedDate": "2013-02-04T05:43:27.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "996108",
+    "ThreadId": "431882",
+    "Html": "I can help if you send an Excel doc to me and a snippet of code that shows this behaviour.<br />\n",
+    "PostedDate": "2013-02-04T06:26:03.21-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "996299",
+    "ThreadId": "431882",
+    "Html": "This discussion has been copied to a work item. Click <a href=\"http://exceldatareader.codeplex.com/workitem/11553\" rel=\"nofollow\">here</a> to go to the work item and continue the discussion.<br />\n",
+    "PostedDate": "2013-02-04T11:52:26.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "996331",
+    "ThreadId": "431882",
+    "Html": "I can't see what is going on here, something to do with the wrong stream type being used. Not sure if this is the library or a general .Net issue.\r<br />\n<br />\nThe following code shows a workaround, not sure why the way you are doing this does not work though.<br />\n<pre><code>        [TestMethod]\n        public void File_with_corrupt_or_missing_internal_FAT_structure_can_be_opened_without_exception_issue_11553()\n        {\n            string filePath = @&quot;D:\\Projects\\ExcelDataReader\\Excel.Tests\\Resources\\Test_Issue_11553_FAT.xls&quot;;\n            //var excelReader1 = ExcelReaderFactory.CreateBinaryReader(Helper.GetTestWorkbook(&quot;Test_Issue_11553_FAT&quot;));\n\n            var bytes2 = new System.IO.FileStream(filePath, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite);\n            var excelReader2 = ExcelReaderFactory.CreateBinaryReader(bytes2); // Works!\n\n            var bytes = System.IO.File.ReadAllBytes(filePath);\n            var excelReader3 = ExcelReaderFactory.CreateBinaryReader(new System.IO.MemoryStream(bytes)); // Does not work.\n        }\n</code></pre>\n\n",
+    "PostedDate": "2013-02-04T12:56:20.243-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "999551",
+    "ThreadId": "431882",
+    "Html": "i have the same  problem  in line <br />\n<pre><code>case BIFFRECORDTYPE.CODEPAGE:\n\n                    m_globals.CodePage = (XlsBiffSimpleValueRecord)rec;\n\n                    try\n                    {\n                        m_encoding = Encoding.GetEncoding(m_globals.CodePage.Value);\n                    }\n                    catch (ArgumentException)\n                    {\n                        // Warning - Password protection\n                        // TODO: Attach to ILog\n                    }\n</code></pre>\n\n//-----------------------------------------------------------------------------\r<br />\nm_globals.CodePage.Value\t27651\r<br />\n<br />\n///////////////////////////////\r<br />\nAfter I covnverted  the same file  to  XLSX  and  back save as  XLS \r<br />\nthe code \r<br />\nm_globals.CodePage.Value\t1200\r<br />\n<br />\nand  it works file \r<br />\n///////////////////////////////////////////////////////\r<br />\n<br />\n<br />\nThe code and data  sample \r<br />\n<br />\n<a href=\"http://67.166.244.118/~arthur/books/short.zip\" rel=\"nofollow\">TEXT</a><br />\n",
+    "PostedDate": "2013-02-11T06:00:56.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000867",
+    "ThreadId": "431882",
+    "Html": "A fix for this issue has been commited. Can you re-test.\r<br />\n<br />\n@moiseyo - your issue sounds like a different one though it does appear to be valid<br />\n",
+    "PostedDate": "2013-02-13T14:52:18.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000873",
+    "ThreadId": "431882",
+    "Html": "This discussion has been copied to a work item. Click <a href=\"http://exceldatareader.codeplex.com/workitem/11572\" rel=\"nofollow\">here</a> to go to the work item and continue the discussion.<br />\n",
+    "PostedDate": "2013-02-13T14:56:54.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

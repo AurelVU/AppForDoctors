@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "•\tWe are using dll called 'Excel.dll(2.0.1.0)' (Specifically excelReader.AsDataSet()) method to read the data from .xlsx file. \n•\tIts observed that, whenever data given with single decimal value, its reading as multiple decimal value with more than two precision.\n•\tAlso observed that, this happens only with selective value like 300.1, 550.2, 550.3 etc. and it won’t happen with values like 100.1, 200.1, \n                400.1, 550.1 etc.\n•\tSo, please ananlyze this issue and provide the needful resolution.",
+    "LastUpdatedDate": "2013-02-21T17:47:37.127-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2011-10-17T05:39:02.543-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Its observed that, whenever data given with single decimal value, its reading as multiple decimal value with more than two precision",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 9659
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3562,
+      "FileName": "File-to-Grid-CH- Choice-Fund-Matching.xlsx",
+      "DownloadUrl": ".\\3562"
+    }
+  ],
+  "Comments": []
+}

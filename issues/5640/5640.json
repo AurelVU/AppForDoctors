@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Firstly, thanks for porting ExcelDataReader to Silverlight.\nFew deficiencies:\n1. SharpZipLib is not strongly-named; that preventing from referencing withing signed Silverlight application.\n2. Don't fully understand what is rationale behind creating ExcelDataReader.Silverlight.Data project. \nMain project code is tightly coupled with the interfaces declared in ExcelDataReader.Silverlight.Data project. It's a drawback when using on-demand assembly deployment.",
+    "LastUpdatedDate": "2013-02-21T17:47:44.57-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-03-09T09:39:41.573-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Silverlight port solution structure and SharpZipLib not signed",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 5640
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

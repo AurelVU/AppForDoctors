@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1051061",
+    "ThreadId": "445548",
+    "Html": "Hi,\r<br />\n<br />\nI have used ExcelDataReader to read sheets from excel and converted to a dataset using the AsDataset method.\r<br />\n<br />\nI have all the sheets as datatable. When i read the 4th sheet (DataTable), it actually reads another sheet..\r<br />\n<br />\nFor eg:.\r<br />\n<br />\nI have sheets \r<br />\n1 Org Structure\r<br />\n2 Account Codes\r<br />\n3 Users\r<br />\n4 User Access\r<br />\n5 Financial Data\r<br />\n6 Budget Input Sheets\r<br />\n<br />\nI have all these sheets as a Datatable... Whne i refer Dataset.Tables[2], it actually takes data from sheet 6 Budget Input Sheets\r<br />\n<br />\nThe excel sheets were once moved back and forth...\r<br />\n<br />\nCould anyone sugges what might be the issue?\r<br />\n<br />\nRegards\r<br />\nRajeesh<br />\n",
+    "PostedDate": "2013-05-31T00:50:47.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099873",
+    "ThreadId": "445548",
+    "Html": "I am also having the same issue, has there been a solution to this issue?  I thought maybe that the sheet order in the VBA Project might have something to do with it, but they don't line up with the dataset.table order either.\r<br />\n<br />\nAny ideas anyone?<br />\n",
+    "PostedDate": "2013-09-26T16:13:46.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

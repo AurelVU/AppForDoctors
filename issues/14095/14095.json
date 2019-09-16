@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\nI have read excel xlsx file. one of the dataset shows \n____FillWeight values cannot exceed 65535.____\n\n\nSystem.InvalidOperationException: Sum of the columns' FillWeight values cannot exceed 65535.\n   at System.Windows.Forms.DataGridView.OnAddingColumn(DataGridViewColumn dataGridViewColumn)\n   at System.Windows.Forms.DataGridViewColumnCollection.Add(DataGridViewColumn dataGridViewColumn)\n   at EnhancedDataSetVisualizer.DataSetForm.InitializeDataGridView(Int32 selectedTable)\n   at EnhancedDataSetVisualizer.DataSetForm.comboBoxTable_SelectedIndexChanged(Object sender, EventArgs e)\n   at System.Windows.Forms.ComboBox.OnSelectedIndexChanged(EventArgs e)\n   at System.Windows.Forms.ComboBox.WmReflectCommand(Message& m)\n   at System.Windows.Forms.ComboBox.WndProc(Message& m)\n   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)\n   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)\n   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)",
+    "LastUpdatedDate": "2017-04-25T23:50:54.507-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2017-04-25T23:50:52.337-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "FillWeight values cannot exceed 65535",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 14095
+  },
+  "FileAttachments": [
+    {
+      "FileId": 6358,
+      "FileName": "Capture.PNG",
+      "DownloadUrl": ".\\6358"
+    }
+  ],
+  "Comments": []
+}

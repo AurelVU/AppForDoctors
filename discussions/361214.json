@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "854725",
+    "ThreadId": "361214",
+    "Html": "\r\n<p>I have issues while converting my Excel data to .net Dataset. I have a date-time column in it which is returned as numeric column even though I'm using 'AsDataSet(true)' funtion. Please help me with the issue.</p>\r\n<p>&nbsp;</p>\r\n<p>Ex :&nbsp;&nbsp;&nbsp; '8/1/2012' is changed as '41122'</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>With Regards,</p>\r\n<p>Arun kumar M.</p>\r\n<table>\r\n<tbody>\r\n<tr>\r\n<td><br>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"13\" height=\"21\">\r\n<colgroup><col width=\"114\"></colgroup>\r\n<tbody>\r\n<tr height=\"18\">\r\n<td width=\"114\" height=\"18\" align=\"right\" style=\"height:14.1pt; width:86pt\"><br>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n",
+    "PostedDate": "2012-06-27T21:40:52.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

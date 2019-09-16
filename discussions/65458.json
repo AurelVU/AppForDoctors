@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "222928",
+    "ThreadId": "65458",
+    "Html": "<p>Hi guys,</p>\r\n<p>Hope you are well.</p>\r\n<p>Great job with this Excel reader!</p>\r\n<p>I just have a new excel file and the reader read sometimes blank cell instead of retrieving the value.</p>\r\n<p>There is no specific format on thoses cells.</p>\r\n<p>I'd like to attach the files but&nbsp; it's not possible.</p>\r\n<p>Could you help me on this please ? Did you faxe the same issue in the past ?</p>\r\n<p>&nbsp;</p>\r\n<p>Best Regards,</p>\r\n<p>Xavier</p>",
+    "PostedDate": "2009-08-13T05:49:53.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "248506",
+    "ThreadId": "65458",
+    "Html": "<p>I have same issue. Did you resolve problem?</p>",
+    "PostedDate": "2009-10-22T04:01:34.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "248508",
+    "ThreadId": "65458",
+    "Html": "<p>Hi,</p>\r\n<p>Actually I didn't resolve the issue.</p>\r\n<p>I just work with others excel spreadsheets as a work-around</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-22T04:07:27.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "268835",
+    "ThreadId": "65458",
+    "Html": "<p>This may be the same as this:</p>\r\n<p><a href=\"http://exceldatareader.codeplex.com/WorkItem/View.aspx?WorkItemId=4601\">http://exceldatareader.codeplex.com/WorkItem/View.aspx?WorkItemId=4601</a></p>",
+    "PostedDate": "2009-12-18T01:50:17.263-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425173",
+    "ThreadId": "65458",
+    "Html": "<p>I am having the same issue.&nbsp; The file is all just entered data, but it comes up blank in most of the cells.&nbsp; Very strange.</p>",
+    "PostedDate": "2010-03-29T17:14:38.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425743",
+    "ThreadId": "65458",
+    "Html": "<p>I stepped through the code and it is happening on fields of type LABELSST.&nbsp; It seems to be some sort of indexed string and when ExcelReader tries to get the indexed string, the index is larger than the number of strings, so it's blank.</p>",
+    "PostedDate": "2010-03-30T17:50:09.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

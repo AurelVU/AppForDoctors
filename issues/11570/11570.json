@@ -1,0 +1,181 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-03-11T06:15:16.217-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I can read .xlsx files fine but using ExcelReaderFactory.CreateBinaryReader(fileStream); causes an exception when reading a simple.xls file. The error message reads: \"Specified argument was out of the range of valid values. Parameter name: offset.\"\n\nThe data in the Excel file is trivial and comprises 5 rows in two columns, no headers:\n\n1.1.1.2\t 10\n1.1.1.15\t 3\n2.1.2.23\t 14\n2.1.2.31\t 2\n2.8.7.30\t 2\n\nThe file was created Using MS Excel 2013 pro.\n\nVisual Studio 2012 Ent. Windows 8 64bit. CLR 4.5\n\nReverting to the last stable build fixes the problem.\n\nKind regards,\n\nPaul",
+    "LastUpdatedDate": "2017-11-27T20:47:29.98-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-02-12T10:31:59.887-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "2.1.beta is broken for .xls",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11570
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4451,
+      "FileName": "Assets.xls",
+      "DownloadUrl": ".\\4451"
+    },
+    {
+      "FileId": 4457,
+      "FileName": "master (3).xls",
+      "DownloadUrl": ".\\4457"
+    },
+    {
+      "FileId": 4472,
+      "FileName": "stars.xls",
+      "DownloadUrl": ".\\4472"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Please can you attach the example file? I do not have excel 2013.\r\n\r\nThanks",
+      "PostedDate": "2013-02-13T11:54:33.787-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-13T13:10:51.037-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Attached is the file that failed.\r\n\r\nKind regards,\r\n\r\nPaul",
+      "PostedDate": "2013-02-13T13:10:51.82-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-13T14:06:29.89-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Associated with changeset 82642: Now it checks there actually is a minifat before calculating it ;-)",
+      "PostedDate": "2013-02-13T14:34:27.207-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Having looked at it, I don't think this is a 2013 issue. I think it is the same issue as 11553. \nI've just checked in a fix for that one, can you check if it works for you?",
+      "PostedDate": "2013-02-13T14:38:49.06-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-13T14:40:46.8-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I can confirm this is happening with xls files in office 2010.\r\n\r\nStream length must be non-negative and less than 2^31 - 1 - origin.\nParameter name: offset\n   at System.IO.MemoryStream.Seek(Int64 offset, SeekOrigin loc)\n   at Excel.Core.BinaryFormat.XlsFat..ctor(XlsHeader hdr, List`1 sectors, Int32 sizeOfSector, Boolean isMini, XlsRootDirectory rootDir)\n   at Excel.Core.BinaryFormat.XlsHeader.GetMiniFAT(XlsRootDirectory rootDir)\n   at Excel.Core.BinaryFormat.XlsStream.CalculateMiniFat(XlsRootDirectory rootDir)\n   at Excel.Core.BinaryFormat.XlsStream..ctor(XlsHeader hdr, UInt32 startSector, Boolean isMini, XlsRootDirectory rootDir)\n   at Excel.Core.BinaryFormat.XlsRootDirectory..ctor(XlsHeader hdr)\n   at Excel.ExcelBinaryReader.readWorkBookGlobals()\n   at Excel.ExcelBinaryReader.Initialize(Stream fileStream)\n   at Excel.ExcelReaderFactory.CreateBinaryReader(Stream fileStream)",
+      "PostedDate": "2013-02-14T00:45:40.007-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@devteamexpress - did you try the latest change which was last night?",
+      "PostedDate": "2013-02-14T01:21:21.637-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Yes i downloaded the latest code after that",
+      "PostedDate": "2013-02-14T02:05:12.853-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@devteamexpress can you provide an example excel file and also the code you use to create the reader?",
+      "PostedDate": "2013-02-14T02:45:01.107-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T03:01:56.19-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I had to remove the real data for confidentiality but as you can see this file still fails. Thanks.\r\n\r\nusing (Stream stream = new MemoryStream(file)) {\n                IExcelDataReader excelReader;                \n                if (System.IO.Path.GetExtension(FileExtension) == \".xlsx\")\n                    excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n                else if (System.IO.Path.GetExtension(FileExtension) == \".xls\")\n                    excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n                else\n                    throw new Exception(\"Cannot Parse File With Extension \" + FileExtension);\n                //Options\n                excelReader.IsFirstRowAsColumnNames = true;                \n                DataSet result = excelReader.AsDataSet();\n                excelReader.Close();                \n                return StripOutColumnSpaces(result);\n            }",
+      "PostedDate": "2013-02-14T03:01:56.92-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Just to confirm that the latest version (82642) still fails, exactly as before with the file I supplied. So, not fixed.",
+      "PostedDate": "2013-02-14T03:36:44.547-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks, for the confirmation. Will check it again.",
+      "PostedDate": "2013-02-14T04:49:46.913-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Associated with changeset 82644: added test for files submitted for issue 11570 (FAT offset) but they passed ok",
+      "PostedDate": "2013-02-14T06:31:41.977-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "So, I've downloaded the two files posted in this issue and added them to unit tests in the project using the code as described, but my tests pass. Can you download the latest source and run the unit test? \nThe test is called Issue_11553_11570_FATIssue_Offset\r\n\r\nThanks",
+      "PostedDate": "2013-02-14T06:34:54.487-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Ur right, my apologies it does work. I didn't understand how to use codeplex properly and though i downloaded the latest source code when in fact i didnt'\r\n\r\nThanks for all your help",
+      "PostedDate": "2013-02-14T08:59:06.303-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:28.417-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-05T11:15:01.263-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi --\r\n\r\nAwesome library!\r\n\r\nI am seeing the same issue with .xls files that is described in this post.\r\n\r\nMy code looks like this:\r\n\r\n```\n        public static bool IsValid(byte[] excelFile)\n        {\n            using (MemoryStream stream = new MemoryStream(excelFile))\n            {\n                IExcelDataReader excelReaderXls = ExcelReaderFactory.CreateBinaryReader(stream);\n            }\n        }\n```\r\n\r\nExecuting this throws the following error:\n```\nStream length must be non-negative and less than 2^31 - 1 - origin.\nParameter name: offset\n```\r\n\r\nI'm uploading the attached file from the client and processing the byte[] on the server.\r\n\r\nWorks like a champ for .xlsx files, but the binary file is failing.\r\n\r\nI've tried using the recommended download (Binary).  The Excel.dll says the file version is 2.1.0.0 and it was last modified on 1/17/2013 at 6:10 AM.\r\n\r\nI downloaded the recommended source code, opened the project and compiled it in Release mode - that produced an Excel.4.0.dll file.  I referenced this file in my solution and got the same behavior.\r\n\r\nIf there's a newer compiled dll that avoids this problem, please let me know how to get it.\r\n\r\nThanks for your help.",
+      "PostedDate": "2013-03-05T11:15:07.24-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "My apologies... I found out how to download the individual change sets.  I downloaded 82754, compiled it to a new Excel.dll, and that one is working just fine.  Please disregard my previous post.\r\n\r\nMany thanks for your excellent library!",
+      "PostedDate": "2013-03-05T11:59:24.157-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-03-11T06:15:16.217-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:56.447-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:29.98-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

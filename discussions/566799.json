@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1302473",
+    "ThreadId": "566799",
+    "Html": "Using xUnit, I can refer to a file, and use a &quot;Select * from [Defined Name]&quot; where Defined Name is the area in the spreadsheet that was highlighted and assigned the Define Names to it.  This allows the selection to be treated like a sql dataset.<br />\nHow can I refer to this selection in IExcelDataReader?<br />\nIf it doesn't exist, can you make this modification as a suggestion?<br />\n<br />\nAlso, I cannot find any reference on how to refer to the data via the column name.  You have the following available:<br />\nexcelReader.IsFirstRowAsColumnNames = true;<br />\n<br />\nHowever, I cannot seem to find an example on how to reference the column names while looping through the data.<br />\n<br />\nFor example:<br />\n<pre><code>            FileStream stream = File.Open(testFileName, FileMode.Open, FileAccess.Read);\n            IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\n            excelReader.IsFirstRowAsColumnNames = true;\n            DataSet testData = excelReader.AsDataSet();\n\n            string salesRepName;\n\n            while (excelReader.Read())\n            {\n                salesRepName = excelReader[&quot;SalesRepName&quot;].value;\n                salesRepId = excelReader[&quot;SalesRepId&quot;].value;\n           }\n</code></pre>\n\n",
+    "PostedDate": "2014-09-08T08:49:13.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

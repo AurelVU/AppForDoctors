@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have an issue reading a spreadsheet in when the header row has a trailing space on all the header column names.\n\nI can usually do this, row[\"ColumnName\"] but if when it has a trailing space, I can't event do this row[\"ColumnName \"] as I get the \"NotSupportedException\".\n\nMy only choice is to either remove the trailing space from the spreadsheet, or reference the column by index. I have also tried looping thru the columns to get their names and then try to access the data using these names, but I get the same exception.\n\nAnyone experience something similar or have a workaround other than changing the spreadsheet?",
+    "LastUpdatedDate": "2015-08-12T10:17:11.9-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-08-12T10:17:11.9-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Can't read columns when header row has a trailing space",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13671
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

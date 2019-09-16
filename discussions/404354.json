@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "946092",
+    "ThreadId": "404354",
+    "Html": "\r\n<p>Hello,<br>\r\nI am having a problem trying to read the spreadsheet contained in the URL &quot;http://www.bcb.gov.br/pom/spb/Down/ftp/prod/Dom20121026.xls&quot;</p>\r\n<p><br>\r\nCode used:</p>\r\n<p>IExcelDataReader excelReader = null;</p>\r\n<p>int row_no = 1;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>int iSh = 0;<br>\r\nstring path_excel = &quot;C:\\\\TMP\\\\Dom20121026.xls&quot;;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>FileStream excelStream = File.Open(path_excel, FileMode.Open, FileAccess.Read); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;excelReader = ExcelReaderFactory.CreateBinaryReader(excelStream); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>\r\n<p>DataSet result = excelReader.AsDataSet();</p>\r\n<p><br>\r\nI wonder if anyone has a clue how to solve this?</p>\r\n<p><br>\r\nThankful.</p>\r\n<p><br>\r\nLeandro</p>\r\n",
+    "PostedDate": "2012-11-23T04:44:13.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

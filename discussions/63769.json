@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "216850",
+    "ThreadId": "63769",
+    "Html": "<p>Hi i use this dll and i have a problem abaut dates.In excel i have column format date and its value = 31.07.2009</p>\r\n<p>But when i get to dataset its value become 40055 so the date value is wrong.</p>\r\n<p>How can i solve this problem</p>",
+    "PostedDate": "2009-07-28T08:59:28.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "222931",
+    "ThreadId": "63769",
+    "Html": "<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>I had the same behaviour, not really a pb.</p>\r\n<p>This is the &quot;Excel date&quot; format.</p>\r\n<p>It seems it is the number of days since a certain date (see below)</p>\r\n<p>&nbsp;</p>\r\n<p>Just transform this number into a real date like this:</p>\r\n<p>public DateTime TransformExcelDate(int ExcelDateNumber)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DateTime dtref = new DateTime(1900, 1, 1).AddDays(-2);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return dtref.AddDays(ExcelDateNumber);<br>}</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-13T05:54:23.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "277529",
+    "ThreadId": "63769",
+    "Html": "<p>Hi,</p>\r\n<p>i solved this issue with DateTime.FromOADate( &quot;double from excel&quot; )</p>",
+    "PostedDate": "2010-01-15T03:56:03.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

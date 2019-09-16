@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "683170",
+    "ThreadId": "275611",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>I have been a long time looking for a solution to import excel files that worked in mono and MS.net. Thanks a lot!</p>\r\n<p>I found a problem that throws an exception when loading Excel files with repeated column names in the same sheet:</p>\r\n<p>The exception shows line 291 of ExcelOpenXmlReader.cs:</p>\r\n<p><span>&nbsp;</span><span style=\"white-space:pre\"> </span>if (_cellsValues[index] != null &amp;&amp; _cellsValues[index].ToString().Length &gt; 0)<span>\r\n</span></p>\r\n<p>--&gt;<span style=\"white-space:pre\"> </span>table.Columns.Add(_cellsValues[index].ToString()); &nbsp; &nbsp; --&gt; DuplicateNameException: column &quot;blah blah&quot; already belongs to DataTable</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks and keep the good work!</p>\r\n<p>Edgar</p>\r\n",
+    "PostedDate": "2011-10-12T07:53:34.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "683186",
+    "ThreadId": "275611",
+    "Html": "<p>Found a solution: Insert a space at the end of the column name.</p>\r\n<p>May be not a good solution, with the user expecting the name to be the same that in the original Excel file...</p>\r\n<p>replace&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>table.Columns.Add(_cellsValues[index].ToString()); \r\n</pre>\r\n</div>\r\n</p>\r\n<p>with&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">try</span>\r\n{     \r\n    table.Columns.Add(_cellsValues[index].ToString());\r\n}\r\n<span style=\"color: blue;\">catch</span> (System.Data.DuplicateNameException)\r\n{\r\n    table.Columns.Add(_cellsValues[index].ToString() + <span style=\"color: #a31515;\">\" \"</span>);                                \r\n}\r\n</pre>\r\n</div>\r\nThanks,<br />Edgar&nbsp;</p>",
+    "PostedDate": "2011-10-12T08:17:22.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "683204",
+    "ThreadId": "275611",
+    "Html": "<p>Hmmm... won't work if there are 3 columns with the same name!</p>\r\n<p>Edgar</p>",
+    "PostedDate": "2011-10-12T08:46:55.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

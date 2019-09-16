@@ -1,0 +1,96 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2012-12-17T11:45:51.02-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "use this component,i have this error:Not a legal OleAut date.                 string filePath = openFileDialog1.FileName;                FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);                 //1. Reading from a binary Excel file ('97-2003 format; *.xls)                //IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);                //...                //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)                IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);                //...                //3. DataSet - The result of each spreadsheet will be created in the result.Tables               // DataSet result = excelReader.AsDataSet();                //...                //4. DataSet - Create column names from first row                excelReader.IsFirstRowAsColumnNames = true;                DataSet result = excelReader.AsDataSet();",
+    "LastUpdatedDate": "2017-11-27T20:47:27.48-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2010-10-19T03:05:21.39-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "have bug \"Not a legal OleAut date.\"",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7433
+  },
+  "FileAttachments": [
+    {
+      "FileId": 2660,
+      "FileName": "20100921VIPINFO.xlsx",
+      "DownloadUrl": ".\\2660"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "                string filePath = openFileDialog1.FileName;\r\n                FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);\r\n\r\n                //1. Reading from a binary Excel file ('97-2003 format; *.xls)\r\n                //IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);\r\n                //...\r\n                //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)\r\n                IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\r\n                //...\r\n                //3. DataSet - The result of each spreadsheet will be created in the result.Tables\r\n               // DataSet result = excelReader.AsDataSet();\r\n                //...\r\n                //4. DataSet - Create column names from first row\r\n                excelReader.IsFirstRowAsColumnNames = true;\r\n                DataSet result = excelReader.AsDataSet();",
+      "PostedDate": "2010-10-19T03:09:01.557-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-10-19T03:09:35.59-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-02-24T18:46:08.88-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-02-29T06:51:51.173-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've spent some time trying to resolve this and ended up having to modify the code.\r\n\r\nThe issue is to do with the double being passed into the DateTime.FromOADate method, being too large.\r\n\r\nSo what I did to resolve this, is in the ExcelOpenXmlReader class on line 193,  I've replaced:\r\n\r\no = DateTime.FromOADate(Convert.ToDouble(o, CultureInfo.InvariantCulture));\r\n\r\nwith:\r\n\r\nDouble value = Convert.ToDouble(o, CultureInfo.InvariantCulture);\r\nif (value >= OaDateMinAsDouble && value <= OADateMaxAsDouble)\r\n{\r\n    o = DateTime.FromOADate(value);\r\n}\r\n\r\n\r\nThen in the members region up the top, defined the following fields:\r\n\r\n// All OA dates must be greater than (not >=) OaDateMinAsDouble\r\nprivate const double OaDateMinAsDouble = -657435.0;\r\n// All OA dates must be less than (not <=) OADateMaxAsDouble\r\nprivate const double OADateMaxAsDouble = 2958466.0;\r\n\r\nThis will simply cause the code to not process values outside of the required range and prevent the issue from occurring. It doesn't explain why the code is going in there in the first place, I'd need to look at that a bit more.\r\n\r\nHope this helps someone else.\r\n\r\n",
+      "PostedDate": "2012-02-29T08:13:48.92-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-12-17T11:45:03.573-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 81865.",
+      "PostedDate": "2012-12-17T11:45:51.02-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:42.96-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:59.53-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:27.48-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

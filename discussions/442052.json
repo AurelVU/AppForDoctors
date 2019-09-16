@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1037545",
+    "ThreadId": "442052",
+    "Html": "Guys, <br />\n<br />\nThanks a lot. This is working great. I having an excel file having about 10 sheet's. but I need to read data from three sheets alone. I don't want to read rest of the sheets. Is there any better way to do this? I need to do this coz, I'm optimizing the performance in my application.<br />\n<br />\nThanks in advance.<br />\n<br />\nNalan<br />\n",
+    "PostedDate": "2013-04-30T01:57:16.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1037589",
+    "ThreadId": "442052",
+    "Html": "You are probably best using the IDataReader  interface rather than the AsDataset method on IExcelDataReader. That way you can skip over sheets you aren't interested in with the NextResult method.<br />\n",
+    "PostedDate": "2013-04-30T04:59:59.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1037603",
+    "ThreadId": "442052",
+    "Html": "Thanks Ian for the answer.<br />\n<br />\nI have inherited the source code and added a overloaded method AsDataSet(string sheetName) to read specific sheet. <br />\nand checking this condition in the foreach of the sheet reading. if (sheetName != _workbook.Sheets[ind].Name)) continue;<br />\n<br />\nNalan<br />\n",
+    "PostedDate": "2013-04-30T05:35:26.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

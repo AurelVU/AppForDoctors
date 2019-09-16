@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1133665",
+    "ThreadId": "472470",
+    "Html": "¿How know if a row is hidden?<br />\n",
+    "PostedDate": "2013-12-10T09:09:32.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1138161",
+    "ThreadId": "472470",
+    "Html": "Not 100% sure but I think hidden rows are read just as normal rows. So I don't think you can distinguish in the result. (without some form of change anyway)<br />\n",
+    "PostedDate": "2013-12-19T03:57:34.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n\nI have .xsl file created in Excel 2010. When loading the file with CreateBinaryReader i get all DataTables and rows within them. But when open that file in OpenOffice and Save it without any modifications and then load it again with CreateBinaryReader all DataTables created have one row less then the file created with Excel 2010.\n\nWhat could be the problem?",
+    "LastUpdatedDate": "2014-04-26T05:51:28.827-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-04-11T02:55:19.27-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "OpenOffice Table Rows Count problem",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12909
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "My mistake. The file are xlsx and OpenXmlReader was used. All the other conditions are the same.",
+      "PostedDate": "2014-04-12T08:20:09.47-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Any news on this one.",
+      "PostedDate": "2014-04-23T03:30:12.48-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Sorry, I tried to reply directly to the email but Codeplex email often doesn't work in my experience.\nAnyway, what row is missing? first? last? some other row?\nDoes the sheet have column headers?",
+      "PostedDate": "2014-04-23T03:37:10.74-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Sorry for the delay. Always when file is saved with open office in .xls the first row is missing. Saving the file to .xls with Excel 2007 or higher does no problems. One strange thing: when setting the IsFirstRowAsColumnNames = true, and open a xls saved with Open office I get the column names from the first row.\r\n\r\nThanks,\nBoris",
+      "PostedDate": "2014-04-23T04:50:24.41-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "There is indeed a bug that drops the first row of Open Office .xls files when column names are NOT read from the first row.  \r\n\r\nThe problem is in the method readWholeWorkSheetNoIndex() in ExcelBinaryReader.cs, where\n\"justAddedColumns = true;\"  is in the wrong spot.  It needs to be moved from right after \"triggerCreateColumns = false;\" to right after the first for loop since it is only relevant if the first row consist of column names.  The method with the fix is shown below.\r\n\r\nprivate void readWholeWorkSheetNoIndex(bool triggerCreateColumns, DataTable table)\n{\n   while (Read())\n   {\n      if (m_depth == m_maxRow) break;\r\n\r\n      bool justAddedColumns = false;\n      //DataTable columns\n      if (triggerCreateColumns)\n      {\n         if (_isFirstRowAsColumnNames || (_isFirstRowAsColumnNames && m_maxRow == 1))\n         {\n            for (int i = 0; i < m_maxCol; i++)\n            {\n               if (m_cellsValues[i] != null && m_cellsValues[i].ToString().Length > 0)\n                  Helpers.AddColumnHandleDuplicate(table, m_cellsValues[i].ToString());\n               else\n                  Helpers.AddColumnHandleDuplicate(table, string.Concat(COLUMN, i));\n            }\n            justAddedColumns = true;\n         }\n         else\n         {\n            for (int i = 0; i < m_maxCol; i++)\n            {\n               table.Columns.Add(null, typeof(Object));\n            }\n         }\r\n\r\n         triggerCreateColumns = false;\n         table.BeginLoadData();\n      }\r\n\r\n      if (!justAddedColumns && m_depth > 0 && !(_isFirstRowAsColumnNames && m_maxRow == 1))\n      {\n         table.Rows.Add(m_cellsValues);\n      }\n   }\r\n\r\n   if (m_depth > 0 && !(_isFirstRowAsColumnNames && m_maxRow == 1))\n   {\n      table.Rows.Add(m_cellsValues);\n   }\n}\r\n\r\n",
+      "PostedDate": "2014-04-25T10:55:49.78-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thanks, this was also detected earlyer in this issue\nhttps://exceldatareader.codeplex.com/workitem/1264\r\n\r\nThanks to everyone",
+      "PostedDate": "2014-04-26T05:51:28.827-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1078997",
+    "ThreadId": "453018",
+    "Html": "Your library works without Problems unless I have a .xlsx file with more than 100 columns. In such a case the generated Dataset using the method .excelReader.AsDataSet() is empty. If I reduce the columns in the same file then everything works ok.\r<br />\nIs this a bug or do I have to configuer somting in order to Import files with more than 100 columns?\r<br />\nThank you for your help!<br />\n",
+    "PostedDate": "2013-08-10T01:40:38.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1079441",
+    "ThreadId": "453018",
+    "Html": "I tried to debug the source code. _workbook.Sheets.Count within excelReader is 0.\r<br />\n<br />\nThe strange Thing is that if I add a scond Workbook-Sheet with only a few columns then _workbook.Sheets.Count is 2 and the Dataset is not empty anymore but contains correctly 2 DataTables.<br />\n",
+    "PostedDate": "2013-08-12T01:07:54.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1079639",
+    "ThreadId": "453018",
+    "Html": "I guess you can ignore my issue. I had an Excel file which was generated through the open XML sdk and was probably not 100% valid...<br />\n",
+    "PostedDate": "2013-08-12T08:34:09.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

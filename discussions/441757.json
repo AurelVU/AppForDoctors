@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1036432",
+    "ThreadId": "441757",
+    "Html": "Hi;\r<br />\ni need this list : private List&lt;XlsWorksheet&gt; m_sheets or just sheet name, \r<br />\nevery thing is perfect but so private! as i see the only way to get sheet name is to use AsDataSet()! but its not good when we have big excel files and we want just the schema of DataSet, please help me ... \r<br />\nthanks<br />\n",
+    "PostedDate": "2013-04-27T02:01:01.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036449",
+    "ThreadId": "441757",
+    "Html": "ok!\r<br />\ni found it in IExcelDataReader.Name, it Gets the sheet name.<br />\n",
+    "PostedDate": "2013-04-27T02:57:53.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

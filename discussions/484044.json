@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1150808",
+    "ThreadId": "484044",
+    "Html": "Hi,\r<br />\nI downloaded latest source code version. When I try to compile the solution those files Core/ReferenceHelper.cs and SeekErrorMemoryStream.cs are missing.\r<br />\nIs it a source control problem? or I did something wrong?\r<br />\nThanks\r<br />\n<br />\nAndrea<br />\n",
+    "PostedDate": "2014-01-08T02:58:20.38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1150817",
+    "ThreadId": "484044",
+    "Html": "Hi, \r<br />\nthe same happened to me. I don't think we did something wrong, the files cannot be found in source browser either.\r<br />\n<br />\nJohn<br />\n",
+    "PostedDate": "2014-01-08T03:33:57.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1183698",
+    "ThreadId": "484044",
+    "Html": "You are both right. For some reason they were missing from source control. They should be there now<br />\n",
+    "PostedDate": "2014-01-20T01:40:38.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

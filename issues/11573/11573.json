@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-03-12T02:44:55.953-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I use this code:\n\n```\nFileStream stream = File.Open(path, FileMode.Open, FileAccess.Read);\n IExcelDataReader excelDataReader = ExcelReaderFactory.CreateBinaryReader(stream);\n                 \nvar excelDt = excelDataReader.AsDataSet().Tables[0];\nexcelDataReader.Close();\n```\n\nRows are imported succesfully but there are no values in them.\n\nFor example: excelDt.Rows[4][2] throws an exception.\n\nRe-save the excel file seems to fix the problem...",
+    "LastUpdatedDate": "2017-11-27T20:47:30.177-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-02-14T02:13:27.577-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Values are not loaded (.xls file)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11573
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4456,
+      "FileName": "roto.14.02.xls",
+      "DownloadUrl": ".\\4456"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 82902: the problem was that the sheet dimensions reported only 1 column when there were more. Not sure why, but have added a check for this problem and use row record to get last column if possible",
+      "PostedDate": "2013-03-12T02:44:55.953-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T04:59:56.143-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:30.177-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

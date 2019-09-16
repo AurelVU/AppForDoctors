@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am reading two excel files simultaneously. Here is my Code\n\n```\nParallel.Invoke(\n                ()=> \n                {\n                    FileStream stream = File.Open(@\"C:\\Projects\\TPD.xlsx\", FileMode.Open, FileAccess.Read);\n                    IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n                }, \n                () => \n                {\n                    FileStream stream = File.Open(@\"C:\\Projects\\TPD1.xlsx\", FileMode.Open, FileAccess.Read);\n                    IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);\n                }); \n```\n\nI am getting an Exception (An item with the same key already added) in Class LogManager Method Log,  where it is trying to add a new logger in the dictionary. This issue is related to synchronization and proposed code to solve this problem is\n\n```\npublic static ILog Log(string objectName)\n\t\t{\n\t\t\tILog result = null;\n            lock (_sync)\n            {\n                if (_dictionary.ContainsKey(objectName) == false)\n                {\n                    _dictionary.Add(objectName, Excel.Log.Log.GetLoggerFor(objectName));\n                }\n                result = _dictionary[objectName];\n\n            }\n            return result;\n\t\t}\n```",
+    "LastUpdatedDate": "2015-11-17T22:25:01.233-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2015-11-17T22:24:59.207-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Reading 2 excel files simultaneously gives an exception",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 13775
+  },
+  "FileAttachments": [
+    {
+      "FileId": 6257,
+      "FileName": "LogManager.cs",
+      "DownloadUrl": ".\\6257"
+    }
+  ],
+  "Comments": []
+}

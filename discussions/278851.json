@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "695856",
+    "ThreadId": "278851",
+    "Html": "\r\n<p>The following code outputs data from multiple tabs&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">var</span> reader = Excel.ExcelReaderFactory.CreateOpenXmlReader(uploadFile.InputStream);\r\n<span style=\"color:blue\">while</span> (reader.Read())\r\n{\r\n    System.Diagnostics.Debug.WriteLine(reader.FieldCount );\r\n    <span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = 0; i &lt; reader.FieldCount; i&#43;&#43;)\r\n    {\r\n        System.Diagnostics.Debug.Write(reader[i] &#43; <span style=\"color:#a31515\">&quot;*&quot;</span>);\r\n    }\r\n    System.Diagnostics.Debug.WriteLine(<span style=\"color:#a31515\">&quot;\\n~\\n&quot;</span>);\r\n}\r\n\r\n</pre>\r\n<pre>On a single line, I can get data from 3 or more tabs.</pre>\r\n<pre><br></pre>\r\n<pre>I would expect this to loop through and show all of the contents of the first tab and only the first tab.</pre>\r\n<pre><br></pre>\r\n<pre>What am I missing?</pre>\r\n<pre><br></pre>\r\n<pre>Thanks</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2011-11-09T06:33:29.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "695870",
+    "ThreadId": "278851",
+    "Html": "<p>It seems that the above code works as expected if there is only a single tab.</p>\r\n<p>&nbsp;</p>\r\n<p>Has anyone else used this library to parse files with more than one tab?</p>",
+    "PostedDate": "2011-11-09T06:52:55.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

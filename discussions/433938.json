@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1004545",
+    "ThreadId": "433938",
+    "Html": "Hi,\r<br />\n<br />\nI am using the excel data reader . But I need to load the dll dynamically and get data from locally saved excel file. Can any one tell how can i accomplish this? Currently I am using the below method.\r<br />\n<br />\n Assembly assembly = Assembly.Load(&quot;Excel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa&quot;);\r<br />\n Type type = assembly.GetType(&quot;Excel.IExcelDataReader&quot;);\r<br />\n  Object obj= Activator.CreateInstance(type); // throws error cannot create instance of interface..\r<br />\n<br />\nhere i need to set the property IsFirstRowAsColumnNames and get the result dataset. Please reply ASAP.<br />\n",
+    "PostedDate": "2013-02-21T02:09:58.097-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004572",
+    "ThreadId": "433938",
+    "Html": "I think this is a general C# question, you are trying to create an interface, not the concrete implementation of the interface.\r<br />\n<br />\nFor example, instead of IExcelDataReader, try ExcelDataReader (I think that is it).\r<br />\n<br />\nMore info at <a href=\"http://stackoverflow.com/questions/6611412/cannot-create-an-instance-of-the-abstract-class-or-interface\" rel=\"nofollow\">http://stackoverflow.com/questions/6611412/cannot-create-an-instance-of-the-abstract-class-or-interface</a><br />\n",
+    "PostedDate": "2013-02-21T03:40:53.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1005007",
+    "ThreadId": "433938",
+    "Html": "Thanks :)<br />\n",
+    "PostedDate": "2013-02-21T20:14:57.873-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

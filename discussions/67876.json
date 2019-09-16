@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "230691",
+    "ThreadId": "67876",
+    "Html": "<p>Please help...</p>\r\n<p>My temp folder has</p>\r\n<p>C:\\Documents and Settings\\gjoshi\\Local Settings\\Temp\\TMP_Z128964680502045715\\xl\\worksheets\\sheet1.xml</p>\r\n<p>But the code is looking for C:\\Documents and Settings\\gjoshi\\Local Settings\\Temp\\TMP_Z128964680502045715\\xl\\worksheets\\sheet161.xml</p>\r\n<p>I dont know why code is looking for Sheet161.xml</p>\r\n<p>&nbsp;</p>\r\n<p>----------------------------------------------</p>\r\n<p>Actually if I delete the sheet then I cannot loop thur the datatable.</p>\r\n<p>&nbsp;</p>\r\n<p>Example if I create a WorkBook with 1 Sheet</p>\r\n<p>and &nbsp;then use the code to loop it works but if I delete the Sheet and add a new sheet&nbsp;to the&nbsp;Workbook then I cannot loop.</p>\r\n<p>Step &quot;</p>\r\n<p>1.Create a workbook with 3 sheet.</p>\r\n<p>2.Use code to get data in dataset.</p>\r\n<p>Works fine.</p>\r\n<p>3.Delete the sheet from Workbook</p>\r\n<p>4.Add a new sheet.</p>\r\n<p>5. Use code to get data in dataset.</p>\r\n<p>Not working.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Please help</p>",
+    "PostedDate": "2009-09-03T07:34:55.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

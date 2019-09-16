@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Using a stream from an inputted Excel file the Dataset is null. Related code:\n\n```\n@using (IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(file.InputStream))\n{\n    DataSet result = excelReader.AsDataSet();\n    // result is null even though Excel contains data.\n}\n```\n\nXls file created with Excel 2003, but with option Excel 4.0 selected.",
+    "LastUpdatedDate": "2013-05-14T03:49:07.173-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2013-04-18T05:31:46.61-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "excelReader.AsDataSet(); returns null for Excel 4.0 XLS",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 11715
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4512,
+      "FileName": "aaa.xls",
+      "DownloadUrl": ".\\4512"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I'm not sure it will work with Excel 4 currently. Support for older versions is patchy because there is not enough demand for it. In theory it can work, but it is probably untested.",
+      "PostedDate": "2013-05-14T03:49:07.173-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

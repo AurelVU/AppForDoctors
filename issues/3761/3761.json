@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed in last release.",
+    "ClosedDate": "2009-08-24T14:31:45.01-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "For example, if A1 and C1 have values but B1 is null, then \"object o = _xmlReader.ReadElementContentAsObject();\" will loss the data of C1. Suggest to modify as below:\n \nFile: ExcelOpenXmlReader.cs\nMethod: ReadSheetRow()\n \nOrig:\n_xmlReader.ReadToDescendant(XlsxWorksheet.N_v);\nobject o = _xmlReader.ReadElementContentAsObject();\n \nModify to:\n_xmlReader.ReadToDescendant(XlsxWorksheet.N_v);\nif (_xmlReader.IsEmptyElement || _xmlReader.NodeType != XmlNodeType.Element) continue;\nobject o = _xmlReader.ReadElementContentAsObject();",
+    "LastUpdatedDate": "2013-05-16T05:00:02.343-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2009-08-12T09:48:10.863-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Will lost data in certain condition",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 3761
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "In the same class, the same method:\r\n\r\nif (null != a_t && a_t == XlsxWorksheet.A_s)\r\n{\r\n    o = _workbook.SST[Convert.ToInt32(o)];\r\n}\r\nelse if (null != a_s)\r\n{\r\n    XlsxXf xf = _workbook.Styles.CellXfs[int.Parse(a_s)];\r\n\r\n    //if (xf.ApplyNumberFormat && IsDateTimeStyle(xf.NumFmtId))\r\n//-->Modify to\r\n    if (o != null && o.ToString() != \"\" && xf.ApplyNumberFormat && IsDateTimeStyle(xf.NumFmtId))\r\n//because \"o\" may be null or empty string\r\n     {\r\n          o = DateTime.FromOADate(Convert.ToDouble(o));\r\n    }\r\n}",
+      "PostedDate": "2009-08-12T09:52:32.123-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-08-24T11:10:27.68-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-08-24T14:31:45.01-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:47:47.983-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:00:02.343-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

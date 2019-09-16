@@ -1,0 +1,91 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Seems like the downloaded package does contain Excel.dll in both net20 and net45 folders. Since I am using the excel data reader in a .Net 4.5 based project, I found out that it's not resolving the assemblies correctly as it tries to find a dll called Excel.4.5.dll.",
+    "LastUpdatedDate": "2014-02-27T07:51:09.007-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-02-20T23:51:22.81-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ExcelDataReader 2.1.2.0 Nuget Package is wrong",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 4,
+    "Id": 12759
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4906,
+      "FileName": "excel data reader nuget folder.JPG",
+      "DownloadUrl": ".\\4906"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I guess the dll that should be placed in net45 folder is Excel.4.5, not Excel.dll",
+      "PostedDate": "2014-02-21T00:15:36.283-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-02-21T04:21:57.227-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-02-24T17:21:07.22-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I ran into this also. Had to grab the original binaries and put them in the /bin directory to handle it.",
+      "PostedDate": "2014-02-24T17:21:13.01-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-02-25T01:49:33.513-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've updated the package it should now correctly reference Excel.dll in net45 folder.",
+      "PostedDate": "2014-02-25T08:09:27.39-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@edwinbleijenberg\nYes... That will solve the issue. But in a continuous integration environment, it's not possible and practical to always copy the right DLLs. I guess ExcelDataReader people will correct their nuget package ASAP",
+      "PostedDate": "2014-02-25T08:09:57.68-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi @Ian1971,\nThank you very much. I'll check\n",
+      "PostedDate": "2014-02-25T08:52:41.58-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Sorry for troubling you guys.\nThis happened because when updating the package I've taken the original release binaries and just renamed the 4.5 assembly. I've thought that was enough. :-(",
+      "PostedDate": "2014-02-27T07:51:09.007-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

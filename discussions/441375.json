@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1034896",
+    "ThreadId": "441375",
+    "Html": "Please when compile a Smart Device project in VB.NET show error with IExcelDataReader - VS 2008.\r<br />\n<br />\nError:\r<br />\nReference required to assembly 'System.Data, Version=2.0.0.0, Culture=neutral, \r<br />\nPublicKeyToken=b77a5c561934e089' containing the implemented interface 'System.Data.IDataReader.  Add one to your project.\r<br />\n<br />\nThanks,\r<br />\nEdwin<br />\n",
+    "PostedDate": "2013-04-23T19:33:13.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1035008",
+    "ThreadId": "441375",
+    "Html": "I've not tried this with Smart Device (is that Windows CE?) but it sounds like the assembly is not in the place that it expects because the framework versions / libs are different.\r<br />\n<br />\nAre you able to troubleshoot using this approach <a href=\"http://geekswithblogs.net/simonc/archive/2013/04/19/inside-portable-class-libraries.aspx\" rel=\"nofollow\">http://geekswithblogs.net/simonc/archive/2013/04/19/inside-portable-class-libraries.aspx</a> ? It details how portable class libs are used.<br />\n",
+    "PostedDate": "2013-04-24T01:55:03.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

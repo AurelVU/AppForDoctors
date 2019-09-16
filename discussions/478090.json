@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1142510",
+    "ThreadId": "478090",
+    "Html": "Hi, <br />\nWhile the program was running OK, I occasionally got error for xls files <br />\n&quot;The file 'c:\\development\\eapidemo\\third-party\\ExcelDataReader\\ExcelDataReader\\Excel\\ExcelBinaryReader.cs' does not exist&quot;<br />\nThe generated DataSet is 'null'.<br />\nIt will work OK for xlsx.<br />\nNow I have that issue all the times: Can not run for xls.<br />\nI naturally installed the two reader's dll  (and, as I wrote, got it to work!), but I was not sure where I was supposed to place the Excel.pdb file. Could this cause the problem?.<br />\n<br />\nI could not locate the missing file or folderfrom the error elsewhere on my computer (C#, VS2010 Express, Win7 with Excel).<br />\n<br />\nHow come it does work at times, but then stops?<br />\nWhat am I supposed to do about it?<br />\nThanks<br />\n",
+    "PostedDate": "2013-12-27T03:42:56.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

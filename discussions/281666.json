@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "706740",
+    "ThreadId": "281666",
+    "Html": "<p>I new&nbsp;to the project but I have a spreadsheet that causes exception {\"Object reference not set to an instance of an object.\"}</p>\n<p>the spreadsheet 54 columns in it but it looks like _cellsValue[i] is null for some reason, this issue is not a duplicate column name.</p>\n<p>&nbsp;if (!_isFirstRowAsColumnNames)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int i = 0; i &lt; _workbook.Sheets[_resultIndex].ColumnsCount; i++)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; table.Columns.Add(_cellsValues[i].ToString());</p>\n<p>&nbsp;at Excel.ExcelOpenXmlReader.AsDataSet(Boolean convertOADateTime) in ExcelDataReader\\ExcelOpenXmlReader.cs:line 297</p>\n<p>&nbsp;</p>\n<p>looks like I had the setting excelReaderOpenXml.IsFirstRowAsColumnNames = false;</p>",
+    "PostedDate": "2011-12-02T16:50:14.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

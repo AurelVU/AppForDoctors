@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "470345",
+    "ThreadId": "220416",
+    "Html": "Hi,\r\n\r\nI am using ExcelDataReader  for reading .xlsx and .xls. In my case .xlsx is working fine and when same excel is change to .xls Date field is giving ambiguous value.\r\n\r\nIn .xlsx my date field is like mm/dd/yyyy and while read it with c# code that will give mm/dd/yyyy 12:00:00 am.\r\n\r\nSame case when .xls extension that will produce ambiguous value like for 2/2/2007 it gives 40132.\r\n\r\nPlease suggest any solution for that.\r\n\r\nThanks in advance.\r\n\r\n\r\n  ",
+    "PostedDate": "2010-07-21T07:43:06.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697629",
+    "ThreadId": "220416",
+    "Html": "<p>CDate.FromOADate(40132) = 2/2/2007</p>",
+    "PostedDate": "2011-11-13T14:45:34.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Due to some problems resolving SharpZipLib on my project's Test and Stage environments, I've found that ExcelDataReader has been built against a different version to what the NuGet package states.\n\nNuGet states 0.86 is required but when my code that references Excel.dll runs, it says it can't resolve 0.85. Looking at the source, both Excel.4.0.csproj and Excel.4.5.csproj reference 0.85 but Excel.csproj references 0.86.\n\nI've tried to use binding redirects but can't get them to reliably work.\n\nWhich is incorrect - the NuGet package or the references? If you are looking to standardize on a particular version across projects perhaps consider the [SharpZipLib NuGet package](http://www.nuget.org/packages/SharpZipLib). It may help alleviate this problem in the future.",
+    "LastUpdatedDate": "2017-11-27T20:47:33.217-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ExcelDataReader",
+    "ReportedDate": "2014-05-04T19:36:46.377-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ExcelDataReader 2.1.2.2 references incorrect SharpZipLib version in NuGet package in .NET 4.x versions",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12996
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "It was using Nuget...but not for all the projects. I'll update it.",
+      "PostedDate": "2014-05-07T01:50:59.473-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "It was strange because manage packages for solution seemed to think it was installed, but it wasn't",
+      "PostedDate": "2014-05-07T01:53:14.787-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-05-07T01:54:24.84-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 88259: Fixed 4.5 SharpZipLib ref and increased version number",
+      "PostedDate": "2014-05-07T01:59:38.437-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "** Closed by Ian1971 7/05/2014 1:59 AM",
+      "PostedDate": "2014-05-07T18:34:02.153-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-05-07T18:34:03.053-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "This fixed Excel.4.5 but not Excel.4.0 I'm afraid. That is still pointing to the wrong version of SharpZipLib.\r\n\r\nAre you having fun yet?!",
+      "PostedDate": "2014-05-07T18:35:22.59-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "The 4.0 version isn't published to nuget. The problem is that somebody upgraded that project and it will only let me open it on Windows 8 so I am unable to modify it. The 2.0 version will still work ok on 4.0 anyway.",
+      "PostedDate": "2014-05-08T01:44:15.37-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-11-27T20:47:33.217-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

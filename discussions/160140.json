@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "368306",
+    "ThreadId": "160140",
+    "Html": "<p>Does this library support password protected excel files?&nbsp; I'm not seeing anywhere to pass to the objects a password....</p>\r\n<p>Thanks in advance,</p>\r\n<p>Mike</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-24T12:20:27.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "377143",
+    "ThreadId": "160140",
+    "Html": "Hi,<br><br>I'm sorry, but it does'nt open password protected files.<br><br>Best regards,<br><br>JP Negri<br><br>mrbenson &lt;notifications@codeplex.com&gt; escreveu:<br><br>&gt;From: mrbenson<br>&gt;<br>&gt;Does this library support password protected excel files?  I'm not seeing anywhere to pass to the objects a password....Thanks in advance,Mike  <br>&gt;<br>&gt;",
+    "PostedDate": "2010-02-24T15:51:25.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "531832",
+    "ThreadId": "160140",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>negrijp wrote:</strong><br>\r\nHi,<br>\r\n<br>\r\nI'm sorry, but it does'nt open password protected files.<br>\r\n<br>\r\nBest regards,<br>\r\n<br>\r\nJP Negri<br>\r\n<br>\r\nmrbenson &lt;notifications@codeplex.com&gt; escreveu:<br>\r\n<br>\r\n&gt;From: mrbenson<br>\r\n&gt;<br>\r\n&gt;Does this library support password protected excel files? I'm not seeing anywhere to pass to the objects a password....Thanks in advance,Mike\r\n<br>\r\n&gt;<br>\r\n&gt;</blockquote>\r\n<p>Will it throw an exception that I can handle if the user attempts to load a password protected file? I know the Workbook Interop library has a password member, I suppose there has to be some way to check and handle this.</p>\r\n",
+    "PostedDate": "2010-12-06T09:43:16.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]
