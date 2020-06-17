@@ -17,7 +17,7 @@ namespace Server
     {
         List<Thread> threads = new List<Thread>();
         public IPAddress IP;
-        public int port = 80;
+        public int port = 888;
         TcpListener listener;
         string test;
         int countConnect = 0;
